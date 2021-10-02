@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vs"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:animateFirstView="true"
+    android:animateLayoutChanges="true"
+    android:background="@color/transparent"
+    android:inAnimation="@anim/fade_in_slide_in"
+    android:outAnimation="@anim/fade_out_slide_out">
+
+    <com.typ.muslim.ui.dashboard.tracker.views.PrayTrackerStatisticsView2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.typ.muslim.ui.dashboard.tracker.views.PrayTrackerAskView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</ViewSwitcher>

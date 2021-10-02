@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:padding="10dp">
+
+    <com.typ.muslim.ui.AnimatedTextView
+        android:id="@+id/atv_sdv_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/font_jf_flat_regular"
+        android:text="@string/today"
+        android:textSize="10sp"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.typ.muslim.ui.AnimatedTextView
+        android:id="@+id/atv_sdv_hijri"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/font_bukrar"
+        android:text="27 Ramadan, 1443H"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="7sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/atv_sdv_header"
+        app:layout_constraintTop_toBottomOf="@id/atv_sdv_header"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <com.typ.muslim.ui.AnimatedTextView
+        android:id="@+id/atv_sdv_georg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="12 August 2021"
+        android:fontFamily="@font/font_bukrar"
+        android:textColor="@color/subtitleTextColor"
+        android:textSize="5.5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/atv_sdv_hijri"
+        app:layout_constraintTop_toBottomOf="@id/atv_sdv_hijri"
+        tools:ignore="HardcodedText,SmallSp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

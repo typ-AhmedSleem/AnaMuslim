@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<resources>
+    <dimen name="default_corner_radius">15dp</dimen>
+    <dimen name="stroke_width_button_selected">2dp</dimen>
+</resources>

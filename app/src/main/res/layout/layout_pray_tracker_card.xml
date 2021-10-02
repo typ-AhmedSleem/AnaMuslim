@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="170dp"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    android:layout_marginStart="15dp"
+    app:cardBackgroundColor="@color/color_1"
+    app:cardCornerRadius="15dp"
+    app:contentPadding="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/t1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:maxLines="1"
+            android:text="@string/you_prayed"
+            android:textColor="#BF000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_tracker_range"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:maxLines="1"
+            android:text="@string/today"
+            android:textColor="#D9FFFFFF"
+            android:textSize="10sp"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:layout_constraintEnd_toStartOf="@id/icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/t1"
+            tools:ignore="SmallSp" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="5dp"
+            android:clickable="false"
+            android:src="@drawable/ic_tracker_stats"
+            app:layout_constraintBottom_toBottomOf="@id/tv_tracker_range"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/t1"
+            app:tint="#673AB7"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_prayed_prays_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:maxLines="1"
+            android:text="4"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/josefin_sans_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_tracker_range"
+            tools:ignore="HardcodedText" />
+
+        <com.db.williamchart.view.BarChartView
+            android:id="@+id/bar_chart_pray_tracker"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            app:chart_axis="x"
+            app:chart_barsBackgroundColor="#335C59AA"
+            app:chart_barsColor="#5C59AA"
+            app:chart_barsRadius="10dp"
+            app:chart_labelsColor="@color/white"
+            app:chart_labelsSize="10dp"
+            app:chart_spacing="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_prayed_prays_count" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+    <!--    <com.google.android.material.textview.MaterialTextView-->
+    <!--        android:id="@+id/title"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:alpha="0.65"-->
+    <!--        android:gravity="start|center_vertical"-->
+    <!--        android:text="@string/tracker"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:textSize="8sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:ignore="SmallSp" />-->
+
+    <!--    <com.google.android.material.textview.MaterialTextView-->
+    <!--        android:id="@+id/tv_tracker_prayed_prays"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@id/title"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_marginTop="0dp"-->
+    <!--        android:gravity="center_vertical|start"-->
+    <!--        android:maxLines="1"-->
+    <!--        android:text="3"-->
+    <!--        android:textColor="@color/yellow"-->
+    <!--        android:textSize="55sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:fontFamily="@font/josefin_sans_light"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/title"-->
+    <!--        tools:ignore="HardcodedText" />-->
+
+    <!--    <View-->
+    <!--        android:id="@+id/div"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0.5dp"-->
+    <!--        android:layout_marginStart="10dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_marginEnd="10dp"-->
+    <!--        android:alpha="0.2"-->
+    <!--        android:background="@drawable/div"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tv_tracker_prayed_prays" />-->
+
+    <!--    <com.google.android.material.textview.MaterialTextView-->
+    <!--        android:id="@+id/tv1"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="2dp"-->
+    <!--        android:gravity="start|center_vertical"-->
+    <!--        android:text="@string/_5_today"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:textSize="16sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/tv_tracker_prayed_prays"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/tv_tracker_prayed_prays"-->
+    <!--        tools:ignore="SmallSp" />-->
+
+    <!--    <com.google.android.material.textview.MaterialTextView-->
+    <!--        android:id="@+id/tv_this_week_prayed_prays_stats"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerVertical="true"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="80% This week"-->
+    <!--        android:textColor="@color/yellow"-->
+    <!--        android:textSize="10sp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/div"-->
+    <!--        tools:ignore="HardcodedText,SmallSp" />-->
+
+    <!--    <com.google.android.material.progressindicator.LinearProgressIndicator-->
+    <!--        android:id="@+id/pbar_prayed_prays_this_week"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        android:progress="80"-->
+    <!--        app:indicatorColor="@color/yellow"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tv_this_week_prayed_prays_stats"-->
+    <!--        app:trackColor="#1AFFEB3B"-->
+    <!--        app:trackCornerRadius="15dp"-->
+    <!--        app:trackThickness="5dp" />-->
+
+    <!--    <com.google.android.material.textview.MaterialTextView-->
+    <!--        android:id="@+id/tv_this_month_prayed_prays_stats"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerVertical="true"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="25% This month"-->
+    <!--        android:textColor="@color/cardBackground3"-->
+    <!--        android:textSize="10sp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/pbar_prayed_prays_this_week"-->
+    <!--        tools:ignore="HardcodedText,SmallSp" />-->
+
+    <!--    <com.google.android.material.progressindicator.LinearProgressIndicator-->
+    <!--        android:id="@+id/pbar_prayed_prays_this_month"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        android:progress="25"-->
+    <!--        app:indicatorColor="@color/cardBackground3"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tv_this_month_prayed_prays_stats"-->
+    <!--        app:trackColor="#1A3BC0F9"-->
+    <!--        app:trackCornerRadius="15dp"-->
+    <!--        app:trackThickness="5dp" />-->

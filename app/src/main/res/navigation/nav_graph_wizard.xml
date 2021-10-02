@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_wizard"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.typ.muslim.fragments.wizard.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_wizard_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_locationSelectorFragment"
+            app:destination="@id/locationSelectorFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_themeSelectorFragment"
+            app:destination="@id/themeSelectorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/themeSelectorFragment"
+        android:name="com.typ.muslim.fragments.wizard.ThemeSelectorFragment"
+        android:label="ThemeSelectorFragment"
+        tools:layout="@layout/fragment_wizard_theme_selector">
+        <action
+            android:id="@+id/action_themeSelectorFragment_to_locationSelectorFragment"
+            app:destination="@id/locationSelectorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/locationSelectorFragment"
+        android:name="com.typ.muslim.fragments.wizard.LocationSelectorFragment"
+        android:label="LocationSelectorFragment"
+        tools:layout="@layout/fragment_wizard_loc_selector">
+        <action
+            android:id="@+id/action_locationSelectorFragment_to_selectPrayConfigFragment"
+            app:destination="@id/selectPrayConfigFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectPrayConfigFragment"
+        android:name="com.typ.muslim.fragments.wizard.SelectPrayConfigFragment"
+        android:label="SelectPrayConfigFragment"
+        tools:layout="@layout/fragment_wizard_pray_config">
+        <action
+            android:id="@+id/action_selectPrayConfigFragment_to_previewPrayTimeFragment"
+            app:destination="@id/previewPrayTimeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/previewPrayTimeFragment"
+        android:name="com.typ.muslim.fragments.wizard.PreviewPrayTimeFragment"
+        android:label="PreviewPrayTimeFragment"
+        tools:layout="@layout/fragment_wizard_preview_prayers">
+        <action
+            android:id="@+id/action_previewPrayTimeFragment_to_quickSettingsFragment"
+            app:destination="@id/quickSettingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quickSettingsFragment"
+        android:name="com.typ.muslim.fragments.wizard.QuickSettingsFragment"
+        android:label="QuickSettingsFragment"
+        tools:layout="@layout/fragment_wizard_quick_settings" />
+
+</navigation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vs_khatma_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateFirstView="true">
+
+    <com.typ.muslim.ui.dashboard.khatma.views.NoActiveKhatmaView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.typ.muslim.ui.dashboard.khatma.views.ActiveKhatmaView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</ViewSwitcher>

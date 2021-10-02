@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.MaterialComponents.BottomSheet.Modal"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:orientation="vertical"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/title"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+        android:textColor="@color/colorText"
+        android:textSize="25sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:paddingStart="20dp"
+        android:textColor="#057D58"
+        android:paddingEnd="20dp"
+        android:text="@string/subtitle"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="15dp"
+        app:autoSizeTextType="uniform"
+        app:textAllCaps="false" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_understood"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/understood"
+        app:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="@dimen/default_corner_radius"
+        app:icon="@drawable/ic_done"
+        app:iconGravity="textStart" />
+
+</LinearLayout>

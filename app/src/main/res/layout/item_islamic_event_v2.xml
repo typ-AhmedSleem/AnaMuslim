@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    app:cardBackgroundColor="@color/transparent"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="15dp"
+    app:contentPadding="10dp"
+    app:rippleColor="@color/ripple_white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mpt.android.stv.SpannableTextView
+            android:id="@+id/stv_islamic_event_day"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:gravity="center"
+            android:text="30"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/josefin_sans_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textAllCaps="true"
+            tools:ignore="HardcodedText" />
+
+        <com.mpt.android.stv.SpannableTextView
+            android:id="@+id/tv_islamic_event_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:maxLines="2"
+            android:text="@string/eventRamadanEnd"
+            android:gravity="center_vertical|start"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="18sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:fontFamily="@font/font_bukrar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/stv_islamic_event_day" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:maxHeight="70dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/transparent"
+    app:contentPadding="10dp"
+    app:rippleColor="#66000000">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_section_header_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:gravity="center_vertical|start"
+            android:maxLines="1"
+            android:text="Header Title"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textSize="25sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toStartOf="@id/tv_section_action_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_section_action_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="5dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Action"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="12sp"
+            app:autoSizeTextType="none"
+            app:layout_constraintEnd_toStartOf="@id/img_section_action_arrow"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/img_section_action_arrow"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ef_ic_arrow_forward"
+            app:layout_constraintBottom_toBottomOf="@id/tv_section_header_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_section_header_title"
+            app:tint="@color/darkAdaptiveColor"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

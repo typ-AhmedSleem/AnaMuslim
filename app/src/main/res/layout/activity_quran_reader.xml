@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<com.mpt.android.stv.SpannableTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stv_quran_reader_page"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/adaptiveBackgroundColor"
+    android:paddingStart="15dp"
+    android:paddingTop="35dp"
+    android:paddingEnd="15dp"
+    android:paddingBottom="15dp"
+    android:textSize="25sp"
+    android:textColor="@color/darkAdaptiveColor"
+    app:fontFamily="@font/font_bukrar"
+    app:lineHeight="35dp">
+
+</com.mpt.android.stv.SpannableTextView>

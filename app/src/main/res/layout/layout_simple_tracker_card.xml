@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="200dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/tracker"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp" />
+
+    <com.typ.muslim.ui.StepsProgressWheel
+        android:id="@+id/spw_tracker"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:spw_step_width="5dp"
+        android:layout_marginTop="5dp"
+        android:rotation="-90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/stv_tracker_data"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="You prayed (today)\n\n3 of 5"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spw_tracker" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.typ.muslim"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.2"
+        multiDexEnabled true
+
+        renderscriptTargetApi 30
+        renderscriptSupportModeEnabled true
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation files('libs/scenery.aar')
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.0"
+    implementation "androidx.navigation:navigation-fragment:2.3.5"
+    implementation "androidx.navigation:navigation-ui:2.3.5"
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "androidx.palette:palette:1.0.0"
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.test.ext:junit:1.1.3'
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    implementation "de.hdodenhof:circleimageview:3.1.0"
+    //implementation "com.karumi:dexter:6.2.1"
+    implementation "com.squareup.picasso:picasso:2.71828"
+    implementation 'com.airbnb.android:lottie:3.4.4'
+    implementation "com.github.SumiMakito:AdvancedTextSwitcher:0.3"
+    implementation "com.irozon.sneaker:sneaker:2.0.0"
+    implementation "com.github.MehdiKh93:Shortcut:1.0.2"
+    implementation "com.github.esafirm.android-image-picker:imagepicker:2.3.0"
+    implementation "com.amulyakhare:com.amulyakhare.textdrawable:1.0.1"
+    //implementation "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar"
+    implementation 'io.alterac.blurkit:blurkit:1.1.0'
+    implementation 'com.jude:easyrecyclerview:4.4.2'
+    implementation 'com.liaoinstan.springview:library:1.7.0'
+    implementation 'com.liaoinstan.springview:WeixinHeader:1.7.0'
+    implementation 'com.github.markshawn:auto-switcher:1.2'
+    implementation 'com.github.iwgang:countdownview:2.1.6'
+    implementation 'com.github.mjn1369:ScaleTouchListener:1.0.0'
+    //implementation 'com.github.armcha:AutoLinkTextViewV2:3.0.0'
+    implementation "com.github.tushar09:Gradient-Textview:1.1"
+    implementation 'com.irozon.alertview:alertview:1.0.1'
+    //implementation "com.daimajia.slider:library:1.1.5@aar"
+    implementation "com.bitvale:switcher:1.1.0"
+    implementation "com.diogobernardino:williamchart:3.10.1"
+    implementation "com.diogobernardino.williamchart:tooltip-slider:3.10.1"
+    implementation "com.diogobernardino.williamchart:tooltip-points:3.10.1"
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+    implementation 'com.jraska:falcon:2.1.1'
+    implementation 'com.github.smart-fun:Perm:1.2.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.github.robinkrsingh:easylocation:0.1.0'
+    implementation "com.furkanakdemir:surroundcardview:1.0.1"
+    implementation "com.paulrybitskyi.valuepicker:valuepicker:1.0.0"
+//    implementation 'com.github.iammert:TileProgressView:0.1'
+    implementation 'com.emc.thye:VerticalCalendar:1.0.4'
+    implementation 'com.michalsvec:single-row-calednar:1.0.0'
+    implementation 'com.zekapp.library:progreswheelview:1.1.5'
+    implementation 'com.github.AnthonyFermin:DropDownView:1.0.1'
+    implementation 'com.github.AdityaAnand1:Morphing-Material-Dialogs:0.0.3'
+    implementation 'com.factor:bouncy:1.8'
+    implementation 'com.github.zhpanvip:BannerViewPager:3.5.0'
+    implementation 'com.github.alxrm:audiowave-progressbar:0.9.2'
+    implementation 'kr.co.prnd:stepprogressbar:1.0.0-alpha1'
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    implementation 'bg.devlabs.transitioner:transitioner:1.3'
+    implementation 'net.alhazmy13.hijridatepicker:library:3.0.0'
+    implementation 'com.haibin:calendarview:3.7.1'
+    implementation 'com.milaptank:stv:1.0.0'
+    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+    implementation 'com.evernote:android-job:1.2.1'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+    implementation "com.amitshekhar.android:android-networking:1.0.2"
+    implementation 'com.github.kapil93:circular-layout-manager:2.0.0'
+    implementation 'com.crowdfire.cfalertdialog:cfalertdialog:1.1.0'
+    implementation 'com.github.zagum:Android-ExpandIcon:1.3.0'
+    implementation 'com.github.zyyoona7:wheelview:1.0.7'
+//    implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.3'
+}

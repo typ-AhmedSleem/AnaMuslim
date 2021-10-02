@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/event1stTV"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/shape_rect"
+            android:backgroundTint="@color/red"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="15 Shaban"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="12sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:lineHeight="20dp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/event2ndTV"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/shape_rect"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="20 Rajab"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="12sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:lineHeight="20dp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/event3rdTV"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:background="@drawable/shape_rect"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="27 Ramadan"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="12sp"
+            app:autoSizeMinTextSize="6sp"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:lineHeight="20dp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/showEventInCalCard"
+        android:layout_alignTop="@id/ll1"
+        android:layout_toEndOf="@id/ll1"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal|bottom"
+            android:padding="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Islamic Event Title"
+            android:textColor="@color/red"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:lineHeight="20dp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:padding="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Islamic Event description and information about it goes here"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@color/cardTitleTextColor"
+            android:textSize="15sp"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeTextType="uniform"
+            app:lineHeight="20dp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/showEventInCalCard"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignBottom="@id/ll1"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_toEndOf="@id/ll1"
+        app:cardCornerRadius="@dimen/default_corner_radius"
+        app:cardElevation="0dp"
+        app:rippleColor="#4DF44336"
+        app:strokeColor="@color/red"
+        app:strokeWidth="1dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/show_event_in_calendar"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            app:autoSizeMaxTextSize="14sp"
+            app:fontFamily="@font/font_jf_flat_regular" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

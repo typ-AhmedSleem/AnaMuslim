@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginTop="5dp"
+    app:cardBackgroundColor="@color/color_3"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="0dp"
+    app:contentPadding="5dp"
+    app:rippleColor="@color/ripple_white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mpt.android.stv.SpannableTextView
+            android:id="@+id/tv_islamic_hijri_date"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_round_rect"
+            android:backgroundTint="@color/transparent"
+            android:gravity="center"
+            android:maxLines="2"
+            android:maxLength="6"
+            android:padding="5dp"
+            android:text="01\nRamadan"
+            android:textColor="@color/nextPrayCardSurfaceStartColor"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_islamic_event_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:gravity="bottom|start"
+            android:maxLines="1"
+            android:text="Ramadan starts"
+            android:textColor="@color/nextPrayCardSurfaceStartColor"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".5"
+            app:layout_constraintStart_toEndOf="@id/tv_islamic_hijri_date"
+            app:layout_constraintTop_toTopOf="@id/tv_islamic_hijri_date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_islamic_event_greg_date"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:alpha="0.8"
+            android:gravity="top|start"
+            android:maxLines="1"
+            android:text="20 July, 2021"
+            android:textColor="@color/nextPrayCardSurfaceStartColor"
+            android:textSize="12sp"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".5"
+            app:layout_constraintStart_toEndOf="@id/tv_islamic_hijri_date"
+            app:layout_constraintTop_toBottomOf="@id/tv_islamic_event_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/transparent"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_header_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        app:tint="@color/darkAdaptiveColor"
+        android:src="@drawable/ic_sun"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_header_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="Pray Tracker"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="13sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintBottom_toBottomOf="@id/iv_header_icon"
+        app:layout_constraintEnd_toStartOf="@id/expand_icon"
+        app:layout_constraintStart_toEndOf="@id/iv_header_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_header_icon"
+        app:textAllCaps="true"
+        tools:ignore="HardcodedText" />
+
+    <com.github.zagum.expandicon.ExpandIconView
+        android:id="@+id/expand_icon"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        app:eiv_animationDuration="1000"
+        app:eiv_color="@color/darkAdaptiveColor"
+        app:eiv_colorLess="@color/red"
+        app:eiv_colorMore="@color/green"
+        app:eiv_padding="7dp"
+        app:eiv_roundedCorners="true"
+        app:eiv_switchColor="false"
+        app:layout_constraintBottom_toBottomOf="@id/iv_header_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_header_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

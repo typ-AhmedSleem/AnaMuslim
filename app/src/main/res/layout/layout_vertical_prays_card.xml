@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/adaptiveBackgroundColor"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/stv_hijri_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="Hijri\nDate"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textSize="15sp"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular" />
+
+    <com.typ.muslim.ui.VerticalPrayView
+        android:id="@+id/fajrPIV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:pivPray="FAJR"
+        app:pivPrayNotifyMethod="AZAN" />
+
+    <com.typ.muslim.ui.VerticalPrayView
+        android:id="@+id/sunrisePIV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:pivPray="SUNRISE"
+        app:pivPrayNotifyMethod="OFF" />
+
+    <com.typ.muslim.ui.VerticalPrayView
+        android:id="@+id/dhuhrPIV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:pivPray="DHUHR"
+        app:pivPrayNotifyMethod="OFF" />
+
+    <com.typ.muslim.ui.VerticalPrayView
+        android:id="@+id/asrPIV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:pivPray="ASR"
+        app:pivPrayNotifyMethod="AZAN" />
+
+    <com.typ.muslim.ui.VerticalPrayView
+        android:id="@+id/maghribPIV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:pivPray="MAGHRIB"
+        app:pivPrayNotifyMethod="SILENT_NOTIFY" />
+
+    <com.typ.muslim.ui.VerticalPrayView
+        android:id="@+id/ishaPIV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        app:pivPray="ISHA"
+        app:pivPrayNotifyMethod="AZAN" />
+
+
+</LinearLayout>

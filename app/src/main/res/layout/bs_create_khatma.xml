@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        android:maxLines="1"
+        android:text="@string/create_new_khatma"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintBottom_toTopOf="@id/til_khatma_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_khatma_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        app:boxBackgroundColor="@color/bg_input_box"
+        app:boxBackgroundMode="filled"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        app:counterOverflowTextColor="@color/red"
+        app:counterTextColor="@color/darkAdaptiveColor"
+        app:helperText="@string/msg_helper_new_khatma"
+        app:helperTextTextAppearance="@style/TextAppearances.HeaderSubTitle"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/wheel_plan_picker"
+        app:shapeAppearance="@style/ShapeRoundedTextInput">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/font_bukrar"
+            android:hint="@string/enter_khatma_name"
+            android:maxLength="50"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:maxLines="1"
+        android:text="@string/choose_a_plan"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintEnd_toStartOf="@id/wheel_plan_picker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/wheel_plan_picker" />
+
+    <com.typ.muslim.ui.AnimatedTextView
+        android:id="@+id/atv_plan_expected_end"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/font_jf_flat_regular"
+        android:gravity="center_vertical|start"
+        android:maxLines="2"
+        android:text="Expected End:\n15 Aug 2021"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@id/wheel_plan_picker"
+        app:layout_constraintEnd_toStartOf="@id/wheel_plan_picker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/t2"
+        tools:ignore="SmallSp" />
+
+    <com.zyyoona7.wheel.WheelView
+        android:id="@+id/wheel_plan_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/btn_create_khatma"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:wv_autoFitTextSize="false"
+        app:wv_curved="false"
+        app:wv_cyclic="false"
+        app:wv_dividerType="fill"
+        app:wv_drawSelectedRect="true"
+        app:wv_lineSpacing="5dp"
+        app:wv_normalItemTextColor="@color/subtitleTextColor"
+        app:wv_selectedItemTextColor="@color/green"
+        app:wv_selectedRectColor="@color/bg_input_box"
+        app:wv_showDivider="true"
+        app:wv_textAlign="center"
+        app:wv_textSize="14sp"
+        app:wv_visibleItems="3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_create_khatma"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:fontFamily="@font/font_bukrar"
+        android:text="@string/create_khatma"
+        android:textAllCaps="true"
+        android:textColor="@color/green"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:rippleColor="@color/ripple_som_card" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

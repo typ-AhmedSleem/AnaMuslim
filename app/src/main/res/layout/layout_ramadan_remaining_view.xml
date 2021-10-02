@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:paddingStart="10dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:padding="1dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_ramadan_moon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:maxLines="1"
+        android:text="@string/ramadan"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintBottom_toBottomOf="@id/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        app:textAllCaps="true"
+        tools:ignore="SmallSp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:text="@string/starts_in"
+        android:textColor="#80FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/icon"
+        tools:ignore="SmallSp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_ramadan_start_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="01 Aug 2001"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintTop_toBottomOf="@id/t1"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        android:text="@string/remaining"
+        android:textColor="#80FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_ramadan_start_date"
+        tools:ignore="SmallSp" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/stv_ramadan_remaining"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="3 months &amp; 2 days"
+        android:textColor="@color/yellow"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintTop_toBottomOf="@id/t2"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_horizontal|bottom"
+        android:maxLines="1"
+        android:text="@string/may_allah_make_us_reach_ramadan"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="15sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stv_ramadan_remaining"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

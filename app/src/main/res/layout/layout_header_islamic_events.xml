@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    app:cardBackgroundColor="@color/bg_input_box"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp"
+    app:contentPadding="15dp"
+    app:rippleColor="@color/darkAdaptiveColor">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/islamic_events"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/font_jf_flat_regular" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_toEndOf="@id/t1"
+            android:gravity="center_vertical|end"
+            android:text="@string/show_all"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/font_bukrar" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

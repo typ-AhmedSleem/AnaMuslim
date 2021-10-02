@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#004530</color>
+    <color name="colorPrimary2">#3C1848</color>
+    <color name="colorAccent">#77D3B7</color>
+    <color name="colorText">#004530</color>
+    <color name="colorText2">#FEDFDA</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="bg_light">#EBEEF3</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="bg_input_box">#EBEEF3</color>
+    <color name="bg_container">#F2F2F7</color>
+    <color name="ripple_white">#66F2F2F7</color>
+    <color name="cardTitleTextColor">#707070</color>
+    <color name="adaptiveBackgroundColor">#FFFFFF</color>
+    <color name="black_opacity_30">#80004530</color>
+    <color name="bottomBarSelectedTab">#004530</color>
+    <color name="bottomBarUnSelectedTab">#8F8C8C</color>
+    <color name="bg_night">#000</color>
+    <color name="countDownBg">@color/bg_input_box</color>
+    <color name="darkAdaptiveColor">@color/black</color>
+    <color name="adaptiveTextColor">@color/white</color>
+    <color name="adaptiveSubtitleTextColor">#000</color>
+    <color name="adaptiveTitleTextColor">@color/colorPrimary</color>
+    <color name="menuItemStrokeColor">#33000000</color>
+    <!-- Dashboard cards and menu items colors -->
+    <color name="cardBackground1">#24B89E</color>
+    <color name="cardBackground2">#6179E5</color>
+    <color name="cardBackground3">#3BC0F9</color>
+    <color name="red">#F44336</color>
+
+    <color name="dashboardSurfaceStartColor">#0E0F14</color>
+    <color name="dashboardSurfaceCenterColor">#061E74</color>
+    <color name="dashboardSurfaceEndColor">#27262C</color>
+
+    <color name="nextPrayCardSurfaceStartColor">#11152E</color>
+    <color name="nextPrayCardSurfaceEndColor">#3C4258</color>
+    <color name="green">#4CAF50</color>
+    <color name="whiteOpacity80">#CCFFFFFF</color>
+    <color name="blackOpacity60">#99000000</color>
+    <color name="color_1">#9C99F4</color>
+    <color name="color_2">#819BF8</color>
+    <color name="color_3">#F2D792</color>
+    <color name="orange">#FF5722</color>
+    <color name="subtitleTextColor">#99333333</color>
+    <color name="brightSubtitleTextColor">#CCFFFFFF</color>
+    <color name="adaptiveRimColor">#1A000000</color>
+    <color name="blue">#3F51B5</color>
+    <color name="ripple_som_card">#334CAF50</color>
+    <color name="ripple_telegram_card">#40FFFFFF</color>
+    <color name="telegram_bg_color">#2FA6E3</color>
+    <color name="darkBg">#0DECEEF3</color>
+    <color name="ripple_yellow">#40FFEB3B</color>
+    <color name="simple_adaptive_bg_color">#40FFFFFF</color>
+    <color name="color_hijri_cal_header_bg">#FFFFFF</color>
+    <color name="color_hijri_cal_bg">#EBEEF3</color>
+
+</resources>

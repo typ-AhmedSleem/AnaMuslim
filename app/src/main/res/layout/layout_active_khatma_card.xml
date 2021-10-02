@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@color/transparent"
+    android:padding="10dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_khatma_day_number"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="Day 22"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintBottom_toTopOf="@id/tv_msg"
+        app:layout_constraintEnd_toStartOf="@id/prw_khatma_percentage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_msg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/click_to_view_khatma_details"
+        android:textColor="@color/brightSubtitleTextColor"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/prw_khatma_percentage"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.app.progresviews.ProgressWheel
+        android:id="@+id/prw_khatma_percentage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="5dp"
+        app:barWidth="4dp"
+        app:countText="0"
+        app:countTextColor="@color/white"
+        app:countTextSize="12sp"
+        app:defTextColor="@color/white"
+        app:defTextSize="5sp"
+        app:definitionText="@string/completed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:marginBtwText="8dp"
+        app:percentage="0"
+        app:progressColor="@color/white"
+        app:rimColor="#33F2F2F7" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

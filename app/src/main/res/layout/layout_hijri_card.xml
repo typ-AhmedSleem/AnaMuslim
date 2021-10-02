@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/nextPrayCardSurfaceStartColor"
+    android:paddingStart="15dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="15dp"
+    android:paddingBottom="12dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_day_name"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="Saturday"
+        android:textColor="@color/white"
+        android:textSize="7sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="12sp"
+        app:autoSizeMinTextSize="8sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_hijri_month_year"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@id/tv_day_name"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="Ramadan, 1442H"
+        android:textColor="@color/yellow"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="12sp"
+        app:autoSizeMinTextSize="8sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <!--    #D33A4B-->
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_hijri_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_hijri_month_year"
+        android:gravity="top|start"
+        android:maxLines="1"
+        android:text="13"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/josefin_sans_light"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_hijri_day"
+        android:layout_marginTop="13dp"
+        android:gravity="start|bottom"
+        android:text="@string/islamic_events"
+        android:textColor="#80FFFFFF"
+        android:textSize="12sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_hijri_event_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/t1"
+        android:gravity="start|top"
+        android:maxLines="2"
+        android:text="@string/no_hijri_events_today"
+        android:textColor="@color/whiteOpacity80"
+        android:textSize="16sp"
+        app:autoSizeMaxTextSize="18sp"
+        app:autoSizeTextType="uniform" />
+
+</RelativeLayout>

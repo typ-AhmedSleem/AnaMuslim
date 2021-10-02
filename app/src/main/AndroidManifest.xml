@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.typ.muslim"
+    android:installLocation="preferExternal">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
+    <application
+        android:name=".core.AnaMuslimApp"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AnaMuslim">
+
+        <activity
+            android:name=".activities.SplashActivity"
+            android:theme="@style/Theme.AnaMuslim">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.WizardActivity"
+            android:configChanges="orientation|colorMode"
+            android:theme="@style/Theme.AnaMuslim.SplashScreen"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:allowTaskReparenting="false"
+            android:theme="@style/Theme.AnaMuslim" />
+
+        <activity
+            android:name=".activities.IslamicEventsActivity"
+            android:theme="@style/Theme.AnaMuslim" />
+
+        <activity
+            android:name=".activities.HijriCalendarActivity"
+            android:theme="@style/Theme.AnaMuslim" />
+
+        <activity
+            android:name=".activities.names.HolyNamesOfAllahActivity"
+            android:theme="@style/Theme.AnaMuslim" />
+
+        <activity
+            android:name=".activities.names.HolyNameOfAllahDescActivity"
+            android:theme="@style/Theme.AnaMuslim" />
+
+        <activity
+            android:name=".activities.khatma.KhatmaActivity"
+            android:theme="@style/Theme.AnaMuslim" />
+
+        <activity android:name=".activities.quran.QuranReaderActivity"
+            android:theme="@style/Theme.AnaMuslim"/>
+
+    </application>
+
+</manifest>

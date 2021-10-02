@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_tracker_stats"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/darkAdaptiveColor"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:maxLines="1"
+            android:text="@string/tracker"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="12sp"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:layout_constraintBottom_toBottomOf="@id/icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="@id/icon"
+            tools:ignore="SmallSp" />
+
+        <com.mpt.android.stv.SpannableTextView
+            android:id="@+id/tv_pray_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="start|center_vertical"
+            android:maxLines="2"
+            android:text="Have you prayed, Prayname"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <ImageView
+            android:id="@+id/i1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="1dp"
+            android:padding="2dp"
+            android:src="@drawable/ic_time_clock_outlined"
+            app:layout_constraintStart_toStartOf="@id/tv_pray_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_pray_name"
+            app:tint="@color/adaptiveSubtitleTextColor"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_pray_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="center_vertical|start"
+            android:text="07:13 PM"
+            android:textColor="@color/adaptiveSubtitleTextColor"
+            android:textSize="12sp"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:layout_constraintBottom_toBottomOf="@id/i1"
+            app:layout_constraintEnd_toEndOf="@id/tv_pray_name"
+            app:layout_constraintStart_toEndOf="@id/i1"
+            app:layout_constraintTop_toTopOf="@id/i1"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical|start"
+            android:text="Click to submit answer"
+            android:textColor="@color/green"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_pray_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_pray_time"
+            tools:ignore="HardcodedText,SmallSp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="120dp"-->
+    <!--android:background="@color/transparent"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<com.google.android.material.card.MaterialCardView-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:layout_gravity="center"-->
+    <!--    android:layout_marginTop="2dp"-->
+    <!--    android:layout_marginBottom="2dp"-->
+    <!--    app:cardBackgroundColor="@color/adaptiveBackgroundColor"-->
+    <!--    app:cardCornerRadius="15dp"-->
+    <!--    app:cardElevation="2dp"-->
+    <!--    app:contentPadding="10dp">-->
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+    <!--        <com.google.android.material.textview.MaterialTextView-->
+    <!--            android:id="@+id/tv_pray_name"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:gravity="start|center_vertical"-->
+    <!--            android:maxLines="2"-->
+    <!--            android:text="Have you prayed,\nPrayname"-->
+    <!--            android:textColor="@color/darkAdaptiveColor"-->
+    <!--            android:textSize="20sp"-->
+    <!--            android:textStyle="bold"-->
+    <!--            app:fontFamily="@font/e"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/btn_done"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/btn_forgot"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:ignore="HardcodedText,SmallSp" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/i1"-->
+    <!--            android:layout_width="20dp"-->
+    <!--            android:layout_height="20dp"-->
+    <!--            android:layout_marginTop="5dp"-->
+    <!--            android:padding="2dp"-->
+    <!--            android:src="@drawable/ic_time_clock_outlined"-->
+    <!--            app:layout_constraintStart_toStartOf="@id/tv_pray_name"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/tv_pray_name"-->
+    <!--            app:tint="@color/adaptiveSubtitleTextColor"-->
+    <!--            tools:ignore="ContentDescription" />-->
+
+    <!--        <com.google.android.material.textview.MaterialTextView-->
+    <!--            android:id="@+id/tv_pray_time"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="5dp"-->
+    <!--            android:gravity="center_vertical|start"-->
+    <!--            android:text="07:13 PM"-->
+    <!--            android:textColor="@color/adaptiveSubtitleTextColor"-->
+    <!--            android:textSize="12sp"-->
+    <!--            app:fontFamily="@font/e"-->
+    <!--            app:layout_constraintBottom_toBottomOf="@id/i1"-->
+    <!--            app:layout_constraintEnd_toEndOf="@id/btn_done"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/i1"-->
+    <!--            app:layout_constraintTop_toTopOf="@id/i1"-->
+    <!--            tools:ignore="HardcodedText,SmallSp" />-->
+
+    <!--        <com.google.android.material.button.MaterialButton-->
+    <!--            android:id="@+id/btn_done"-->
+    <!--            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="60dp"-->
+    <!--            android:layout_marginStart="0dp"-->
+    <!--            android:layout_marginEnd="10dp"-->
+    <!--            android:text="@string/done"-->
+    <!--            android:textAllCaps="false"-->
+    <!--            android:textColor="@color/green"-->
+    <!--            android:textSize="14sp"-->
+    <!--            android:textStyle="bold"-->
+    <!--            app:backgroundTint="#2669EA6E"-->
+    <!--            app:cornerRadius="10dp"-->
+    <!--            app:elevation="0dp"-->
+    <!--            app:icon="@drawable/ic_done"-->
+    <!--            app:iconGravity="textStart"-->
+    <!--            app:iconPadding="5dp"-->
+    <!--            app:iconSize="20dp"-->
+    <!--            app:iconTint="@color/green"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintWidth_percent="0.45"-->
+    <!--            app:rippleColor="#1A000000" />-->
+
+    <!--        <com.google.android.material.button.MaterialButton-->
+    <!--            android:id="@+id/btn_forgot"-->
+    <!--            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="60dp"-->
+    <!--            android:layout_marginStart="10dp"-->
+    <!--            android:layout_marginEnd="5dp"-->
+    <!--            android:text="@string/forgot"-->
+    <!--            android:textAllCaps="false"-->
+    <!--            android:textColor="@color/black"-->
+    <!--            android:textSize="14sp"-->
+    <!--            android:textStyle="bold"-->
+    <!--            app:backgroundTint="#F2F4F6"-->
+    <!--            app:cornerRadius="10dp"-->
+    <!--            app:elevation="0dp"-->
+    <!--            app:icon="@drawable/ic_close"-->
+    <!--            app:iconGravity="textStart"-->
+    <!--            app:iconPadding="5dp"-->
+    <!--            app:iconSize="20dp"-->
+    <!--            app:iconTint="@color/black"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="@id/btn_done"-->
+    <!--            app:layout_constraintWidth_percent="0.45"-->
+    <!--            app:rippleColor="#33F44336" />-->
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--</com.google.android.material.card.MaterialCardView>-->
+
+    <!--</FrameLayout>-->

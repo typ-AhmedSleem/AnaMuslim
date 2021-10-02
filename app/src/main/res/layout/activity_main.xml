@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_input_box">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:damping_ratio="DAMPING_RATIO_LOW_BOUNCY"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stiffness="STIFFNESS_VERY_LOW">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_pbuu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:labelFor="@id/tv_username"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/peace_be_upon_you"
+                android:textColor="@color/subtitleTextColor"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform"
+                app:fontFamily="@font/font_bukrar"
+                app:layout_constraintEnd_toStartOf="@id/ibtn_main_menu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:labelFor="@id/tv_username"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingTop="0dp"
+                android:paddingEnd="10dp"
+                android:text="@string/ahmed_sleem"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/adaptiveTitleTextColor"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:transitionName="headerTextViewTransition"
+                app:autoSizeMinTextSize="15sp"
+                app:autoSizeTextType="uniform"
+                app:fontFamily="@font/font_bukrar"
+                app:layout_constraintEnd_toStartOf="@id/ibtn_main_menu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_pbuu"
+                app:textAllCaps="false"
+                tools:ignore="TextContrastCheck" />
+
+            <ImageButton
+                android:id="@+id/ibtn_main_menu"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/btn_bg_main_menu"
+                android:contentDescription="@string/menu"
+                android:src="@drawable/ic_menu2"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tv_username"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_pbuu"
+                app:tint="@color/black"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <!-- Prays Dashboard Header -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_username">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/bg_input_box" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center_vertical|start"
+                    android:labelFor="@id/tv_username"
+                    android:maxLines="1"
+                    android:text="@string/widgets"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+                    android:textColor="@color/darkAdaptiveColor"
+                    android:textSize="22sp"
+                    android:visibility="gone"
+                    app:autoSizeMinTextSize="15sp" />
+
+                <!-- MiniNextPray card -->
+
+                <com.typ.muslim.ui.dashboard.prays.MiniNextPrayDashboardCard
+                    android:id="@+id/mini_next_pray_dashboard_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="15dp"
+                    android:transitionName="transition_card_to_activity" />
+
+                <!-- Tracker card -->
+
+                <com.typ.muslim.ui.dashboard.tracker.TrackerDashboardCard
+                    android:id="@+id/tracker_dashboard_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:transitionName="transition_card_to_activity" />
+
+                <!-- Hijri card & Tasbeeh card -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.typ.muslim.ui.dashboard.TasbeehDashboardCard
+                        android:id="@+id/tasbeeh_dashboard_card"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.96"
+                        android:transitionName="transition_card_to_activity" />
+
+                    <androidx.legacy.widget.Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.08" />
+
+                    <com.typ.muslim.ui.dashboard.HijriDashboardCard
+                        android:id="@+id/hijri_dashboard_card"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.96"
+                        android:transitionName="transition_card_to_activity" />
+
+                </LinearLayout>
+
+                <!-- Main Menu Button -->
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_main_menu"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/explore_more_features"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/darkAdaptiveColor"
+                    android:transitionName="transition_card_to_activity"
+                    app:backgroundTint="@color/adaptiveBackgroundColor"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ef_ic_arrow_forward"
+                    app:iconGravity="end"
+                    app:iconTint="@color/darkAdaptiveColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_username"
+                    app:rippleColor="@color/ripple_white" />
+
+                <!--                &lt;!&ndash; Azkar card &ndash;&gt;-->
+                <!--                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard-->
+                <!--                    android:id="@+id/azkar_dashboard_card"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginStart="15dp"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    android:layout_marginEnd="15dp"-->
+                <!--                    android:animateLayoutChanges="true" />-->
+
+                <!-- AllahNames card -->
+                <com.typ.muslim.ui.dashboard.AllahNamesDashboardCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:transitionName="transition_card_to_activity" />
+
+                <!-- SalatOnMohamed card -->
+                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard
+                    android:id="@+id/som_dashboard_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:animateLayoutChanges="true"
+                    android:transitionName="transition_card_to_activity"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <!-- Khatma card -->
+                <com.typ.muslim.ui.ActiveKhatmaCard
+                    android:id="@+id/khatma_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:transitionName="transition_card_to_card"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <!-- Ramadan card & Fasting card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.typ.muslim.ui.dashboard.fasting.FastingDashboardCard
+                        android:id="@+id/fasting_dashboard_card"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.96"
+                        android:animateLayoutChanges="true"
+                        android:transitionName="transition_card_to_activity" />
+
+                    <androidx.legacy.widget.Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.08" />
+
+                    <com.typ.muslim.ui.dashboard.ramadan.RamadanDashboardCard
+                        android:id="@+id/ramadan_dashboard_card"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.96"
+                        android:transitionName="transition_card_to_activity" />
+
+                </LinearLayout>
+
+                <!--                &lt;!&ndash; Nearby card &ndash;&gt;-->
+                <!--                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard-->
+                <!--                    android:id="@+id/nearby_dashboard_card"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginStart="15dp"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    android:layout_marginEnd="15dp"-->
+                <!--                    android:animateLayoutChanges="true" />-->
+                <!--                -->
+                <!--                &lt;!&ndash; Daily Ayah &ndash;&gt;-->
+                <!--                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard-->
+                <!--                    android:id="@+id/daily_ayah_dashboard_card"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginStart="15dp"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    android:layout_marginEnd="15dp"-->
+                <!--                    android:animateLayoutChanges="true" />-->
+
+                <!--                &lt;!&ndash; Daily Du3a2 &ndash;&gt;-->
+                <!--                <com.typ.muslim.ui.dashboard.AllahNamesDashboardCard-->
+                <!--                    android:id="@+id/daily_du3a2_dashboard_card"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginStart="15dp"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    android:layout_marginEnd="15dp"-->
+                <!--                    android:animateLayoutChanges="true" />-->
+
+                <!-- Telegram bots card & Profile card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.typ.muslim.ui.dashboard.TelegramBotsDashboardCard
+                        android:id="@+id/telegram_bots_dashboard_card"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="0.96"
+                        android:transitionName="transition_card_to_activity" />
+
+                    <androidx.legacy.widget.Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.08" />
+
+                    <com.typ.muslim.ui.dashboard.tracker.SimpleTrackerCard
+                        android:id="@+id/profile_dashboard_card"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="0.96"
+                        android:animateLayoutChanges="true"
+                        android:transitionName="transition_card_to_activity" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.typ.muslim.ui.AMBottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

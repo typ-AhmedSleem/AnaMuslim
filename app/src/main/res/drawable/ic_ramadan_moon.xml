@@ -1,0 +1,19 @@
+<!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:autoMirrored="true"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <path
+        android:fillColor="@color/white"
+        android:pathData="m120,180c0,-97.297 65.434,-143.762 90.512,-180 -16.426,12.051 -210.512,59.289 -210.512,256 0,140.609 115.391,256 256,256 196.688,0 243.711,-193.75 256,-210.496 -33.844,23.414 -82.789,90.496 -181,90.496 -115.797,0 -211,-96.203 -211,-212zM120,180" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="m417.254,79.086 l-41.254,-79.086 -40.387,79.203 -90.133,13.258 65.332,63.484 -15.246,90.824 80.434,-42.523 81.844,42.246 -15.539,-90.75 65.125,-63.707zM417.254,79.086" />
+</vector>

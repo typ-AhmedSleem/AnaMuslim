@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:padding="15dp"
+        android:text="@string/personal_tracker"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textSize="14sp"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular" />
+
+    <com.zhpan.bannerview.BannerViewPager
+        android:id="@+id/dashboardHeaderBannerPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="false"
+        app:barrierDirection="left"
+        app:barrierMargin="15dp"
+        app:bvp_auto_play="true"
+        app:bvp_can_loop="true"
+        app:bvp_indicator_gravity="center"
+        app:bvp_indicator_radius="15dp"
+        app:bvp_indicator_slide_mode="worm"
+        app:bvp_indicator_style="round_rect"
+        app:bvp_indicator_visibility="visible"
+        app:bvp_page_style="multi_page_scale"
+        app:bvp_round_corner="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+</LinearLayout>

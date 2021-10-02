@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/transparent">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:padding="1dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_tracker_stats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/darkAdaptiveColor"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:maxLines="1"
+        android:text="@string/tracker"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="12sp"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintBottom_toBottomOf="@id/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        tools:ignore="SmallSp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:maxLines="1"
+            android:text="@string/you_prayed_today"
+            android:textColor="@color/cardBackground3"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.5"
+            tools:ignore="SmallSp" />
+
+        <com.mpt.android.stv.SpannableTextView
+            android:id="@+id/tv_pray_stats_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:text="2 / 5"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/josefin_sans_light"
+            app:layout_constraintEnd_toEndOf="@id/title1"
+            app:layout_constraintStart_toStartOf="@id/title1"
+            app:layout_constraintTop_toBottomOf="@id/title1"
+            tools:ignore="HardcodedText" />
+
+        <com.mpt.android.stv.SpannableTextView
+            android:id="@+id/tv_pray_stats_helper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:maxLines="1"
+            android:text="@string/never_leave_a_pray"
+            android:textColor="@color/adaptiveSubtitleTextColor"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/title1"
+            app:layout_constraintStart_toStartOf="@id/title1"
+            app:layout_constraintTop_toBottomOf="@id/tv_pray_stats_value" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:maxLines="1"
+            android:text="You read Quran"
+            android:textColor="@color/cardBackground1"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/title1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.5"
+            tools:ignore="SmallSp" />
+
+        <com.mpt.android.stv.SpannableTextView
+            android:id="@+id/tv_quran_stats_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:maxLines="1"
+            android:text="2 hrs 35 min"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/josefin_sans_light"
+            app:layout_constraintEnd_toEndOf="@id/title2"
+            app:layout_constraintStart_toStartOf="@id/title2"
+            app:layout_constraintTop_toBottomOf="@id/title2"
+            tools:ignore="HardcodedText" />
+
+        <com.mpt.android.stv.SpannableTextView
+            android:id="@+id/tv_quran_stats_helper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:maxLines="1"
+            android:text="Target: 60 mins"
+            android:textColor="@color/adaptiveSubtitleTextColor"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/title2"
+            app:layout_constraintStart_toStartOf="@id/title2"
+            app:layout_constraintTop_toBottomOf="@id/tv_quran_stats_value"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

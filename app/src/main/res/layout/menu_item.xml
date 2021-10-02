@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="85dp"
+    android:layout_height="85dp"
+    android:layout_margin="0dp"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/ifv_menu_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorText2"
+        android:padding="15dp"
+        android:src="@drawable/ic_nearby"
+        android:visibility="visible"
+        app:round="15dp"
+        app:tint="@color/colorPrimary2"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_menu_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Item Title"
+        android:textColor="@color/colorText2"
+        android:textSize="11sp"
+        android:visibility="visible"
+        app:autoSizeMaxTextSize="13sp"
+        app:autoSizeTextType="uniform"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

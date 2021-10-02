@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BottomSheets"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/som_header"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/reminder_details"
+        android:textColor="@color/subtitleTextColor"
+        tools:ignore="HardcodedText" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/stv_som_reminder_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical|start"
+        android:text="Reminder enabled\nevery 15 mins"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/reminder_freq"
+        android:textColor="@color/subtitleTextColor"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Every 15 minutes"
+        android:textAlignment="viewStart"
+        app:icon="@drawable/ic_done"
+        app:iconPadding="15dp" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Every 30 minutes"
+        android:textAlignment="viewStart"
+        app:icon="@android:drawable/btn_radio"
+        app:iconPadding="15dp"
+        app:iconSize="30dp" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Every 60 minutes"
+        android:textAlignment="viewStart"
+        app:icon="@android:drawable/btn_radio"
+        app:iconPadding="15dp"
+        app:iconSize="30dp" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Every 120 minutes"
+        android:textAlignment="viewStart"
+        app:icon="@android:drawable/btn_radio"
+        app:iconPadding="15dp"
+        app:iconSize="30dp" />
+
+</LinearLayout>

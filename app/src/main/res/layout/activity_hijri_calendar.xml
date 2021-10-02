@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_hijri_cal_bg"
+    android:transitionName="transition_card_to_activity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/color_hijri_cal_header_bg"
+        android:paddingTop="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_to_left"
+        app:navigationIconTint="@color/darkAdaptiveColor"
+        app:title="@string/hijri_calendar"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/TextAppearances.HeaderTitle"
+        app:titleTextColor="@color/darkAdaptiveColor" />
+
+    <com.haibin.calendarview.CalendarLayout
+        android:id="@+id/cal_layout_hijri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:calendar_show_mode="both_month_week_view"
+        app:default_status="shrink"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <com.haibin.calendarview.CalendarView
+            android:id="@+id/cal_hijri"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_hijri_cal_header_bg"
+            app:current_day_lunar_text_color="@color/green"
+            app:current_day_text_color="@color/green"
+            app:current_month_lunar_text_color="@color/orange"
+            app:current_month_text_color="@color/orange"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:min_year="1980"
+            app:month_view="com.typ.muslim.ui.calendar.HijriCalendarMonthView"
+            app:month_view_show_mode="mode_fix"
+            app:other_month_lunar_text_color="@color/subtitleTextColor"
+            app:other_month_text_color="@color/subtitleTextColor"
+            app:scheme_lunar_text_color="@color/red"
+            app:scheme_month_text_color="@color/yellow"
+            app:scheme_text_color="@color/red"
+            app:selected_lunar_text_color="@color/darkAdaptiveColor"
+            app:selected_text_color="@color/darkAdaptiveColor"
+            app:week_background="@color/color_hijri_cal_header_bg"
+            app:week_start_with="sat"
+            app:week_text_color="@color/darkAdaptiveColor"
+            app:week_view="com.typ.muslim.ui.calendar.HijriCalendarWeekView"
+            app:week_view_scrollable="true"
+            app:year_view_background="@color/color_hijri_cal_header_bg"
+            app:year_view_current_day_text_color="@color/red"
+            app:year_view_day_text_color="@color/darkAdaptiveColor"
+            app:year_view_scheme_color="@color/purple_500"
+            app:year_view_scrollable="false" />
+
+    </com.haibin.calendarview.CalendarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cal_layout_hijri">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.typ.muslim.ui.calendar.SelectedDateViewCard
+                android:id="@+id/sdv_calendar_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintTop_toBottomOf="@id/cal_layout_hijri" />
+
+            <com.typ.muslim.ui.ExpandableContainer
+                android:id="@+id/exc_islamic_events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                app:exc_content="@layout/layout_exc_content_events"
+                app:exc_def_header_icon="@drawable/ic_ramadan_moon"
+                app:exc_def_header_title="@string/islamic_events"
+                app:layout_constraintTop_toBottomOf="@id/sdv_calendar_card" />
+
+            <com.typ.muslim.ui.ExpandableContainer
+                android:id="@+id/exc_pray_times"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                app:exc_content="@layout/layout_exc_content_prays"
+                app:exc_def_header_icon="@drawable/ic_time_clock_filled"
+                app:exc_def_header_title="@string/pray_times"
+                app:layout_constraintTop_toBottomOf="@id/exc_islamic_events" />
+
+            <com.typ.muslim.ui.ExpandableContainer
+                android:id="@+id/exc_tracker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                app:exc_content="@layout/layout_exc_content_tracker"
+                app:exc_def_header_icon="@drawable/ic_tracker_stats"
+                app:exc_def_header_title="@string/pray_tracker"
+                app:layout_constraintTop_toBottomOf="@id/exc_pray_times" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

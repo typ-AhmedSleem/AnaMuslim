@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_container"
+    android:theme="@style/Theme.AnaMuslim.SplashScreen">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_step_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/select_location"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/adaptiveTextColor"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:transitionName="transition_wizard_step_title"
+        app:autoSizeMaxTextSize="35dp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/g" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/layout_wizard_buttons"
+        android:layout_below="@id/tv_step_title"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="Select your current City to be used by AnaMuslim"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@color/adaptiveTextColor"
+            android:textSize="15sp"
+            android:transitionName="transition_wizard_step_subtitle"
+            app:autoSizeMaxTextSize="20dp"
+            app:autoSizeTextType="uniform"
+            app:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_locate_gps"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/auto_detect_location"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/default_corner_radius"
+            app:icon="@drawable/ic_gps"
+            app:iconGravity="textStart"
+            app:iconPadding="10dp"
+            app:iconTint="@color/white" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:alpha="0.5"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/or"
+            android:textColor="@color/adaptiveTextColor"
+            android:textSize="12sp"
+            app:textAllCaps="true" />
+
+        <EditText
+            android:id="@+id/input_search_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:autoLink="none"
+            android:autofillHints="location"
+            android:background="@drawable/input_search_city_bg"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:hint="@string/enter_city_name"
+            android:inputType="textAutoComplete"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/adaptiveTextColor"
+            android:textSize="15sp"
+            app:drawableTint="@color/adaptiveTextColor" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_locate_online"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/search_location"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/default_corner_radius"
+            app:icon="@drawable/ic_search"
+            app:iconPadding="10dp"
+            app:iconGravity="textStart"
+            app:iconTint="@color/white" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_locate_offline"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/search_offline"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/default_corner_radius"
+            app:icon="@drawable/ic_search"
+            app:iconGravity="start"
+            app:iconPadding="10dp"
+            app:iconTint="@color/colorAccent" />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/layout_wizard_buttons"
+        layout="@layout/layout_wizard_back_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp" />
+
+</RelativeLayout>

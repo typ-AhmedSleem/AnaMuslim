@@ -1,0 +1,25 @@
+<!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="50dp"
+    android:height="50dp"
+    android:autoMirrored="true"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <path
+        android:fillColor="#fece85"
+        android:pathData="M255.999,149.245m-16.203,0a16.203,16.203 0,1 1,32.406 0a16.203,16.203 0,1 1,-32.406 0" />
+    <path
+        android:fillColor="#fec165"
+        android:pathData="m272.206,149.247c0,8.952 -7.256,16.197 -16.208,16.197 -6.054,0 -11.326,-3.309 -14.101,-8.232 0.699,0.092 1.418,0.144 2.148,0.144 8.952,0 16.208,-7.246 16.208,-16.197 0,-2.898 -0.761,-5.622 -2.097,-7.975 7.935,1.047 14.05,7.841 14.05,16.063z" />
+    <path
+        android:fillColor="#fece85"
+        android:pathData="m251.762,31.451 l-40.092,67.976c-1.934,3.279 0.43,7.418 4.237,7.418h40.092,40.092c3.807,0 6.171,-4.139 4.237,-7.418l-40.092,-67.976c-1.904,-3.227 -6.571,-3.227 -8.474,0z" />
+    <path
+        android:fillColor="#fec165"
+        android:pathData="m296.091,106.842h-14.419c-0.113,-0.349 -0.267,-0.699 -0.462,-1.038l-36.65,-62.148 7.204,-12.21c1.901,-3.227 6.567,-3.227 8.469,0l40.092,67.975c1.933,3.289 -0.431,7.421 -4.234,7.421z" />
+</vector>

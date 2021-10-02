@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/BottomSheets"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/tasbeeh"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="@string/use_volume_buttons"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/switcherx_use_volume_buttons"
+        app:layout_constraintEnd_toStartOf="@id/switcherx_use_volume_buttons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/switcherx_use_volume_buttons" />
+
+    <com.bitvale.switcher.SwitcherX
+        android:id="@+id/switcherx_use_volume_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:checked="true"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tt"
+        app:switcher_height="25dp"
+        app:switcher_icon_color="@color/black"
+        app:switcher_width="50dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_change_tasbeeh_target"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="25dp"
+        android:text="@string/change_tasbeeh_target"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/adaptiveSubtitleTextColor"
+        android:textSize="14sp"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_plus_one"
+        app:iconGravity="end"
+        app:iconSize="30dp"
+        app:iconTint="@color/darkAdaptiveColor"
+        app:layout_constraintTop_toBottomOf="@id/switcherx_use_volume_buttons"
+        app:rippleColor="@color/ripple_white" />
+
+    <View
+        android:id="@+id/div"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/bg_input_box"
+        app:layout_constraintTop_toBottomOf="@id/btn_change_tasbeeh_target" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_reset_tasbeeh"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="25dp"
+        android:text="@string/reset_tasbeeh"
+        android:textAlignment="textStart"
+        android:textColor="@color/darkAdaptiveColor"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_refresh"
+        app:iconPadding="15dp"
+        app:iconSize="24dp"
+        app:iconTint="@color/darkAdaptiveColor"
+        app:layout_constraintTop_toBottomOf="@id/div"
+        app:rippleColor="@color/ripple_white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_open_tasbeeh_activity"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="25dp"
+        android:text="@string/open_fullscreen"
+        android:textAlignment="textStart"
+        android:textColor="@color/darkAdaptiveColor"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_tasbih2"
+        app:iconPadding="15dp"
+        app:iconSize="24dp"
+        app:iconTint="@color/darkAdaptiveColor"
+        app:layout_constraintTop_toBottomOf="@id/btn_reset_tasbeeh"
+        app:rippleColor="@color/ripple_white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

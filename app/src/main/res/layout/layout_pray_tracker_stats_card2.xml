@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:background="@color/transparent">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="1dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_tracker_stats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/darkAdaptiveColor"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:maxLines="1"
+        android:text="@string/tracker"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="12sp"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintBottom_toBottomOf="@id/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        tools:ignore="SmallSp" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/tv_pray_stats_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical|start"
+        android:text="2 / 5"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/josefin_sans_light"
+        app:layout_constraintEnd_toStartOf="@id/spw_pray_tracker"
+        app:layout_constraintStart_toStartOf="@id/icon"
+        app:layout_constraintTop_toBottomOf="@id/icon"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:maxLines="1"
+        android:text="@string/you_prayed_today"
+        android:textColor="@color/cardBackground3"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/spw_pray_tracker"
+        app:layout_constraintEnd_toStartOf="@id/spw_pray_tracker"
+        app:layout_constraintStart_toStartOf="@id/icon"
+        app:layout_constraintTop_toBottomOf="@id/tv_pray_stats_value"
+        tools:ignore="SmallSp" />
+
+    <com.typ.muslim.ui.StepsProgressWheel
+        android:id="@+id/spw_pray_tracker"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:rotation="-0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        app:spw_info_text="@string/remaining"
+        app:spw_step_width="5dp"
+        app:spw_value_text="1"
+        app:spw_value_textColor="@color/green" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

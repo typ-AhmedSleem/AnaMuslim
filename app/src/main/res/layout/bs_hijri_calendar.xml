@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BottomSheets"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/hijri_calendar"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="1"
+        android:text="@string/this_week"
+        android:textColor="@color/darkAdaptiveColor"
+        app:autoSizeTextType="uniform" />
+
+    <com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
+        android:id="@+id/rv_hijri_dates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        app:includeCurrentDate="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="7"
+        tools:listitem="@layout/item_row_hijri_cal" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/bg_input_box" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="1"
+        android:text="@string/upcoming_islamic_events"
+        android:textColor="@color/darkAdaptiveColor"
+        app:autoSizeTextType="uniform" />
+
+    <com.jude.easyrecyclerview.EasyRecyclerView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/erv_islamic_events"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:animateLayoutChanges="true"
+        app:layout_empty="@layout/layout_mini_islamic_events_empty"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_islamic_event" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/bg_input_box" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_show_events"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="25dp"
+        android:text="@string/show_islamic_events"
+        android:textAlignment="textStart"
+        android:textColor="@color/darkAdaptiveColor"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_open_external"
+        app:iconGravity="end"
+        app:iconSize="24dp"
+        app:iconTint="@color/darkAdaptiveColor"
+        app:rippleColor="@color/ripple_white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_open_full_cal"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="25dp"
+        android:text="@string/open_hijri_calendar"
+        android:textAlignment="textStart"
+        android:textColor="@color/darkAdaptiveColor"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_open_external"
+        app:iconGravity="end"
+        app:iconSize="24dp"
+        app:iconTint="@color/darkAdaptiveColor"
+        app:rippleColor="@color/ripple_white" />
+
+</LinearLayout>

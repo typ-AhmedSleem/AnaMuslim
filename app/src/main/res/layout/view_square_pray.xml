@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/transparent"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="0dp"
+    app:contentPadding="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="5dp">
+
+        <ImageView
+            android:id="@+id/img_pray_icon_indicator"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_sun"
+            app:layout_constraintBottom_toTopOf="@id/stv_pray_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/darkAdaptiveColor" />
+
+        <com.mpt.android.stv.SpannableTextView
+            android:id="@+id/stv_pray_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:maxLines="2"
+            android:text="@string/maghrib"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:layout_constraintBottom_toTopOf="@id/tv_pray_time"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_pray_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:maxLines="1"
+            android:text="12:32 AM"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="16sp"
+            app:fontFamily="@font/font_jf_flat_regular"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

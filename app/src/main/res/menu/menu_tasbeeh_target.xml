@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_item_tasbeeh_33"
+        android:title="@string/_33_times" />
+    <item
+        android:id="@+id/menu_item_tasbeeh_66"
+        android:title="@string/_66_times" />
+    <item
+        android:id="@+id/menu_item_tasbeeh_99"
+        android:title="@string/_99_times" />
+    <item
+        android:id="@+id/menu_item_tasbeeh_infinite"
+        android:title="@string/infinite" />
+
+</menu>

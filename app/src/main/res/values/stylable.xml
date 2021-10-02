@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<resources>
+
+    <declare-styleable name="AMTextSwitcher">
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+        <attr name="textGravity" format="flags">
+            <flag name="right" value="0x01" />
+            <flag name="left" value="0x02" />
+            <flag name="center" value="0x03" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="BaseDashboardCard">
+        <!-- Text content to set as card title -->
+        <attr name="dcTitle" format="reference|string" />
+        <!-- TextSize of the card title -->
+        <attr name="dcTitleTextSize" format="dimension" />
+        <!-- TextColor of the card title-->
+        <attr name="dcTitleTextColor" format="color" />
+        <!-- Whether to show title or not -->
+        <attr name="dcShowTitle" format="boolean" />
+        <!-- Style of the card title-->
+        <attr name="dcTitleTextStyle" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+        </attr>
+        <!-- Gravity of the card title -->
+        <attr name="dcTitleGravity" format="enum">
+            <enum name="start" value="0" />
+            <enum name="center" value="1" />
+            <enum name="end" value="2" />
+        </attr>
+        <!-- Font of the card title-->
+        <attr name="dcTitleFont" format="reference" />
+        <!-- Icon of the card. Keep unassigned to hide it -->
+        <attr name="dcIcon" format="reference" />
+        <!-- Tint color of card icon -->
+        <attr name="dcIconTintColor" format="color" />
+        <!-- Whether to show more-arrow or not -->
+        <attr name="dcShowArrow" format="boolean" />
+        <!-- Whether to show below-title divider or not -->
+        <attr name="dcShowDivider" format="boolean" />
+        <attr name="dcContentLayout" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="PrayItemView">
+        <attr name="pivPray" format="enum">
+            <enum name="FAJR" value="0" />
+            <enum name="SUNRISE" value="1" />
+            <enum name="DHUHR" value="2" />
+            <enum name="ASR" value="3" />
+            <enum name="MAGHRIB" value="4" />
+            <enum name="ISHA" value="5" />
+        </attr>
+        <attr name="pivPrayNotifyMethod" format="enum">
+            <enum name="AZAN" value="2" />
+            <enum name="OFF" value="0" />
+            <enum name="SILENT_NOTIFY" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="DashboardSectionHeader">
+        <attr name="actionTitle" format="string" />
+        <attr name="headerTitle" format="string" />
+        <attr name="showAction" format="boolean" />
+        <attr name="showArrow" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="StepsProgressWheel">
+        <attr name="spw_step_width" format="dimension" />
+        <attr name="spw_value_text" format="string" />
+        <attr name="spw_info_text" format="string" />
+        <attr name="spw_value_textSize" format="dimension" />
+        <attr name="spw_info_textSize" format="dimension" />
+        <attr name="spw_margin_btw_texts" format="dimension" />
+        <attr name="spw_value_textColor" format="color" />
+        <attr name="spw_info_textColor" format="color" />
+
+        <attr name="spw_use_single_color" format="boolean" />
+        <attr name="spw_single_progress_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableContainer">
+        <attr name="exc_header" format="reference" />
+        <attr name="exc_content" format="reference" />
+        <attr name="exc_def_header_icon" format="reference" />
+        <attr name="exc_def_header_title" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedTextView">
+        <attr name="android:textSize" format="dimension" />
+        <attr name="android:textColor" format="color" />
+        <attr name="android:gravity" format="flags" />
+        <attr name="android:textAllCaps" format="boolean" />
+        <attr name="android:fontFamily" format="reference" />
+        <attr name="android:textStyle" format="flags" />
+        <attr name="android:maxLines" format="integer" />
+        <attr name="android:text" format="string" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<resources>
+
+    <string-array name="CalcMethodDescs">
+        <item>@string/calcMethod_ithna</item>
+        <item>@string/calcMethod_karachi</item>
+        <item>@string/calcMethod_isna</item>
+        <item>@string/calcMethod_mwl</item>
+        <item>@string/calcMethod_makkah</item>
+        <item>@string/calcMethod_egypt</item>
+        <item>@string/calcMethod_tehran</item>
+        <item>@string/calcMethod_custom</item>
+    </string-array>
+
+    <string-array name="AsrMethodDescs">
+        <item>@string/shafii_malikki_hanballi</item>
+        <item>@string/hanafi</item>
+    </string-array>
+
+    <string-array name="HigherLatMethodDescs">
+        <item>@string/highLat_no_adjust</item>
+        <item>@string/highLat_middle_of_night</item>
+        <item>@string/highLat_1_7th_of_night</item>
+        <item>@string/highLat_angle_based</item>
+    </string-array>
+
+    <!-- TODO to be completed -->
+    <string-array name="AllahNames">
+        <item>@string/allahName_AlRahman</item>
+        <item>@string/allahName_AlRaheem</item>
+        <item>@string/allahName_AlMalik</item>
+        <item>@string/allahName_AlQuddus</item>
+        <item>@string/allahName_AlSalam</item>
+        <!--<item>@string/allahName_AlMumen</item>
+        <item>@string/allahName_AlMuhaymen</item>
+        <item>@string/allahName_AlAziz</item>
+        <item>@string/allahName_AlGabar</item>
+        <item>@string/allahName_Mutakabir</item>
+
+        <item>@string/allahName_AlKhalik</item>
+        <item>@string/allahName_AlBari</item>
+        <item>@string/allahName_AlMusawer</item>
+        <item>@string/allahName_AlGhafar</item>
+        <item>@string/allahName_AlQahhar</item>
+        <item>@string/allahName_AlWahhab</item>
+        <item>@string/allahName_AlRazaq</item>
+        <item>@string/allahName_AlFattah</item>
+        <item>@string/allahName_AlAleem</item>
+        <item>@string/allahName_Qabid</item>
+
+        <item>@string/allahName_AlBasit</item>
+        <item>@string/allahName_AlKhafid</item>
+        <item>@string/allahName_AlRafia</item>
+        <item>@string/allahName_AlMuizz</item>
+        <item>@string/allahName_AlMuzill</item>
+        <item>@string/allahName_AlSamia</item>
+        <item>@string/allahName_AlBasir</item>
+        <item>@string/allahName_AlHakam</item>
+        <item>@string/allahName_AlAdl</item>
+        <item>@string/allahName_AlLatif</item>
+
+        <item>@string/allahName_AlKhabir</item>
+        <item>@string/allahName_AlHalim</item>
+        <item>@string/allahName_AlZaim</item>
+        <item>@string/allahName_AlGhafur</item>
+        <item>@string/allahName_AlShakoor</item>
+        <item>@string/allahName_AlAlli</item>
+        <item>@string/allahName_AlKabir</item>
+        <item>@string/allahName_AlHafeez</item>
+        <item>@string/allahName_AlMuqit</item>
+        <item>@string/allahName_AlHasib</item>
+
+        <item>@string/allahName_AlJalil</item>
+        <item>@string/allahName_AlKareem</item>
+        <item>@string/allahName_AlRaqib</item>
+        <item>@string/allahName_AlMujib</item>
+        <item>@string/allahName_AlWasi</item>
+        <item>@string/allahName_AlHakim</item>
+        <item>@string/allahName_AlWadud</item>
+        <item>@string/allahName_AlMajid</item>
+        <item>@string/allahName_AlBaiith</item>
+        <item>@string/allahName_AlShaheed</item>
+
+        <item>@string/allahName_AlHaaq</item>
+        <item>@string/allahName_AlWakeel</item>
+        <item>@string/allahName_AlQaweiy</item>
+        <item>@string/allahName_AlMatin</item>
+        <item>@string/allahName_AlWalli</item>
+        <item>@string/allahName_AlHameed</item>
+        <item>@string/allahName_AlMuhsi</item>
+        <item>@string/allahName_AlMubdi</item>
+        <item>@string/allahName_AlMueed</item>
+        <item>@string/allahName_AlMuhyi</item>
+
+        <item>@string/allahName_AlMummet</item>
+        <item>@string/allahName_AlHayy</item>
+        <item>@string/allahName_AlQayuum</item>
+        <item>@string/allahName_AlWajid</item>
+        <item>@string/allahName_AlMajid</item>
+        <item>@string/allahName_AlWahid</item>
+        <item>@string/allahName_AlAhad</item>
+        <item>@string/allahName_AlSamad</item>
+        <item>@string/allahName_AlQadir</item>
+        <item>@string/allahName_AlMuqtadir</item>
+
+        <item>@string/allahName_AlMuqadim</item>
+        <item>@string/allahName_AlMuakhir</item>
+        <item>@string/allahName_AlAwwal</item>
+        <item>@string/allahName_AlAkhir</item>
+        <item>@string/allahName_AlZahir</item>
+        <item>@string/allahName_AlBatin</item>
+        <item>@string/allahName_AlWalli</item>
+        <item>@string/allahName_AlMutaali</item>
+        <item>@string/allahName_AlBarr</item>
+        <item>@string/allahName_AlTawwab</item>
+
+        <item>@string/allahName_AlMuntaqim</item>
+        <item>@string/allahName_AlAffw</item>
+        <item>@string/allahName_AlRaouf</item>
+        <item>@string/allahName_Malek_AlMulk</item>
+        <item>@string/allahName_Zul_AlJala_Wal_Ikram</item>
+        <item>@string/allahName_AlMuqsit</item>
+        <item>@string/allahName_AlJamia</item>
+        <item>@string/allahName_AlGhanii</item>
+        <item>@string/allahName_AlMughni</item>
+        <item>@string/allahName_AlMania</item>
+
+        <item>@string/allahName_AlDaar</item>
+        <item>@string/allahName_AlNafia</item>
+        <item>@string/allahName_AlNoor</item>
+        <item>@string/allahName_AlHadi</item>
+        <item>@string/allahName_AlBadia</item>
+        <item>@string/allahName_AlBaqi</item>
+        <item>@string/allahName_AlWarith</item>
+        <item>@string/allahName_AlRasheed</item>
+        <item>@string/allahName_AlSabour</item>-->
+    </string-array>
+
+    <!-- TODO to be completed -->
+    <string-array name="AllahNamesDescs">
+        <item>@string/allahNameDesc_AlRahman</item>
+        <item>@string/allahNameDesc_AlRaheem</item>
+        <item>@string/allahNameDesc_AlMalik</item>
+        <item>@string/allahNameDesc_AlQuddus</item>
+        <item>@string/allahNameDesc_AlSalam</item>
+        <!--<item>@string/allahNameDesc_AlMumen</item>
+        <item>@string/allahNameDesc_AlMuhaymen</item>
+        <item>@string/allahNameDesc_AlAziz</item>
+        <item>@string/allahNameDesc_AlGabar</item>
+        <item>@string/allahNameDesc_Mutakabir</item>
+
+        <item>@string/allahNameDesc_AlKhalik</item>
+        <item>@string/allahNameDesc_AlBari</item>
+        <item>@string/allahNameDesc_AlMusawer</item>
+        <item>@string/allahNameDesc_AlGhafar</item>
+        <item>@string/allahNameDesc_AlQahhar</item>
+        <item>@string/allahNameDesc_AlWahhab</item>
+        <item>@string/allahNameDesc_AlRazaq</item>
+        <item>@string/allahNameDesc_AlFattah</item>
+        <item>@string/allahNameDesc_AlAleem</item>
+        <item>@string/allahNameDesc_Qabid</item>
+
+        <item>@string/allahNameDesc_AlBasit</item>
+        <item>@string/allahNameDesc_AlKhafid</item>
+        <item>@string/allahNameDesc_AlRafia</item>
+        <item>@string/allahNameDesc_AlMuizz</item>
+        <item>@string/allahNameDesc_AlMuzill</item>
+        <item>@string/allahNameDesc_AlSamia</item>
+        <item>@string/allahNameDesc_AlBasir</item>
+        <item>@string/allahNameDesc_AlHakam</item>
+        <item>@string/allahNameDesc_AlAdl</item>
+        <item>@string/allahNameDesc_AlLatif</item>
+
+        <item>@string/allahNameDesc_AlKhabir</item>
+        <item>@string/allahNameDesc_AlHalim</item>
+        <item>@string/allahNameDesc_AlZaim</item>
+        <item>@string/allahNameDesc_AlGhafur</item>
+        <item>@string/allahNameDesc_AlShakoor</item>
+        <item>@string/allahNameDesc_AlAlli</item>
+        <item>@string/allahNameDesc_AlKabir</item>
+        <item>@string/allahNameDesc_AlHafeez</item>
+        <item>@string/allahNameDesc_AlMuqit</item>
+        <item>@string/allahNameDesc_AlHasib</item>
+
+        <item>@string/allahNameDesc_AlJalil</item>
+        <item>@string/allahNameDesc_AlKareem</item>
+        <item>@string/allahNameDesc_AlRaqib</item>
+        <item>@string/allahNameDesc_AlMujib</item>
+        <item>@string/allahNameDesc_AlWasi</item>
+        <item>@string/allahNameDesc_AlHakim</item>
+        <item>@string/allahNameDesc_AlWadud</item>
+        <item>@string/allahNameDesc_AlMajid</item>
+        <item>@string/allahNameDesc_AlBaiith</item>
+        <item>@string/allahNameDesc_AlShaheed</item>
+
+        <item>@string/allahNameDesc_AlHaaq</item>
+        <item>@string/allahNameDesc_AlWakeel</item>
+        <item>@string/allahNameDesc_AlQaweiy</item>
+        <item>@string/allahNameDesc_AlMatin</item>
+        <item>@string/allahNameDesc_AlWalli</item>
+        <item>@string/allahNameDesc_AlHameed</item>
+        <item>@string/allahNameDesc_AlMuhsi</item>
+        <item>@string/allahNameDesc_AlMubdi</item>
+        <item>@string/allahNameDesc_AlMueed</item>
+        <item>@string/allahNameDesc_AlMuhyi</item>
+
+        <item>@string/allahNameDesc_AlMummet</item>
+        <item>@string/allahNameDesc_AlHayy</item>
+        <item>@string/allahNameDesc_AlQayuum</item>
+        <item>@string/allahNameDesc_AlWajid</item>
+        <item>@string/allahNameDesc_AlMajid</item>
+        <item>@string/allahNameDesc_AlWahid</item>
+        <item>@string/allahNameDesc_AlAhad</item>
+        <item>@string/allahNameDesc_AlSamad</item>
+        <item>@string/allahNameDesc_AlQadir</item>
+        <item>@string/allahNameDesc_AlMuqtadir</item>
+
+        <item>@string/allahNameDesc_AlMuqadim</item>
+        <item>@string/allahNameDesc_AlMuakhir</item>
+        <item>@string/allahNameDesc_AlAwwal</item>
+        <item>@string/allahNameDesc_AlAkhir</item>
+        <item>@string/allahNameDesc_AlZahir</item>
+        <item>@string/allahNameDesc_AlBatin</item>
+        <item>@string/allahNameDesc_AlWalli</item>
+        <item>@string/allahNameDesc_AlMutaali</item>
+        <item>@string/allahNameDesc_AlBarr</item>
+        <item>@string/allahNameDesc_AlTawwab</item>
+
+        <item>@string/allahNameDesc_AlMuntaqim</item>
+        <item>@string/allahNameDesc_AlAffw</item>
+        <item>@string/allahNameDesc_AlRaouf</item>
+        <item>@string/allahNameDesc_Malek_AlMulk</item>
+        <item>@string/allahNameDesc_Zul_AlJala_Wal_Ikram</item>
+        <item>@string/allahNameDesc_AlMuqsit</item>
+        <item>@string/allahNameDesc_AlJamia</item>
+        <item>@string/allahNameDesc_AlGhanii</item>
+        <item>@string/allahNameDesc_AlMughni</item>
+        <item>@string/allahNameDesc_AlMania</item>
+
+        <item>@string/allahNameDesc_AlDaar</item>
+        <item>@string/allahNameDesc_AlNafia</item>
+        <item>@string/allahNameDesc_AlNoor</item>
+        <item>@string/allahNameDesc_AlHadi</item>
+        <item>@string/allahNameDesc_AlBadia</item>
+        <item>@string/allahNameDesc_AlBaqi</item>
+        <item>@string/allahNameDesc_AlWarith</item>
+        <item>@string/allahNameDesc_AlRasheed</item>
+        <item>@string/allahNameDesc_AlSabour</item>-->
+    </string-array>
+
+    <string-array name="QuranSurahNames">
+        <item>@string/surah_1</item>
+        <item>@string/surah_2</item>
+        <item>@string/surah_3</item>
+        <item>@string/surah_4</item>
+        <item>@string/surah_5</item>
+        <item>@string/surah_6</item>
+        <item>@string/surah_7</item>
+        <item>@string/surah_8</item>
+        <item>@string/surah_9</item>
+        <item>@string/surah_10</item>
+        <item>@string/surah_11</item>
+        <item>@string/surah_12</item>
+        <item>@string/surah_13</item>
+        <item>@string/surah_14</item>
+        <item>@string/surah_15</item>
+        <item>@string/surah_16</item>
+        <item>@string/surah_17</item>
+        <item>@string/surah_18</item>
+        <item>@string/surah_19</item>
+        <item>@string/surah_20</item>
+        <item>@string/surah_21</item>
+        <item>@string/surah_22</item>
+        <item>@string/surah_23</item>
+        <item>@string/surah_24</item>
+        <item>@string/surah_25</item>
+        <item>@string/surah_26</item>
+        <item>@string/surah_27</item>
+        <item>@string/surah_28</item>
+        <item>@string/surah_29</item>
+        <item>@string/surah_30</item>
+        <item>@string/surah_31</item>
+        <item>@string/surah_32</item>
+        <item>@string/surah_33</item>
+        <item>@string/surah_34</item>
+        <item>@string/surah_35</item>
+        <item>@string/surah_36</item>
+        <item>@string/surah_37</item>
+        <item>@string/surah_38</item>
+        <item>@string/surah_39</item>
+        <item>@string/surah_40</item>
+        <item>@string/surah_41</item>
+        <item>@string/surah_42</item>
+        <item>@string/surah_43</item>
+        <item>@string/surah_44</item>
+        <item>@string/surah_45</item>
+        <item>@string/surah_46</item>
+        <item>@string/surah_47</item>
+        <item>@string/surah_48</item>
+        <item>@string/surah_49</item>
+        <item>@string/surah_50</item>
+        <item>@string/surah_51</item>
+        <item>@string/surah_52</item>
+        <item>@string/surah_53</item>
+        <item>@string/surah_54</item>
+        <item>@string/surah_55</item>
+        <item>@string/surah_56</item>
+        <item>@string/surah_57</item>
+        <item>@string/surah_58</item>
+        <item>@string/surah_59</item>
+        <item>@string/surah_60</item>
+        <item>@string/surah_61</item>
+        <item>@string/surah_62</item>
+        <item>@string/surah_63</item>
+        <item>@string/surah_64</item>
+        <item>@string/surah_65</item>
+        <item>@string/surah_66</item>
+        <item>@string/surah_67</item>
+        <item>@string/surah_68</item>
+        <item>@string/surah_69</item>
+        <item>@string/surah_70</item>
+        <item>@string/surah_71</item>
+        <item>@string/surah_72</item>
+        <item>@string/surah_73</item>
+        <item>@string/surah_74</item>
+        <item>@string/surah_75</item>
+        <item>@string/surah_76</item>
+        <item>@string/surah_77</item>
+        <item>@string/surah_78</item>
+        <item>@string/surah_79</item>
+        <item>@string/surah_80</item>
+        <item>@string/surah_81</item>
+        <item>@string/surah_82</item>
+        <item>@string/surah_83</item>
+        <item>@string/surah_84</item>
+        <item>@string/surah_85</item>
+        <item>@string/surah_86</item>
+        <item>@string/surah_87</item>
+        <item>@string/surah_88</item>
+        <item>@string/surah_89</item>
+        <item>@string/surah_90</item>
+        <item>@string/surah_91</item>
+        <item>@string/surah_92</item>
+        <item>@string/surah_93</item>
+        <item>@string/surah_94</item>
+        <item>@string/surah_95</item>
+        <item>@string/surah_96</item>
+        <item>@string/surah_97</item>
+        <item>@string/surah_98</item>
+        <item>@string/surah_99</item>
+        <item>@string/surah_100</item>
+        <item>@string/surah_101</item>
+        <item>@string/surah_102</item>
+        <item>@string/surah_103</item>
+        <item>@string/surah_104</item>
+        <item>@string/surah_105</item>
+        <item>@string/surah_106</item>
+        <item>@string/surah_107</item>
+        <item>@string/surah_108</item>
+        <item>@string/surah_109</item>
+        <item>@string/surah_110</item>
+        <item>@string/surah_111</item>
+        <item>@string/surah_112</item>
+        <item>@string/surah_113</item>
+        <item>@string/surah_114</item>
+    </string-array>
+
+    <string-array name="HijriMonthsNames">
+        <item>@string/muharram</item>
+        <item>@string/safar</item>
+        <item>@string/rabi_al_awal</item>
+        <item>@string/rabi_al_akhar</item>
+        <item>@string/jumada_al_awal</item>
+        <item>@string/jumada_al_akhar</item>
+        <item>@string/rajab</item>
+        <item>@string/shaban</item>
+        <item>@string/ramadan</item>
+        <item>@string/shawwal</item>
+        <item>@string/thul_qidah</item>
+        <item>@string/thul_hijjah</item>
+    </string-array>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="none">
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/erv_prays"
+        android:animateLayoutChanges="true"
+        android:layout_width="wrap_content"
+        app:scrollbars="none"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" />
+
+</FrameLayout>

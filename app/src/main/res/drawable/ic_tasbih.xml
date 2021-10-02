@@ -1,0 +1,109 @@
+<!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:autoMirrored="true"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <path
+        android:fillColor="#c6c1c8"
+        android:pathData="m239.027,444.182c-4.271,0 -7.733,-3.462 -7.733,-7.733v-54.991c0,-4.271 3.462,-7.733 7.733,-7.733s7.733,3.462 7.733,7.733v54.991c0,4.272 -3.462,7.733 -7.733,7.733z" />
+    <path
+        android:fillColor="#c6c1c8"
+        android:pathData="m344.111,443.829c-1.979,0 -3.958,-0.755 -5.468,-2.264 -3.02,-3.021 -3.02,-7.916 0,-10.936l34.069,-34.07c3.02,-3.019 7.916,-3.019 10.935,0 3.02,3.021 3.02,7.916 0,10.936l-34.069,34.07c-1.509,1.509 -3.488,2.264 -5.467,2.264z" />
+    <path
+        android:fillColor="#c6c1c8"
+        android:pathData="m282.621,494.79c-1.979,0 -3.958,-0.755 -5.468,-2.264l-38.331,-38.331c-3.02,-3.021 -3.02,-7.916 0,-10.936 3.02,-3.019 7.916,-3.019 10.935,0l38.331,38.331c3.02,3.021 3.02,7.916 0,10.936 -1.509,1.509 -3.488,2.264 -5.467,2.264z" />
+    <path
+        android:fillColor="#c6c1c8"
+        android:pathData="m294.482,493.457c-1.979,0 -3.958,-0.755 -5.468,-2.265 -3.02,-3.02 -3.02,-7.915 0,-10.935l35.665,-35.664c3.02,-3.019 7.916,-3.02 10.935,0.001 3.02,3.02 3.02,7.915 0,10.935l-35.665,35.664c-1.509,1.509 -3.488,2.264 -5.467,2.264z" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M239.027,19.678m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M277.984,24.807m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M200.07,315.586m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M314.286,39.844m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M163.768,300.549m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M345.46,63.764m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M132.595,276.629m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M369.38,94.938m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M108.675,245.456m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M384.417,131.24m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M93.638,209.154m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M389.545,170.197m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M88.509,170.197m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M384.417,209.154m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M93.638,131.24m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M369.38,245.456m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M108.675,94.938m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M345.46,276.629m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M132.595,63.764m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M314.286,300.549m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="M163.768,39.844m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M277.984,315.586m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M239.027,443.463m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M287.886,492.322m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M336.745,443.463m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="M200.07,24.807m-19.678,0a19.678,19.678 0,1 1,39.356 0a19.678,19.678 0,1 1,-39.356 0" />
+    <path
+        android:fillColor="@color/cardBackground3"
+        android:pathData="m257.357,327.888c0.955,-2.438 1.437,-5.112 1.335,-7.911 -0.369,-10.089 -8.61,-18.433 -18.694,-18.917 -11.309,-0.543 -20.65,8.465 -20.65,19.655 0,2.455 0.45,4.806 1.271,6.973 2.146,5.661 3.502,11.591 3.502,17.645v5.126c0,5.778 -1.318,11.434 -3.425,16.814 -0.955,2.438 -1.437,5.112 -1.335,7.911 0.377,10.31 9.019,18.941 19.665,18.941 10.868,0 19.679,-8.81 19.679,-19.678 0,-2.455 -0.45,-4.806 -1.271,-6.973 -2.146,-5.661 -3.502,-11.591 -3.502,-17.645v-5.126c0,-5.779 1.318,-11.435 3.425,-16.815z" />
+    <path
+        android:fillColor="@color/cardBackground2"
+        android:pathData="m431.429,374.7c2.399,-1.049 4.631,-2.599 6.538,-4.65 6.873,-7.395 6.945,-19.122 0.158,-26.595 -7.613,-8.381 -20.587,-8.616 -28.5,-0.703 -1.736,1.736 -3.08,3.716 -4.032,5.83 -2.486,5.521 -5.719,10.672 -10,14.953l-3.624,3.624c-4.086,4.086 -9.017,7.153 -14.311,9.467 -2.399,1.049 -4.631,2.599 -6.538,4.65 -7.024,7.557 -7.016,19.77 0.512,27.298 7.685,7.685 20.145,7.685 27.83,0 1.736,-1.736 3.08,-3.716 4.032,-5.83 2.486,-5.521 5.719,-10.672 10,-14.953l3.624,-3.624c4.086,-4.085 9.017,-7.153 14.311,-9.467z" />
+</vector>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/adaptiveBackgroundColor">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/t1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="100dp"
+            android:gravity="center_vertical|start"
+            android:maxLines="2"
+            android:text="@string/msg_no_active_khatma"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/font_bukrar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lineHeight="40dp"
+            app:textAllCaps="true" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/t2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:text="@string/msg_create_or_join_khatma"
+            android:textColor="@color/subtitleTextColor"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/font_bukrar"
+            app:layout_constraintTop_toBottomOf="@id/t1"
+            app:lineHeight="28dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_join_khatma"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/font_bukrar"
+            android:text="@string/join_khatma"
+            android:textAllCaps="true"
+            android:textColor="@color/green"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="15dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_create_khatma"
+            app:rippleColor="@color/ripple_som_card" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_create_khatma"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/font_bukrar"
+            android:text="@string/create_new_khatma"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:backgroundTint="@color/green"
+            app:cornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:rippleColor="@color/ripple_white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

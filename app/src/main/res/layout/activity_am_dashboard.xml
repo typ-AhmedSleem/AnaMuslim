@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_sliding_panel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="bottom"
+    android:theme="@style/Theme.AnaMuslim"
+    app:umanoFlingVelocity="3"
+    app:umanoInitialState="collapsed"
+    app:umanoOverlay="false"
+    app:umanoPanelHeight="0dp"
+    app:umanoParallaxOffset="300dp"
+    app:umanoShadowHeight="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/mini_next_pray_card"
+            android:background="@color/adaptiveBackgroundColor"
+            android:scrollbars="none"
+            app:damping_ratio="DAMPING_RATIO_NO_BOUNCY"
+            app:stiffness="STIFFNESS_VERY_LOW"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="15dp">
+
+                <com.typ.muslim.ui.dashboard.prays.NextPrayDashboardCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp" />
+
+                <com.typ.muslim.ui.dashboard.tracker.TrackerDashboardCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp" />
+
+                <com.typ.muslim.ui.dashboard.KhatmaDashboardCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp" />
+
+                <com.typ.muslim.ui.dashboard.HijriDashboardCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp" />
+
+                <com.typ.muslim.ui.dashboard.AllahNamesDashboardCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.typ.muslim.ui.dashboard.prays.MiniNextPrayDashboardCard
+            android:id="@+id/mini_next_pray_card"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drag_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_panel_content_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

@@ -1,0 +1,166 @@
+/*
+ * This app is developed by AHMED SLEEM
+ *
+ * Copyright (c) 2021.  TYP INC. All Rights Reserved
+ */
+
+package com.typ.muslim.ui.dashboard;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.util.AttributeSet;
+import android.view.View;
+
+import com.google.android.material.button.MaterialButton;
+import com.mpt.android.stv.Slice;
+import com.mpt.android.stv.SpannableTextView;
+import com.typ.muslim.R;
+import com.typ.muslim.integrations.telegram.TelegramBotsIntegration;
+import com.typ.muslim.integrations.telegram.TelegramConstants;
+import com.typ.muslim.integrations.telegram.TelegramHelper;
+import com.typ.muslim.integrations.telegram.enums.TelegramChatType;
+import com.typ.muslim.integrations.telegram.interfaces.TelegramRequestCallback;
+import com.typ.muslim.integrations.telegram.models.TelegramBot;
+import com.typ.muslim.integrations.telegram.models.TelegramChat;
+import com.typ.muslim.integrations.telegram.models.TelegramError;
+import com.typ.muslim.integrations.telegram.models.TelegramRequestResult;
+import com.typ.muslim.libs.easyjava.data.EasyList;
+import com.typ.muslim.managers.AManager;
+
+import org.json.JSONObject;
+
+import java.util.Locale;
+
+public class TelegramBotsDashboardCard extends DashboardCard {
+
+	// todo: Send AzanMessage to all registered chats when the onPrayTimeCame interface is called.
+	// todo: Make user select which telegram chats he wanna send the Azan msg to.
+
+	// Static
+	private final String TAG = "TelegramBotsDashboardCard";
+	// Runtime
+	private EasyList<TelegramBot> myBots;
+	// Views
+	private SpannableTextView stvBots;
+	private MaterialButton btnAction;
+
+	public TelegramBotsDashboardCard(Context context) {
+		super(context);
+	}
+
+	public TelegramBotsDashboardCard(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+	public TelegramBotsDashboardCard(Context context, AttributeSet attrs, int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
+	}
+
+	@Override
+	public void prepareRuntime(Context context) {
+		if (isInEditMode()) myBots = new EasyList<>();
+		else myBots = TelegramBotsIntegration.getMyBots(getContext(), false);
+	}
+
+	@Override
+	public void prepareCardView(Context context) {
+		// Inflate card view and change card color
+		inflate(context, R.layout.layout_telegram_bots_card, this);
+		setCardBackgroundColor(getColor(R.color.telegram_bg_color));
+		setRippleColorResource(R.color.ripple_telegram_card);
+		// Init views
+		stvBots = $(R.id.stv_bots);
+		btnAction = $(R.id.btn_bots);
+		// Click listener
+		btnAction.setOnClickListener(this);
+		// Refresh UI
+		refreshUI();
+	}
+
+	@Override
+	public void refreshRuntime() {
+		myBots = TelegramBotsIntegration.getMyBots(getContext(), false);
+	}
+
+	@Override
+	public void refreshUI() {
+		stvBots.reset();
+		if (myBots.isEmpty()) {
+			// No bots found
+			btnAction.setText(R.string.add_new_bot);
+			stvBots.addSlice(new Slice.Builder(getString(R.string.no_bots_yet))
+					.superscript()
+					.textSize(30)
+					.style(Typeface.BOLD)
+					.textColor(Color.WHITE)
+					.build());
+			stvBots.addSlice(new Slice.Builder("\n" + getString(R.string.click_to_add_first_bot))
+					.textSize(20)
+					.textColor(getColor(R.color.subtitleTextColor))
+					.build());
+		} else {
+			// Found bots
+			btnAction.setText(R.string.manage_bots);
+			stvBots.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "%d ", myBots.size()))
+					.superscript()
+					.textSize(30)
+					.style(Typeface.BOLD)
+					.textColor(Color.WHITE)
+					.build());
+			stvBots.addSlice(new Slice.Builder(getString(myBots.size() == 1 ? R.string.bot : R.string.bots))
+					.superscript()
+					.textSize(20)
+					.textColor(getColor(R.color.white))
+					.build());
+			stvBots.addSlice(new Slice.Builder("\n" + getString(R.string.click_to_manage_bots))
+					.textSize(20)
+					.textColor(getColor(R.color.brightSubtitleTextColor))
+					.build());
+		}
+		stvBots.display();
+	}
+
+	@Override
+	public void onClick(View v) {
+		// todo: Open AddTelegramBotBottomSheet that makes user add his bot if there's no bots at all yet.
+		// todo: Open TelegramBotsBottomSheet (if user already has bots) that handles all work on bots instead of an activity.
+	}
+
+	@Override
+	public boolean onLongClick(View v) {
+		if (myBots != null && !myBots.isEmpty()) {
+			myBots.get(0).getChat(TelegramConstants.OUR_CHAT_ID, new TelegramRequestCallback() {
+				@Override
+				public void onFailed(TelegramError error) {
+					AManager.log(TAG, "onFailed: " + error.toString());
+				}
+
+				@Override
+				public void onCancelled(boolean byUser) {
+					AManager.log(TAG, "onCancelled: " + byUser);
+				}
+
+				@Override
+				public void onResponse(JSONObject response) {
+					if (response == null) return; // todo: show error to user
+					TelegramRequestResult result = TelegramBotsIntegration.parseResponse(response);
+					if (result.hasSucceed() && result.hasResult()) {
+						// Construct the TelegramChat object
+						TelegramChat chat = new TelegramChat(
+								result.optInt("id", 0),
+								TelegramChatType.of(result.optString("type", "private")),
+								TelegramHelper.optChatPhoto(result.optJSONObject("photo", null)),
+								result.optString("title", ""),
+								result.optString("description", ""),
+								TelegramHelper.optPermissions(result.optJSONObject("permissions", null)));
+						AManager.log(TAG, "getChat: " + chat.toString());
+					} else {
+						// todo: show request failed to user
+					}
+				}
+			});
+		}
+		return true;
+	}
+}

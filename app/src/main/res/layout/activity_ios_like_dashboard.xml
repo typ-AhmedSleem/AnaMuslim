@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/nextPrayCardSurfaceEndColor">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:animateLayoutChanges="true"
+        android:background="@color/adaptiveBackgroundColor"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <com.typ.muslim.ui.ActiveKhatmaCard
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.typ.muslim.ui.ActiveKhatmaCard
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+        <com.typ.muslim.ui.ActiveKhatmaCard
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

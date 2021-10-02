@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_container"
+    android:theme="@style/Theme.AnaMuslim.SplashScreen">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_step_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/select_theme"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/colorText"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:transitionName="transition_wizard_step_title"
+        app:autoSizeMaxTextSize="35dp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/g" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/layout_wizard_buttons"
+        android:layout_below="@id/tv_step_title"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="The way you want to see AnaMuslim"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@color/colorText"
+            android:textSize="15sp"
+            app:autoSizeMaxTextSize="20dp"
+            app:autoSizeTextType="uniform"
+            app:textAllCaps="false" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_theme_dark"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/dark_theme"
+                android:textColor="@color/colorPrimary"
+                app:backgroundTint="#33004530"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_moon"
+                app:iconGravity="textTop"
+                app:iconPadding="20dp"
+                app:iconSize="40dp"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="0dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_theme_light"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@id/btn_theme_dark"
+                android:text="@string/light_theme"
+                android:textColor="@color/colorPrimary"
+                app:backgroundTint="#33004530"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_sun"
+                app:iconGravity="textTop"
+                app:iconPadding="20dp"
+                app:iconSize="40dp"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp" />
+
+        </RelativeLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="Color of Icons, Texts and Backgrounds of AnaMuslim"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@color/colorText"
+            android:textSize="15sp"
+            app:autoSizeMaxTextSize="20dp"
+            app:autoSizeTextType="uniform"
+            app:textAllCaps="false" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_theme_red"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="20dp"
+                android:text="Blue"
+                android:textColor="@color/colorPrimary"
+                app:backgroundTint="#33004530"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/circle_point"
+                app:iconGravity="textTop"
+                app:iconPadding="20dp"
+                app:iconSize="40dp"
+                app:iconTint="@color/purple_700"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="0dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_theme_blue"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@id/btn_theme_red"
+                android:text="Red"
+                android:textColor="@color/colorPrimary"
+                app:backgroundTint="#33004530"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/circle_point"
+                app:iconGravity="textTop"
+                app:iconPadding="20dp"
+                app:iconSize="40dp"
+                app:iconTint="@color/red"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="0dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_theme_teal"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="20dp"
+                android:text="Teal"
+                android:textColor="@color/colorPrimary"
+                app:backgroundTint="#33004530"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/circle_point"
+                app:iconGravity="textTop"
+                app:iconPadding="20dp"
+                app:iconSize="40dp"
+                app:iconTint="@color/teal_700"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="0dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_theme_green"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@id/btn_theme_teal"
+                android:text="Green"
+                android:textColor="@color/colorPrimary"
+                app:backgroundTint="#33004530"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/circle_point"
+                app:iconGravity="textTop"
+                app:iconPadding="20dp"
+                app:iconSize="40dp"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="0dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/layout_wizard_buttons"
+        layout="@layout/layout_wizard_back_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp" />
+
+    <ImageView
+        android:id="@+id/img_theme_switch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:visibility="invisible" />
+
+</RelativeLayout>
