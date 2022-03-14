@@ -12,12 +12,12 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.typ.muslim.Constants;
+import com.typ.muslim.app.Constants;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.enums.KhatmaPlans;
+import com.typ.muslim.features.quran.models.QuranAyah;
 import com.typ.muslim.interfaces.Refreshable;
 import com.typ.muslim.managers.AManager;
-import com.typ.muslim.models.quran.QuranAyah;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -24,10 +24,10 @@ import com.typ.muslim.R;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.PrayNotifyMethod;
 import com.typ.muslim.interfaces.PrayTimeCameListener;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ramadan.RamadanManager;
@@ -168,19 +168,19 @@ public class MiniNextPrayDashboardCard extends DashboardCard {
 			case AZAN:
 				if (this.nextPray.getType() != Prays.SUNRISE) {
 					this.prayNotifMethodIFV.setImageResource(R.drawable.ic_notify_with_sound);
-					this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.white)));
-					this.prayNotifMethodIFV.setColorFilter(AMRes.getColor(getContext(), R.color.colorPrimary));
+					this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.white)));
+					this.prayNotifMethodIFV.setColorFilter(ResMan.getColor(getContext(), R.color.colorPrimary));
 				}
 				break;
 			case NOTIFICATION_ONLY:
 				this.prayNotifMethodIFV.setImageResource(R.drawable.ic_notify_without_sound);
-				this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.white)));
-				this.prayNotifMethodIFV.setColorFilter(AMRes.getColor(getContext(), R.color.ef_colorPrimary));
+				this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.white)));
+				this.prayNotifMethodIFV.setColorFilter(ResMan.getColor(getContext(), R.color.ef_colorPrimary));
 				break;
 			case OFF:
 				this.prayNotifMethodIFV.setImageResource(R.drawable.ic_notify_off);
-				this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.white)));
-				this.prayNotifMethodIFV.setColorFilter(AMRes.getColor(getContext(), R.color.red));
+				this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.white)));
+				this.prayNotifMethodIFV.setColorFilter(ResMan.getColor(getContext(), R.color.red));
 				break;
 		}
 	}
@@ -192,19 +192,19 @@ public class MiniNextPrayDashboardCard extends DashboardCard {
 			case AZAN:
 				if (this.nextPray.getType() != Prays.SUNRISE) {
 					this.prayNotifMethodIFV.setImageResource(R.drawable.ic_notify_with_sound);
-					this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.white)));
-					this.prayNotifMethodIFV.setColorFilter(AMRes.getColor(getContext(), R.color.colorPrimary));
+					this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.white)));
+					this.prayNotifMethodIFV.setColorFilter(ResMan.getColor(getContext(), R.color.colorPrimary));
 				}
 				break;
 			case NOTIFICATION_ONLY:
 				this.prayNotifMethodIFV.setImageResource(R.drawable.ic_notify_without_sound);
-				this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.white)));
-				this.prayNotifMethodIFV.setColorFilter(AMRes.getColor(getContext(), R.color.ef_colorPrimary));
+				this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.white)));
+				this.prayNotifMethodIFV.setColorFilter(ResMan.getColor(getContext(), R.color.ef_colorPrimary));
 				break;
 			case OFF:
 				this.prayNotifMethodIFV.setImageResource(R.drawable.ic_notify_off);
-				this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.white)));
-				this.prayNotifMethodIFV.setColorFilter(AMRes.getColor(getContext(), R.color.red));
+				this.prayNotifMethodIFV.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.white)));
+				this.prayNotifMethodIFV.setColorFilter(ResMan.getColor(getContext(), R.color.red));
 				break;
 		}
 	}

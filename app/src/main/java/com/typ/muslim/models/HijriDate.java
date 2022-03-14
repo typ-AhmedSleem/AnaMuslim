@@ -8,7 +8,7 @@ package com.typ.muslim.models;
 
 import android.content.Context;
 
-import com.typ.muslim.core.AnaMuslimApp;
+import com.typ.muslim.app.AnaMuslimApp;
 import com.typ.muslim.managers.HijriCalendar;
 
 import org.jetbrains.annotations.NotNull;

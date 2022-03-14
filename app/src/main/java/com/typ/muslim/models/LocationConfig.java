@@ -8,7 +8,7 @@ package com.typ.muslim.models;
 
 import android.os.Bundle;
 
-import com.typ.muslim.Extras;
+import com.typ.muslim.app.Extras;
 import com.typ.muslim.core.praytime.enums.AsrMethod;
 import com.typ.muslim.core.praytime.enums.CalculationMethod;
 import com.typ.muslim.core.praytime.enums.HigherLatitudes;

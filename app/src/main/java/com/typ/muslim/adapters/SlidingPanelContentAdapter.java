@@ -11,20 +11,18 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.typ.muslim.fragments.panel.MenuFragment;
-import com.typ.muslim.fragments.panel.PraysFragment;
-import com.typ.muslim.fragments.panel.QiblaFragment;
-import com.typ.muslim.libs.easyjava.data.EasyList;
-import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.PrayTimes;
 import com.typ.muslim.ui.dashboard.prays.VerticalPraysDashboardCard;
+import com.typ.muslim.ui.fragments.panel.MenuFragment;
+import com.typ.muslim.ui.fragments.panel.PraysFragment;
+import com.typ.muslim.ui.fragments.panel.QiblaFragment;
 
 import org.jetbrains.annotations.NotNull;
 
 public class SlidingPanelContentAdapter extends FragmentStatePagerAdapter {
 
-    private PrayTimes prays;
-    private VerticalPraysDashboardCard.PrayNotifyMethodChangedCallback callback;
+    private final PrayTimes prays;
+    private final VerticalPraysDashboardCard.PrayNotifyMethodChangedCallback callback;
 
 
     public SlidingPanelContentAdapter(@NonNull @NotNull FragmentManager fm, PrayTimes prays, VerticalPraysDashboardCard.PrayNotifyMethodChangedCallback callback) {

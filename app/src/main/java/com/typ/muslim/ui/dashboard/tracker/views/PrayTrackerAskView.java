@@ -18,8 +18,8 @@ import com.google.android.material.textview.MaterialTextView;
 import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.ui.ViewContainer;
 import com.typ.muslim.ui.dashboard.tracker.TrackerDashboardCard;
@@ -59,17 +59,17 @@ public final class PrayTrackerAskView extends ViewContainer implements View.OnCl
 			return;
 		}
 		// Show data in views
-		this.tvPrayName.reset();
-		this.tvPrayName.addSlice(new Slice(
-				new Slice.Builder(String.format(Locale.getDefault(), "%s,  ", AMRes.getString(getContext(), R.string.have_you_prayed)))
-						.textSize(sp2px(14f))
-						.textColor(AMRes.getColor(getContext(), R.color.darkAdaptiveColor))));
-		this.tvPrayName.addSlice(new Slice(
-				new Slice.Builder(AMRes.getString(getContext(), whichPray.getPrayNameRes()))
-						.textSize(sp2px(16f))
-						.style(Typeface.BOLD)
-						.textColor(AMRes.getColor(getContext(), R.color.green))));
-		this.tvPrayName.display();
+        this.tvPrayName.reset();
+        this.tvPrayName.addSlice(new Slice(
+                new Slice.Builder(String.format(Locale.getDefault(), "%s,  ", ResMan.getString(getContext(), R.string.have_you_prayed)))
+                        .textSize(sp2px(14f))
+                        .textColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor))));
+        this.tvPrayName.addSlice(new Slice(
+                new Slice.Builder(ResMan.getString(getContext(), whichPray.getPrayNameRes()))
+                        .textSize(sp2px(16f))
+                        .style(Typeface.BOLD)
+                        .textColor(ResMan.getColor(getContext(), R.color.green))));
+        this.tvPrayName.display();
 		this.tvPrayTime.setText(whichPray.getFormattedTime(getContext()));
 		// Log
 		AManager.log(TAG, "askIfPrayed: " + whichPray);

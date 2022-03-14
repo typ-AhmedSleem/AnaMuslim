@@ -20,13 +20,13 @@ import com.google.android.material.card.MaterialCardView;
 import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.activities.IslamicEventsActivity;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.IslamicEvents;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.IslamicEvent;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.BottomSheets;
 import com.typ.muslim.ui.ViewContainer;
+import com.typ.muslim.ui.activities.IslamicEventsActivity;
 import com.typ.muslim.utils.DateUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -87,12 +87,12 @@ public class IslamicEventView extends ViewContainer {
 		// Event day
 		if (showDay) {
 			stvDay.addSlice(new Slice.Builder(DateUtils.getDayName(Timestamp.NOW(), "3") + "\n")
-					.textColor(AMRes.getColor(getContext(), R.color.darkAdaptiveColor))
+                    .textColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor))
 					.textSize(sp2px(12f))
 					.style(Typeface.BOLD)
 					.build());
 			stvDay.addSlice(new Slice.Builder(String.valueOf(event.getDay()))
-					.textColor(AMRes.getColor(getContext(), R.color.darkAdaptiveColor))
+                    .textColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor))
 					.textSize(sp2px(26f))
 					.build());
 		} else stvDay.setVisibility(GONE);

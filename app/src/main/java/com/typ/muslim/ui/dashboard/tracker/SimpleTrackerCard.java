@@ -15,15 +15,15 @@ import android.view.View;
 
 import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
-import com.typ.muslim.Consumers;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Consumers;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.enums.TrackerRange;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrayTrackerManager;
 import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.ProgressStep;
@@ -84,18 +84,18 @@ public class SimpleTrackerCard extends DashboardCard {
 				new ProgressStep(true, Prays.ISHA.getSurfaceColorRes()));
 		spwTracker.setValueText("");
 		stvTracker.addSlice(new Slice(
-				new Slice.Builder(getString(R.string.you_prayed) + "\n")
-						.textColor(AMRes.getColor(getContext(), R.color.cardBackground3))
+                new Slice.Builder(getString(R.string.you_prayed) + "\n")
+                        .textColor(ResMan.getColor(getContext(), R.color.cardBackground3))
 						.superscript()
 						.textSize(dp2px(14f))));
 		stvTracker.addSlice(new Slice(
-				new Slice.Builder(String.valueOf(Math.min(2, 5)))
-						.textColor(AMRes.getColor(getContext(), R.color.cardBackground3))
+                new Slice.Builder(String.valueOf(Math.min(2, 5)))
+                        .textColor(ResMan.getColor(getContext(), R.color.cardBackground3))
 						.style(Typeface.BOLD)
 						.textSize(dp2px(40f))));
 		stvTracker.addSlice(new Slice(
-				new Slice.Builder(" of 5")
-						.textColor(AMRes.getColor(getContext(), R.color.darkAdaptiveColor))
+                new Slice.Builder(" of 5")
+                        .textColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor))
 						.textSize(dp2px(20f))));
 		stvTracker.display();
 		// Refresh view
@@ -118,19 +118,19 @@ public class SimpleTrackerCard extends DashboardCard {
 		Consumers.doWhen(didHePray, () -> {
 			// User has prayed
 			stvTracker.addSlice(new Slice(
-					new Slice.Builder(String.valueOf(getString(R.string.you_prayed)))
-							.textColor(AMRes.getColor(getContext(), R.color.cardBackground3))
+                    new Slice.Builder(String.valueOf(getString(R.string.you_prayed)))
+                            .textColor(ResMan.getColor(getContext(), R.color.cardBackground3))
 							.style(Typeface.BOLD)
 							.superscript()
 							.textSize(dp2px(20f))));
 			stvTracker.addSlice(new Slice(
-					new Slice.Builder(String.valueOf(Math.min(todayPrayedPrays, 5)))
-							.textColor(AMRes.getColor(getContext(), R.color.cardBackground3))
+                    new Slice.Builder(String.valueOf(Math.min(todayPrayedPrays, 5)))
+                            .textColor(ResMan.getColor(getContext(), R.color.cardBackground3))
 							.style(Typeface.BOLD)
 							.textSize(dp2px(40f))));
 			stvTracker.addSlice(new Slice(
-					new Slice.Builder(" of 5")
-							.textColor(AMRes.getColor(getContext(), R.color.darkAdaptiveColor))
+                    new Slice.Builder(" of 5")
+                            .textColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor))
 							.textSize(dp2px(25f))));
 			stvTracker.display();
 			// Clear texts of SPW
@@ -138,17 +138,17 @@ public class SimpleTrackerCard extends DashboardCard {
 			spwTracker.setInfoText("");
 		}, () -> {
 			// User hasn't prayed yet
-			stvTracker.reset();
-			stvTracker.addSlice(new Slice(
-					new Slice.Builder(String.format(Locale.getDefault(), "%s,  ", AMRes.getString(getContext(), R.string.have_you_prayed)))
-							.textSize(sp2px(14f))
-							.textColor(AMRes.getColor(getContext(), R.color.darkAdaptiveColor))));
-			stvTracker.addSlice(new Slice(
-					new Slice.Builder(AMRes.getString(getContext(), currentPray.getPrayNameRes()))
-							.textSize(sp2px(16f))
-							.style(Typeface.BOLD)
-							.textColor(AMRes.getColor(getContext(), R.color.green))));
-			stvTracker.display();
+            stvTracker.reset();
+            stvTracker.addSlice(new Slice(
+                    new Slice.Builder(String.format(Locale.getDefault(), "%s,  ", ResMan.getString(getContext(), R.string.have_you_prayed)))
+                            .textSize(sp2px(14f))
+                            .textColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor))));
+            stvTracker.addSlice(new Slice(
+                    new Slice.Builder(ResMan.getString(getContext(), currentPray.getPrayNameRes()))
+                            .textSize(sp2px(16f))
+                            .style(Typeface.BOLD)
+                            .textColor(ResMan.getColor(getContext(), R.color.green))));
+            stvTracker.display();
 			// Show texts on SPW
 			spwTracker.setValueText(String.valueOf(todayPrayedPrays));
 			spwTracker.setInfoText(getString(R.string.you_prayed));

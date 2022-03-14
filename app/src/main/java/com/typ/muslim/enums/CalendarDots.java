@@ -12,7 +12,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 
 import com.typ.muslim.R;
-import com.typ.muslim.managers.AMRes;
+import com.typ.muslim.managers.ResMan;
 
 public enum CalendarDots {
 
@@ -44,11 +44,11 @@ public enum CalendarDots {
 
 	public @ColorInt
 	int getSurfaceColor(Context context) {
-		return AMRes.getColor(context, surfaceColorRes);
+		return ResMan.getColor(context, surfaceColorRes);
 	}
 
 	public @ColorInt
 	int getOnSurfaceColor(Context context) {
-		return AMRes.getColor(context, onSurfaceColorRes);
+		return ResMan.getColor(context, onSurfaceColorRes);
 	}
 }

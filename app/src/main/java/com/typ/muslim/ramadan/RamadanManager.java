@@ -14,34 +14,35 @@ import com.typ.muslim.ramadan.models.Ramadan;
 
 public class RamadanManager {
 
-	/**
-	 * Checks whether current hijri month is Ramadan or not
-	 *
-	 * @return {@code true} if only current hijri month is Ramadan. {@code false} if not.
-	 */
-	public static boolean isInRamadan() {
-		return HijriCalendar.getToday().getMonth() == RAMADAN;
-	}
+    /**
+     * Checks whether current hijri month is Ramadan or not
+     *
+     * @return {@code true} if only current hijri month is Ramadan. {@code false} if not.
+     */
+    public static boolean isInRamadan() {
+        return HijriCalendar.getToday().getMonth() == RAMADAN;
+    }
 
-	public static Ramadan getThisYearRamadan() {
-		HijriDate todayHijri = HijriCalendar.getToday();
-		final int ramadanLength = HijriCalendar.lengthOfMonth(todayHijri.getYear(), RAMADAN);
-		return new Ramadan(new HijriDate(todayHijri.getYear(), RAMADAN, 1).toGregorian(),
-				new HijriDate(todayHijri.getYear(), RAMADAN, ramadanLength).toGregorian());
-	}
+    public static Ramadan getThisYearRamadan() {
+        HijriDate todayHijri = HijriCalendar.getToday();
+        final int ramadanLength = HijriCalendar.lengthOfMonth(todayHijri.getYear(), RAMADAN + 1);
+        return new Ramadan(new HijriDate(todayHijri.getYear(), RAMADAN, 1).toGregorian(),
+                new HijriDate(todayHijri.getYear(), RAMADAN, ramadanLength).toGregorian());
+    }
 
-	public static Ramadan getNextRamadan() {
-		if (isRamadanThisYearPassed()) {
-			HijriDate todayHijri = HijriCalendar.getToday();
-			final int ramadanLength = HijriCalendar.lengthOfMonth(todayHijri.getYear() + 1, RAMADAN);
-			return new Ramadan(new HijriDate(todayHijri.getYear() + 1, RAMADAN, 1).toGregorian(),
-					new HijriDate(todayHijri.getYear() + 1, RAMADAN, ramadanLength).toGregorian());
-		}
-		return getThisYearRamadan(); // return this year ramadan.
-	}
+    public static Ramadan getNextRamadan() {
+        // todo: Check if in ramadan
+        HijriDate todayHijri = HijriCalendar.getToday();
+        if (todayHijri.getMonth() > RAMADAN) {
+            final int ramadanLength = HijriCalendar.lengthOfMonth(todayHijri.getYear() + 1, RAMADAN);
+            return new Ramadan(new HijriDate(todayHijri.getYear() + 1, RAMADAN, 1).toGregorian(),
+                    new HijriDate(todayHijri.getYear() + 1, RAMADAN, ramadanLength).toGregorian());
+        }
+        return getThisYearRamadan(); // return this year ramadan.
+    }
 
-	public static boolean isRamadanThisYearPassed() {
-		return !isInRamadan();
-	}
+    public static boolean isRamadanThisYearPassed() {
+        return !isInRamadan() && !getNextRamadan().isPassed();
+    }
 
 }

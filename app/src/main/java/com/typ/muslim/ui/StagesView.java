@@ -18,7 +18,6 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.widget.ViewFlipper;
 
-import com.typ.muslim.activities.MainActivity;
 import com.typ.muslim.enums.StageResult;
 import com.typ.muslim.enums.StageStatus;
 import com.typ.muslim.interfaces.Executable;
@@ -26,6 +25,7 @@ import com.typ.muslim.interfaces.OnTestCompletedListener;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.StageInfo;
+import com.typ.muslim.ui.activities.MainActivity;
 
 import java.security.InvalidParameterException;
 import java.util.concurrent.ExecutionException;

@@ -104,6 +104,7 @@ public class TrackerDashboardCard extends DashboardCard implements PrayTimeCameL
 			BottomSheets.newAnswerPrayed(getContext(),
 					currentPray, this::submitRecord,
 					isShown -> isBottomSheetShown = false).show();
+
 		} else {
 			// Open PrayTrackerActivity
 		}

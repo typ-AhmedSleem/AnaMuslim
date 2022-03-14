@@ -21,6 +21,7 @@
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/drawable/ic_done.xml" value="0.3587962962962963" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/drawable/ic_du3a2.xml" value="0.3587962962962963" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/drawable/ic_hizb_sign.xml" value="0.3587962962962963" />
+        <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/drawable/ic_menu.xml" value="0.1945" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/drawable/ic_moon.xml" value="0.3587962962962963" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/drawable/ic_mosque2.xml" value="0.3587962962962963" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/drawable/ic_mosque4.xml" value="0.3587962962962963" />
@@ -57,7 +58,7 @@
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/activity_hijri_calendar.xml" value="0.4" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/activity_ios_like_dashboard.xml" value="0.264" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/activity_islamic_events.xml" value="0.4" />
-        <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/activity_main.xml" value="0.6" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/activity_name_of_allah_desc.xml" value="0.264" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/activity_names_of_allah.xml" value="0.4" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/activity_quran_reader.xml" value="0.6" />
@@ -71,7 +72,7 @@
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/bs_hijri_calendar.xml" value="0.6" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/bs_islamic_event_details.xml" value="0.536" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/bs_pray_switchers.xml" value="0.4" />
-        <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/bs_prays.xml" value="0.4" />
+        <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/bs_prays.xml" value="0.536" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/bs_preview_location.xml" value="0.2" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/bs_search_city.xml" value="0.2462962962962963" />
         <entry key="..\:/Development/Android/AnaMuslim/app/src/main/res/layout/bs_som_reminder_settings.xml" value="0.536" />
@@ -154,7 +155,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

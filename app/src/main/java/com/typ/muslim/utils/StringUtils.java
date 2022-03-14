@@ -6,10 +6,6 @@
 
 package com.typ.muslim.utils;
 
-import androidx.annotation.StringRes;
-
-import java.util.Locale;
-
 public class StringUtils {
 
 }

@@ -22,11 +22,11 @@ import androidx.annotation.Dimension;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.typ.muslim.Consumers;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Consumers;
 import com.typ.muslim.libs.easyjava.data.EasyList;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.ProgressStep;
 
 import org.jetbrains.annotations.NotNull;
@@ -118,25 +118,25 @@ public final class StepsProgressWheel extends BaseView {
 		// Step paint
 		if (paintStep == null) paintStep = new Paint();
 		paintStep.setAntiAlias(true);
-		paintStep.setStrokeWidth(stepWidth);
-		paintStep.setStyle(Paint.Style.STROKE);
-		paintStep.setStrokeJoin(Paint.Join.ROUND);
-		paintStep.setStrokeCap(Paint.Cap.ROUND);
-		// Value TextPaint
-		if (paintValueText == null) paintValueText = new TextPaint();
-		paintValueText.setAntiAlias(true);
-		paintValueText.setColor(valueTextColor);
-		paintValueText.setTextSize(valueTextSize);
-		paintValueText.setTextAlign(Paint.Align.CENTER);
-		Consumers.doIfNot(() -> paintValueText.setTypeface(AMRes.getFont(getContext(), R.font.font_jf_flat_regular)), isInEditMode());
-		// Info TextPaint
-		if (paintInfoText == null) paintInfoText = new TextPaint();
-		paintInfoText.setAntiAlias(true);
-		paintInfoText.setColor(infoTextColor);
-		paintInfoText.setTextSize(infoTextSize);
-		paintInfoText.setTextAlign(Paint.Align.CENTER);
-		Consumers.doIfNot(() -> paintInfoText.setTypeface(AMRes.getFont(getContext(), R.font.font_bukrar)), isInEditMode());
-	}
+        paintStep.setStrokeWidth(stepWidth);
+        paintStep.setStyle(Paint.Style.STROKE);
+        paintStep.setStrokeJoin(Paint.Join.ROUND);
+        paintStep.setStrokeCap(Paint.Cap.ROUND);
+        // Value TextPaint
+        if (paintValueText == null) paintValueText = new TextPaint();
+        paintValueText.setAntiAlias(true);
+        paintValueText.setColor(valueTextColor);
+        paintValueText.setTextSize(valueTextSize);
+        paintValueText.setTextAlign(Paint.Align.CENTER);
+        Consumers.doIfNot(() -> paintValueText.setTypeface(ResMan.getFont(getContext(), R.font.font_jf_flat_regular)), isInEditMode());
+        // Info TextPaint
+        if (paintInfoText == null) paintInfoText = new TextPaint();
+        paintInfoText.setAntiAlias(true);
+        paintInfoText.setColor(infoTextColor);
+        paintInfoText.setTextSize(infoTextSize);
+        paintInfoText.setTextAlign(Paint.Align.CENTER);
+        Consumers.doIfNot(() -> paintInfoText.setTypeface(ResMan.getFont(getContext(), R.font.font_bukrar)), isInEditMode());
+    }
 
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {

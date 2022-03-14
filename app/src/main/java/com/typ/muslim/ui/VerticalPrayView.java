@@ -9,7 +9,6 @@ package com.typ.muslim.ui;
 import static com.typ.muslim.core.praytime.enums.Prays.FAJR;
 import static com.typ.muslim.core.praytime.enums.Prays.ISHA;
 import static com.typ.muslim.core.praytime.enums.Prays.MAGHRIB;
-import static com.typ.muslim.utils.DisplayUtils.sp2px;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -24,13 +23,13 @@ import android.widget.RelativeLayout;
 import com.google.android.material.textview.MaterialTextView;
 import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
-import com.typ.muslim.Keys;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Keys;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.PrayNotifyMethod;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.ramadan.RamadanManager;
 import com.typ.muslim.ui.dashboard.DashboardCard;
@@ -163,23 +162,23 @@ public class VerticalPrayView extends DashboardCard {
 		if (this.pray.getType() == Prays.SUNRISE) {
 			this.ibtnChangeNotifyMethod.setEnabled(false);
 			this.ibtnChangeNotifyMethod.setImageResource(R.drawable.ic_notify_off);
-			this.ibtnChangeNotifyMethod.setColorFilter(AMRes.getColor(getContext(), R.color.red));
-			this.ibtnChangeNotifyMethod.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.bg_input_box)));
+			this.ibtnChangeNotifyMethod.setColorFilter(ResMan.getColor(getContext(), R.color.red));
+			this.ibtnChangeNotifyMethod.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.bg_input_box)));
 			return;
 		}
 		// Update view
 		if (this.notifyMethod == PrayNotifyMethod.AZAN) {
 			this.ibtnChangeNotifyMethod.setImageResource(R.drawable.ic_notify_with_sound);
-			this.ibtnChangeNotifyMethod.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.green)));
-			this.ibtnChangeNotifyMethod.setColorFilter(AMRes.getColor(getContext(), R.color.white));
+			this.ibtnChangeNotifyMethod.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.green)));
+			this.ibtnChangeNotifyMethod.setColorFilter(ResMan.getColor(getContext(), R.color.white));
 		} else if (this.notifyMethod == PrayNotifyMethod.NOTIFICATION_ONLY) {
 			this.ibtnChangeNotifyMethod.setImageResource(R.drawable.ic_notify_without_sound);
-			this.ibtnChangeNotifyMethod.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.ef_colorPrimary)));
-			this.ibtnChangeNotifyMethod.setColorFilter(AMRes.getColor(getContext(), R.color.white));
+			this.ibtnChangeNotifyMethod.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.ef_colorPrimary)));
+			this.ibtnChangeNotifyMethod.setColorFilter(ResMan.getColor(getContext(), R.color.white));
 		} else {
 			this.ibtnChangeNotifyMethod.setImageResource(R.drawable.ic_notify_off);
-			this.ibtnChangeNotifyMethod.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.red)));
-			this.ibtnChangeNotifyMethod.setColorFilter(AMRes.getColor(getContext(), R.color.white));
+			this.ibtnChangeNotifyMethod.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.red)));
+			this.ibtnChangeNotifyMethod.setColorFilter(ResMan.getColor(getContext(), R.color.white));
 		}
 	}
 

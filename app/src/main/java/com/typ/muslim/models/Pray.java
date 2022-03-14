@@ -7,11 +7,11 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
-import com.typ.muslim.core.AnaMuslimApp;
+import com.typ.muslim.app.AnaMuslimApp;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.FormatPatterns;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.ResMan;
 
 import java.io.Serializable;
 
@@ -50,7 +50,7 @@ public class Pray implements Serializable {
 
 	public String getName() {
 		// fixme: use context from method parameter not the global context
-		return AMRes.getString(AnaMuslimApp.getContext().get(), getPrayNameRes());
+		return ResMan.getString(AnaMuslimApp.getContext().get(), getPrayNameRes());
 	}
 
 	@StringRes

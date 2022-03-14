@@ -13,7 +13,7 @@ import android.util.Pair;
 
 import androidx.annotation.Nullable;
 
-import com.typ.muslim.Constants;
+import com.typ.muslim.app.Constants;
 import com.typ.muslim.db.LocalDatabase;
 import com.typ.muslim.enums.KhatmaPlans;
 import com.typ.muslim.interfaces.KhatmaManagerCallback;

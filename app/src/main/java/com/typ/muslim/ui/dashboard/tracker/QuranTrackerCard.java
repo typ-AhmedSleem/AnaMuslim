@@ -15,8 +15,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.google.android.material.textview.MaterialTextView;
-import com.typ.muslim.Keys;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Keys;
 import com.typ.muslim.enums.TrackerRange;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AMSettings;

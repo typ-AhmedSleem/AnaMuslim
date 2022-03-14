@@ -24,7 +24,7 @@ import androidx.annotation.StringRes;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 
 import com.typ.muslim.R;
-import com.typ.muslim.managers.AMRes;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.systems.ColorSystem;
 import com.typ.muslim.utils.DisplayUtils;
 
@@ -36,12 +36,13 @@ public class AMTextSwitcher extends TextSwitcher {
 
 	// Statics
 	private static final String TAG = "AMTextSwitcher";
+	private final int textGravity = Gravity.CENTER_VERTICAL | Gravity.START;
 	// Runtime
 	private String[] texts;
 	private float textSize = 15f;
-	private int textGravity = Gravity.CENTER_VERTICAL | Gravity.START;
 	private int currentPosition = 0;
-	private @ColorInt int textColor = Color.WHITE;
+	private @ColorInt
+	int textColor = Color.WHITE;
 	// Callbacks
 	private SwitcherCallback switcherCallback;
 	private SwitcherTextClickCallback onTextClickCallback;
@@ -116,7 +117,7 @@ public class AMTextSwitcher extends TextSwitcher {
 
 	public void displayText(@StringRes int textResId) {
 		this.currentPosition = 0;
-		this.displayText(AMRes.getString(getContext(), textResId));
+		this.displayText(ResMan.getString(getContext(), textResId));
 	}
 
 	public void next() {
@@ -140,7 +141,7 @@ public class AMTextSwitcher extends TextSwitcher {
 	}
 
 	public AMTextSwitcher setTextColor(ColorSystem.ColorTheme colorTheme) {
-		if (colorTheme != null) this.setTextColor(AMRes.getColor(getContext(), colorTheme.getTextColor()));
+		if (colorTheme != null) this.setTextColor(ResMan.getColor(getContext(), colorTheme.getTextColor()));
 		return this;
 	}
 

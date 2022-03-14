@@ -22,7 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 import com.typ.muslim.interfaces.ViewHelperMethods;
-import com.typ.muslim.managers.AMRes;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.utils.DisplayUtils;
 
 public class BaseView extends View implements ViewHelperMethods {
@@ -61,13 +61,13 @@ public class BaseView extends View implements ViewHelperMethods {
 	@Override
 	public final @ColorInt
 	int getColor(@ColorRes int colorResId) {
-		return AMRes.getColor(getContext(), colorResId);
-	}
+        return ResMan.getColor(getContext(), colorResId);
+    }
 
 	@Override
 	public final String getString(@StringRes int stringResId) {
-		return AMRes.getString(getContext(), stringResId);
-	}
+        return ResMan.getString(getContext(), stringResId);
+    }
 
 	@Override
 	public void startActivity(Intent intent) {

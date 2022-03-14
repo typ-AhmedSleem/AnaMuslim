@@ -23,8 +23,8 @@ import android.content.Context;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.Keys;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Keys;
 import com.typ.muslim.core.praytime.enums.CalculationMethod;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.OngoingNotificationStyle;

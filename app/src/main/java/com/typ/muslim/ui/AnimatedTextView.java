@@ -23,7 +23,7 @@ import androidx.annotation.StringRes;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.managers.AMRes;
+import com.typ.muslim.managers.ResMan;
 
 public class AnimatedTextView extends ViewContainer {
 
@@ -75,7 +75,7 @@ public class AnimatedTextView extends ViewContainer {
 			textAllCaps = ta.getBoolean(R.styleable.AnimatedTextView_android_textAllCaps, false);
 			textColor = ta.getColor(R.styleable.AnimatedTextView_android_textColor, getColor(R.color.darkAdaptiveColor));
 			textSize.set(Dimension.PixelType.REAL_PIXEL, ta.getDimension(R.styleable.AnimatedTextView_android_textSize, 24f));
-			typeface = AMRes.getFont(context, ta.getResourceId(R.styleable.AnimatedTextView_android_fontFamily, -1));
+			typeface = ResMan.getFont(context, ta.getResourceId(R.styleable.AnimatedTextView_android_fontFamily, -1));
 			textGravity = ta.getInteger(R.styleable.AnimatedTextView_android_gravity, Gravity.START | Gravity.CENTER_VERTICAL);
 			maxLines = ta.getInteger(R.styleable.AnimatedTextView_android_maxLines, -1);
 			ta.recycle();
@@ -158,7 +158,7 @@ public class AnimatedTextView extends ViewContainer {
 	}
 
 	public AnimatedTextView setTypeface(@FontRes int fontResId) {
-		this.typeface = AMRes.getFont(getContext(), fontResId);
+		this.typeface = ResMan.getFont(getContext(), fontResId);
 		return this;
 	}
 

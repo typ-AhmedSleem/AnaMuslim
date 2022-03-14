@@ -13,10 +13,10 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 
 import com.mpt.android.stv.Slice;
-import com.typ.muslim.Constants;
 import com.typ.muslim.R;
-import com.typ.muslim.managers.AMRes;
+import com.typ.muslim.app.Constants;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Timestamp;
 
 import java.util.Calendar;
@@ -91,7 +91,7 @@ public enum KhatmaPlans {
 	}
 
 	public Slice buildPlanCurrStepTextSlices(Context c, int dayNumber, @ColorInt int textColor, int textSize) {
-		return new Slice.Builder(AMRes.getString(c, R.string.day) + " " + dayNumber)
+		return new Slice.Builder(ResMan.getString(c, R.string.day) + " " + dayNumber)
 				.textColor(textColor)
 				.textSize(textSize)
 				.style(Typeface.BOLD)

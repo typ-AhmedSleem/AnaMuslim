@@ -16,35 +16,17 @@
     android:paddingBottom="20dp">
 
     <com.mpt.android.stv.SpannableTextView
-        android:id="@+id/stv_hijri_date"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical|start"
-        android:text="12\nRajab, 1443"
-        android:textColor="@color/adaptiveTitleTextColor"
-        android:textSize="15sp"
-        app:fontFamily="@font/font_bukrar"
-        app:layout_constraintBottom_toBottomOf="@id/tv_curr_pray_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/t1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lineHeight="24dp"
-        tools:ignore="HardcodedText" />
-
-    <com.mpt.android.stv.SpannableTextView
         android:id="@+id/tv_curr_pray_name"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_vertical|start"
-        android:text="Now\nCurrPrayname"
+        android:layout_height="0dp"
+        android:gravity="top|start"
+        android:text="Now\nCurrPrayname\n05:29 pm"
         android:textColor="@color/adaptiveTitleTextColor"
         android:textSize="20sp"
         app:fontFamily="@font/font_bukrar"
+        app:layout_constraintBottom_toBottomOf="@id/tv_next_pray_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_next_pray_name"
         app:layout_constraintWidth_percent="0.5"
         app:lineHeight="30dp"
         tools:ignore="HardcodedText" />
@@ -60,9 +42,8 @@
         android:textSize="18sp"
         app:fontFamily="@font/font_bukrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/cdv_next_pray_remaining"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_curr_pray_name"
+        app:layout_constraintStart_toEndOf="@id/tv_curr_pray_name"
+        app:layout_constraintTop_toTopOf="parent"
         app:lineHeight="30dp"
         tools:ignore="HardcodedText" />
 
@@ -70,16 +51,16 @@
         android:id="@+id/t1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:gravity="center_vertical|start"
-        android:text="Remaining"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Time remaining till Azan"
         android:textColor="@color/subtitleTextColor"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:fontFamily="@font/font_bukrar"
         app:layout_constraintEnd_toEndOf="@id/cdv_next_pray_remaining"
         app:layout_constraintStart_toStartOf="@id/cdv_next_pray_remaining"
-        app:layout_constraintTop_toTopOf="@id/tv_next_pray_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_next_pray_name"
         app:lineHeight="24dp"
         tools:ignore="HardcodedText" />
 
@@ -95,9 +76,8 @@
         app:isShowMinute="true"
         app:isShowSecond="true"
         app:isShowTimeBgDivisionLine="false"
-        app:layout_constraintBottom_toBottomOf="@id/tv_next_pray_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_next_pray_name"
+        app:layout_constraintEnd_toEndOf="@id/tv_next_pray_name"
+        app:layout_constraintStart_toStartOf="@id/tv_curr_pray_name"
         app:layout_constraintTop_toBottomOf="@id/t1"
         app:suffixHour="@string/hr"
         app:suffixHourRightMargin="5dp"
@@ -105,12 +85,12 @@
         app:suffixMinuteRightMargin="5dp"
         app:suffixSecond="@string/sec"
         app:suffixTextColor="@color/adaptiveSubtitleTextColor"
-        app:suffixTextSize="12sp"
+        app:suffixTextSize="15sp"
         app:timeBgColor="@color/countDownBg"
-        app:timeBgRadius="10dp"
-        app:timeBgSize="40dp"
+        app:timeBgRadius="20dp"
+        app:timeBgSize="60dp"
         app:timeTextColor="@color/adaptiveTitleTextColor"
-        app:timeTextSize="20sp" />
+        app:timeTextSize="30sp" />
 
     <com.typ.muslim.ui.VerticalPrayView
         android:id="@+id/fajrPIV"
@@ -119,7 +99,7 @@
         android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_next_pray_name"
+        app:layout_constraintTop_toBottomOf="@id/cdv_next_pray_remaining"
         app:pivPray="FAJR"
         app:pivPrayNotifyMethod="AZAN" />
 

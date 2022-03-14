@@ -28,8 +28,8 @@ import androidx.annotation.StringRes;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.ResMan;
 
 public class BaseDashboardCard extends MaterialCardView {
 
@@ -180,7 +180,7 @@ public class BaseDashboardCard extends MaterialCardView {
      */
     public BaseDashboardCard setIconTint(@ColorRes int iconTint) {
         // Update card icon tint color
-        if (iconTint != 0) this.iconIFV.setColorFilter(AMRes.getColor(getContext(), iconTint));
+        if (iconTint != 0) this.iconIFV.setColorFilter(ResMan.getColor(getContext(), iconTint));
         else this.iconIFV.clearColorFilter();
         return this;
     }
@@ -199,7 +199,7 @@ public class BaseDashboardCard extends MaterialCardView {
      */
     public BaseDashboardCard setTitleTextColor(@ColorRes int titleTextColor) {
         // Update card title text color
-        this.titleTV.setTextColor(AMRes.getColor(getContext(), titleTextColor));
+        this.titleTV.setTextColor(ResMan.getColor(getContext(), titleTextColor));
         return this;
     }
 
@@ -208,7 +208,7 @@ public class BaseDashboardCard extends MaterialCardView {
      */
     public BaseDashboardCard setArrowTint(@ColorRes int iconTint) {
         // Update arrow icon tint color
-        if (iconTint != 0) this.arrowIV.setColorFilter(AMRes.getColor(getContext(), iconTint));
+        if (iconTint != 0) this.arrowIV.setColorFilter(ResMan.getColor(getContext(), iconTint));
         else this.arrowIV.clearColorFilter();
         return this;
     }

@@ -6,6 +6,8 @@
 
 <resources>
 
+    <string name="app_name">أنا مسلم</string>
+
     <!-- Prays -->
     <string name="fajr">الفجر</string>
     <string name="sunrise">الشروق</string>

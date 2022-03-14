@@ -26,7 +26,7 @@ import java.util.List;
 public class HijriCalendar {
 
 	public static String getHijriMonthName(Context context, @IntRange(from = 0, to = 11) int monthNumber) {
-		return AMRes.getStringArray(context, R.array.HijriMonthsNames)[monthNumber];
+		return ResMan.getStringArray(context, R.array.HijriMonthsNames)[monthNumber];
 	}
 
 	public static HijriDate getHijriDate(int year, int month, int day) {

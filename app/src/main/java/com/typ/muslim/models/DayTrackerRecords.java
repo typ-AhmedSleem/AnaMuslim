@@ -8,7 +8,7 @@ package com.typ.muslim.models;
 
 import android.content.Context;
 
-import com.typ.muslim.Consumers;
+import com.typ.muslim.app.Consumers;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.libs.easyjava.interfaces.EasyListLooper;

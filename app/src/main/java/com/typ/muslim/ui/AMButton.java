@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import com.google.android.material.button.MaterialButton;
 import com.typ.muslim.R;
 import com.typ.muslim.interfaces.ThemeChangeObserver;
-import com.typ.muslim.managers.AMRes;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.systems.ColorSystem;
 
 public class AMButton extends MaterialButton implements ThemeChangeObserver {
@@ -52,8 +52,8 @@ public class AMButton extends MaterialButton implements ThemeChangeObserver {
     public void onThemeChanged(View madeCallView, ColorSystem.GlobalTheme globalTheme, ColorSystem.ColorTheme colorTheme) {
         if (globalTheme != null && colorTheme != null) {
             // Change button theme
-            super.setBackgroundColor(AMRes.getColor(getContext(), colorTheme.getAccentColorRes()));
-            super.setTextColor(AMRes.getColor(getContext(), colorTheme.getTextColor()));
+            super.setBackgroundColor(ResMan.getColor(getContext(), colorTheme.getAccentColorRes()));
+            super.setTextColor(ResMan.getColor(getContext(), colorTheme.getTextColor()));
         }
     }
 

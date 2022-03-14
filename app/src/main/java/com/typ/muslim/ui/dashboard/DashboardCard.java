@@ -29,8 +29,8 @@ import com.typ.muslim.R;
 import com.typ.muslim.interfaces.ThemeChangeObserver;
 import com.typ.muslim.interfaces.TimeChangedListener;
 import com.typ.muslim.interfaces.ViewHelperMethods;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.systems.ColorSystem;
 import com.typ.muslim.utils.DisplayUtils;
@@ -148,12 +148,12 @@ public abstract class DashboardCard extends MaterialCardView implements ViewHelp
 	@Override
 	public final @ColorInt
 	int getColor(@ColorRes int color) {
-		return AMRes.getColor(getContext(), color);
+		return ResMan.getColor(getContext(), color);
 	}
 
 	@Override
 	public final String getString(@StringRes int stringResId) {
-		return AMRes.getString(getContext(), stringResId);
+		return ResMan.getString(getContext(), stringResId);
 	}
 
 	@Override

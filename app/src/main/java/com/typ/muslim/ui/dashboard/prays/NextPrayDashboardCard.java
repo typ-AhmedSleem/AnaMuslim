@@ -14,9 +14,9 @@ import android.widget.PopupMenu;
 
 import com.typ.muslim.R;
 import com.typ.muslim.core.praytime.enums.Prays;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.systems.ColorSystem;
 import com.typ.muslim.ui.AMTextSwitcher;
@@ -86,43 +86,43 @@ public class NextPrayDashboardCard extends DashboardCard {
 	}
 
 	public NextPrayDashboardCard setNextPray(Pray nextPray) {
-		// Necessary check
-		if (nextPray == null) return this;
-		this.nextPray = nextPray;
-		// Determine colors based on next pray
-		int targetSurfaceColor = AMRes.getColor(getContext(), R.color.nextPrayCardSurfaceEndColor);
-		int targetNameTextColor = AMRes.getColor(getContext(), R.color.yellow);
-		int targetTimeTextColor = AMRes.getColor(getContext(), R.color.whiteOpacity80);
-		switch (nextPray.getType()) {
-			case FAJR:
-				targetSurfaceColor = AMRes.getColor(getContext(), R.color.color_fajr_header);
-				break;
-			case SUNRISE:
-				targetSurfaceColor = AMRes.getColor(getContext(), R.color.color_dhuhr_sunrise_bg);
-				targetNameTextColor = AMRes.getColor(getContext(), R.color.red);
-				targetTimeTextColor = AMRes.getColor(getContext(), R.color.whiteOpacity80);
-				break;
-			case DHUHR:
-				targetSurfaceColor = AMRes.getColor(getContext(), R.color.color_dhuhr_sunrise_header);
-				targetNameTextColor = AMRes.getColor(getContext(), R.color.red);
-				targetTimeTextColor = AMRes.getColor(getContext(), R.color.blackOpacity60);
-				break;
-			case ASR:
-				targetSurfaceColor = AMRes.getColor(getContext(), R.color.color_asr_header);
-				targetNameTextColor = AMRes.getColor(getContext(), R.color.yellow);
-				targetTimeTextColor = AMRes.getColor(getContext(), R.color.blackOpacity60);
-				break;
-			case MAGHRIB:
-				targetSurfaceColor = AMRes.getColor(getContext(), R.color.color_maghrib_isha_header);
-				targetNameTextColor = AMRes.getColor(getContext(), R.color.yellow);
-				targetTimeTextColor = AMRes.getColor(getContext(), R.color.whiteOpacity80);
-				break;
-			case ISHA:
-				targetSurfaceColor = AMRes.getColor(getContext(), R.color.isha_bg);
-				targetNameTextColor = AMRes.getColor(getContext(), R.color.yellow);
-				targetTimeTextColor = AMRes.getColor(getContext(), R.color.whiteOpacity80);
-				break;
-		}
+        // Necessary check
+        if (nextPray == null) return this;
+        this.nextPray = nextPray;
+        // Determine colors based on next pray
+        int targetSurfaceColor = ResMan.getColor(getContext(), R.color.nextPrayCardSurfaceEndColor);
+        int targetNameTextColor = ResMan.getColor(getContext(), R.color.yellow);
+        int targetTimeTextColor = ResMan.getColor(getContext(), R.color.whiteOpacity80);
+        switch (nextPray.getType()) {
+            case FAJR:
+                targetSurfaceColor = ResMan.getColor(getContext(), R.color.color_fajr_header);
+                break;
+            case SUNRISE:
+                targetSurfaceColor = ResMan.getColor(getContext(), R.color.color_dhuhr_sunrise_bg);
+                targetNameTextColor = ResMan.getColor(getContext(), R.color.red);
+                targetTimeTextColor = ResMan.getColor(getContext(), R.color.whiteOpacity80);
+                break;
+            case DHUHR:
+                targetSurfaceColor = ResMan.getColor(getContext(), R.color.color_dhuhr_sunrise_header);
+                targetNameTextColor = ResMan.getColor(getContext(), R.color.red);
+                targetTimeTextColor = ResMan.getColor(getContext(), R.color.blackOpacity60);
+                break;
+            case ASR:
+                targetSurfaceColor = ResMan.getColor(getContext(), R.color.color_asr_header);
+                targetNameTextColor = ResMan.getColor(getContext(), R.color.yellow);
+                targetTimeTextColor = ResMan.getColor(getContext(), R.color.blackOpacity60);
+                break;
+            case MAGHRIB:
+                targetSurfaceColor = ResMan.getColor(getContext(), R.color.color_maghrib_isha_header);
+                targetNameTextColor = ResMan.getColor(getContext(), R.color.yellow);
+                targetTimeTextColor = ResMan.getColor(getContext(), R.color.whiteOpacity80);
+                break;
+            case ISHA:
+                targetSurfaceColor = ResMan.getColor(getContext(), R.color.isha_bg);
+                targetNameTextColor = ResMan.getColor(getContext(), R.color.yellow);
+                targetTimeTextColor = ResMan.getColor(getContext(), R.color.whiteOpacity80);
+                break;
+        }
 		// Update content views
 		this.nextPrayNameTS.setTextColor(targetNameTextColor).displayText(this.nextPray.getName());
 		this.nextPrayTimeTS.setTextColor(targetTimeTextColor).displayText(this.nextPray.getFormattedTime(getContext()));

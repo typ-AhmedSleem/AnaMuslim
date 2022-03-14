@@ -15,13 +15,13 @@ import androidx.annotation.Nullable;
 
 import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
-import com.typ.muslim.Consumers;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Consumers;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.TrackerRange;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrayTrackerManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.ProgressStep;
 import com.typ.muslim.ui.StepsProgressWheel;
@@ -86,13 +86,13 @@ public class PrayTrackerStatisticsView2 extends ViewContainer {
 		final int todayPrayedPrays = Counter.countValues(records, rec -> rec.wasPrayed() ? 1 : 0);
 		// Build formatted duration to be displayed
 		this.stvPrayStats.addSlice(new Slice(
-				new Slice.Builder(String.valueOf(Math.min(todayPrayedPrays, 5)))
-						.textColor(AMRes.getColor(getContext(), R.color.cardBackground3))
+                new Slice.Builder(String.valueOf(Math.min(todayPrayedPrays, 5)))
+                        .textColor(ResMan.getColor(getContext(), R.color.cardBackground3))
 						.style(Typeface.BOLD)
 						.textSize(dp2px(40f))));
 		this.stvPrayStats.addSlice(new Slice(
-				new Slice.Builder(" of 5")
-						.textColor(AMRes.getColor(getContext(), R.color.darkAdaptiveColor))
+                new Slice.Builder(" of 5")
+                        .textColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor))
 						.textSize(dp2px(25f))));
 		this.stvPrayStats.display();
 		// Tracker SPW

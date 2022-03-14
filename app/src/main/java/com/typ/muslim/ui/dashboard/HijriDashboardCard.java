@@ -13,15 +13,14 @@ import android.view.View;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.activities.HijriCalendarActivity;
-import com.typ.muslim.activities.IslamicEventsActivity;
-import com.typ.muslim.activities.SplashActivity;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.HijriCalendar;
 import com.typ.muslim.managers.IslamicEvents;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.HijriDate;
 import com.typ.muslim.models.IslamicEvent;
 import com.typ.muslim.ui.BottomSheets;
+import com.typ.muslim.ui.activities.HijriCalendarActivity;
+import com.typ.muslim.ui.activities.IslamicEventsActivity;
 import com.typ.muslim.utils.DateUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -78,15 +77,15 @@ public class HijriDashboardCard extends DashboardCard {
 		this.prepareRuntime(getContext());
 		// Refresh views
 		tvDayName.setText(DateUtils.getTodayName("F")); // Day name.
-		tvHijriDay.setText(String.valueOf(this.hijriDateToday.getDay())); // Hijri day number.
-		tvHijriMonthYear.setText(String.format(Locale.getDefault(), "%s, %d %s",
-				this.hijriDateToday.getMonthName(),
-				this.hijriDateToday.getYear(), AMRes.getString(getContext(), R.string.H))); // Hijri month name + Hijri year.
+        tvHijriDay.setText(String.valueOf(this.hijriDateToday.getDay())); // Hijri day number.
+        tvHijriMonthYear.setText(String.format(Locale.getDefault(), "%s, %d %s",
+                this.hijriDateToday.getMonthName(),
+                this.hijriDateToday.getYear(), ResMan.getString(getContext(), R.string.H))); // Hijri month name + Hijri year.
 		if (todayEvent != null) {
-			// There's an event today
-			tvEventTitle.setText(todayEvent.getTitleStringResId());
-			tvEventTitle.setTextColor(AMRes.getColor(getContext(), R.color.yellow));
-		} else tvEventTitle.setText(R.string.no_hijri_events_today); // No events today.
+            // There's an event today
+            tvEventTitle.setText(todayEvent.getTitleStringResId());
+            tvEventTitle.setTextColor(ResMan.getColor(getContext(), R.color.yellow));
+        } else tvEventTitle.setText(R.string.no_hijri_events_today); // No events today.
 	}
 
 	@Override

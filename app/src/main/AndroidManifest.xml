@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SET_ALARM" />
@@ -14,7 +16,7 @@
 
 
     <application
-        android:name=".core.AnaMuslimApp"
+        android:name=".app.AnaMuslimApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -22,7 +24,8 @@
         android:theme="@style/Theme.AnaMuslim">
 
         <activity
-            android:name=".activities.SplashActivity"
+            android:exported="true"
+            android:name=".ui.activities.SplashActivity"
             android:theme="@style/Theme.AnaMuslim">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,37 +34,37 @@
         </activity>
 
         <activity
-            android:name=".activities.WizardActivity"
+            android:name=".ui.activities.WizardActivity"
             android:configChanges="orientation|colorMode"
             android:theme="@style/Theme.AnaMuslim.SplashScreen"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:allowTaskReparenting="false"
             android:theme="@style/Theme.AnaMuslim" />
 
         <activity
-            android:name=".activities.IslamicEventsActivity"
+            android:name=".ui.activities.IslamicEventsActivity"
             android:theme="@style/Theme.AnaMuslim" />
 
         <activity
-            android:name=".activities.HijriCalendarActivity"
+            android:name=".ui.activities.HijriCalendarActivity"
             android:theme="@style/Theme.AnaMuslim" />
 
         <activity
-            android:name=".activities.names.HolyNamesOfAllahActivity"
+            android:name=".ui.activities.names.HolyNamesOfAllahActivity"
             android:theme="@style/Theme.AnaMuslim" />
 
         <activity
-            android:name=".activities.names.HolyNameOfAllahDescActivity"
+            android:name=".ui.activities.names.HolyNameOfAllahDescActivity"
             android:theme="@style/Theme.AnaMuslim" />
 
         <activity
-            android:name=".activities.khatma.KhatmaActivity"
+            android:name=".ui.activities.khatma.KhatmaActivity"
             android:theme="@style/Theme.AnaMuslim" />
 
-        <activity android:name=".activities.quran.QuranReaderActivity"
+        <activity android:name=".ui.activities.quran.QuranReaderActivity"
             android:theme="@style/Theme.AnaMuslim"/>
 
     </application>

@@ -12,8 +12,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.util.Log;
 
-import com.typ.muslim.Keys;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Keys;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.models.AllahName;
 
@@ -99,8 +99,8 @@ public abstract class AManager {
 	 * @return Locale-aware {@link List<AllahName>} contains all AllahNames
 	 */
 	public static List<AllahName> getAllahNames(Context context) {
-		final String[] names = AMRes.getStringArray(context, R.array.AllahNames);
-		final String[] namesDescs = AMRes.getStringArray(context, R.array.AllahNamesDescs);
+		final String[] names = ResMan.getStringArray(context, R.array.AllahNames);
+		final String[] namesDescs = ResMan.getStringArray(context, R.array.AllahNamesDescs);
 		final List<AllahName> allahNames = new ArrayList<>();
 		for (int index = 0; index < names.length; index++) allahNames.add(new AllahName(index, names[index], namesDescs[index]));
 		return allahNames;

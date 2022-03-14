@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.typ.muslim.R;
-import com.typ.muslim.managers.AMRes;
+import com.typ.muslim.managers.ResMan;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -55,15 +55,15 @@ public class ArrowIndicatorTextView extends ViewContainer {
 
 
 	public void change(IndicatorInfo info) {
-		if (info == null) return;
-		// Change indicator and content
-		@ColorInt int targetColor = AMRes.getColor(getContext(), R.color.darkAdaptiveColor);
-		if (info.indicator == -1) targetColor = AMRes.getColor(getContext(), R.color.red); // Down.
-		else if (info.indicator == 1) targetColor = AMRes.getColor(getContext(), R.color.green); // Up.
-		tsValue.setTextColor(targetColor);
-		ivIndicator.setColorFilter(targetColor);
-		ivIndicator.setImageResource(info.indicator == -1 ? R.drawable.ic_arrow_to_bottom: info.indicator == 0 ? R.drawable.ef_ic_arrow_back: R.drawable.ic_arrow_to_top);
-	}
+        if (info == null) return;
+        // Change indicator and content
+        @ColorInt int targetColor = ResMan.getColor(getContext(), R.color.darkAdaptiveColor);
+        if (info.indicator == -1) targetColor = ResMan.getColor(getContext(), R.color.red); // Down.
+        else if (info.indicator == 1) targetColor = ResMan.getColor(getContext(), R.color.green); // Up.
+        tsValue.setTextColor(targetColor);
+        ivIndicator.setColorFilter(targetColor);
+        ivIndicator.setImageResource(info.indicator == -1 ? R.drawable.ic_arrow_to_bottom : info.indicator == 0 ? R.drawable.ef_ic_arrow_back : R.drawable.ic_arrow_to_top);
+    }
 
 	public static class IndicatorInfo {
 

@@ -17,16 +17,16 @@ public class TelegramHelper {
 		final TelegramChatPermissions perms = new TelegramChatPermissions();
 		if (json == null) return perms;
 		else {
-			// Add permissions
-			perms.setCanSendMessages(json.optBoolean("can_send_messages", false));
-			perms.setCanSendMessages(json.optBoolean("can_send_media_messages", false));
-			perms.setCanSendMessages(json.optBoolean("can_send_polls", false));
-			perms.setCanSendMessages(json.optBoolean("can_send_other_messages", false));
-			perms.setCanSendMessages(json.optBoolean("can_add_web_page_previews", false));
-			perms.setCanSendMessages(json.optBoolean("can_change_info", false));
-			perms.setCanSendMessages(json.optBoolean("can_invite_users", false));
-			perms.setCanSendMessages(json.optBoolean("can_pin_messages", false));
-		}
+            // Add permissions
+            perms.setCanSendMessages(json.optBoolean("can_send_messages", false));
+            perms.setCanSendMedia(json.optBoolean("can_send_media_messages", false));
+            perms.setCanSendPolls(json.optBoolean("can_send_polls", false));
+            perms.setCanSendOtherMessages(json.optBoolean("can_send_other_messages", false));
+            perms.setCanSendWebPagePreviews(json.optBoolean("can_add_web_page_previews", false));
+            perms.setCanChangeInfo(json.optBoolean("can_change_info", false));
+            perms.setCanInviteUsers(json.optBoolean("can_invite_users", false));
+            perms.setCanPinMessages(json.optBoolean("can_pin_messages", false));
+        }
 		return perms;
 	}
 

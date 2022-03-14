@@ -21,8 +21,8 @@ import android.widget.ImageButton;
 
 import com.app.progresviews.ProgressWheel;
 import com.google.android.material.textview.MaterialTextView;
-import com.typ.muslim.Keys;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Keys;
 import com.typ.muslim.enums.TasbeehatTimesTarget;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.TasbeehManager;

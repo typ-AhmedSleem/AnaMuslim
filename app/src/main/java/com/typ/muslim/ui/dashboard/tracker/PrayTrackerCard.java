@@ -16,15 +16,15 @@ import androidx.annotation.NonNull;
 
 import com.db.williamchart.view.BarChartView;
 import com.google.android.material.textview.MaterialTextView;
-import com.typ.muslim.Keys;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Keys;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.TrackerRange;
 import com.typ.muslim.libs.easyjava.data.EasyList;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.PrayTrackerManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.ActionItem;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.ui.BottomSheets;
@@ -110,52 +110,52 @@ public class PrayTrackerCard extends ViewContainer {
 		List<Pair<String, Float>> chartData = new ArrayList<>();
 		// Get chart data according to current tracker range
 		if (trackerRange == TrackerRange.THIS_WEEK) {
-			// Calculate chart value for each pray
-			int totalPraysInWeek = weekLength * 5;
-			float[] prayingPercentage = new float[]{0f, 0f, 0f, 0f, 0f, 0f};
-			for (int i = 0; i < thisWeekRecords.size(); i++) {
-				PrayTrackerRecord record = thisWeekRecords.get(i);
-				if (record.wasPrayed()) prayingPercentage[record.getPray().ordinal()] = prayingPercentage[record.getPray().ordinal()] + 1.0f;
-			}
-			// Set chart data
-			// todo: Display 7 chart bars for week days (Sat,Sun,...) instead of 5
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.fajr), prayingPercentage[0] / totalPraysInWeek)); // Fajr data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.dhuhr), prayingPercentage[2] / totalPraysInWeek)); // Dhuhr data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.asr), prayingPercentage[3] / totalPraysInWeek)); // Asr data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.magh), prayingPercentage[4] / totalPraysInWeek)); // Maghrib data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.isha), prayingPercentage[5] / totalPraysInWeek)); // Isha data.
-			AManager.log(TAG, "getChartDataOfRange: ThisWeek[%s]", ListUtils.toString(chartData));
-		} else if (trackerRange == TrackerRange.THIS_MONTH) {
-			// Calculate chart value for each pray
-			int totalPraysInMonth = monthLength * 5;
-			float[] prayingPercentage = new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-			for (int i = 0; i < thisMonthRecords.size(); i++) {
-				PrayTrackerRecord record = thisMonthRecords.get(i);
-				if (record.wasPrayed()) prayingPercentage[record.getPray().ordinal()] = prayingPercentage[record.getPray().ordinal()] + 1.0f;
-			}
-			// Set chart data
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.fajr), prayingPercentage[0] / totalPraysInMonth)); // Fajr data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.dhuhr), prayingPercentage[2] / totalPraysInMonth)); // Dhuhr data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.asr), prayingPercentage[3] / totalPraysInMonth)); // Asr data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.magh), prayingPercentage[4] / totalPraysInMonth)); // Maghrib data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.isha), prayingPercentage[5] / totalPraysInMonth)); // Isha data.
-			AManager.log(TAG, "getChartDataOfRange: ThisMonth[%s]", ListUtils.toString(chartData));
-		} else {
-			// Calculate chart value for each pray
-			boolean[] prayedPrays = new boolean[]{false, false, false, false, false, false};
-			for (int i = 0; i < todayRecords.size(); i++) {
-				PrayTrackerRecord record = todayRecords.get(i);
-				Prays pray = record.getPray();
-				if (record.wasPrayed()) prayedPrays[pray.ordinal()] = true;
-			}
-			// Set chart data
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.fajr), prayedPrays[0] ? 1f : 0f)); // Fajr data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.dhuhr), prayedPrays[2] ? 1f : 0f)); // Dhuhr data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.asr), prayedPrays[3] ? 1f : 0f)); // Asr data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.magh), prayedPrays[4] ? 1f : 0f)); // Maghrib data.
-			chartData.add(new Pair<>(AMRes.getString(getContext(), R.string.isha), prayedPrays[5] ? 1f : 0f)); // Isha data.
-			AManager.log(TAG, "getChartDataOfRange: Today[%s]", ListUtils.toString(chartData));
-		}
+            // Calculate chart value for each pray
+            int totalPraysInWeek = weekLength * 5;
+            float[] prayingPercentage = new float[]{0f, 0f, 0f, 0f, 0f, 0f};
+            for (int i = 0; i < thisWeekRecords.size(); i++) {
+                PrayTrackerRecord record = thisWeekRecords.get(i);
+                if (record.wasPrayed()) prayingPercentage[record.getPray().ordinal()] = prayingPercentage[record.getPray().ordinal()] + 1.0f;
+            }
+            // Set chart data
+            // todo: Display 7 chart bars for week days (Sat,Sun,...) instead of 5
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.fajr), prayingPercentage[0] / totalPraysInWeek)); // Fajr data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.dhuhr), prayingPercentage[2] / totalPraysInWeek)); // Dhuhr data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.asr), prayingPercentage[3] / totalPraysInWeek)); // Asr data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.magh), prayingPercentage[4] / totalPraysInWeek)); // Maghrib data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.isha), prayingPercentage[5] / totalPraysInWeek)); // Isha data.
+            AManager.log(TAG, "getChartDataOfRange: ThisWeek[%s]", ListUtils.toString(chartData));
+        } else if (trackerRange == TrackerRange.THIS_MONTH) {
+            // Calculate chart value for each pray
+            int totalPraysInMonth = monthLength * 5;
+            float[] prayingPercentage = new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+            for (int i = 0; i < thisMonthRecords.size(); i++) {
+                PrayTrackerRecord record = thisMonthRecords.get(i);
+                if (record.wasPrayed()) prayingPercentage[record.getPray().ordinal()] = prayingPercentage[record.getPray().ordinal()] + 1.0f;
+            }
+            // Set chart data
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.fajr), prayingPercentage[0] / totalPraysInMonth)); // Fajr data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.dhuhr), prayingPercentage[2] / totalPraysInMonth)); // Dhuhr data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.asr), prayingPercentage[3] / totalPraysInMonth)); // Asr data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.magh), prayingPercentage[4] / totalPraysInMonth)); // Maghrib data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.isha), prayingPercentage[5] / totalPraysInMonth)); // Isha data.
+            AManager.log(TAG, "getChartDataOfRange: ThisMonth[%s]", ListUtils.toString(chartData));
+        } else {
+            // Calculate chart value for each pray
+            boolean[] prayedPrays = new boolean[]{false, false, false, false, false, false};
+            for (int i = 0; i < todayRecords.size(); i++) {
+                PrayTrackerRecord record = todayRecords.get(i);
+                Prays pray = record.getPray();
+                if (record.wasPrayed()) prayedPrays[pray.ordinal()] = true;
+            }
+            // Set chart data
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.fajr), prayedPrays[0] ? 1f : 0f)); // Fajr data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.dhuhr), prayedPrays[2] ? 1f : 0f)); // Dhuhr data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.asr), prayedPrays[3] ? 1f : 0f)); // Asr data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.magh), prayedPrays[4] ? 1f : 0f)); // Maghrib data.
+            chartData.add(new Pair<>(ResMan.getString(getContext(), R.string.isha), prayedPrays[5] ? 1f : 0f)); // Isha data.
+            AManager.log(TAG, "getChartDataOfRange: Today[%s]", ListUtils.toString(chartData));
+        }
 		// Return chart data
 		return chartData;
 	}

@@ -30,13 +30,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
-import com.typ.muslim.Consumers;
+import com.typ.muslim.app.Consumers;
 import com.typ.muslim.enums.ExpansionState;
 import com.typ.muslim.interfaces.Expandable;
 import com.typ.muslim.interfaces.ExpansionListener;
 import com.typ.muslim.interfaces.ViewHelperMethods;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.utils.DisplayUtils;
 
 import org.jetbrains.annotations.Contract;
@@ -229,12 +229,12 @@ public abstract class ViewContainer extends FrameLayout implements ViewHelperMet
 	@Override
 	public final @ColorInt
 	int getColor(@ColorRes int color) {
-		return AMRes.getColor(getContext(), color);
+		return ResMan.getColor(getContext(), color);
 	}
 
 	@Override
 	public final String getString(@StringRes int stringResId) {
-		return AMRes.getString(getContext(), stringResId);
+		return ResMan.getString(getContext(), stringResId);
 	}
 
 	@Override

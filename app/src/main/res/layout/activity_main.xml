@@ -209,6 +209,8 @@
                 <!--                    android:animateLayoutChanges="true" />-->
 
                 <!-- AllahNames card -->
+
+                <!-- SalatOnMohamed card -->
                 <com.typ.muslim.ui.dashboard.AllahNamesDashboardCard
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -217,7 +219,6 @@
                     android:layout_marginEnd="15dp"
                     android:transitionName="transition_card_to_activity" />
 
-                <!-- SalatOnMohamed card -->
                 <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard
                     android:id="@+id/som_dashboard_card"
                     android:layout_width="match_parent"

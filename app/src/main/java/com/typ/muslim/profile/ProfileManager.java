@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 
 import com.typ.muslim.R;
 import com.typ.muslim.interfaces.ResultCallback;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrefManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.profile.models.ExportableProfile;
 import com.typ.muslim.profile.models.Profile;
@@ -51,12 +51,12 @@ public class ProfileManager {
 	@Contract(pure = true)
 	@Nullable
 	public static Profile getProfile(Context context) {
-		return PrefManager.contains(context, KEY_PROFILE_ID) ?
-		       Profile.of(PrefManager.get(context, KEY_PROFILE_ID, 1),
-				       PrefManager.get(context, KEY_PROFILE_IS_MALE, true),
-				       PrefManager.get(context, KEY_PROFILE_NAME, AMRes.getString(context, R.string.default_profile_name)),
-				       PrefManager.get(context, KEY_PROFILE_PHOTO_PATH, ""),
-				       new Timestamp(PrefManager.get(context, KEY_PROFILE_CREATED_IN, Timestamp.NOW().toMillis()))) : null;
+        return PrefManager.contains(context, KEY_PROFILE_ID) ?
+                Profile.of(PrefManager.get(context, KEY_PROFILE_ID, 1),
+                        PrefManager.get(context, KEY_PROFILE_IS_MALE, true),
+                        PrefManager.get(context, KEY_PROFILE_NAME, ResMan.getString(context, R.string.default_profile_name)),
+                        PrefManager.get(context, KEY_PROFILE_PHOTO_PATH, ""),
+                        new Timestamp(PrefManager.get(context, KEY_PROFILE_CREATED_IN, Timestamp.NOW().toMillis()))) : null;
 	}
 
 	@Contract(pure = true)

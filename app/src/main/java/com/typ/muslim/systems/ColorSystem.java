@@ -13,12 +13,12 @@ import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 
-import com.typ.muslim.Keys;
 import com.typ.muslim.R;
+import com.typ.muslim.app.Keys;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.interfaces.ThemeChangeObserver;
-import com.typ.muslim.managers.AMRes;
 import com.typ.muslim.managers.PrefManager;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.ui.AMBaseActivity;
 
@@ -30,11 +30,11 @@ public class ColorSystem {
 	// TODO: 3/1/21 Take care of theme-aware colors that some colors may not be valid with all themes
 
 	// Runtime
-	private AMBaseActivity baseActivity;
+	private final AMBaseActivity baseActivity;
+	private final ThemeChangeObserver themeChangeObserver;
 	private boolean isPaused;
 	private GlobalTheme currGlobalTheme;
 	private ColorTheme currColorTheme;
-	private ThemeChangeObserver themeChangeObserver;
 
 	public ColorSystem(AMBaseActivity activity) {
 		// Setup runtime
@@ -59,24 +59,24 @@ public class ColorSystem {
 	 */
 	public static @ColorInt
 	int getPrimaryColor(Context context) {
-		return PrefManager.get(context, Keys.COLOR_PRIMARY, AMRes.getColor(context, R.color.colorPrimary));
-	}
+		return PrefManager.get(context, Keys.COLOR_PRIMARY, ResMan.getColor(context, R.color.colorPrimary));
+    }
 
 	/**
 	 * Returns the current theme accent color used for buttons backgrounds and TextColors sometimes
 	 */
 	public static @ColorInt
 	int getAccentColor(Context context) {
-		return PrefManager.get(context, Keys.COLOR_ACCENT, AMRes.getColor(context, R.color.colorAccent));
-	}
+		return PrefManager.get(context, Keys.COLOR_ACCENT, ResMan.getColor(context, R.color.colorAccent));
+    }
 
 	/**
 	 * Returns the current theme accent color used for buttons backgrounds and TextColors sometimes
 	 */
 	public static @ColorInt
 	int getTextColor(Context context) {
-		return PrefManager.get(context, Keys.COLOR_TEXT, AMRes.getColor(context, R.color.colorText));
-	}
+		return PrefManager.get(context, Keys.COLOR_TEXT, ResMan.getColor(context, R.color.colorText));
+    }
 
 	/**
 	 * @return The current global theme as enum {@link GlobalTheme}
@@ -205,12 +205,12 @@ public class ColorSystem {
 		@ColorInt
 		public static int getPrayCardSurfaceColor(Context context, Pray pray) {
 			// TODO: 7/7/2021 to be completed
-			if (pray.getType() == Prays.SUNRISE) return AMRes.getColor(context, R.color.color_dhuhr_sunrise_highlight);
-			else if (pray.getType() == Prays.DHUHR) return AMRes.getColor(context, R.color.color_dhuhr_sunrise_bg);
-			else if (pray.getType() == Prays.ASR) return AMRes.getColor(context, R.color.color_asr_bg);
-			else if (pray.getType() == Prays.MAGHRIB) return AMRes.getColor(context, R.color.color_maghrib_isha_header);
-			else if (pray.getType() == Prays.ISHA) return AMRes.getColor(context, R.color.isha_bg);
-			return AMRes.getColor(context, R.color.color_fajr_header); // Fajr.
+			if (pray.getType() == Prays.SUNRISE) return ResMan.getColor(context, R.color.color_dhuhr_sunrise_highlight);
+			else if (pray.getType() == Prays.DHUHR) return ResMan.getColor(context, R.color.color_dhuhr_sunrise_bg);
+			else if (pray.getType() == Prays.ASR) return ResMan.getColor(context, R.color.color_asr_bg);
+			else if (pray.getType() == Prays.MAGHRIB) return ResMan.getColor(context, R.color.color_maghrib_isha_header);
+			else if (pray.getType() == Prays.ISHA) return ResMan.getColor(context, R.color.isha_bg);
+			return ResMan.getColor(context, R.color.color_fajr_header); // Fajr.
 		}
 
 		@ColorInt
@@ -219,8 +219,8 @@ public class ColorSystem {
 			if (pray.getType() == Prays.SUNRISE) return Color.WHITE;
 			else if (pray.getType() == Prays.DHUHR) return Color.BLACK;
 			else if (pray.getType() == Prays.ASR) return Color.BLACK;
-			else if (pray.getType() == Prays.MAGHRIB) return AMRes.getColor(context, R.color.color_maghrib_isha_highlight);
-			else if (pray.getType() == Prays.ISHA) return AMRes.getColor(context, R.color.color_maghrib_isha_highlight);
+			else if (pray.getType() == Prays.MAGHRIB) return ResMan.getColor(context, R.color.color_maghrib_isha_highlight);
+			else if (pray.getType() == Prays.ISHA) return ResMan.getColor(context, R.color.color_maghrib_isha_highlight);
 			return Color.WHITE; // Fajr.
 		}
 

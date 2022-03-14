@@ -3,9 +3,8 @@ package com.typ.muslim.models;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
-import com.typ.muslim.Extras;
+import com.typ.muslim.app.Extras;
 
 import java.io.Serializable;
 import java.util.Objects;

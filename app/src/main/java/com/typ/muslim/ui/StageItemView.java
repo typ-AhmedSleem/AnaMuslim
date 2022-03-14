@@ -21,7 +21,7 @@ import androidx.annotation.StringRes;
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.enums.StageStatus;
-import com.typ.muslim.managers.AMRes;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.StageInfo;
 
 import java.util.Locale;
@@ -75,40 +75,40 @@ public class StageItemView extends RelativeLayout {
         switch (status) {
             case INFO:
                 this.indicatorIV.setVisibility(INVISIBLE);
-                this.container.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.ef_colorPrimaryDark)));
-                this.stageTitleTV.setTextColor(AMRes.getColor(getContext(), R.color.white));
+                this.container.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.ef_colorPrimaryDark)));
+                this.stageTitleTV.setTextColor(ResMan.getColor(getContext(), R.color.white));
                 this.stageTitleTV.setTextAlignment(TEXT_ALIGNMENT_CENTER);
                 break;
             case WAITING:
                 this.indicatorIV.setImageDrawable(null);
                 this.indicatorIV.setBackgroundResource(R.drawable.shape_coming_pray);
-                this.stageTitleTV.setTextColor(AMRes.getColor(getContext(), R.color.darkAdaptiveColor));
-                this.indicatorIV.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.darkAdaptiveColor)));
+                this.stageTitleTV.setTextColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor));
+                this.indicatorIV.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.darkAdaptiveColor)));
                 break;
             case WORKING:
-                this.indicatorIV.setColorFilter(AMRes.getColor(getContext(), R.color.scv_surround_color_default));
+                this.indicatorIV.setColorFilter(ResMan.getColor(getContext(), R.color.scv_surround_color_default));
                 this.indicatorIV.setImageResource(R.drawable.ic_arrow_to_right);
                 this.indicatorIV.setBackgroundResource(R.drawable.shape_coming_pray);
                 this.indicatorIV.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-                this.container.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.scv_surround_color_default)));
-                this.stageTitleTV.setTextColor(AMRes.getColor(getContext(), R.color.white));
+                this.container.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.scv_surround_color_default)));
+                this.stageTitleTV.setTextColor(ResMan.getColor(getContext(), R.color.white));
                 break;
             case DONE:
-                this.indicatorIV.setColorFilter(AMRes.getColor(getContext(), R.color.green));
+                this.indicatorIV.setColorFilter(ResMan.getColor(getContext(), R.color.green));
                 this.indicatorIV.setImageResource(R.drawable.ic_done);
                 this.indicatorIV.setBackgroundResource(R.drawable.shape_passed_pray);
                 this.indicatorIV.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-                this.container.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.green)));
-                this.stageTitleTV.setTextColor(AMRes.getColor(getContext(), R.color.white));
+                this.container.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.green)));
+                this.stageTitleTV.setTextColor(ResMan.getColor(getContext(), R.color.white));
                 break;
             case FAILED:
             case CANCELLED:
-                this.indicatorIV.setColorFilter(AMRes.getColor(getContext(), R.color.switcher_off_color));
+                this.indicatorIV.setColorFilter(ResMan.getColor(getContext(), R.color.switcher_off_color));
                 this.indicatorIV.setImageResource(R.drawable.ic_close);
                 this.indicatorIV.setBackgroundResource(R.drawable.shape_passed_pray);
                 this.indicatorIV.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-                this.container.setBackgroundTintList(ColorStateList.valueOf(AMRes.getColor(getContext(), R.color.switcher_off_color)));
-                this.stageTitleTV.setTextColor(AMRes.getColor(getContext(), R.color.white));
+                this.container.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.switcher_off_color)));
+                this.stageTitleTV.setTextColor(ResMan.getColor(getContext(), R.color.white));
                 break;
         }
         return this;
@@ -131,8 +131,8 @@ public class StageItemView extends RelativeLayout {
         // Update title
         if (this.stageInfo == null) this.stageTitleTV.setText(R.string.failed);
         else this.stageTitleTV.setText(String.format(Locale.getDefault(), "%s: %s",
-                AMRes.getString(getContext(), this.stageInfo.getStepTitle()),
-                AMRes.getString(getContext(),
+                ResMan.getString(getContext(), this.stageInfo.getStepTitle()),
+                ResMan.getString(getContext(),
                         status == DONE ? R.string.succeed : status == FAILED ? R.string.failed : R.string.cancelled)));
     }
 

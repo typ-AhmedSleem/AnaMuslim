@@ -34,8 +34,8 @@ import com.jude.easyrecyclerview.decoration.StickyHeaderDecoration;
 import com.paulrybitskyi.valuepicker.model.PickerItem;
 import com.typ.muslim.R;
 import com.typ.muslim.adapters.CitiesAdapter;
-import com.typ.muslim.interfaces.ResultCallback;
 import com.typ.muslim.interfaces.OnItemClickListener;
+import com.typ.muslim.interfaces.ResultCallback;
 import com.typ.muslim.libs.EnhancedScaleTouchListener;
 import com.typ.muslim.models.Location;
 import com.typ.muslim.ui.AMNumberSelector;
@@ -102,7 +102,8 @@ public class ViewManager {
 		// Views
 		private final EditText inputSearch;
 		private final BottomSheetDialog bs;
-		private EasyRecyclerView rv;
+		private final EasyRecyclerView rv;
+
 		/**
 		 * Creates a new instance of SearchCityBottomSheet.
 		 */
@@ -197,8 +198,8 @@ public class ViewManager {
 			public void setData(Location location) {
 				AManager.log("SHV", "setData: " + location);
 				((TextView) itemView).setText(location.getCountryName());
-				((TextView) itemView).setTextColor(AMRes.getColor(getContext(), R.color.colorText));
-				itemView.setBackgroundColor(AMRes.getColor(getContext(), R.color.bg_input_box));
+				((TextView) itemView).setTextColor(ResMan.getColor(getContext(), R.color.colorText));
+				itemView.setBackgroundColor(ResMan.getColor(getContext(), R.color.bg_input_box));
 			}
 		}
 	}

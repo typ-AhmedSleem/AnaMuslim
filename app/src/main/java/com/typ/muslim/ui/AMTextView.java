@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.interfaces.ThemeChangeObserver;
-import com.typ.muslim.managers.AMRes;
+import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.systems.ColorSystem;
 
 public class AMTextView extends MaterialTextView implements ThemeChangeObserver {
@@ -46,15 +46,15 @@ public class AMTextView extends MaterialTextView implements ThemeChangeObserver 
 
 	@Override
 	public void onThemeChanged(View madeCallView, ColorSystem.GlobalTheme globalTheme, ColorSystem.ColorTheme colorTheme) {
-		if (globalTheme != null && colorTheme != null && isThemeAdaptEnabled) super.setTextColor(AMRes.getColor(getContext(), colorTheme.getAccentColorRes()));
-	}
+        if (globalTheme != null && colorTheme != null && isThemeAdaptEnabled) super.setTextColor(ResMan.getColor(getContext(), colorTheme.getAccentColorRes()));
+    }
 
 	@SuppressLint("ResourceType")
 	@Override
 	public void setTextColor(@ColorRes int textColor) {
-		// Change TextColor if adaptTheme is off
-		if (!isThemeAdaptEnabled) super.setTextColor(AMRes.getColor(getContext(), textColor));
-	}
+        // Change TextColor if adaptTheme is off
+        if (!isThemeAdaptEnabled) super.setTextColor(ResMan.getColor(getContext(), textColor));
+    }
 
 	public AMTextView setThemeAdaptive(boolean themeAdaptEnabled) {
 		isThemeAdaptEnabled = themeAdaptEnabled;
