@@ -27,24 +27,26 @@ import org.jetbrains.annotations.NotNull;
 
 public class SplashActivity extends AppCompatActivity implements OnTestCompletedListener {
 
-	// Statics
-	private static final int RC_PERM = 21;
-	private static final String TAG = "SplashActivity";
-	// Views
-	private StagesView stagesView;
+    // Statics
+    private static final int RC_PERM = 21;
+    private static final String TAG = "SplashActivity";
+    // Views
+    private StagesView stagesView;
 
-	@Override
-	protected void onCreate(@Nullable Bundle savedInstanceState) {
-		// Always change Theme to Light to keep colors unchanged
-		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_splash);
-		// Hide default ActionBar
-		if (getSupportActionBar() != null) getSupportActionBar().hide();
-		// Check next destination then move to it
-		if (ProfileManager.hasProfile(this)) this.onTestCompleted(new Class[]{MainActivity.class});
-		else this.onTestCompleted(new Class[]{WizardActivity.class});
-		// Setup stages view then execute stages async
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        // Always change Theme to Light to keep colors unchanged
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+        // Hide default ActionBar
+        if (getSupportActionBar() != null) getSupportActionBar().hide();
+        // Check next destination then move to it
+
+        if (ProfileManager.hasProfile(this)) this.onTestCompleted(new Class[]{MainActivity.class});
+        else this.onTestCompleted(new Class[]{WizardActivity.class});
+
+        // Setup stages view then execute stages async
 //		stagesView = findViewById(R.id.splash_stages_view);
 //		stagesView.setStages(EasyList.createList(
 //				new Pair<>(new StageInfo(R.string.checking_perms, true, false), () -> {
@@ -73,49 +75,48 @@ public class SplashActivity extends AppCompatActivity implements OnTestCompleted
 //				}),
 //				new Pair<>(new StageInfo(R.string.starting_anamuslim, true, true), null)
 //		));//.executeAsync(this);
-	}
+    }
 
-	private void requestPermissions() {
-		// TODO: 2021-05-27 code this
-	}
+    private void requestPermissions() {
+        // TODO: 2021-05-27 code this
+    }
 
-	@Override
-	public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
-		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-		// TODO: 2021-05-27 code this
-	}
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 
-	@Override
-	public void onTestCompleted(Object[] payload) {
-		// Payload contains 1 element which is class of the target activity
-		new Handler().postDelayed(() -> {
-			if (payload.length > 0) {
-				Bundle options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, findViewById(R.id.splashTV), "headerTextViewTransition").toBundle();
-				startActivity(new Intent(this, ((Class<?>) payload[0])));
-				finish();
-			} else {
-				// TODO: 2021-05-27 handle this state
-				AManager.log(TAG, "onTestCompleted: Payload contains no elements.");
-			}
-		}, 1500);
-	}
+    @Override
+    public void onTestCompleted(Object[] payload) {
+        // Payload contains 1 element which is class of the target activity
+        new Handler().postDelayed(() -> {
+            if (payload.length > 0) {
+                Bundle options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, findViewById(R.id.splashTV), "headerTextViewTransition").toBundle();
+                startActivity(new Intent(this, ((Class<?>) payload[0])));
+                finish();
+            } else {
+                // TODO: 2021-05-27 handle this state
+                AManager.log(TAG, "onTestCompleted: Payload contains no elements.");
+            }
+        }, 1500);
+    }
 
-	@Override
-	public boolean onTestRequiresAction(@NonNull StageInfo stageInfo) {
-		// TODO: 2021-05-27 handle this
-		return false;
-	}
+    @Override
+    public boolean onTestRequiresAction(@NonNull StageInfo stageInfo) {
+        // TODO: 2021-05-27 handle this
+        return false;
+    }
 
-	@Override
-	public boolean onTestFacedError() {
-		// TODO: 2021-05-27 handle this
-		return false;
-	}
+    @Override
+    public boolean onTestFacedError() {
+        // TODO: 2021-05-27 handle this
+        return false;
+    }
 
-	@Override
-	public void onTestFailed(Exception reason) {
-		// TODO: 2021-05-27 handle this
+    @Override
+    public void onTestFailed(Exception reason) {
+        // TODO: 2021-05-27 handle this
 
-	}
+    }
 
 }

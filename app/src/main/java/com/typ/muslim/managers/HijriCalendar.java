@@ -48,8 +48,7 @@ public class HijriCalendar {
 	public static HijriDate toHijri(Timestamp date) {
 		if (date != null) {
 			int[] hDate = UmmalquraGregorianConverter.toHijri(date);
-			HijriDate hijriDate = new HijriDate(hDate[0], hDate[1], hDate[2]);
-			return hijriDate;
+			return new HijriDate(hDate[0], hDate[1], hDate[2]);
 		}
 		return null;
 	}

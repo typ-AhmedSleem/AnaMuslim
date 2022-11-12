@@ -27,9 +27,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ProfileManager {
+public final class ProfileManager {
 
-	// todo: Add method (isProfileCompleted) which returns true if the profile has fields to be completed on it
+	// todo: Add method (isProfileCompleted) which returns true if the profile has fields to be completed on it.
+	// todo: Add method (exportProfile) which returns an ExportableProfile json-like object to be stored or shared.
 
 	// Profile pref keys
 	public static final String KEY_PROFILE_ID = "profile_id";

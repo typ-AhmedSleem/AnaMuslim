@@ -50,7 +50,7 @@ public class HolyNamesOfAllahActivity extends AppCompatActivity {
 		rv.setLayoutManager(new LinearLayoutManager(this));
 		rv.setAdapter(adapter);
 		// Setup listeners
-		((MaterialToolbar) findViewById(R.id.toolbar)).setNavigationOnClickListener(v -> finish());
+		((MaterialToolbar) findViewById(R.id.toolbar)).setNavigationOnClickListener(v -> finishAfterTransition());
 	}
 
 	private static class NamesOfAllahAdapter extends RecyclerArrayAdapter<AllahName> {

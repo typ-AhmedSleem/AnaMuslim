@@ -52,31 +52,12 @@
             app:lineHeight="28dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_join_khatma"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/font_bukrar"
-            android:text="@string/join_khatma"
-            android:textAllCaps="true"
-            android:textColor="@color/green"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:cornerRadius="15dp"
-            app:layout_constraintBottom_toTopOf="@id/btn_create_khatma"
-            app:rippleColor="@color/ripple_som_card" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_create_khatma"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
             android:fontFamily="@font/font_bukrar"
             android:text="@string/create_new_khatma"
             android:textAllCaps="true"
@@ -84,8 +65,28 @@
             android:textStyle="bold"
             app:backgroundTint="@color/green"
             app:cornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_join_khatma"
             app:rippleColor="@color/ripple_white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_join_khatma"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/font_bukrar"
+            android:text="@string/join_khatma"
+            android:textAllCaps="true"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/bg_input_box"
+            app:cornerRadius="15dp"
+            app:elevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:rippleColor="@color/ripple_som_card" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

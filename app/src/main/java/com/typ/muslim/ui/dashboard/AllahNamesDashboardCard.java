@@ -67,8 +67,8 @@ public class AllahNamesDashboardCard extends DashboardCard {
 	}
 
 	@Override
-	public void onClick(View v) {
-		if (isBottomSheetShown) return;
+	public boolean onLongClick(View v) {
+		if (isBottomSheetShown) return false;
 		BottomSheets.newAllahNames(getContext(),
 				this.allahName,
 				isShown -> this.isBottomSheetShown = isShown,
@@ -76,5 +76,10 @@ public class AllahNamesDashboardCard extends DashboardCard {
 					allahName = newAllahName;
 					refreshUI();
 				}).show();
+		return true;
+	}
+
+	public AllahName getHoldingName() {
+		return allahName;
 	}
 }

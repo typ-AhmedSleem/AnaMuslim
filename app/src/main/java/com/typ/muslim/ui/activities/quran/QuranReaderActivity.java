@@ -6,7 +6,6 @@
 
 package com.typ.muslim.ui.activities.quran;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -25,12 +24,12 @@ import java.util.Locale;
 
 public class QuranReaderActivity extends AppCompatActivity {
 
-	private int svn = -1;
-	private Slice svs;
-	private SpannableTextView stvQuran;
+    private int svn = -1;
+    private Slice svs;
+    private SpannableTextView stvQuran;
 
-	@Override
-	protected void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Content view
         if (getSupportActionBar() != null) getSupportActionBar().hide();
@@ -52,8 +51,6 @@ public class QuranReaderActivity extends AppCompatActivity {
                         final Slice ss = new Slice.Builder(slice.getText())
                                 .textSize(slice.getTextSize())
                                 .textColor(ResMan.getColor(this, R.color.green))
-                                .style(Typeface.BOLD)
-                                .setCornerRadius(10)
                                 .setSliceId(-slice.getSliceId())
                                 .backgroundColor(ResMan.getColor(this, R.color.bg_input_box))
                                 .build();
@@ -62,12 +59,12 @@ public class QuranReaderActivity extends AppCompatActivity {
                         stvQuran.display();
                     })
                     .textColor(ResMan.getColor(this, R.color.darkAdaptiveColor))
-					.textSize(DisplayUtils.sp2px(this, 25f))
-					.build());
-		}
-		// Display Quran
-		stvQuran.display();
-	}
+                    .textSize(DisplayUtils.sp2px(this, 25f))
+                    .build());
+        }
+        // Display Quran
+        stvQuran.display();
+    }
 
 
 }

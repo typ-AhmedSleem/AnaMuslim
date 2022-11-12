@@ -8,14 +8,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/stv_quran_reader_page"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/adaptiveBackgroundColor"
     android:paddingStart="15dp"
     android:paddingTop="35dp"
     android:paddingEnd="15dp"
     android:paddingBottom="15dp"
-    android:textSize="25sp"
     android:textColor="@color/darkAdaptiveColor"
+    android:text="ahsdiahsidoh"
+    android:textSize="25sp"
     app:fontFamily="@font/font_bukrar"
     app:lineHeight="35dp">
 

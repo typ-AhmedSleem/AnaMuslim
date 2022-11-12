@@ -25,7 +25,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.typ.muslim.R;
 import com.typ.muslim.core.praytime.enums.Prays;
-import com.typ.muslim.ds.Queue;
 import com.typ.muslim.interfaces.PrayTimeCameListener;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AManager;

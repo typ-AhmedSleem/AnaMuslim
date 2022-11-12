@@ -56,7 +56,7 @@
             android:layout_height="25dp"
             android:padding="5dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ef_ic_arrow_forward"
+            android:src="@drawable/ic_arrow_to_right"
             app:layout_constraintBottom_toBottomOf="@id/tv_section_header_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_section_header_title"

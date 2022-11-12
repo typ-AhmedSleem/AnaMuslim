@@ -14,7 +14,8 @@ import androidx.annotation.IntRange;
 import com.typ.muslim.R;
 import com.typ.muslim.db.QuranDatabase;
 import com.typ.muslim.features.quran.models.QuranAyah;
-import com.typ.muslim.features.quran.models.QuranJuz2;
+import com.typ.muslim.features.quran.models.QuranPart;
+import com.typ.muslim.features.quran.models.QuranSurah;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.ResMan;
 
@@ -23,43 +24,50 @@ import java.util.List;
 
 public class Quran {
 
+    // Quran constants
+    public static final int QURAN_JUZ2S_COUNT = 30;
+    public static final int QURAN_HIZBS_COUNT = 60;
+    public static final int QURAN_SURAHS_COUNT = 114;
+    public static final int QURAN_AYAT_COUNT = 6236;
+
+    // Runtime
     private static final String TAG = "QuranProvider";
-    private static final QuranJuz2[] QURAN_JUZ2S;
+    private static final QuranPart[] QURAN_JUZ2S;
     private static final QuranSurah[] QURAN_SURAHS;
 
     static {
         // Quran Juz2s
-        QURAN_JUZ2S = new QuranJuz2[]{
-                new QuranJuz2(1, 1, 1, 2, 141),
-                new QuranJuz2(2, 2, 142, 2, 252),
-                new QuranJuz2(3, 2, 253, 3, 91),
-                new QuranJuz2(4, 3, 92, 4, 23),
-                new QuranJuz2(5, 4, 24, 4, 147),
-                new QuranJuz2(6, 4, 148, 5, 82),
-                new QuranJuz2(7, 5, 83, 6, 110),
-                new QuranJuz2(8, 6, 111, 7, 87),
-                new QuranJuz2(9, 7, 88, 8, 40),
-                new QuranJuz2(10, 8, 41, 9, 93),
-                new QuranJuz2(11, 9, 94, 11, 5),
-                new QuranJuz2(12, 11, 6, 12, 52),
-                new QuranJuz2(13, 12, 53, 14, 52),
-                new QuranJuz2(14, 15, 1, 16, 128),
-                new QuranJuz2(15, 17, 1, 18, 74),
-                new QuranJuz2(16, 18, 75, 20, 135),
-                new QuranJuz2(17, 21, 1, 22, 78),
-                new QuranJuz2(18, 23, 1, 25, 20),
-                new QuranJuz2(19, 25, 20, 27, 55),
-                new QuranJuz2(20, 27, 56, 29, 45),
-                new QuranJuz2(21, 29, 46, 33, 30),
-                new QuranJuz2(22, 33, 31, 36, 27),
-                new QuranJuz2(23, 36, 28, 39, 31),
-                new QuranJuz2(24, 39, 32, 41, 46),
-                new QuranJuz2(25, 41, 47, 45, 32),
-                new QuranJuz2(26, 45, 33, 51, 30),
-                new QuranJuz2(27, 51, 31, 57, 29),
-                new QuranJuz2(28, 58, 1, 66, 12),
-                new QuranJuz2(29, 67, 1, 77, 50),
-                new QuranJuz2(30, 78, 1, 114, 6)};
+        QURAN_JUZ2S = new QuranPart[]{
+                new QuranPart(1, 1, 1, 2, 141),
+                new QuranPart(2, 2, 142, 2, 252),
+                new QuranPart(3, 2, 253, 3, 91),
+                new QuranPart(4, 3, 92, 4, 23),
+                new QuranPart(5, 4, 24, 4, 147),
+                new QuranPart(6, 4, 148, 5, 82),
+                new QuranPart(7, 5, 83, 6, 110),
+                new QuranPart(8, 6, 111, 7, 87),
+                new QuranPart(9, 7, 88, 8, 40),
+                new QuranPart(10, 8, 41, 9, 93),
+                new QuranPart(11, 9, 94, 11, 5),
+                new QuranPart(12, 11, 6, 12, 52),
+                new QuranPart(13, 12, 53, 14, 52),
+                new QuranPart(14, 15, 1, 16, 128),
+                new QuranPart(15, 17, 1, 18, 74),
+                new QuranPart(16, 18, 75, 20, 135),
+                new QuranPart(17, 21, 1, 22, 78),
+                new QuranPart(18, 23, 1, 25, 20),
+                new QuranPart(19, 25, 20, 27, 55),
+                new QuranPart(20, 27, 56, 29, 45),
+                new QuranPart(21, 29, 46, 33, 30),
+                new QuranPart(22, 33, 31, 36, 27),
+                new QuranPart(23, 36, 28, 39, 31),
+                new QuranPart(24, 39, 32, 41, 46),
+                new QuranPart(25, 41, 47, 45, 32),
+                new QuranPart(26, 45, 33, 51, 30),
+                new QuranPart(27, 51, 31, 57, 29),
+                new QuranPart(28, 58, 1, 66, 12),
+                new QuranPart(29, 67, 1, 77, 50),
+                new QuranPart(30, 78, 1, 114, 6)};
         // Quran Surahs
         QURAN_SURAHS = new QuranSurah[]{
                 new QuranSurah(1, 7, true),
@@ -212,7 +220,7 @@ public class Quran {
         return getSurah(surahNumber).getAyat(context).get(ayahNumber - 1);
     }
 
-    public static QuranJuz2 getJuz2(@IntRange(from = 1, to = 30) int juz2Number) {
+    public static QuranPart getJuz2(@IntRange(from = 1, to = 30) int juz2Number) {
         return QURAN_JUZ2S[juz2Number - 1];
     }
 

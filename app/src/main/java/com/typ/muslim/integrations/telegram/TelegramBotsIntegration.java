@@ -29,104 +29,105 @@ import java.util.Map;
  */
 public class TelegramBotsIntegration {
 
-	// todo: Add API methods like: [updateBot].
+    // todo: Add API methods like: [updateBot].
+    private static final Object block = new Object();
 
-	public static EasyList<TelegramBot> getMyBots(Context context, boolean performOnlineRefresh) {
-		EasyList<TelegramBot> myBots = new EasyList<>();
-		myBots.add(new TelegramBot(TelegramConstants.AM_BOT_TOKEN));
-		// Get my bots from local database
-		myBots.addAll(TelegramBot.resolveAll(LocalDatabase.getInstance(context).query("SELECT * FROM telegram")));
-		// Perform online refresh for every bot if it's requested
-		if (performOnlineRefresh) {
-			synchronized (myBots) {
-				for (TelegramBot bot : myBots) bot.getMe();
-			}
-		}
-		return myBots;
-	}
+    public static EasyList<TelegramBot> getMyBots(Context context, boolean performOnlineRefresh) {
+        EasyList<TelegramBot> myBots = new EasyList<>();
+        myBots.add(new TelegramBot(TelegramConstants.AM_BOT_TOKEN));
+        // Get my bots from local database
+        myBots.addAll(TelegramBot.resolveAll(LocalDatabase.getInstance(context).query("SELECT * FROM telegram")));
+        // Perform online refresh for every bot if it's requested
+        if (performOnlineRefresh) {
+            synchronized (block) {
+                for (TelegramBot bot : myBots) bot.getMe();
+            }
+        }
+        return myBots;
+    }
 
-	public static boolean persistBot(Context context, TelegramBot bot) {
-		if (bot == null) return false;
-		try {
-			LocalDatabase.getInstance(context)
-			             .execute("INSERT INTO telegram (` token `,` id `,` first_name `,` last_Name `,` username `,` can_join_groups `,` can_read_all_groups_msgs `,` support_inline_queries `) VALUES('" +
-			                      bot.token + "','" +
-			                      bot.id + "'," +
-			                      bot.firstName + "','" +
-			                      bot.lastName + "','" +
-			                      bot.username + "','" +
-			                      bot.canJoinGroups + "','" +
-			                      bot.canReadAllGroupMsgs + "','" +
-			                      bot.supportsInlineQueries + "')");
-			return true;
-		} catch (SQLiteException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+    public static boolean persistBot(Context context, TelegramBot bot) {
+        if (bot == null) return false;
+        try {
+            LocalDatabase.getInstance(context)
+                    .execute("INSERT INTO telegram (` token `,` id `,` first_name `,` last_Name `,` username `,` can_join_groups `,` can_read_all_groups_msgs `,` support_inline_queries `) VALUES('" +
+                            bot.token + "','" +
+                            bot.id + "'," +
+                            bot.firstName + "','" +
+                            bot.lastName + "','" +
+                            bot.username + "','" +
+                            bot.canJoinGroups + "','" +
+                            bot.canReadAllGroupMsgs + "','" +
+                            bot.supportsInlineQueries + "')");
+            return true;
+        } catch (SQLiteException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
-	public static TelegramBot getBot(Context context, String botToken) {
-		if (TextUtils.isEmpty(botToken)) return TelegramBot.UN_INITIALIZED_BOT;
-		// Query db for the bot with given token
-		Cursor c = LocalDatabase.getInstance(context).query(String.format(Locale.ENGLISH, "SELECT * FROM telegram where ` token ` = '%s' LIMIT 1", botToken));
-		return TelegramBot.resolve(c);
-	}
+    public static TelegramBot getBot(Context context, String botToken) {
+        if (TextUtils.isEmpty(botToken)) return TelegramBot.UN_INITIALIZED_BOT;
+        // Query db for the bot with given token
+        Cursor c = LocalDatabase.getInstance(context).query(String.format(Locale.ENGLISH, "SELECT * FROM telegram where ` token ` = '%s' LIMIT 1", botToken));
+        return TelegramBot.resolve(c);
+    }
 
-	public static boolean removeBot(Context context, String botToken) {
-		if (TextUtils.isEmpty(botToken)) return false;
-		try {
-			LocalDatabase.getInstance(context)
-			             .execute(String.format(Locale.ENGLISH, "DELETE FROM telegram where ` token ` = '%s'", botToken));
-			return true;
-		} catch (SQLiteException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+    public static boolean removeBot(Context context, String botToken) {
+        if (TextUtils.isEmpty(botToken)) return false;
+        try {
+            LocalDatabase.getInstance(context)
+                    .execute(String.format(Locale.ENGLISH, "DELETE FROM telegram where ` token ` = '%s'", botToken));
+            return true;
+        } catch (SQLiteException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
-	public static boolean updateBot(Context context, TelegramBot updatedBot) {
-		// todo: complete coding this method
-		if (updatedBot == null) return false;
-		try {
-			LocalDatabase.getInstance(context)
-			             .execute("");
-			return true;
-		} catch (SQLiteException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+    public static boolean updateBot(Context context, TelegramBot updatedBot) {
+        // todo: complete coding this method
+        if (updatedBot == null) return false;
+        try {
+            LocalDatabase.getInstance(context)
+                    .execute("");
+            return true;
+        } catch (SQLiteException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
-	public static TelegramRequestResult parseResponse(String rawJson) {
-		// Do some checks
-		if (TextUtils.isEmpty(rawJson)) return new TelegramRequestResult(false, null);
-		try {
-			return parseResponse(new JSONObject(rawJson));
-		} catch (JSONException e) {
-			// Error parsing json
-			e.printStackTrace();
-			return new TelegramRequestResult(false, null);
-		}
-	}
+    public static TelegramRequestResult parseResponse(String rawJson) {
+        // Do some checks
+        if (TextUtils.isEmpty(rawJson)) return new TelegramRequestResult(false, null);
+        try {
+            return parseResponse(new JSONObject(rawJson));
+        } catch (JSONException e) {
+            // Error parsing json
+            e.printStackTrace();
+            return new TelegramRequestResult(false, null);
+        }
+    }
 
-	public static TelegramRequestResult parseResponse(JSONObject json) {
-		// Do some checks
-		if (json == null) return new TelegramRequestResult(false, null);
-		// Create the JSON object and result map
-		final boolean hasSucceed = json.optBoolean("ok", false);
-		JSONObject resultJson = json.optJSONObject("result");
-		Map<String, Object> resultMap = new HashMap<>();
-		// Parse json data and populate it to the map
-		if (resultJson != null) {
-			Iterator<String> ite = resultJson.keys();
-			while (ite.hasNext()) {
-				String key = ite.next();
-				resultMap.put(key, json.opt(key));
-			}
-		}
-		// Return the map
-		return new TelegramRequestResult(hasSucceed, resultMap);
-	}
+    public static TelegramRequestResult parseResponse(JSONObject json) {
+        // Do some checks
+        if (json == null) return new TelegramRequestResult(false, null);
+        // Create the JSON object and result map
+        final boolean hasSucceed = json.optBoolean("ok", false);
+        JSONObject resultJson = json.optJSONObject("result");
+        Map<String, Object> resultMap = new HashMap<>();
+        // Parse json data and populate it to the map
+        if (resultJson != null) {
+            Iterator<String> ite = resultJson.keys();
+            while (ite.hasNext()) {
+                String key = ite.next();
+                resultMap.put(key, json.opt(key));
+            }
+        }
+        // Return the map
+        return new TelegramRequestResult(hasSucceed, resultMap);
+    }
 
 //	static class Persistence extends SQLiteOpenHelper {
 //

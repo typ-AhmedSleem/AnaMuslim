@@ -7,7 +7,7 @@ package com.typ.muslim.libs.easyjava.data;
 
 import androidx.annotation.Nullable;
 
-import com.typ.muslim.ds.Queue;
+import com.typ.muslim.structure.Queue;
 import com.typ.muslim.libs.easyjava.algorithms.sort.InsertionSortAlgorithm;
 import com.typ.muslim.libs.easyjava.algorithms.sort.SortAlgorithm;
 import com.typ.muslim.libs.easyjava.enums.Direction;

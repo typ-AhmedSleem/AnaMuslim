@@ -23,73 +23,71 @@ import com.typ.muslim.ui.dashboard.ramadan.views.RamadanRemainingView;
 
 public class RamadanDashboardCard extends DashboardCard implements PrayTimeCameListener {
 
-	// Statics
-	private static final String TAG = "RamadanDashboardCard";
-	// Views
-	private ViewSwitcher switcher;
+    // Statics
+    private static final String TAG = "RamadanDashboardCard";
+    // Views
+    private ViewSwitcher switcher;
 
-	public RamadanDashboardCard(Context context) {
-		super(context);
-	}
+    public RamadanDashboardCard(Context context) {
+        super(context);
+    }
 
-	public RamadanDashboardCard(Context context, AttributeSet attrs) {
-		super(context, attrs);
-	}
+    public RamadanDashboardCard(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 
-	public RamadanDashboardCard(Context context, AttributeSet attrs, int defStyleAttr) {
-		super(context, attrs, defStyleAttr);
-	}
+    public RamadanDashboardCard(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
 
-	@Override
-	public void prepareCardView(Context context) {
-		// Inflate card view and change card bg color
-		inflate(context, R.layout.layout_ramadan_card, this);
-		setCardBackgroundColor(getColor(R.color.isha_bg));
-		// Init view switcher
-		this.switcher = $(R.id.vs_ramadan);
-		// Perform UI refresh
-		if (!isInEditMode()) refreshUI();
-	}
+    @Override
+    public void prepareCardView(Context context) {
+        // Inflate card view and change card bg color
+        inflate(context, R.layout.layout_ramadan_card, this);
+        setCardBackgroundColor(getColor(R.color.isha_bg));
+        // Init view switcher
+        this.switcher = $(R.id.vs_ramadan);
+        // Perform UI refresh
+        if (!isInEditMode()) refreshUI();
+    }
 
-	@Override
-	public void refreshUI() {
-		if (RamadanManager.isInRamadan()) showInRamadanView();
-		else showRemainingView();
-	}
+    @Override
+    public void refreshUI() {
+        if (RamadanManager.isInRamadan()) showInRamadanView();
+        else showRemainingView();
+    }
 
-	public void showRemainingView() {
-		if (switcher.getCurrentView() instanceof InRamadanView) switcher.showPrevious();
-	}
+    public void showRemainingView() {
+        if (switcher.getCurrentView() instanceof InRamadanView) switcher.showPrevious();
+    }
 
-	public void showInRamadanView() {
-		if (switcher.getCurrentView() instanceof RamadanRemainingView) switcher.showNext();
-	}
+    public void showInRamadanView() {
+        if (switcher.getCurrentView() instanceof RamadanRemainingView) switcher.showNext();
+    }
 
-	@Override
-	public void onClick(View v) {
-		if (switcher.getCurrentView() instanceof RamadanRemainingView) {
-			showInRamadanView();
-			// todo: Show RamadanRemainingBottomSheet if this month isn't ramadan.
-		} else {
-			showRemainingView();
-			// todo: Show InRamadanBottomSheet if this month is ramadan.
-		}
-	}
+    @Override
+    public void onClick(View v) {
+        if (switcher.getCurrentView() instanceof RamadanRemainingView) {
+            // todo: Show RamadanRemainingActivity if this month isn't ramadan.
+        } else {
+            // todo: Show InRamadanActivity if this month is ramadan.
+        }
+    }
 
-	@Override
-	public Pray onPrayTimeCame(Pray pray) {
-		if (switcher.getCurrentView() instanceof InRamadanView &&
-		    (pray.getType() == Prays.FAJR ||
-		     pray.getType() == Prays.MAGHRIB)) {
-			// Refresh InRamadanView
-			((InRamadanView) switcher.getCurrentView()).refreshUI();
-		}
+    @Override
+    public Pray onPrayTimeCame(Pray pray) {
+        if (switcher.getCurrentView() instanceof InRamadanView &&
+                (pray.getType() == Prays.FAJR ||
+                        pray.getType() == Prays.MAGHRIB)) {
+            // Refresh InRamadanView
+            ((InRamadanView) switcher.getCurrentView()).refreshUI();
+        }
 
-		return null; // Do nothing.
-	}
+        return null; // Do nothing.
+    }
 
-	@Override
-	public void onTimeChanged(Timestamp now) {
-		this.refreshUI();
-	}
+    @Override
+    public void onTimeChanged(Timestamp now) {
+        this.refreshUI();
+    }
 }

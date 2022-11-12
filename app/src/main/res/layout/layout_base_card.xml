@@ -34,7 +34,7 @@
                 android:layout_marginStart="20dp"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/ic_done"
-                app:tint="@color/ef_colorPrimary" />
+                app:tint="@color/colorPrimary" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvCardTitle"
@@ -68,7 +68,7 @@
                 android:layout_marginEnd="15dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_small_arrow_to_right"
-                app:tint="@color/ef_colorPrimary" />
+                app:tint="@color/colorPrimary" />
 
         </RelativeLayout>
 

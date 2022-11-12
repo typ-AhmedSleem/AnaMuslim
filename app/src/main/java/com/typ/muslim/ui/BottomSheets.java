@@ -6,15 +6,11 @@
 
 package com.typ.muslim.ui;
 
-import static com.typ.muslim.core.praytime.enums.Prays.FAJR;
-import static com.typ.muslim.core.praytime.enums.Prays.ISHA;
-import static com.typ.muslim.core.praytime.enums.Prays.MAGHRIB;
 import static com.typ.muslim.enums.FormatPatterns.DATE_NORMAL;
 import static com.typ.muslim.enums.TasbeehatTimesTarget.TIMES_33;
 import static com.typ.muslim.enums.TasbeehatTimesTarget.TIMES_66;
 import static com.typ.muslim.enums.TasbeehatTimesTarget.TIMES_99;
 import static com.typ.muslim.enums.TasbeehatTimesTarget.TIMES_INFINITE;
-import static com.typ.muslim.utils.DisplayUtils.sp2px;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -23,12 +19,12 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -45,12 +41,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.bitvale.switcher.SwitcherX;
-import com.furkanakdemir.surroundcardview.SurroundCardView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textview.MaterialTextView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
@@ -83,7 +77,6 @@ import com.typ.muslim.models.IslamicEvent;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.PrayTimes;
 import com.typ.muslim.models.Timestamp;
-import com.typ.muslim.ramadan.RamadanManager;
 import com.typ.muslim.ui.activities.names.HolyNamesOfAllahActivity;
 import com.typ.muslim.ui.dashboard.prays.VerticalPraysDashboardCard;
 import com.typ.muslim.utils.DateUtils;
@@ -96,7 +89,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import cn.iwgang.countdownview.CountdownView;
 import jp.wasabeef.recyclerview.animators.FlipInTopXAnimator;
 import kotlin.Pair;
 
@@ -328,10 +320,10 @@ public class BottomSheets {
         // Runtime
         private PrayTimes prays;
         private Pray nextPray;
+        private CountDownTimer cdt;
         // Views
-        private SpannableTextView stvCurrPray, stvNextPray;
+        private SpannableTextView stvNextPray;
         private EasyList<VerticalPrayView> prayIVs;
-        private CountdownView nextPrayCDV;
 
         @SuppressLint("InflateParams")
         public TodayPraysBottomSheet(Context context, VerticalPraysDashboardCard.PrayNotifyMethodChangedCallback callback, ResultCallback<Boolean> showHideCallback) {
@@ -359,9 +351,7 @@ public class BottomSheets {
 
         @Override
         public void prepareInnerViews() {
-            this.stvCurrPray = $(R.id.tv_curr_pray_name);
-            this.stvNextPray = $(R.id.tv_next_pray_name);
-            this.nextPrayCDV = $(R.id.cdv_next_pray_remaining);
+//            this.stvNextPray = $(R.id.tv_next_pray_name);
             this.prayIVs = EasyList.createList($(R.id.fajrPIV),
                     $(R.id.sunrisePIV),
                     $(R.id.dhuhrPIV),
@@ -372,83 +362,39 @@ public class BottomSheets {
 
         @Override
         public void bindInnerViews() {
-            // Reset STVs
-            stvCurrPray.reset();
-            stvNextPray.reset();
-            // Add PrayName slice
-            stvNextPray.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "%s\n", getString(R.string.next_pray)))
-                    .textSize(sp2px(context, 12f))
-                    .textColor(getColor(R.color.subtitleTextColor))
-                    .build());
-            stvNextPray.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "%s\n", getString(nextPray.getPrayNameRes())))
-                    .textColor(getColor(nextPray.getType().getSurfaceColorRes()))
-                    .textSize(sp2px(context, 30f))
-                    .style(Typeface.BOLD)
-                    .build());
-            stvNextPray.addSlice(new Slice.Builder(nextPray.getFormattedTime(context))
-                    .textColor(getColor(nextPray.getType().getSurfaceColorRes()))
-                    .textSize(sp2px(context, 20f))
-                    .style(Typeface.BOLD)
-                    .build());
-            // Add Suhur, Iftar, Taraweeh slice if in Ramadan
-            if (RamadanManager.isInRamadan() && (nextPray.getType() == FAJR || nextPray.getType() == MAGHRIB || nextPray.getType() == ISHA)) {
-                final String sliceText;
-                if (nextPray.getType() == FAJR) sliceText = getString(R.string.suhur);
-                else if (nextPray.getType() == MAGHRIB) sliceText = getString(R.string.iftar);
-                else if (nextPray.getType() == ISHA) sliceText = getString(R.string.taraweeh);
-                else sliceText = "";
-                stvNextPray.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "  (%s)", sliceText))
-                        .textSize(25)
-                        .textColor(getColor(nextPray.getType().getSurfaceColorRes()))
-                        .build());
-            }
-            final Pray currPray = PrayerManager.getCurrentPray(context);
-            final String currPrayName;
-            if (currPray != null) {
-                currPrayName = getString(currPray.getPrayNameRes()) + "\n";
-                if (nextPray.getType() == FAJR && !nextPray.getIn().dateMatches(Timestamp.NOW())) {
-                    // Add (tomorrow) slice if before 12 am next day and next pray is FAJR
-                    stvNextPray.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "  (%s)", getString(R.string.tomorrow)))
-                            .textSize(25)
-                            .textColor(getColor(nextPray.getType().getSurfaceColorRes()))
-                            .build());
-                }
-            } else currPrayName = getString(R.string.isha); // Current Pray is Isha and current day has finished
-            // Show current Pray name
-            stvCurrPray.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "%s\n", getString(R.string.current)))
-                    .textSize(sp2px(context, 12f))
-                    .textColor(getColor(R.color.subtitleTextColor))
-                    .build());
-            stvCurrPray.addSlice(new Slice.Builder(currPrayName)
-                    .textSize(sp2px(context, 30f))
-                    .textColor(getColor(R.color.green))
-                    .style(Typeface.BOLD)
-                    .build());
-            stvCurrPray.addSlice(new Slice.Builder(nextPray.getFormattedTime(context))
-                    .textColor(getColor(nextPray.getType().getSurfaceColorRes()))
-                    .textSize(sp2px(context, 20f))
-                    .style(Typeface.BOLD)
-                    .build());
-            // Build spans and display them
-            stvCurrPray.display();
-            stvNextPray.display();
-            // Update CDV
-            this.nextPrayCDV.start(nextPray.getIn().toMillis() - System.currentTimeMillis());
             // Update PIVs
             prayIVs.loop((index, piv) -> {
                 piv.setPray(prays.asList().get(index));
                 return false; // Loop to last item in list.
             });
+            cdt = buildCountDownTimer();
+            cdt.start();
         }
 
         @Override
         public void setupListeners() {
             prayIVs.iterate(piv -> piv.setCallback(this.callback));
-            nextPrayCDV.setOnCountdownEndListener(cv -> {
-                if (nextPray.getType() == Prays.ISHA) prays = PrayerManager.getPrays(context, 1);
-                nextPray = PrayerManager.getNextPray(context, prays);
-                bindInnerViews();
-            });
+        }
+
+        CountDownTimer buildCountDownTimer() {
+            return new CountDownTimer(nextPray.getIn().toMillis() - System.currentTimeMillis(), 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                }
+
+                @Override
+                public void onFinish() {
+                    if (nextPray.getType() == Prays.ISHA) prays = PrayerManager.getPrays(context, 1);
+                    nextPray = PrayerManager.getNextPray(context, prays);
+                    bindInnerViews();
+                }
+            };
+        }
+
+        @Override
+        public BaseBottomSheet cancel() {
+            cdt.cancel();
+            return super.cancel();
         }
 
         @Override
@@ -519,19 +465,19 @@ public class BottomSheets {
                     final boolean isToday = DateUtils.isToday(date);
                     if (isSelected) AManager.log(TAG, "Date[%s] | isToday[%s]", DATE_NORMAL.format(new Timestamp(date)), isToday);
                     // Get views of item
-                    SurroundCardView container = (SurroundCardView) vh.itemView;
-                    MaterialTextView tvDayName = vh.itemView.findViewById(R.id.tv_row_cal_day_name),
-                            tvHijriDayNumber = vh.itemView.findViewById(R.id.tv_row_cal_day),
-                            tvHijriMonthName = vh.itemView.findViewById(R.id.tv_row_cal_month_name);
-                    // Highlight today with stroke
-                    if (isToday) container.setSurroundStrokeColor(R.color.nextPrayCardSurfaceStartColor);
-                    // Change colors according to selection
-                    if (!isSelected) container.setSurrounded(false);
-                    // Init views
-                    if (isToday) tvDayName.setText(R.string.today);
-                    else tvDayName.setText(DateUtils.getDayName(new Timestamp(date), "3"));
-                    tvHijriDayNumber.setText(String.valueOf(hijriDatesThisWeek.get(position).getDay()));
-                    tvHijriMonthName.setText(hijriDatesThisWeek.get(position).getMonthName());
+//                    SurroundCardView container = (SurroundCardView) vh.itemView;
+//                    MaterialTextView tvDayName = vh.itemView.findViewById(R.id.tv_row_cal_day_name),
+//                            tvHijriDayNumber = vh.itemView.findViewById(R.id.tv_row_cal_day),
+//                            tvHijriMonthName = vh.itemView.findViewById(R.id.tv_row_cal_month_name);
+//                    // Highlight today with stroke
+//                    if (isToday) container.setSurroundStrokeColor(R.color.nextPrayCardSurfaceStartColor);
+//                    // Change colors according to selection
+//                    if (!isSelected) container.setSurrounded(false);
+//                    // Init views
+//                    if (isToday) tvDayName.setText(R.string.today);
+//                    else tvDayName.setText(DateUtils.getDayName(new Timestamp(date), "3"));
+//                    tvHijriDayNumber.setText(String.valueOf(hijriDatesThisWeek.get(position).getDay()));
+//                    tvHijriMonthName.setText(hijriDatesThisWeek.get(position).getMonthName());
                 }
             };
             adapter = new IslamicEventsAdapter(context, eventToday);
@@ -686,7 +632,7 @@ public class BottomSheets {
         private MaterialButton btnChangeTarget, btnReset, btnOpenActivity;
 
         public TasbeehOptionsBottomSheet(Context context, TasbeehatTimesTarget currTarget, ResultCallback<TasbeehatTimesTarget> timesSelectorListener, ResultCallback<Integer> actionClickListener, ResultCallback<Boolean> buttonsEnableListener, ResultCallback<Boolean> showHideListener) {
-            super(context, showHideListener, false);
+            super(context, showHideListener, true);
             // Set runtime and callbacks
             this.currTarget = currTarget;
             this.actionClickListener = actionClickListener;
@@ -774,9 +720,6 @@ public class BottomSheets {
 
     public static class AnswerPrayedBottomSheet extends BaseBottomSheet {
 
-        // todo: Ask him also if he prayed in mosque or not
-        // todo: Check if user has prayed or not
-
         // Statics
         private static final String TAG = AnswerPrayedBottomSheet.class.getSimpleName();
         // Runtime
@@ -784,11 +727,9 @@ public class BottomSheets {
         // Callback
         private final ResultCallback<Pair<PrayStatus, Boolean>> callback;
         // Views
-        private RadioGroup rgWhen;
-        private SwitchMaterial switchAtMosque;
+        private RadioGroup rgWhen, rgWhere, rgIsJama3a;
         private MaterialButton btnSubmit;
-        private RadioGroup rgIsJama3a;
-        private LinearLayout llActions;
+        private MaterialTextView tvTitle2;
 
         AnswerPrayedBottomSheet(Context context, Pray whichPray, ResultCallback<Pair<PrayStatus, Boolean>> callback, ResultCallback<Boolean> showHideCallback) {
             super(context, showHideCallback, true);
@@ -801,10 +742,6 @@ public class BottomSheets {
 
         @Override
         public void prepareRuntime() {
-            final Pray pray = PrayerManager.getNextPray(context);
-            if (pray != null) {
-
-            }
         }
 
         @NonNull
@@ -817,38 +754,46 @@ public class BottomSheets {
         @Override
         public void prepareInnerViews() {
             this.rgWhen = $(R.id.radio_group_prayed_when);
-            this.switchAtMosque = $(R.id.switch_prayed_at_mosque);
+            this.rgWhere = $(R.id.radio_group_prayed_where);
+            this.tvTitle2 = $(R.id.t3);
             this.btnSubmit = $(R.id.btn_submit);
         }
 
         @Override
         public void bindInnerViews() {
-            // todo: Bimd inner views here
+            rgWhere.setVisibility(View.GONE);
+            tvTitle2.setVisibility(View.GONE);
         }
 
         @Override
         public void setupListeners() {
-            // Switch listener
-            switchAtMosque.setOnCheckedChangeListener((buttonView, isChecked) -> switchAtMosque.setThumbTintList(ColorStateList.valueOf(getColor(isChecked ? R.color.colorPrimary : R.color.red))));
             // Selection change listener
-            rgWhen.setOnCheckedChangeListener((group, checkedId) -> switchAtMosque.setEnabled(checkedId == R.id.radio_prayed_on_time));
+            rgWhen.setOnCheckedChangeListener((group, checkedId) -> {
+                boolean hasPrayed = checkedId == R.id.radio_prayed_on_time || checkedId == R.id.radio_prayed_late;
+                if (!hasPrayed) rgWhere.clearCheck();
+                rgWhere.setVisibility(hasPrayed ? View.VISIBLE : View.GONE);
+                tvTitle2.setVisibility(hasPrayed ? View.VISIBLE : View.GONE);
+            });
 //			rgIsJama3a.setOnCheckedChangeListener((group, checkedId) -> {
 //
 //			});
             // Click listeners
             btnSubmit.setOnClickListener(v -> {
                 // Get status
-                final int ansWhen = rgWhen.getCheckedRadioButtonId();
+                final @IdRes int ansWhen = rgWhen.getCheckedRadioButtonId();
                 if (ansWhen == -1) {
-                    // Required selection
+                    // Requires selection
                     Toast.makeText(context, getString(R.string.when_did_you_pray), Toast.LENGTH_SHORT).show();
+                } else if (ansWhen == R.id.radio_prayed_on_time && rgWhere.getCheckedRadioButtonId() == -1) {
+                    // Requires selection
+                    Toast.makeText(context, getString(R.string.where_did_you_pray), Toast.LENGTH_SHORT).show();
                 } else {
                     // Answered
                     PrayStatus status = PrayStatus.FORGOT;
                     if (ansWhen == R.id.radio_prayed_on_time) status = PrayStatus.ON_TIME;
                     else if (ansWhen == R.id.radio_prayed_late) status = PrayStatus.DELAYED;
                     // Fire the callback with result
-                    fireCallback(status, switchAtMosque.isChecked() && switchAtMosque.isEnabled());
+                    fireCallback(status, rgWhere.getCheckedRadioButtonId() == R.id.radio_prayed_at_mosque && rgWhere.getVisibility() == View.VISIBLE);
                 }
             });
         }
@@ -879,7 +824,7 @@ public class BottomSheets {
                 btnShare;
 
         public AllahNamesBottomSheet(Context context, AllahName allahName, ResultCallback<AllahName> selectedNameCallback, ResultCallback<Boolean> showHideCallback) {
-            super(context, showHideCallback, false);
+            super(context, showHideCallback, true);
             this.allahName = allahName;
             this.selectedNameCallback = selectedNameCallback;
             // Bind data to views

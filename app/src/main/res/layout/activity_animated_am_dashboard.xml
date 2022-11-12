@@ -114,7 +114,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp" />
 
-            <com.typ.muslim.ui.dashboard.khatma.KhatmaDashboardCard
+            <com.typ.muslim.ui.KhatmaDashboardCard
                 android:id="@+id/khatmaCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

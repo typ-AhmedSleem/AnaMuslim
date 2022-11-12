@@ -30,7 +30,7 @@ public class MathUtils {
      */
     public static int getSmallestNumber(int... numbers) {
         // Some necessary checks
-        if (numbers == null) if (numbers == null) return 0;
+        if (numbers == null) return 0;
         if (numbers.length == 0) return 0;
         if (numbers.length == 1) return numbers[0];
         // Iteration
@@ -40,7 +40,7 @@ public class MathUtils {
     }
 
     public static float fixAngle(float angle) {
-        return angle > 360 ? angle - 360 : angle < 0 ? angle + 360 : angle;
+        return angle > 360 ? angle - 360 : angle < 0 ? angle + 360 : angle == 0 ? 360 : angle;
     }
 
 }

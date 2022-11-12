@@ -234,6 +234,7 @@
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimary2"
+        android:visibility="gone"
         app:cornerRadius="10dp"
         app:icon="@drawable/ic_share"
         app:iconGravity="textStart"
