@@ -111,6 +111,7 @@ public class QuickSettingsFragment extends Fragment {
         // Prepare changed settings if any changes happened or keep default settings
         this.prepareSettings();
     }
+<<<<<<< HEAD
 
     @Nullable
     @Override
@@ -153,6 +154,47 @@ public class QuickSettingsFragment extends Fragment {
             public void onClick(View v, float x, float y) {
                 // Refresh Views
                 refreshViews();
+=======
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return LayoutInflater.from(requireContext()).inflate(R.layout.fragment_wizard_quick_settings, container, false);
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    public void onViewCreated(@NonNull View fragmentView, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(fragmentView, savedInstanceState);
+        // Setup Views
+        tvPrayersNotifs = fragmentView.findViewById(R.id.tv_prayers_notif_config);
+        tvOngoingNotif = fragmentView.findViewById(R.id.tv_ongoing_notif_config);
+        tvNotifyBeforePray = fragmentView.findViewById(R.id.tv_min_before_azan);
+        tvIqama = fragmentView.findViewById(R.id.tv_iqama_after_azan);
+        tvMuteDuringPray = fragmentView.findViewById(R.id.tv_mute_during_pray);
+        tvFlipToStop = fragmentView.findViewById(R.id.tv_flip_to_stop_azan);
+        tvVolumeToStop = fragmentView.findViewById(R.id.tv_volume_to_stop_azan);
+        tvReqPerms = fragmentView.findViewById(R.id.tv_perms_grant_status);
+        // Refresh views content and style them according current settings
+        this.refreshViews();
+        // Listeners
+        requireActivity().getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Toast.makeText(requireContext(), "Back is pressed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        fragmentView.findViewById(R.id.card_qs_configure_prays_notif).setOnTouchListener(new EnhancedScaleTouchListener(100, 0.97f, 0.9f) {
+            @Override
+            public void onClick(View v, float x, float y) {
+                // TODO: 2/25/21 Show ChangePraysNotif (BottomSheet or Activity for result)
+            }
+        });
+        fragmentView.findViewById(R.id.card_qs_ongoing_notif).setOnTouchListener(new EnhancedScaleTouchListener(100, 0.97f, 0.9f) {
+            @Override
+            public void onClick(View v, float x, float y) {
+
+>>>>>>> 074aa6fcd365b77796c665252e9246f51e8f499c
             }
         });
         fragmentView.findViewById(R.id.card_qs_notif_before_pray).setOnTouchListener(new EnhancedScaleTouchListener(100, 0.97f, 0.9f) {
@@ -174,19 +216,28 @@ public class QuickSettingsFragment extends Fragment {
         fragmentView.findViewById(R.id.card_qs_iqama_after_azan).setOnTouchListener(new EnhancedScaleTouchListener(100, 0.97f, 0.9f) {
             @Override
             public void onClick(View v, float x, float y) {
+<<<<<<< HEAD
                 new ViewManager.PraysSwitchBottomSheet<Boolean[]>(requireContext(), R.string.iqama_after_azan, R.string.subtitle_iqama_after_azan, iqamaAfterPrays) {
+=======
+                new ViewManager.PraysSwitchBottomSheet<Boolean[]>(requireContext(), R.string.iqama_after_azan, R.string.subtitle_iqama_after_azan, AMSettings.isIqamaEnabledForPrays(requireContext())) {
+>>>>>>> 074aa6fcd365b77796c665252e9246f51e8f499c
                     @Override
                     public void onResult(Boolean[] results) {
                         if (results != null) {
                             for (Prays whatPray : Prays.values()) {
                                 if (whatPray == Prays.SUNRISE) continue;
                                 iqamaAfterPrays[whatPray.ordinalWithoutSunrise()] = results[whatPray.ordinalWithoutSunrise()];
+<<<<<<< HEAD
                                 // Save to settings
                                 AMSettings.save(requireContext(), Keys.IQAMA_ENABLED_FOR(whatPray), results[whatPray.ordinalWithoutSunrise()]);
                             }
                         }
                         // Refresh Views
                         refreshViews();
+=======
+                            }
+                        }
+>>>>>>> 074aa6fcd365b77796c665252e9246f51e8f499c
                     }
                 };
             }
@@ -205,9 +256,14 @@ public class QuickSettingsFragment extends Fragment {
                         }
                     };
                     // Refresh views
+<<<<<<< HEAD
                     refreshViews();
                     // Log
                     AManager.log("mute", AMSettings.getMuteTimeDuringPrays(requireContext()));
+=======
+                    AManager.log("mute", AMSettings.getMuteTimeDuringPrays(requireContext()));
+                    refreshViews();
+>>>>>>> 074aa6fcd365b77796c665252e9246f51e8f499c
                 }
             }
         });

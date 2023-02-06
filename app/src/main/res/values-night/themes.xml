@@ -1,6 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+<<<<<<< HEAD
     <style name="Theme.AnaMuslim.SplashScreen" parent="Theme.MaterialComponents.DayNight">
+=======
+    <style name="Theme.AnaMuslim.SplashScreen" parent="Theme.Material3.DayNight">
+>>>>>>> 074aa6fcd365b77796c665252e9246f51e8f499c
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>

@@ -72,6 +72,10 @@ public class LocationManager {
                 }
             }
         });
+<<<<<<< HEAD
+=======
+        easyLocation = null; // Finalize easyLocation instance to stop location tracking.
+>>>>>>> 074aa6fcd365b77796c665252e9246f51e8f499c
     }
 
     /**
