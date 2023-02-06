@@ -20,17 +20,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.android.material.transition.MaterialSharedAxis;
 import com.irozon.alertview.AlertActionStyle;
@@ -63,9 +62,8 @@ public class LocationSelectorFragment extends Fragment {
 			ibtnBack;
 	private MaterialButton
 			btnGPS,
-			btnOnlineLocate,
-			btnOfflineLocate;
-	private EditText inputSearchCity;
+			btnOnlineLocate, btnOfflineLocate;
+	private TextInputLayout inputSearchCity;
 	private MaterialTextView tvNoIntent;
 	// BottomSheets
 	private EasyRecyclerView rvCities;
@@ -106,7 +104,7 @@ public class LocationSelectorFragment extends Fragment {
 		if (selectedLocation != null) {
 			ibtnNext.setVisibility(View.VISIBLE);
 			tvNoIntent.setText(String.format("%s,%s", selectedLocation.getCityName(), selectedLocation.getCountryName()));
-			inputSearchCity.setText(selectedLocation.getCityName());
+			inputSearchCity.getEditText().setText(selectedLocation.getCityName());
 		}
 		// Listeners
 		ibtnBack.setOnTouchListener(new EnhancedScaleTouchListener(100, 0.95f, 1f) {
@@ -139,9 +137,17 @@ public class LocationSelectorFragment extends Fragment {
 					// Update selected location at runtime
 					selectedLocation = location;
 					// Show LocationPreviewBottomSheet
-					new ViewManager.PreviewLocationBottomSheet(requireContext(), selectedLocation, v -> {
-						if (v.getId() == R.id.btn_continue) Toast.makeText(requireContext(), "Continue", Toast.LENGTH_SHORT).show();
-						else if (v.getId() == R.id.btn_cancel) Toast.makeText(requireContext(), "Cancel", Toast.LENGTH_SHORT).show();
+					new ViewManager.PreviewLocationBottomSheet(requireContext(), location, v -> {
+						if (v.getId() == R.id.btn_continue) {
+							// Show Next Button
+							animateShow(ibtnNext);
+							// Change bottom text
+							tvNoIntent.setText(String.format("%s,%s", location.getCityName(), location.getCountryName()));
+							// Save current location
+							AMSettings.saveLocation(requireContext(), location.setConfig(new LocationConfig(EGYPT, SHAFII, NONE)));
+							// Navigate to next fragment
+							Navigation.findNavController(fragmentView).navigate(R.id.action_locationSelectorFragment_to_selectPrayConfigFragment, location.toBundle());
+						}
 					});
 					// Show Next Button
 					if (selectedLocation != null) animateShow(ibtnNext);
@@ -161,9 +167,30 @@ public class LocationSelectorFragment extends Fragment {
 		btnOnlineLocate.setOnTouchListener(new EnhancedScaleTouchListener(100, 0.95f, 1f) {
 			@Override
 			public void onClick(View v, float x, float y) {
+				// Search for city
+				new ViewManager.SearchCityBottomSheet(requireActivity(), locationManager) {
+					@Override
+					public void onItemClick(Location location) {
+						// Update runtime
+						if (location == null) return;
+						LocationSelectorFragment.this.selectedLocation = location;
+						// Show Location Preview
+						new ViewManager.PreviewLocationBottomSheet(requireContext(), location, v -> {
+							if (v.getId() == R.id.btn_continue) {
+								// Show Next Button
+								animateShow(ibtnNext);
+								// Change bottom text
+								tvNoIntent.setText(String.format("%s,%s", location.getCityName(), location.getCountryName()));
+								// Save current location
+								AMSettings.saveLocation(requireContext(), location.setConfig(new LocationConfig(EGYPT, SHAFII, NONE)));
+								// Navigate to next fragment
+								Navigation.findNavController(fragmentView).navigate(R.id.action_locationSelectorFragment_to_selectPrayConfigFragment, location.toBundle());
+							}
+						});
+					}
+				}.refresh(locationManager.searchForCities(inputSearchCity.getEditText().getText().toString()));
 				// Check Internet Connection
-				boolean isNetworkEnabled = AManager.isNetworkEnabled(requireContext());
-				if (true) {
+				if (!AManager.isNetworkEnabled(requireContext())) {
 					AlertView noInternetAlert = new AlertView(getString(R.string.no_internet), getString(R.string.internet_is_req_to_search_cities_online), AlertStyle.IOS);
 					noInternetAlert.addAction(new AlertAction(getString(R.string.retry), AlertActionStyle.DEFAULT, alertAction -> {
 						btnOnlineLocate.performClick(); /*Retry connecting*/
@@ -172,32 +199,12 @@ public class LocationSelectorFragment extends Fragment {
 						startActivityForResult(new Intent(WifiManager.ACTION_PICK_WIFI_NETWORK), 0); /* Open WiFi setting*/
 					}));
 					noInternetAlert.addAction(new AlertAction(getString(R.string.search_offline), AlertActionStyle.POSITIVE, alertAction -> {
-						new ViewManager.SearchCityBottomSheet(requireActivity(), locationManager) {
-							@Override
-							public void onItemClick(Location location) {
-								// Update runtime
-								if (location == null) return;
-								LocationSelectorFragment.this.selectedLocation = location;
-								// Show Location Preview
-								new ViewManager.PreviewLocationBottomSheet(requireContext(), location, v -> {
-									if (v.getId() == R.id.btn_continue) {
-										// Show Next Button
-										animateShow(ibtnNext);
-										// Change bottom text
-										tvNoIntent.setText(String.format("%s,%s", location.getCityName(), location.getCountryName()));
-										// Save current location
-										AMSettings.saveLocation(requireContext(), location.setConfig(new LocationConfig(EGYPT, SHAFII, NONE)));
-										// Navigate to next fragment
-										Navigation.findNavController(fragmentView).navigate(R.id.action_locationSelectorFragment_to_selectPrayConfigFragment, location.toBundle());
-									}
-								});
-							}
-						}.refresh(locationManager.searchForCities(inputSearchCity.getText().toString()));
+
 					}));
-					noInternetAlert.show((AppCompatActivity) requireActivity());
+//					noInternetAlert.show((AppCompatActivity) requireActivity());
 				} else {
 					// Offline search
-					Toast.makeText(requireContext(), "Online Search", Toast.LENGTH_SHORT).show();
+//					Toast.makeText(requireContext(), "Online Search", Toast.LENGTH_SHORT).show();
 					return;
 				}
 				// Show Alert and exit method invocation if no internet was found

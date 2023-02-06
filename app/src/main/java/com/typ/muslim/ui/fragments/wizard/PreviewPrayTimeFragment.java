@@ -127,8 +127,6 @@ public class PreviewPrayTimeFragment extends Fragment {
 							""));
 				}));
 				optionsAlert.addAction(new AlertAction(getString(R.string.edit_quick_settings), AlertActionStyle.POSITIVE, alertAction -> {
-					// Save Current Location
-					AMSettings.saveLocation(getContext(), currentLocation);
 					Navigation.findNavController(fragmentView).navigate(R.id.action_previewPrayTimeFragment_to_quickSettingsFragment);
 				}));
 				optionsAlert.addAction(new AlertAction(getString(R.string.go_back_to_config), AlertActionStyle.NEGATIVE, alertAction -> {
