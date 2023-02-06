@@ -21,7 +21,7 @@
     <color name="bg_input_box">#0DECEEF3</color>
     <color name="yellow">#FFEB3B</color>
     <color name="bg_container">#0DECEEF3</color>
-    <color name="adaptiveBackgroundColor">#0DECEEF3</color>
+    <color name="adaptiveBackgroundColor">#32000000</color>
     <color name="bottomBarSelectedTab">#000</color>
     <color name="bottomBarUnSelectedTab">#8F8C8C</color>
     <color name="bg_night">#000</color>
@@ -37,4 +37,13 @@
     <color name="darkBg">#0DECEEF3</color>
     <color name="color_hijri_cal_header_bg">#282C38</color>
     <color name="color_hijri_cal_bg">#191B26</color>
+
+    <color name="ef_colorPrimary">#6200EE</color>
+    <color name="ef_colorPrimaryDark">#3700B3</color>
+    <!-- Segment View colors -->
+    <color name="segment_view_base_bg">#0DECEEF3</color>
+    <color name="segment_view_sel_bg">@color/adaptiveBackgroundColor</color>
+    <color name="segment_view_text_nml">#27262C</color>
+    <color name="segment_view_text_sel">#24B89E</color>
+
 </resources>

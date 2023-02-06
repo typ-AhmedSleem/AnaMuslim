@@ -9,7 +9,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_input_box">
+    android:theme="@style/Theme.AnaMuslim">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,18 +31,18 @@
                 android:id="@+id/tv_pbuu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:labelFor="@id/tv_username"
                 android:maxLines="1"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:text="@string/peace_be_upon_you"
-                android:textColor="@color/subtitleTextColor"
-                android:textSize="13sp"
+                android:textColor="@color/darkAdaptiveColor"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:autoSizeTextType="uniform"
-                app:fontFamily="@font/font_bukrar"
+                app:fontFamily="@font/font_jf_flat_regular"
                 app:layout_constraintEnd_toStartOf="@id/ibtn_main_menu"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -64,6 +64,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:transitionName="headerTextViewTransition"
+                android:visibility="gone"
                 app:autoSizeMinTextSize="15sp"
                 app:autoSizeTextType="uniform"
                 app:fontFamily="@font/font_bukrar"
@@ -98,11 +99,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_username">
 
-                <View
+                <com.google.android.material.divider.MaterialDivider
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@color/bg_input_box" />
+                    android:visibility="invisible"
+                    app:dividerThickness="0.1dp" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
@@ -153,8 +155,8 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <com.typ.muslim.ui.dashboard.TasbeehDashboardCard
-                        android:id="@+id/tasbeeh_dashboard_card"
+                    <com.typ.muslim.ui.dashboard.HijriDashboardCard
+                        android:id="@+id/hijri_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.96"
@@ -165,53 +167,18 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.08" />
 
-                    <com.typ.muslim.ui.dashboard.HijriDashboardCard
-                        android:id="@+id/hijri_dashboard_card"
+
+                    <com.typ.muslim.ui.dashboard.TasbeehDashboardCard
+                        android:id="@+id/tasbeeh_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.96"
                         android:transitionName="transition_card_to_activity" />
-
                 </LinearLayout>
 
-                <!-- Main Menu Button -->
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_main_menu"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="@string/explore_more_features"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/darkAdaptiveColor"
-                    android:transitionName="transition_card_to_activity"
-                    app:backgroundTint="@color/adaptiveBackgroundColor"
-                    app:cornerRadius="15dp"
-                    app:icon="@drawable/ef_ic_arrow_forward"
-                    app:iconGravity="end"
-                    app:iconTint="@color/darkAdaptiveColor"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_username"
-                    app:rippleColor="@color/ripple_white" />
-
-                <!--                &lt;!&ndash; Azkar card &ndash;&gt;-->
-                <!--                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard-->
-                <!--                    android:id="@+id/azkar_dashboard_card"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginStart="15dp"-->
-                <!--                    android:layout_marginTop="10dp"-->
-                <!--                    android:layout_marginEnd="15dp"-->
-                <!--                    android:animateLayoutChanges="true" />-->
-
                 <!-- AllahNames card -->
-
-                <!-- SalatOnMohamed card -->
                 <com.typ.muslim.ui.dashboard.AllahNamesDashboardCard
+                    android:id="@+id/allah_names_dashboard_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -219,19 +186,8 @@
                     android:layout_marginEnd="15dp"
                     android:transitionName="transition_card_to_activity" />
 
-                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard
-                    android:id="@+id/som_dashboard_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:animateLayoutChanges="true"
-                    android:transitionName="transition_card_to_activity"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
-
                 <!-- Khatma card -->
-                <com.typ.muslim.ui.ActiveKhatmaCard
+                <com.typ.muslim.ui.KhatmaDashboardCard
                     android:id="@+id/khatma_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -251,8 +207,8 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <com.typ.muslim.ui.dashboard.fasting.FastingDashboardCard
-                        android:id="@+id/fasting_dashboard_card"
+                    <com.typ.muslim.features.qibla.ui.QiblaDashboardCard
+                        android:id="@+id/qibla_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.96"
@@ -273,35 +229,37 @@
 
                 </LinearLayout>
 
-                <!--                &lt;!&ndash; Nearby card &ndash;&gt;-->
-                <!--                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard-->
-                <!--                    android:id="@+id/nearby_dashboard_card"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginStart="15dp"-->
-                <!--                    android:layout_marginTop="10dp"-->
-                <!--                    android:layout_marginEnd="15dp"-->
-                <!--                    android:animateLayoutChanges="true" />-->
-                <!--                -->
-                <!--                &lt;!&ndash; Daily Ayah &ndash;&gt;-->
-                <!--                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard-->
-                <!--                    android:id="@+id/daily_ayah_dashboard_card"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginStart="15dp"-->
-                <!--                    android:layout_marginTop="10dp"-->
-                <!--                    android:layout_marginEnd="15dp"-->
-                <!--                    android:animateLayoutChanges="true" />-->
+                <!-- SalatOnMohamed card -->
+                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard
+                    android:id="@+id/som_dashboard_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:animateLayoutChanges="true"
+                    android:transitionName="transition_card_to_activity"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
 
-                <!--                &lt;!&ndash; Daily Du3a2 &ndash;&gt;-->
-                <!--                <com.typ.muslim.ui.dashboard.AllahNamesDashboardCard-->
-                <!--                    android:id="@+id/daily_du3a2_dashboard_card"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginStart="15dp"-->
-                <!--                    android:layout_marginTop="10dp"-->
-                <!--                    android:layout_marginEnd="15dp"-->
-                <!--                    android:animateLayoutChanges="true" />-->
+                <!-- Main Menu Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_main_menu"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    app:backgroundTint="?attr/colorOnPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/explore_more_features"
+                    app:iconTint="?attr/colorPrimary"
+                    android:textAlignment="viewStart"
+                    android:transitionName="transition_card_to_activity"
+                    app:cornerRadius="15dp"
+                    app:iconGravity="end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_username" />
 
                 <!-- Telegram bots card & Profile card -->
                 <LinearLayout
@@ -326,7 +284,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.08" />
 
-                    <com.typ.muslim.ui.dashboard.tracker.SimpleTrackerCard
+                    <com.typ.muslim.ui.dashboard.ProfileDashboardCard
                         android:id="@+id/profile_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="200dp"

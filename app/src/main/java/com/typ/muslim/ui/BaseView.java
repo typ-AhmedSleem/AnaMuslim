@@ -27,74 +27,74 @@ import com.typ.muslim.utils.DisplayUtils;
 
 public class BaseView extends View implements ViewHelperMethods {
 
-	public BaseView(Context context) {
-		super(context);
-		parseAttrs(context, null);
-		setupRuntime(context);
-	}
+    public BaseView(Context context) {
+        super(context);
+        parseAttrs(context, null);
+        setupRuntime(context);
+    }
 
-	public BaseView(Context context, @Nullable AttributeSet attrs) {
-		super(context, attrs);
-		parseAttrs(context, attrs);
-		setupRuntime(context);
-	}
+    public BaseView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        parseAttrs(context, attrs);
+        setupRuntime(context);
+    }
 
-	public BaseView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-		super(context, attrs, defStyleAttr);
-		parseAttrs(context, attrs);
-		setupRuntime(context);
-	}
+    public BaseView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        parseAttrs(context, attrs);
+        setupRuntime(context);
+    }
 
-	public void parseAttrs(@NonNull Context context, @Nullable AttributeSet attrs) {
-	}
+    public void parseAttrs(@NonNull Context context, @Nullable AttributeSet attrs) {
+    }
 
-	public void setupRuntime(@NonNull Context context) {
-	}
+    public void setupRuntime(@NonNull Context context) {
+    }
 
-	/* Helper Methods */
+    /* Helper Methods */
 
-	@Override
-	public final View $(@IdRes int resId) {
-		return findViewById(resId);
-	}
+    @Override
+    public final <T extends View> T $(@IdRes int resId) {
+        return findViewById(resId);
+    }
 
-	@Override
-	public final @ColorInt
-	int getColor(@ColorRes int colorResId) {
+    @Override
+    public final @ColorInt
+    int getColor(@ColorRes int colorResId) {
         return ResMan.getColor(getContext(), colorResId);
     }
 
-	@Override
-	public final String getString(@StringRes int stringResId) {
+    @Override
+    public final String getString(@StringRes int stringResId) {
         return ResMan.getString(getContext(), stringResId);
     }
 
-	@Override
-	public void startActivity(Intent intent) {
-	}
+    @Override
+    public void startActivity(Intent intent) {
+    }
 
-	@Override
-	public final int sp2px(float sp) {
-		return DisplayUtils.sp2px(getContext(), sp);
-	}
+    @Override
+    public final int sp2px(float sp) {
+        return DisplayUtils.sp2px(getContext(), sp);
+    }
 
-	@Override
-	public final int dp2px(float dp) {
-		return DisplayUtils.dp2px(getContext(), dp);
-	}
+    @Override
+    public final int dp2px(float dp) {
+        return DisplayUtils.dp2px(getContext(), dp);
+    }
 
-	@Override
-	public TelecomManager getTelecomManager() {
-		return (TelecomManager) getContext().getSystemService(Context.TELECOM_SERVICE);
-	}
+    @Override
+    public TelecomManager getTelecomManager() {
+        return (TelecomManager) getContext().getSystemService(Context.TELECOM_SERVICE);
+    }
 
-	@Override
-	public Vibrator getVibrator() {
-		return (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
-	}
+    @Override
+    public Vibrator getVibrator() {
+        return (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+    }
 
-	@Override
-	public AlarmManager getAlarmManager() {
-		return (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
-	}
+    @Override
+    public AlarmManager getAlarmManager() {
+        return (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+    }
 }

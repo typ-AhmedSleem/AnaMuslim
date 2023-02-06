@@ -62,7 +62,7 @@ public class ArrowIndicatorTextView extends ViewContainer {
         else if (info.indicator == 1) targetColor = ResMan.getColor(getContext(), R.color.green); // Up.
         tsValue.setTextColor(targetColor);
         ivIndicator.setColorFilter(targetColor);
-        ivIndicator.setImageResource(info.indicator == -1 ? R.drawable.ic_arrow_to_bottom : info.indicator == 0 ? R.drawable.ef_ic_arrow_back : R.drawable.ic_arrow_to_top);
+        ivIndicator.setImageResource(info.indicator == -1 ? R.drawable.ic_arrow_to_bottom : info.indicator == 0 ? R.drawable.ic_arrow_to_left : R.drawable.ic_arrow_to_top);
     }
 
 	public static class IndicatorInfo {

@@ -77,7 +77,7 @@ public class QiblaFragment extends Fragment implements QiblaCompassCallback {
 	@Override
 	public void onPause() {
 		super.onPause();
-		this.qiblaCV.unRegisterListeners();
+		this.qiblaCV.unregisterListeners();
 	}
 
 	@Override

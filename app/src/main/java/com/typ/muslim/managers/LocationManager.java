@@ -72,7 +72,6 @@ public class LocationManager {
                 }
             }
         });
-        easyLocation = null; // Finalize easyLocation instance to avoid location tracking.
     }
 
     /**

@@ -20,16 +20,16 @@
         android:orientation="vertical"
         android:padding="15dp">
 
-        <com.typ.muslim.ui.ActiveKhatmaCard
+        <com.typ.muslim.ui.KhatmaDashboardCard
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.typ.muslim.ui.ActiveKhatmaCard
+        <com.typ.muslim.ui.KhatmaDashboardCard
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />
 
-        <com.typ.muslim.ui.ActiveKhatmaCard
+        <com.typ.muslim.ui.KhatmaDashboardCard
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />

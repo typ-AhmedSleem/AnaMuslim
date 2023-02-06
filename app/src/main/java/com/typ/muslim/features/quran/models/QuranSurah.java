@@ -4,10 +4,11 @@
  * Copyright (c) 2022.  TYP INC. All Rights Reserved
  */
 
-package com.typ.muslim.features.quran;
+package com.typ.muslim.features.quran.models;
 
 import android.content.Context;
 
+import com.typ.muslim.features.quran.Quran;
 import com.typ.muslim.features.quran.models.QuranAyah;
 
 import java.util.List;

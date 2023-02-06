@@ -6,9 +6,10 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_container"
+    android:background="@color/white"
     android:theme="@style/Theme.AnaMuslim.SplashScreen">
 
     <com.google.android.material.textview.MaterialTextView
@@ -20,7 +21,7 @@
         android:maxLines="1"
         android:text="@string/select_location"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textColor="@color/adaptiveTextColor"
+        android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold"
         android:transitionName="transition_wizard_step_title"
@@ -41,21 +42,22 @@
             android:layout_height="wrap_content"
             android:alpha="0.8"
             android:gravity="center_horizontal"
-            android:maxLines="1"
+            android:maxLines="2"
             android:paddingStart="40dp"
             android:paddingEnd="40dp"
-            android:text="Select your current City to be used by AnaMuslim"
+            android:text="Select your current City to proceed"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textColor="@color/adaptiveTextColor"
+            android:textColor="@color/adaptiveSubtitleTextColor"
             android:textSize="15sp"
             android:transitionName="transition_wizard_step_subtitle"
             app:autoSizeMaxTextSize="20dp"
             app:autoSizeTextType="uniform"
+            android:typeface="monospace"
             app:textAllCaps="false" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_locate_gps"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginStart="20dp"
@@ -70,6 +72,7 @@
             app:icon="@drawable/ic_gps"
             app:iconGravity="textStart"
             app:iconPadding="10dp"
+            app:iconSize="20dp"
             app:iconTint="@color/white" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -78,52 +81,56 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:alpha="0.5"
             android:gravity="center"
             android:maxLines="1"
             android:text="@string/or"
-            android:textColor="@color/adaptiveTextColor"
+            android:textColor="@color/darkAdaptiveColor"
             android:textSize="12sp"
             app:textAllCaps="true" />
 
-        <EditText
-            android:id="@+id/input_search_city"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/input_search_city"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:autoLink="none"
-            android:autofillHints="location"
-            android:background="@drawable/input_search_city_bg"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="10dp"
-            android:hint="@string/enter_city_name"
-            android:inputType="textAutoComplete"
-            android:maxLength="30"
-            android:maxLines="1"
-            android:paddingStart="15dp"
-            android:paddingEnd="10dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/adaptiveTextColor"
-            android:textSize="15sp"
-            app:drawableTint="@color/adaptiveTextColor" />
+            android:hint="Search your location..."
+            app:helperTextTextColor="@color/black"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxBackgroundColor="@color/bg_container"
+            app:boxCornerRadiusTopStart="15dp"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="@color/black"
+            tools:ignore="HardcodedText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/a"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="location"
+                android:inputType="textAutoComplete"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_locate_online"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:text="@string/search_location"
+            android:text="@string/search_city"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:backgroundTint="@color/colorPrimary"
             app:cornerRadius="@dimen/default_corner_radius"
-            app:icon="@drawable/ic_search"
             app:iconPadding="10dp"
             app:iconGravity="textStart"
             app:iconTint="@color/white" />

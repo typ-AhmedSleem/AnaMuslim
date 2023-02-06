@@ -17,7 +17,6 @@ import com.typ.muslim.R;
 import com.typ.muslim.enums.SoMNotifyMethod;
 import com.typ.muslim.enums.SoMReminderFreq;
 import com.typ.muslim.managers.AMSettings;
-import com.typ.muslim.ui.BottomSheets;
 
 import java.util.Locale;
 
@@ -111,14 +110,14 @@ public class SalatOnMohamedDashboardCard extends DashboardCard {
 
 	@Override
 	public boolean onLongClick(View v) {
-		if (!isBottomSheetShown) {
-			BottomSheets.newSoMReminder(getContext(), reminderFreq,
-					newFreq -> {
-						reminderFreq = newFreq;
-						refreshUI();
-					},
-					isShown -> isBottomSheetShown = isShown).show();
-		}
+//		if (!isBottomSheetShown) {
+//			BottomSheets.newSoMReminder(getContext(), reminderFreq,
+//					newFreq -> {
+//						reminderFreq = newFreq;
+//						refreshUI();
+//					},
+//					isShown -> isBottomSheetShown = isShown).show();
+//		}
 		return true;
 	}
 }

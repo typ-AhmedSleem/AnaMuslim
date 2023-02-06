@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2022.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/adaptiveBackgroundColor">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_to_left"
+        app:navigationIconTint="@color/darkAdaptiveColor"
+        app:title="@string/qibla"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/TextAppearances.HeaderTitle" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="Location"
+        android:textColor="@color/subtitleTextColor"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_location_city_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="Cairo"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="18sp"
+
+        android:textStyle="bold"
+        android:transitionName="tvLocationCity"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintEnd_toEndOf="@id/t1"
+        app:layout_constraintStart_toStartOf="@id/t1"
+        app:layout_constraintTop_toBottomOf="@id/t1"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/angle"
+        android:textColor="@color/subtitleTextColor"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/t1"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_qibla_bearing_angle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="136.03°"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:transitionName="tvLocationAngle"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintEnd_toEndOf="@id/t2"
+        app:layout_constraintStart_toStartOf="@id/t2"
+        app:layout_constraintTop_toBottomOf="@id/t2"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/accuracy"
+        android:textColor="@color/subtitleTextColor"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_location_city_name"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_accuracy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/unknown"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintEnd_toEndOf="@id/t3"
+        app:layout_constraintStart_toStartOf="@id/t3"
+        app:layout_constraintTop_toBottomOf="@id/t3"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/status"
+        android:textColor="@color/subtitleTextColor"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/t3"
+        app:layout_constraintTop_toBottomOf="@id/tv_qibla_bearing_angle"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_phone_moveing_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="@string/put_phone_on_back"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="18sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintEnd_toEndOf="@id/t4"
+        app:layout_constraintStart_toStartOf="@id/t4"
+        app:layout_constraintTop_toBottomOf="@id/t4"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_current_bearing_angle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:text="°--°"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        android:transitionName="tvCurrentAngle"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintEnd_toEndOf="@id/tv_phone_moveing_status"
+        app:layout_constraintStart_toStartOf="@id/tv_accuracy"
+        app:layout_constraintTop_toBottomOf="@id/tv_accuracy"
+        tools:ignore="HardcodedText" />
+
+    <com.typ.muslim.ui.qibla.QiblaCompassView
+        android:id="@+id/qibla_compass"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:transitionName="QiblaCompass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_current_bearing_angle" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/stv_instruction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="--"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="monospace"
+        app:layout_constraintEnd_toEndOf="@id/tv_phone_moveing_status"
+        app:layout_constraintStart_toStartOf="@id/tv_accuracy"
+        app:layout_constraintTop_toBottomOf="@id/qibla_compass"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_switch_qibla"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/switch_qibla"
+        android:textColor="@color/adaptiveTextColor"
+        app:backgroundTint="@color/green"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tv_phone_moveing_status"
+        app:layout_constraintStart_toStartOf="@id/tv_accuracy"
+        app:rippleColor="@color/ripple_white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

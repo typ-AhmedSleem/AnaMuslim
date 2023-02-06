@@ -20,6 +20,7 @@ public class WizardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        // TODO: Start the wizard service to collect data from all fragments within wizard
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wizard);
         if (getSupportActionBar() != null) getSupportActionBar().hide(); // Hide default ActionBar.

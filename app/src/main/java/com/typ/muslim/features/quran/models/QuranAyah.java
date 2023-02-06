@@ -26,6 +26,10 @@ public class QuranAyah implements Serializable {
     private @Nullable
     String content;
 
+    public QuranAyah(@IntRange(from = 1, to = 286) int number, @IntRange(from = 1, to = 114) int surah) {
+        this(number, surah, null);
+    }
+
     public QuranAyah(@IntRange(from = 1, to = 286) int number, @IntRange(from = 1, to = 114) int surah, @Nullable String content) {
         this.number = number;
         this.surah = surah;
@@ -52,9 +56,9 @@ public class QuranAyah implements Serializable {
         return surah;
     }
 
-//    public QuranSurah getSurah() {
-//        return Quran.Companion.getSurah(this.surah);
-//    }
+    public QuranSurah getSurah() {
+        return Quran.getSurah(this.surah);
+    }
 
     @Override
     public String toString() {
@@ -68,7 +72,7 @@ public class QuranAyah implements Serializable {
     public String toString(Context context) {
         return "QuranAyah{" +
                 "number=" + number +
-                "surah=" + surah +
+                "surah=" + getSurah() +
                 ", content='" + getContent(context) + '\'' +
                 '}';
     }

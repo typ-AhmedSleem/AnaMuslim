@@ -55,7 +55,7 @@ dependencies {
     implementation "com.github.SumiMakito:AdvancedTextSwitcher:0.3"
     implementation "com.irozon.sneaker:sneaker:2.0.0"
     implementation "com.github.MehdiKh93:Shortcut:1.0.2"
-    implementation "com.github.esafirm.android-image-picker:imagepicker:2.3.0"
+//    implementation "com.github.esafirm.android-image-picker:imagepicker:2.3.0"
     implementation "com.amulyakhare:com.amulyakhare.textdrawable:1.0.1"
     //implementation "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar"
     implementation 'io.alterac.blurkit:blurkit:1.1.0'
@@ -105,7 +105,9 @@ dependencies {
     implementation 'com.github.zyyoona7:wheelview:1.0.7'
     implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.3'
     implementation 'com.github.iwgang:simplifyspan:2.2'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
+    implementation 'com.sdsmdg.harjot:rotatingtext:1.0.2'
+    implementation 'com.jackandphantom.android:blurimage:1.2.0'
 //    implementation 'com.github.iamporus:TypedTextView:x.y.z'
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 //    implementation 'com.github.perfomer:blitz:LATEST_VERSION'
 }

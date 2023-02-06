@@ -44,12 +44,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:maxLines="2"
-                android:paddingStart="40dp"
-                android:paddingEnd="40dp"
+                android:alpha="0.8"
                 android:text="@string/lt_quick_settings_subtitle"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
-                android:textColor="@color/colorText"
+                android:textColor="@color/darkAdaptiveColor"
+                android:typeface="monospace"
                 android:textSize="13sp"
                 app:autoSizeMaxTextSize="20dp"
                 app:autoSizeTextType="uniform"
@@ -68,7 +67,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="0dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="vertical">
@@ -444,7 +443,7 @@
                             android:text="@string/denied"
                             android:textColor="@color/red"
                             android:textSize="12sp"
-                            android:visibility="invisible" />
+                            android:visibility="visible" />
 
                     </RelativeLayout>
 

@@ -4,35 +4,147 @@
   ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
   -->
 
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="120dp"
-    app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="25dp"
-    app:cardElevation="0dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/adaptiveBackgroundColor"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="1dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_compass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/darkAdaptiveColor"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="@string/qibla_compass"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintBottom_toBottomOf="@id/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        app:textAllCaps="true"
+        tools:ignore="SmallSp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="start|center_vertical"
+        android:maxLines="1"
+        android:text="@string/location"
+        android:textColor="@color/subtitleTextColor"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/qibla_compass"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_location_city_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="start|center_vertical"
+        android:maxLines="1"
+        android:text="@string/cairo"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="14sp"
+        android:transitionName="tvLocationCity"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintEnd_toEndOf="@id/t1"
+        app:layout_constraintStart_toStartOf="@id/t1"
+        app:layout_constraintTop_toBottomOf="@id/t1"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="5dp"
+        android:gravity="start|center_vertical"
+        android:maxLines="1"
+        android:text="@string/angle"
+        android:textColor="@color/subtitleTextColor"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintBottom_toTopOf="@id/tv_location_qibla_angle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_location_qibla_angle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|center_vertical"
+        android:maxLines="1"
+        android:text="136.05°"
+        android:transitionName="tvLocationAngle"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintBottom_toBottomOf="@id/qibla_compass"
+        app:layout_constraintEnd_toEndOf="@id/t2"
+        app:layout_constraintStart_toStartOf="@id/t2"
+        tools:ignore="HardcodedText" />
+
+    <com.typ.muslim.ui.qibla.QiblaCompassView
+        android:id="@+id/qibla_compass"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="0dp"
+        android:transitionName="Qibla_Compass"
+        android:rotation="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_location_city_name"
+        app:layout_constraintTop_toBottomOf="@id/icon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_current_bearing_angle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:transitionName="tvCurrentAngle"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="start|center_vertical"
+        android:maxLines="1"
+        android:padding="0dp"
+        android:text="297.34°"
+        android:textColor="@color/green"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/qibla_compass"
+        tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/tv_qibla_bearing_angle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="136 E"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <com.typ.muslim.ui.qibla.QiblaCompassView2
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@id/tv_qibla_bearing_angle"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp" />
-
-    </RelativeLayout>
-
-
-</com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -91,7 +91,6 @@ public class LocationSelectorFragment extends Fragment {
 	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	public void onViewCreated(@NonNull View fragmentView, @Nullable Bundle savedInstanceState) {
-		super.onViewCreated(fragmentView, savedInstanceState);
 		// Setup Views
 		ibtnBack = fragmentView.findViewById(R.id.ibtn_go_back);
 		ibtnNext = fragmentView.findViewById(R.id.ibtn_go_next);
@@ -128,43 +127,43 @@ public class LocationSelectorFragment extends Fragment {
 				Navigation.findNavController(fragmentView).navigate(R.id.action_locationSelectorFragment_to_selectPrayConfigFragment, selectedLocation.toBundle());
 			}
 		});
-		btnGPS.setOnTouchListener(new EnhancedScaleTouchListener(100, 0.95f, 1f) {
-			@Override
-			public void onClick(View v, float x, float y) {
-				// Show Loading
-				// Get location from GPS
-				locationManager.getGPSLocation(new IGetLocationListener() {
-					@Override
-					public void onGetLocationSucceed(Location location) {
-						// Update selected location at runtime
-						selectedLocation = location;
-						AManager.log(TAG, selectedLocation);
-						// Show LocationPreviewBottomSheet
-						new ViewManager.PreviewLocationBottomSheet(requireContext(), selectedLocation, v -> {
-							if (v.getId() == R.id.btn_continue) Toast.makeText(requireContext(), "Continue", Toast.LENGTH_SHORT).show();
-							else if (v.getId() == R.id.btn_cancel) Toast.makeText(requireContext(), "Cancel", Toast.LENGTH_SHORT).show();
-						});
-						// Show Next Button
-						if (selectedLocation != null) animateShow(ibtnNext);
-					}
+		btnGPS.setOnClickListener(v -> {
+			// Show Loading
+			Toast.makeText(requireContext(), "Locating you using GPS...", Toast.LENGTH_SHORT).show();
+			// Get location from GPS
+			locationManager.getGPSLocation(new IGetLocationListener() {
+				@Override
+				public void onGetLocationSucceed(Location location) {
+					// Check if callback is overloaded
+					if (selectedLocation != null) return;
+					// Update selected location at runtime
+					selectedLocation = location;
+					// Show LocationPreviewBottomSheet
+					new ViewManager.PreviewLocationBottomSheet(requireContext(), selectedLocation, v -> {
+						if (v.getId() == R.id.btn_continue) Toast.makeText(requireContext(), "Continue", Toast.LENGTH_SHORT).show();
+						else if (v.getId() == R.id.btn_cancel) Toast.makeText(requireContext(), "Cancel", Toast.LENGTH_SHORT).show();
+					});
+					// Show Next Button
+					if (selectedLocation != null) animateShow(ibtnNext);
+				}
 
-					@Override
-					public void onPermissionDenied() {
-						Toast.makeText(requireContext(), "Location Permissions Denied", Toast.LENGTH_SHORT).show();
-					}
+				@Override
+				public void onPermissionDenied() {
+					Toast.makeText(requireContext(), "Location Permissions Denied", Toast.LENGTH_SHORT).show();
+				}
 
-					@Override
-					public void onGetLocationFailed() {
-						Toast.makeText(requireContext(), "Failed to detect location", Toast.LENGTH_SHORT).show();
-					}
-				});
-			}
+				@Override
+				public void onGetLocationFailed() {
+					Toast.makeText(requireContext(), "Failed to detect location", Toast.LENGTH_SHORT).show();
+				}
+			});
 		});
 		btnOnlineLocate.setOnTouchListener(new EnhancedScaleTouchListener(100, 0.95f, 1f) {
 			@Override
 			public void onClick(View v, float x, float y) {
 				// Check Internet Connection
-				if (!AManager.isNetworkEnabled(requireContext())) {
+				boolean isNetworkEnabled = AManager.isNetworkEnabled(requireContext());
+				if (true) {
 					AlertView noInternetAlert = new AlertView(getString(R.string.no_internet), getString(R.string.internet_is_req_to_search_cities_online), AlertStyle.IOS);
 					noInternetAlert.addAction(new AlertAction(getString(R.string.retry), AlertActionStyle.DEFAULT, alertAction -> {
 						btnOnlineLocate.performClick(); /*Retry connecting*/
@@ -197,6 +196,7 @@ public class LocationSelectorFragment extends Fragment {
 					}));
 					noInternetAlert.show((AppCompatActivity) requireActivity());
 				} else {
+					// Offline search
 					Toast.makeText(requireContext(), "Online Search", Toast.LENGTH_SHORT).show();
 					return;
 				}

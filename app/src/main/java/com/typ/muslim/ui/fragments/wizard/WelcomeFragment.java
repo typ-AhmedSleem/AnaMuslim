@@ -19,8 +19,6 @@ import androidx.navigation.Navigation;
 import com.google.android.material.transition.MaterialSharedAxis;
 import com.typ.muslim.R;
 
-import libs.mjn.scaletouchlistener.ScaleTouchListener;
-
 public class WelcomeFragment extends Fragment {
 
     // Statics
@@ -41,12 +39,6 @@ public class WelcomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.btn_get_started).setOnTouchListener(new ScaleTouchListener(new ScaleTouchListener.Config(100, 0.95f, 1f)) {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_locationSelectorFragment);
-            }
-        });
+        view.findViewById(R.id.btn_get_started).setOnClickListener(v -> Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_locationSelectorFragment));
     }
 }

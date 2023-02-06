@@ -67,6 +67,13 @@
         <activity android:name=".ui.activities.quran.QuranReaderActivity"
             android:theme="@style/Theme.AnaMuslim"/>
 
+        <activity android:name=".ui.activities.MoreFeaturesActivity"
+            android:theme="@style/Theme.AnaMuslim"/>
+        <activity android:name=".ui.activities.QiblaActivity" />
+        <activity android:name=".ui.activities.TrackerActivity" />
+        <activity android:name=".ui.activities.TestActivity"
+            android:theme="@style/Theme.Transparent"/>
+
     </application>
 
 </manifest>

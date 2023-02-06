@@ -22,7 +22,7 @@ public class ExportableProfile extends Profile {
 	@Nullable
 	private final Map<String, ?> settings;
 
-	public ExportableProfile(Profile profile, Map<String, ?> settings) {
+	public ExportableProfile(Profile profile, @Nullable Map<String, ?> settings) {
 		super(profile.getId(), profile.isMale(), profile.getName(), profile.getPhotoPath(), profile.getCreatedIn());
 		this.settings = settings;
 	}

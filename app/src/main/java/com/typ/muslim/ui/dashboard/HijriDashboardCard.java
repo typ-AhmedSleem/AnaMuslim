@@ -18,9 +18,7 @@ import com.typ.muslim.managers.IslamicEvents;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.HijriDate;
 import com.typ.muslim.models.IslamicEvent;
-import com.typ.muslim.ui.BottomSheets;
 import com.typ.muslim.ui.activities.HijriCalendarActivity;
-import com.typ.muslim.ui.activities.IslamicEventsActivity;
 import com.typ.muslim.utils.DateUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -29,77 +27,77 @@ import java.util.Locale;
 
 public class HijriDashboardCard extends DashboardCard {
 
-	// todo: Add textview to display today name e.g: Sunday, Jum3a
-	// todo: Don't forget to replace Friday with Jum3a and Dhuhr pray with Jum3a Pray
+    // todo: Add textview to display today name e.g: Sunday, Jum3a
+    // todo: Don't forget to replace Friday with Jum3a and Dhuhr pray with Jum3a Pray
 
-	// Statics
-	private static final String TAG = "HijriDashboardCard";
-	// Runtime
-	private HijriDate hijriDateToday;
-	private IslamicEvent todayEvent;
-	// Views
-	private MaterialTextView tvDayName, tvHijriDay, tvHijriMonthYear, tvEventTitle;
+    // Statics
+    private static final String TAG = "HijriDashboardCard";
+    // Runtime
+    private HijriDate hijriDateToday;
+    private IslamicEvent todayEvent;
+    // Views
+    private MaterialTextView tvDayName, tvHijriDay, tvHijriMonthYear, tvEventTitle;
 
-	public HijriDashboardCard(Context context) {
-		super(context);
-	}
+    public HijriDashboardCard(Context context) {
+        super(context);
+    }
 
-	public HijriDashboardCard(Context context, AttributeSet attrs) {
-		super(context, attrs);
-	}
+    public HijriDashboardCard(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 
-	public HijriDashboardCard(Context context, AttributeSet attrs, int defStyleAttr) {
-		super(context, attrs, defStyleAttr);
-	}
+    public HijriDashboardCard(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
 
-	@Override
-	public void prepareRuntime(Context context) {
-		this.hijriDateToday = HijriCalendar.getToday();
-		this.todayEvent = IslamicEvents.getEventIn(this.hijriDateToday);
-	}
+    @Override
+    public void prepareRuntime(Context context) {
+        this.hijriDateToday = HijriCalendar.getToday();
+        this.todayEvent = IslamicEvents.getEventIn(this.hijriDateToday);
+    }
 
-	@Override
-	public void prepareCardView(Context context) {
-		inflate(getContext(), R.layout.layout_hijri_card, this);
-		setRippleColorResource(R.color.transparent);
-		// Init content views
-		tvDayName = $(R.id.tv_day_name);
-		tvHijriDay = $(R.id.tv_hijri_day);
-		tvHijriMonthYear = $(R.id.tv_hijri_month_year);
-		tvEventTitle = findViewById(R.id.tv_hijri_event_title);
-		// Refresh UI
-		if (!isInEditMode()) this.refreshUI();
-	}
+    @Override
+    public void prepareCardView(Context context) {
+        inflate(getContext(), R.layout.layout_hijri_card, this);
+        setRippleColorResource(R.color.transparent);
+        // Init content views
+        tvDayName = $(R.id.tv_day_name);
+        tvHijriDay = $(R.id.tv_hijri_day);
+        tvHijriMonthYear = $(R.id.tv_hijri_month_year);
+        tvEventTitle = findViewById(R.id.tv_hijri_event_title);
+        // Refresh UI
+        if (!isInEditMode()) this.refreshUI();
+    }
 
-	@Override
-	public void refreshUI() {
-		// Refresh runtime
-		this.prepareRuntime(getContext());
-		// Refresh views
-		tvDayName.setText(DateUtils.getTodayName("F")); // Day name.
+    @Override
+    public void refreshUI() {
+        // Refresh runtime
+        this.prepareRuntime(getContext());
+        // Refresh views
+        tvDayName.setText(DateUtils.getTodayName("F")); // Day name.
         tvHijriDay.setText(String.valueOf(this.hijriDateToday.getDay())); // Hijri day number.
         tvHijriMonthYear.setText(String.format(Locale.getDefault(), "%s, %d %s",
                 this.hijriDateToday.getMonthName(),
                 this.hijriDateToday.getYear(), ResMan.getString(getContext(), R.string.H))); // Hijri month name + Hijri year.
-		if (todayEvent != null) {
+        if (todayEvent != null) {
             // There's an event today
             tvEventTitle.setText(todayEvent.getTitleStringResId());
             tvEventTitle.setTextColor(ResMan.getColor(getContext(), R.color.yellow));
         } else tvEventTitle.setText(R.string.no_hijri_events_today); // No events today.
-	}
+    }
 
-	@Override
-	public void onClick(View v) {
-		if (isBottomSheetShown) return;
-		startActivity(new Intent(getContext(), HijriCalendarActivity.class));
-		BottomSheets.newHijriCalendar(getContext(),
-				view -> getContext().startActivity(new Intent(getContext(), view.getId() == R.id.btn_show_events ? IslamicEventsActivity.class : HijriCalendarActivity.class)),
-				islamicEvent -> BottomSheets.newIslamicEventDetails(getContext(), islamicEvent).show(),
-				isShown -> isBottomSheetShown = isShown);
-	}
+    @Override
+    public void onClick(View v) {
+        if (isBottomSheetShown) return;
+        startActivity(new Intent(getContext(), HijriCalendarActivity.class));
+//		BottomSheets.newHijriCalendar(getContext(),
+//				view -> getContext().startActivity(new Intent(getContext(), view.getId() == R.id.btn_show_events ? IslamicEventsActivity.class : HijriCalendarActivity.class)),
+//				islamicEvent -> BottomSheets.newIslamicEventDetails(getContext(), islamicEvent).show(),
+//				isShown -> isBottomSheetShown = isShown);
+    }
 
-	@Override
-	public boolean onLongClick(View v) {
+    @Override
+    public boolean onLongClick(View v) {
 //		final int ACTION_OPEN_HIJRI_CALENDAR = 1;
 //		final int ACTION_SHOW_ISLAMIC_EVENTS = 2;
 //		final int ACTION_OPEN_RAMADAN_PAGE = 3;
@@ -120,13 +118,13 @@ public class HijriDashboardCard extends DashboardCard {
 //				new ActionItem(ACTION_OPEN_HIJRI_CALENDAR, R.drawable.ic_calendar, R.string.open_hijri_calendar),
 //				new ActionItem(ACTION_SHOW_ISLAMIC_EVENTS, R.drawable.ic_quran_star, R.string.show_islamic_events),
 //				new ActionItem(ACTION_OPEN_RAMADAN_PAGE, R.drawable.ic_ramadan_moon_outline, R.string.open_ramadan_page)).show();
-		return true;
-	}
+        return true;
+    }
 
-	@NotNull
-	@Override
-	public String toString() {
-		return "HijriDashboardCard";
-	}
+    @NotNull
+    @Override
+    public String toString() {
+        return "HijriDashboardCard";
+    }
 
 }

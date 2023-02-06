@@ -6,7 +6,6 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/BottomSheets"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -29,59 +28,59 @@
         app:fontFamily="@font/font_jf_flat_regular"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.mpt.android.stv.SpannableTextView
-        android:id="@+id/tv_pray_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:gravity="start|center_vertical"
-        android:maxLines="2"
-        android:text="Have you prayed, Prayname"
-        android:textColor="@color/darkAdaptiveColor"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/font_jf_flat_regular"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        tools:ignore="HardcodedText,SmallSp" />
+    <!--    <com.google.android.material.textview.MaterialTextView-->
+    <!--        android:id="@+id/tv_pray_name"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="15dp"-->
+    <!--        android:gravity="start|center_vertical"-->
+    <!--        android:maxLines="2"-->
+    <!--        android:text="Have you prayed, Prayname"-->
+    <!--        android:textColor="@color/darkAdaptiveColor"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:fontFamily="@font/font_jf_flat_regular"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/title"-->
+    <!--        tools:ignore="HardcodedText,SmallSp" />-->
 
-    <ImageView
-        android:id="@+id/i1"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="5dp"
-        android:padding="0dp"
-        android:src="@drawable/ic_time_clock_outlined"
-        app:layout_constraintStart_toStartOf="@id/tv_pray_name"
-        app:layout_constraintTop_toBottomOf="@id/tv_pray_name"
-        app:tint="@color/adaptiveSubtitleTextColor"
-        tools:ignore="ContentDescription" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/i1"-->
+    <!--        android:layout_width="18dp"-->
+    <!--        android:layout_height="18dp"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        android:padding="0dp"-->
+    <!--        android:src="@drawable/ic_time_clock_outlined"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/tv_pray_name"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tv_pray_name"-->
+    <!--        app:tint="@color/adaptiveSubtitleTextColor"-->
+    <!--        tools:ignore="ContentDescription" />-->
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_pray_time"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:gravity="center_vertical|start"
-        android:text="07:13 PM"
-        android:textColor="@color/adaptiveSubtitleTextColor"
-        android:textSize="16sp"
-        app:fontFamily="@font/font_jf_flat_regular"
-        app:layout_constraintBottom_toBottomOf="@id/i1"
-        app:layout_constraintEnd_toEndOf="@id/tv_pray_name"
-        app:layout_constraintStart_toEndOf="@id/i1"
-        app:layout_constraintTop_toTopOf="@id/i1"
-        tools:ignore="HardcodedText,SmallSp" />
+    <!--    <com.google.android.material.textview.MaterialTextView-->
+    <!--        android:id="@+id/tv_pray_time"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="10dp"-->
+    <!--        android:gravity="center_vertical|start"-->
+    <!--        android:text="07:13 PM"-->
+    <!--        android:textColor="@color/adaptiveSubtitleTextColor"-->
+    <!--        android:textSize="16sp"-->
+    <!--        app:fontFamily="@font/font_jf_flat_regular"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/i1"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/tv_pray_name"-->
+    <!--        app:layout_constraintStart_toEndOf="@id/i1"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/i1"-->
+    <!--        tools:ignore="HardcodedText,SmallSp" />-->
 
     <View
         android:id="@+id/div"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="10dp"
         android:background="@color/bg_input_box"
-        app:layout_constraintTop_toBottomOf="@id/tv_pray_time" />
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/t2"
@@ -106,67 +105,109 @@
             android:id="@+id/radio_prayed_on_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:buttonTint="@color/green"
+            android:fontFamily="@font/font_bukrar"
             android:padding="10dp"
             android:text="@string/prayed_on_time"
+            android:textAllCaps="false"
             android:textColor="@color/darkAdaptiveColor"
-            app:buttonTint="@color/darkAdaptiveColor"
+            android:textStyle="bold"
             app:useMaterialThemeColors="false" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/radio_prayed_late"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/font_bukrar"
             android:padding="10dp"
             android:text="@string/prayed_late"
+            android:textAllCaps="false"
             android:textColor="@color/darkAdaptiveColor"
-            app:buttonTint="@color/darkAdaptiveColor"
+            android:textStyle="bold"
+            app:buttonTint="@color/blue"
             app:useMaterialThemeColors="false" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/radio_pray_missed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/font_bukrar"
             android:padding="10dp"
             android:text="@string/missed_pray"
+            android:textAllCaps="false"
             android:textColor="@color/darkAdaptiveColor"
-            app:buttonTint="@color/darkAdaptiveColor"
+            android:textStyle="bold"
+            app:buttonTint="@color/red"
             app:useMaterialThemeColors="false" />
 
     </RadioGroup>
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch_prayed_at_mosque"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/where_did_you_pray"
+        android:textColor="@color/subtitleTextColor"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_bukrar"
+        app:layout_constraintTop_toBottomOf="@id/radio_group_prayed_when" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_prayed_where"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:checked="true"
-        android:fontFamily="@font/font_bukrar"
-        android:textColor="@color/darkAdaptiveColor"
-        android:text="@string/have_you_prayed_at_mosque"
-        android:textStyle="bold"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@id/radio_group_prayed_when"
-        app:thumbTint="@color/colorPrimary"
-        app:trackTint="@color/bg_input_box"
-        app:useMaterialThemeColors="false" />
+        app:layout_constraintTop_toBottomOf="@id/t3">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_prayed_at_mosque"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/font_bukrar"
+            android:padding="10dp"
+            android:text="@string/prayed_at_mosque"
+            android:textAllCaps="false"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textStyle="bold"
+            app:buttonTint="@color/darkAdaptiveColor"
+            app:useMaterialThemeColors="false" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_prayed_at_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_bukrar"
+            android:padding="10dp"
+            android:text="@string/prayed_at_home"
+            android:textAllCaps="false"
+            android:textColor="@color/darkAdaptiveColor"
+            android:textStyle="bold"
+            app:buttonTint="@color/darkAdaptiveColor"
+            app:useMaterialThemeColors="false" />
+
+    </RadioGroup>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_submit"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/font_bukrar"
         android:text="@string/submit"
         android:textAllCaps="true"
-        android:textColor="@color/green"
+        android:textColor="@color/adaptiveTextColor"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/bg_input_box"
+        app:backgroundTint="@color/green"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/switch_prayed_at_mosque"
-        app:rippleColor="@color/ripple_som_card" />
+        app:layout_constraintTop_toBottomOf="@id/radio_group_prayed_where"
+        app:rippleColor="@color/ripple_white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

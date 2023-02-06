@@ -23,7 +23,7 @@
         android:src="@drawable/ic_arrow_to_right"
         android:textColor="@color/colorAccent"
         android:transitionName="transition_wizard_next_button"
-        app:tint="@color/adaptiveTextColor"
+        app:tint="@color/white"
         tools:ignore="ContentDescription" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -42,7 +42,7 @@
         android:gravity="center"
         android:maxLines="1"
         android:text="@string/no_internet_connection"
-        android:textColor="@color/colorText"
+        android:textColor="@color/darkAdaptiveColor"
         android:textSize="12sp" />
 
     <ImageButton
@@ -53,7 +53,7 @@
         android:layout_marginStart="15dp"
         android:background="@drawable/btn_bg_wizard_back"
         android:src="@drawable/ic_arrow_to_left"
-        app:tint="@color/adaptiveTextColor"
+        app:tint="@color/darkAdaptiveColor"
         tools:ignore="ContentDescription" />
 
 </RelativeLayout>

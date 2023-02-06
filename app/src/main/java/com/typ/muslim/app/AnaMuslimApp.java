@@ -12,6 +12,8 @@ import androidx.multidex.MultiDexApplication;
 
 import java.lang.ref.WeakReference;
 
+import io.alterac.blurkit.BlurKit;
+
 public class AnaMuslimApp extends MultiDexApplication {
 
 	// Singleton instances
@@ -24,6 +26,7 @@ public class AnaMuslimApp extends MultiDexApplication {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		BlurKit.init(this);
 		synchronized (this) {
 			if (mContext == null) {
 				mContext = new WeakReference<>(getApplicationContext());

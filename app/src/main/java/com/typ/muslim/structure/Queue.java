@@ -4,7 +4,7 @@
  * Copyright (c) 2021.  TYP INC. All Rights Reserved
  */
 
-package com.typ.muslim.ds;
+package com.typ.muslim.structure;
 
 import androidx.annotation.Nullable;
 

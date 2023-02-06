@@ -20,7 +20,7 @@
     <string name="search_online">Search Online</string>_location
     <string name="retry">Retry</string>
     <string name="search_cities">Search Cities</string>
-    <string name="enter_city_name">Enter City name</string>
+    <string name="enter_city_name">City name...</string>
     <string name="search_offline">Search offline</string>
     <string name="locate_using_gps">Locate using GPS</string>
     <string name="auto_detect_location">Auto Detect Location</string>
@@ -31,7 +31,7 @@
     <string name="or">or</string>
     <string name="picked_location">Picked Location</string>
     <string name="country">Country:</string>
-    <string name="location">City</string>
+    <string name="location">Location</string>
     <string name="latitude">Latitude:</string>
     <string name="longitude">Longitude:</string>
     <string name="timezone">Timezone</string>
@@ -55,7 +55,7 @@
     <string name="select_calc_method_your_loc_is_following">Select Calculation Method your location is following</string>
     <string name="select_asr_method_your_loc_is_following">Select the Asr Juristic your country follows\nImportant for computing Asr</string>
     <string name="select_high_lat_method_your_loc_is_following">If your location is above sea-level, select the method your local location is using to calculate prayers</string>
-    <string name="lt_prev_prayers_subtitle">According to Location and Config you selected before, AnaMuslim calculated PrayTimes for today</string>
+    <string name="lt_prev_prayers_subtitle">According to Location and Config you selected,\nAnaMuslim calculated PrayTimes for today</string>
     <string name="lt_quick_settings_subtitle">Here are some quick settings users are using most. Edit what you want or leave it unchanged, you are free</string>
     <string name="preview">Preview</string>
     <string name="_two_dots" translatable="false">:</string>
@@ -101,7 +101,7 @@
     <string name="subtitle_iqama_after_azan">Select which Prays you want to play Iqama after its azan</string>
     <string name="quran">Quran</string>
     <string name="default_welcome">Peace be upon you!\n Muslim brother</string>
-    <string name="peace_be_upon_you">Peace be upon you,</string>
+    <string name="peace_be_upon_you">Peace be upon you</string>
     <string name="next_pray">Next Pray</string>
     <string name="after">After</string>
     <string name="today_prays">Today Prays</string>
@@ -290,6 +290,7 @@
     <string name="pray_tracker">Pray Tracker</string>
     <string name="personal_tracker">Personal Tracker</string>
     <string name="search_location">Search Location</string>
+    <string name="search_city">Search City</string>
     <string name="location_not_selected_error_msg">"You must select your location to calculate Prays correctly "</string>
     <string name="qibla_compass">Qibla Compass</string>
     <string name="settings">Settings</string>
@@ -490,4 +491,40 @@
     <string name="khatma_details">Khatma Details</string>
     <string name="khatma_number_and_name">Khatma number and name</string>
     <string name="completed_days">Completed Days</string>
+    <string name="qiyam">Qiyam</string>
+    <string name="show_more">Show more</string>
+    <string name="mark_werd_as_done">Mark werd as done</string>
+    <string name="delete_khatma">Delete Khatma</string>
+    <string name="view_history">View history</string>
+    <string name="current_werd">Current werd</string>
+    <string name="ayah_number">Ayah number</string>
+    <string name="surah_name">Surah name</string>
+    <string name="surah">Surah</string>
+    <string name="ayah">Ayah</string>
+    <string name="verse">Verse</string>
+    <string name="part">Part</string>
+    <string name="parts">Parts</string>
+    <string name="a_day">a day</string>
+    <string name="untitled_khatma">Untitled Khatma</string>
+    <string name="angle">Angle</string>
+    <string name="degree_symbol">°</string>
+    <string name="bearing">Bearing</string>
+    <string name="accuracy">Accuracy</string>
+    <string name="good">Good</string>
+    <string name="switch_qibla">Switch Qibla</string>
+    <string name="status">Status</string>
+    <string name="okay">Okay</string>
+    <string name="unknown">Unknown</string>
+    <string name="put_phone_on_back">Settle down your phone</string>
+    <string name="unreliable">Unreliable</string>
+    <string name="low">Low</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
+    <string name="auto_switch_enabled">Auto switch enabled</string>
+    <string name="qibla_angle">Qibla angle</string>
+    <string name="mashallah">Mashallah</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="rotate_phone_to">Rotate phone to the</string>
+    <string name="you_are_heading_to">You are heading to</string>
 </resources>

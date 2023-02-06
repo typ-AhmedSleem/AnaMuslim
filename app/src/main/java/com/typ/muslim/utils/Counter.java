@@ -46,7 +46,7 @@ public class Counter {
 	public static <T> int countValues(List<T> list, EasyListCounter<T> counter) {
 		if (counter == null) return -1;
 		if (list == null) return -1;
-		if (list.isEmpty()) return -1;
+		if (list.isEmpty()) return 0;
 		if (list instanceof EasyList) return countValues((EasyList<T>) list, counter);
 		int total = 0;
 		for (T item : list) total += counter.count(item);

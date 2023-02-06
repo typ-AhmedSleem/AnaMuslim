@@ -51,6 +51,7 @@
         android:textColor="@color/darkAdaptiveColor"
         android:textSize="40sp"
         android:textStyle="bold"
+        android:transitionName="transition_tv"
         app:fontFamily="@font/josefin_sans_light"
         app:layout_constraintEnd_toStartOf="@id/spw_pray_tracker"
         app:layout_constraintStart_toStartOf="@id/icon"
@@ -80,12 +81,13 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:rotation="-0"
+        android:transitionName="transition_progress_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/icon"
         app:spw_info_text="@string/remaining"
         app:spw_step_width="5dp"
         app:spw_value_text="1"
-        app:spw_value_textColor="@color/green" />
+        app:spw_value_textColor="@color/darkAdaptiveColor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
