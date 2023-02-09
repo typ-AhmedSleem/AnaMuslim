@@ -10,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:theme="@style/Theme.AnaMuslim.SplashScreen">
+    android:theme="@style/Theme.AnaMuslim">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,38 +36,41 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.6"
             android:gravity="center"
             android:maxLines="3"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:text="Your personal digital Islamic companion"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
-            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
             app:autoSizeMaxTextSize="20sp"
-            android:transitionName="transition_wizard_step_subtitle"
             app:autoSizeTextType="uniform"
-            app:fontFamily="monospace"
+            android:transitionName="transition_wizard_step_subtitle"
+            app:fontFamily="@font/font_omar_light"
             app:textAllCaps="false"
             tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        app:backgroundTint="@color/colorPrimary"
         android:id="@+id/btn_get_started"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
-        android:text="Start using AnaMuslim"
-        android:textColor="@color/white"
-        app:rippleColor="@color/ripple_white"
-        android:transitionName="transition_wizard_next_button"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/setup_anamuslim"
         android:textAllCaps="false"
-        app:cornerRadius="10dp"
-        app:elevation="0dp" />
+        android:textColor="@color/white"
+        android:transitionName="transition_wizard_next_button"
+        android:typeface="sans"
+        app:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="@dimen/default_corner_radius"
+        app:elevation="0dp"
+        app:rippleColor="@color/ripple_white" />
 
 </FrameLayout>

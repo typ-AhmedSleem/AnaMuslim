@@ -6,6 +6,6 @@
   -->
 
 <resources>
-    <dimen name="default_corner_radius">15dp</dimen>
+    <dimen name="default_corner_radius">10dp</dimen>
     <dimen name="stroke_width_button_selected">2dp</dimen>
 </resources>

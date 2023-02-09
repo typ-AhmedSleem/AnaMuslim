@@ -64,6 +64,8 @@ public class TrackerDashboardCard extends DashboardCard implements PrayTimeCameL
         // Inflate content view
         this.viewSwitcher = inflate(context, R.layout.layout_pray_tracker_card_base, this).findViewById(R.id.vs);
         setRippleColorResource(R.color.ripple_white);
+        setOnClickListener(this);
+        setOnLongClickListener(this);
         // Switch view depending on whether he prayed or not
         refreshUI();
     }

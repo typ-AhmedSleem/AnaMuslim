@@ -16,11 +16,17 @@
         android:label="WelcomeFragment"
         tools:layout="@layout/fragment_wizard_welcome">
         <action
+            android:id="@+id/action_welcomeFragment_to_themeSelectorFragment"
+            app:destination="@id/themeSelectorFragment" />
+        <action
             android:id="@+id/action_welcomeFragment_to_locationSelectorFragment"
             app:destination="@id/locationSelectorFragment" />
         <action
-            android:id="@+id/action_welcomeFragment_to_themeSelectorFragment"
-            app:destination="@id/themeSelectorFragment" />
+            android:id="@+id/action_welcomeFragment_to_selectPrayConfigFragment"
+            app:destination="@id/selectPrayConfigFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_previewPrayTimeFragment"
+            app:destination="@id/previewPrayTimeFragment" />
     </fragment>
 
     <fragment
@@ -58,14 +64,6 @@
         android:name="com.typ.muslim.ui.fragments.wizard.PreviewPrayTimeFragment"
         android:label="PreviewPrayTimeFragment"
         tools:layout="@layout/fragment_wizard_preview_prayers">
-        <action
-            android:id="@+id/action_previewPrayTimeFragment_to_quickSettingsFragment"
-            app:destination="@id/quickSettingsFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/quickSettingsFragment"
-        android:name="com.typ.muslim.ui.fragments.wizard.QuickSettingsFragment"
-        android:label="QuickSettingsFragment"
-        tools:layout="@layout/fragment_wizard_quick_settings" />
 
 </navigation>

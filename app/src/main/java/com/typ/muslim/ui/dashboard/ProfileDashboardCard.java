@@ -28,8 +28,9 @@ public class ProfileDashboardCard extends DashboardCard {
 
 	// Statics
 	private static final String TAG = "ProfileDashboardCard";
-	// Runtime
+	// Runtim
 	private Profile profile;
+	private boolean hasLoadedProfilePic;
 	// Views
 	private MaterialTextView tvName, tvJoinedIn;
 	private CircleImageView cimgUserPic;
@@ -78,8 +79,8 @@ public class ProfileDashboardCard extends DashboardCard {
 
 	@Override
 	public void refreshUI() {
-		this.profile.loadPhotoIn(this.cimgUserPic);
 		this.tvName.setText(this.profile.getName());
+		if (!hasLoadedProfilePic) this.profile.loadPhotoIn(this.cimgUserPic);
 		this.tvJoinedIn.setText(String.format(Locale.getDefault(), "%s: %s",
 				getString(R.string.joined_in),
 				this.profile.getCreatedIn().getFormatted(FormatPatterns.DATE_NORMAL)));

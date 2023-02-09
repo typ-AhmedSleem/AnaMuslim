@@ -16,8 +16,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.transition.MaterialSharedAxis;
 import com.typ.muslim.R;
+import com.typ.muslim.managers.AMSettings;
+import com.typ.muslim.profile.ProfileManager;
 
 public class WelcomeFragment extends Fragment {
 
@@ -39,6 +42,28 @@ public class WelcomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        view.findViewById(R.id.btn_get_started).setOnClickListener(v -> Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_locationSelectorFragment));
+        final MaterialButton btnNext = view.findViewById(R.id.btn_get_started);
+        // Hide button if user has profile
+        if (ProfileManager.hasProfile(getContext())) btnNext.setVisibility(View.INVISIBLE);
+        // Build next destination based on wizard steps completed
+        final int destination;
+        if (AMSettings.isLocationSet(getContext())) {
+            // Check if config is set
+            if (AMSettings.isConfigSet(getContext())) {
+                // Next destination is 'Preview'
+                btnNext.setText(R.string.continue_setup__preview);
+                destination = R.id.action_welcomeFragment_to_previewPrayTimeFragment;
+            } else {
+                // Next destination is 'Configuration'
+                btnNext.setText(R.string.continue_setup__config);
+                destination = R.id.action_welcomeFragment_to_selectPrayConfigFragment;
+            }
+        } else {
+            // Next destination is 'Location'
+            btnNext.setText(R.string.start_setup__location);
+            destination = R.id.action_welcomeFragment_to_locationSelectorFragment;
+        }
+        // Navigate to destination
+        btnNext.setOnClickListener(v -> Navigation.findNavController(view).navigate(destination));
     }
 }

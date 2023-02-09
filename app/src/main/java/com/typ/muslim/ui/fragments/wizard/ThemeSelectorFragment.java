@@ -182,13 +182,13 @@ public class ThemeSelectorFragment extends Fragment {
 
             }
         });
-        view.findViewById(R.id.ibtn_go_back).setOnTouchListener(new ScaleTouchListener(new ScaleTouchListener.Config(100, 0.95f, 0.8f)) {
+        view.findViewById(R.id.fab_go_back).setOnTouchListener(new ScaleTouchListener(new ScaleTouchListener.Config(100, 0.95f, 0.8f)) {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigateUp();
             }
         });
-        view.findViewById(R.id.ibtn_go_next).setOnTouchListener(new ScaleTouchListener(new ScaleTouchListener.Config(100, 0.95f, 0.8f)) {
+        view.findViewById(R.id.fab_go_next).setOnTouchListener(new ScaleTouchListener(new ScaleTouchListener.Config(100, 0.95f, 0.8f)) {
             @Override
             public void onClick(View v) {
 

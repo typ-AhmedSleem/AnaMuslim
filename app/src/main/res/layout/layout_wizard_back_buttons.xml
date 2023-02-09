@@ -11,49 +11,49 @@
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
     android:layout_gravity="bottom"
-    android:background="@color/transparent">
+    android:background="@color/transparent"
+    android:padding="10dp">
 
-    <ImageButton
-        android:id="@+id/ibtn_go_next"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_go_next"
+        style="@style/Widget.Material3.FloatingActionButton.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="15dp"
-        android:background="@drawable/btn_bg_wizard_next"
         android:src="@drawable/ic_arrow_to_right"
-        android:textColor="@color/colorAccent"
         android:transitionName="transition_wizard_next_button"
-        app:tint="@color/white"
-        tools:ignore="ContentDescription" />
+        app:elevation="0dp"
+        app:fabCustomSize="60dp"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_no_internet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/ibtn_go_back"
-        android:layout_alignBottom="@id/ibtn_go_back"
-        android:layout_toStartOf="@id/ibtn_go_next"
-        android:layout_toEndOf="@id/ibtn_go_back"
-        app:autoSizeMaxTextSize="13sp"
-        android:visibility="gone"
-        android:id="@+id/tv_no_internet"
-        app:autoSizeTextType="uniform"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
         android:gravity="center"
         android:maxLines="1"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:text="@string/no_internet_connection"
         android:textColor="@color/darkAdaptiveColor"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:autoSizeMaxTextSize="13sp"
+        app:autoSizeTextType="uniform" />
 
-    <ImageButton
-        android:id="@+id/ibtn_go_back"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_go_back"
+        style="@style/Widget.Material3.FloatingActionButton.Surface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_marginStart="15dp"
-        android:background="@drawable/btn_bg_wizard_back"
         android:src="@drawable/ic_arrow_to_left"
-        app:tint="@color/darkAdaptiveColor"
+        android:transitionName="transition_wizard_back_button"
+        android:visibility="gone"
+        app:elevation="0dp"
+        app:fabCustomSize="60dp"
         tools:ignore="ContentDescription" />
 
 </RelativeLayout>

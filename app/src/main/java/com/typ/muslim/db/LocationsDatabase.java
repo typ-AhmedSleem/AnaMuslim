@@ -29,11 +29,11 @@ public class LocationsDatabase extends SQLiteAssetHelper {
     }
 
     /**
-     * Gets all countries in the database as List of Countries. NULL if faced an error. 0 items list if no data was found.
+     * Gets all countries in the database as List of Countries. Empty list otherwise
      */
     public List<Country> getAllCountries() {
         Cursor cursor = getReadableDatabase().rawQuery("SELECT DISTINCT country_code,en_country FROM locations", null);
-        if (cursor == null) return null;
+        if (cursor == null) return new ArrayList<>();
         if (cursor.getCount() == 0) return new ArrayList<>();
         List<Country> countries = new ArrayList<>();
         cursor.moveToFirst();
@@ -66,12 +66,12 @@ public class LocationsDatabase extends SQLiteAssetHelper {
     }
 
     /**
-     * Returns all Cities found in database that holds the same CountryCode. NULL if faced an error. 0 items list if no cities was found.
+     * Returns all Cities found in database that holds the same CountryCode. Empty list otherwise
      */
-    @Nullable
+    @NonNull
     public List<Location> getCitiesOfCountry(String countryCode) {
-        Cursor cursor = getReadableDatabase().rawQuery("SELECT DISTINCT en_country,en_city,lat,loong,time_zone FROM locations WHERE countryCode=" + buildEqualSQL(countryCode, false) + " order by country_code", null);
-        if (cursor == null) return null;
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT DISTINCT en_country,en_city,lat,loong,time_zone FROM locations WHERE country_code=" + buildEqualSQL(countryCode, false) + " order by country_code", null);
+        if (cursor == null) return new ArrayList<>();
         List<Location> cities = new ArrayList<>();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -98,11 +98,11 @@ public class LocationsDatabase extends SQLiteAssetHelper {
     }
 
     /**
-     * Returns all cities found in database its names matches the given query. NULL if faced an error. 0 items list if no cities was found.
+     * Returns all cities found in database its names matches the given query. Empty list otherwise
      */
     public List<Location> searchForCities(String query) {
         Cursor cursor = getReadableDatabase().rawQuery("SELECT DISTINCT country_code,en_country,en_city,lat,loong,time_zone FROM locations WHERE en_city LIKE " + buildLikeSQL(query, true) + " ar_city LIKE " + buildLikeSQL(query, false) + " order by country_code", null);
-        if (cursor == null) return null;
+        if (cursor == null) return new ArrayList<>();
         List<Location> cities = new ArrayList<>();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

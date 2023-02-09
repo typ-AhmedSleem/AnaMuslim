@@ -13,7 +13,6 @@ import android.view.View;
 import com.app.progresviews.ProgressWheel;
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.KhatmaManager;
 import com.typ.muslim.models.Khatma;
 import com.typ.muslim.ui.dashboard.DashboardCard;
@@ -85,7 +84,6 @@ public class KhatmaDashboardCard extends DashboardCard {
                 tvMsg.setTextColor(getColor(R.color.brightSubtitleTextColor));
             } else reset();
         }
-        AManager.log("AKC", khatma);
     }
 
     @Override

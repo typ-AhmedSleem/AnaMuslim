@@ -29,7 +29,8 @@ public class CitiesAdapter extends RecyclerArrayAdapter<Location> {
         this.erv = erv;
     }
 
-    @Override public BaseViewHolder<Location> OnCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override
+    public BaseViewHolder<Location> OnCreateViewHolder(ViewGroup parent, int viewType) {
         return new CityViewHolder(parent);
     }
 
@@ -56,12 +57,13 @@ public class CitiesAdapter extends RecyclerArrayAdapter<Location> {
         private final MaterialTextView tvCountry;
 
         public CityViewHolder(ViewGroup parent) {
-            super(parent, R.layout.item_search_city);
+            super(parent, R.layout.item_city);
             tvCity = $(R.id.tv_city_name);
             tvCountry = $(R.id.tv_country_name);
         }
 
-        @Override public void setData(Location location) {
+        @Override
+        public void setData(Location location) {
             tvCity.setText(location.getCityName());
             tvCountry.setText(location.getCountryName());
         }

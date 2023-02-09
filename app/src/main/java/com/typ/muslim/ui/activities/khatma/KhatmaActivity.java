@@ -48,6 +48,7 @@ import com.zyyoona7.wheel.WheelView;
 
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Objects;
 
 public class KhatmaActivity extends AppCompatActivity implements KhatmaManagerCallback {
 
@@ -277,7 +278,7 @@ public class KhatmaActivity extends AppCompatActivity implements KhatmaManagerCa
 
         @Override
         public void bindInnerViews() {
-            inputKhatmaName.getEditText().setText(null);
+            Objects.requireNonNull(inputKhatmaName.getEditText()).setText(null);
             wheelPlanPicker.setSelectedItemPosition(KhatmaPlans.PLAN_30_DAYS.ordinal());
             wheelPlanPicker.setData(Arrays.asList(KhatmaPlans.values()));
         }

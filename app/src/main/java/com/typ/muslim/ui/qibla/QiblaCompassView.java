@@ -52,7 +52,7 @@ public class QiblaCompassView extends View implements SensorEventListener {
     private boolean isVibrationEnabled = true;
     // Runtime
     private Vibrator vibrator;
-    public float alpha = 0.015f;
+    public float alpha = 0.05f;
     private SensorManager sensorManager;
     private SensorAccuracy currAccuracy = SensorAccuracy.UNRELIABLE;
     private boolean isVibrating = false;
@@ -110,6 +110,9 @@ public class QiblaCompassView extends View implements SensorEventListener {
         paint.setStrokeWidth(10f);
         paint.setStrokeCap(Paint.Cap.ROUND);
         paint.setStyle(Paint.Style.FILL);
+        // Draw center circle
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawCircle(radius, radius, radius / 10, paint);
         // North indicator circle
         canvas.drawLine(radius, radius, radius, 40, paint);
 //        final int northCX = (int) ((radius) * Math.cos(Math.toRadians(-(int) northAngle)));

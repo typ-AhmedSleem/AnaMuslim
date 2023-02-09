@@ -4,219 +4,165 @@
   ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:theme="@style/Theme.AnaMuslim.SplashScreen">
+    android:theme="@style/Theme.AnaMuslim">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_step_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:gravity="center"
         android:maxLines="1"
         android:text="@string/configuration"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:transitionName="transition_wizard_step_title"
         app:autoSizeMaxTextSize="35dp"
         app:autoSizeTextType="uniform"
-        app:fontFamily="@font/g" />
+        app:fontFamily="@font/font_omar_light"
+        app:layout_constraintBottom_toTopOf="@id/tv_step_info" />
 
-    <LinearLayout
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_step_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/layout_wizard_buttons"
-        android:layout_below="@id/tv_step_title"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_marginBottom="20dp"
+        android:alpha="0.7"
+        android:gravity="center_horizontal"
+        android:maxLines="2"
+        android:text="Choose the parameters that your local follow\nin order to calculate prays accurately."
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/adaptiveSubtitleTextColor"
+        android:textSize="12sp"
+        android:transitionName="transition_wizard_step_subtitle"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_omar_light"
+        app:layout_constraintBottom_toTopOf="@id/til_config_calc_method"
+        app:lineHeight="15dp"
+        app:textAllCaps="false"
+        tools:ignore="HardcodedText" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alpha="0.8"
-            android:gravity="center"
-            android:maxLines="2"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="Config is the important to calculate PrayTimes.\n(Click on to change)"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textColor="@color/darkAdaptiveColor"
-            android:textSize="12sp"
-            app:autoSizeMaxTextSize="20dp"
-            android:typeface="monospace"
-            app:autoSizeTextType="uniform"
-            app:lineHeight="20dp"
-            app:textAllCaps="false" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="20dp">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/t1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical|start"
-                android:maxLines="1"
-                android:text="@string/calculation_method"
-                android:textColor="@color/darkAdaptiveColor"
-                android:textSize="16sp"
-                android:textStyle="normal"
-                app:autoSizeTextType="uniform" />
-
-            <ImageButton
-                android:id="@+id/ibtn_help_calc_method"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/t1"
-                android:layout_alignBottom="@id/t1"
-                android:layout_alignParentEnd="true"
-                android:background="@color/transparent"
-                app:srcCompat="@drawable/ic_error"
-                app:tint="@color/darkAdaptiveColor"
-                tools:ignore="ContentDescription" />
-
-        </RelativeLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_calc_method"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:autoSizeMaxTextSize="16sp"
-            android:autoSizeTextType="uniform"
-            android:maxLines="1"
-            android:text="Egyptian Authority of Survey and Geometry"
-            android:textAlignment="viewStart"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:backgroundTint="@color/colorPrimary"
-            app:cornerRadius="@dimen/default_corner_radius" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/t2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical|start"
-                android:maxLines="1"
-                android:text="@string/asr_juristic"
-                android:textColor="@color/darkAdaptiveColor"
-                android:textSize="16sp"
-                app:autoSizeTextType="uniform" />
-
-            <ImageButton
-                android:id="@+id/ibtn_help_asr_method"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/t2"
-                android:layout_alignBottom="@id/t2"
-                android:layout_alignParentEnd="true"
-                android:background="@color/transparent"
-                app:srcCompat="@drawable/ic_error"
-                app:tint="@color/darkAdaptiveColor"
-                tools:ignore="ContentDescription" />
-
-        </RelativeLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_asr_method"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:autoSizeMaxTextSize="16sp"
-            android:autoSizeTextType="uniform"
-            android:gravity="center_vertical|start"
-            android:maxLines="1"
-            android:text="@string/shafii"
-            android:textAlignment="viewStart"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:backgroundTint="@color/colorPrimary"
-            app:cornerRadius="@dimen/default_corner_radius" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/t3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical|start"
-                android:maxLines="1"
-                android:text="@string/higher_latitudes"
-                android:textColor="@color/darkAdaptiveColor"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:autoSizeTextType="uniform" />
-
-            <ImageButton
-                android:id="@+id/ibtn_help_higher_lat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/t3"
-                android:layout_alignBottom="@id/t3"
-                android:layout_alignParentEnd="true"
-                android:background="@color/transparent"
-                app:srcCompat="@drawable/ic_error"
-                app:tint="@color/darkAdaptiveColor"
-                tools:ignore="ContentDescription" />
-
-        </RelativeLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_higher_lat"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:autoSizeMaxTextSize="16sp"
-            android:autoSizeTextType="uniform"
-            android:gravity="center_vertical|start"
-            android:maxLines="1"
-            android:text="@string/none"
-            android:textAlignment="viewStart"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:backgroundTint="@color/colorPrimary"
-            app:cornerRadius="@dimen/default_corner_radius" />
-
-    </LinearLayout>
-
-    <include
-        android:id="@+id/layout_wizard_buttons"
-        layout="@layout/layout_wizard_back_buttons"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_config_calc_method"
+        style="?attr/textInputOutlinedExposedDropdownMenuStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="@string/calculation_method"
+        android:textColorHint="@color/btn_stroke_color"
+        app:boxCornerRadiusBottomEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopStart="@dimen/default_corner_radius"
+        app:boxStrokeColor="@color/btn_stroke_color"
+        app:boxStrokeWidth="1dp"
+        app:endIconTint="@color/btn_stroke_color"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/btn_stroke_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_config_asr_method"
+        app:layout_constraintTop_toTopOf="parent"
+        app:placeholderText="@string/select_one"
+        app:placeholderTextColor="@color/btn_stroke_color">
 
-</RelativeLayout>
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:textColor="@color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_config_asr_method"
+        style="?attr/textInputOutlinedExposedDropdownMenuStyle"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="@string/asr_method"
+        android:textColorHint="@color/btn_stroke_color"
+        app:boxCornerRadiusBottomEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopStart="@dimen/default_corner_radius"
+        app:boxStrokeColor="@color/btn_stroke_color"
+        app:boxStrokeWidth="1dp"
+        app:endIconTint="@color/btn_stroke_color"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/til_config_calc_method"
+        app:placeholderText="@string/select_one"
+        app:placeholderTextColor="@color/btn_stroke_color">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:textColor="@color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_config_high_lat_method"
+        style="?attr/textInputOutlinedExposedDropdownMenuStyle"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="@string/higher_latitudes_method"
+        android:textColorHint="@color/btn_stroke_color"
+        app:boxCornerRadiusBottomEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopStart="@dimen/default_corner_radius"
+        app:boxStrokeColor="@color/btn_stroke_color"
+        app:boxStrokeWidth="1dp"
+        app:endIconTint="@color/btn_stroke_color"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/btn_stroke_color"
+        app:layout_constraintTop_toBottomOf="@id/til_config_asr_method"
+        app:placeholderText="@string/select_one"
+        app:placeholderTextColor="@color/btn_stroke_color">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:textColor="@color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_continue"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/_continue"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/default_corner_radius"
+        app:icon="@drawable/ic_arrow_to_right"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

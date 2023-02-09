@@ -3,7 +3,7 @@ package com.typ.muslim.core.praytime.enums;
 /**
  * HigherLatitude used during calculating PrayTimes in high-latitude locations
  */
-public enum HigherLatitudes {
+public enum HigherLatitudesMethod {
     /**
      * No Adjustments
      */
@@ -21,7 +21,7 @@ public enum HigherLatitudes {
      */
     ANGLEBASED;
 
-    public static HigherLatitudes valueOf(int ordinal) {
+    public static HigherLatitudesMethod valueOf(int ordinal) {
         if (ordinal == 1) return MIDNIGHT;
         else if (ordinal == 2) return ONESEVENTH;
         else if (ordinal == 3) return ANGLEBASED;

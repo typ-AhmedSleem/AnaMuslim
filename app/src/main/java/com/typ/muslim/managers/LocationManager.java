@@ -11,6 +11,7 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.robin.locationgetter.EasyLocation;
@@ -49,18 +50,21 @@ public class LocationManager {
      * Returns Location model with info returned from GPS location
      */
     public void getGPSLocation(IGetLocationListener listener) {
-        EasyLocation easyLocation = new EasyLocation(activity, new EasyLocation.EasyLocationCallBack() {
-            @Override public void permissionDenied() {
+        new EasyLocation(activity, new EasyLocation.EasyLocationCallBack() {
+            @Override
+            public void permissionDenied() {
                 AManager.log(TAG, "getGPSLocation: permissionDenied");
                 listener.onPermissionDenied();
             }
 
-            @Override public void locationSettingFailed() {
+            @Override
+            public void locationSettingFailed() {
                 AManager.log(TAG, "getGPSLocation: locationSettingFailed");
                 listener.onGetLocationFailed();
             }
 
-            @Override public void getLocation(@NotNull android.location.Location foundLoc) {
+            @Override
+            public void getLocation(@NotNull android.location.Location foundLoc) {
                 try {
                     List<Address> addresses = new Geocoder(activity).getFromLocation(foundLoc.getLatitude(), foundLoc.getLongitude(), 2);
                     if (addresses == null) return;
@@ -72,10 +76,6 @@ public class LocationManager {
                 }
             }
         });
-<<<<<<< HEAD
-=======
-        easyLocation = null; // Finalize easyLocation instance to stop location tracking.
->>>>>>> 074aa6fcd365b77796c665252e9246f51e8f499c
     }
 
     /**
@@ -96,7 +96,7 @@ public class LocationManager {
     /**
      * Returns all cities found in database that follow the same CountryCode. NULL if faced an error. 0 items list if no cities was found.
      */
-    @Nullable
+    @NonNull
     public List<Location> getCitiesOfCountry(String countryCode) {
         return locationsDatabase.getCitiesOfCountry(countryCode);
     }

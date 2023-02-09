@@ -1,52 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~ This app is developed by AHMED SLEEM
-  ~
-  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
-  -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:orientation="vertical"
+    app:cardCornerRadius="0dp"
     app:cardElevation="0dp"
     app:contentPadding="5dp"
-    app:rippleColor="#66004530">
+    app:rippleColor="@color/ripple_som_card"
+    app:strokeWidth="0dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:orientation="vertical">
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_city_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:gravity="center_vertical|start"
             android:maxLines="1"
-            android:text="Cityname"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textColor="@color/colorText"
-            android:textSize="20sp"
-            app:autoSizeMaxTextSize="22sp"
-            app:autoSizeTextType="uniform" />
+            android:text="City-name"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:typeface="sans"
+            app:layout_constraintEnd_toStartOf="@id/tv_timezone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_country_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|start"
+            android:id="@+id/tv_timezone"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
             android:maxLines="1"
-            android:text="Countryname"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
-            android:textColor="@color/colorText"
-            android:textSize="10sp"
-            app:autoSizeMaxTextSize="12sp"
-            app:autoSizeMinTextSize="10sp"
-            app:autoSizeTextType="uniform" />
+            android:text="GMT +0.0"
+            android:textColor="#43A047"
+            android:textSize="14sp"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

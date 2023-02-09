@@ -9,7 +9,7 @@ package com.typ.muslim.managers;
 import static com.typ.muslim.core.praytime.enums.AsrMethod.SHAFII;
 import static com.typ.muslim.core.praytime.enums.CalculationMethod.EGYPT;
 import static com.typ.muslim.core.praytime.enums.CalculationMethod.MAKKAH;
-import static com.typ.muslim.core.praytime.enums.HigherLatitudes.NONE;
+import static com.typ.muslim.core.praytime.enums.HigherLatitudesMethod.NONE;
 import static com.typ.muslim.core.praytime.enums.Prays.ASR;
 import static com.typ.muslim.core.praytime.enums.Prays.DHUHR;
 import static com.typ.muslim.core.praytime.enums.Prays.FAJR;
@@ -193,25 +193,46 @@ public class AMSettings {
      *
      * @param config Location Configuration to be saved or null to reset it
      */
-    public static void saveConfiguration(Context context, LocationConfig config) {
-        if (config == null) {
-            // Reset config
-            PrefManager.remove(context, Keys.CONFIG_CALC_METHOD);
-            PrefManager.remove(context, Keys.CONFIG_ASR_METHOD);
-            PrefManager.remove(context, Keys.CONFIG_HIGHER_LAT_METHOD);
-        } else {
+    public static boolean saveConfiguration(Context context, LocationConfig config) {
+        if (context != null && config != null) {
             PrefManager.set(context, Keys.CONFIG_CALC_METHOD, config.getCalculationMethod().ordinal());
             PrefManager.set(context, Keys.CONFIG_ASR_METHOD, config.getAsrMethod().ordinal());
             PrefManager.set(context, Keys.CONFIG_HIGHER_LAT_METHOD, config.getHigherLatitude().ordinal());
+            return true;
         }
+        return false;
     }
 
     /**
      * @return The current saved config in pref or Default config which has {@link CalculationMethod#MAKKAH} if no config was found
      */
-    public static LocationConfig getCurrentConfiguration(Context context) {
-        return new LocationConfig(PrefManager.get(context, Keys.CONFIG_CALC_METHOD, MAKKAH.ordinal()),
-                PrefManager.get(context, Keys.CONFIG_ASR_METHOD, SHAFII.ordinal()), PrefManager.get(context, Keys.CONFIG_HIGHER_LAT_METHOD, NONE.ordinal()));
+    public static LocationConfig getCurrentConfiguration(Context ctx) {
+        if (isConfigSet(ctx)) return new LocationConfig(
+                PrefManager.get(ctx, Keys.CONFIG_CALC_METHOD, MAKKAH.ordinal()),
+                PrefManager.get(ctx, Keys.CONFIG_ASR_METHOD, SHAFII.ordinal()),
+                PrefManager.get(ctx, Keys.CONFIG_HIGHER_LAT_METHOD, NONE.ordinal()));
+        else return null;
+    }
+
+    public static LocationConfig getMakkahConfig() {
+        return new LocationConfig(MAKKAH, SHAFII, NONE);
+    }
+
+    public static LocationConfig getCairoConfig() {
+        return new LocationConfig(EGYPT, SHAFII, NONE);
+    }
+
+    public static boolean resetLocation(Context context) {
+        if (context == null) return false;
+        // Reset location
+        PrefManager.remove(context, Keys.LOC_COUNTRY_CODE);
+        PrefManager.remove(context, Keys.LOC_COUNTRY_NAME);
+        PrefManager.remove(context, Keys.LOC_CITY_NAME);
+        PrefManager.remove(context, Keys.LOC_LATITUDE);
+        PrefManager.remove(context, Keys.LOC_LONGITUDE);
+        PrefManager.remove(context, Keys.LOC_TIMEZONE);
+        AMSettings.saveConfiguration(context, null);
+        return true;
     }
 
     /**
@@ -219,42 +240,41 @@ public class AMSettings {
      *
      * @param location Location to be saved or null to reset it
      */
-    public static void saveLocation(Context context, Location location) {
-        if (location == null) {
-            // Reset
-            PrefManager.remove(context, Keys.LOC_COUNTRY_CODE);
-            PrefManager.remove(context, Keys.LOC_COUNTRY_NAME);
-            PrefManager.remove(context, Keys.LOC_CITY_NAME);
-            PrefManager.remove(context, Keys.LOC_LATITUDE);
-            PrefManager.remove(context, Keys.LOC_LONGITUDE);
-            PrefManager.remove(context, Keys.LOC_TIMEZONE);
-            AMSettings.saveConfiguration(context, null);
-            AManager.log(TAG, "resetLocation");
-        } else {
-            // Save
+    public static boolean saveLocation(Context context, Location location) {
+        if (context != null && location != null) {
+            // Save location
             PrefManager.set(context, Keys.LOC_COUNTRY_CODE, location.getCountryCode());
             PrefManager.set(context, Keys.LOC_COUNTRY_NAME, location.getCountryName());
             PrefManager.set(context, Keys.LOC_CITY_NAME, location.getCityName());
             PrefManager.set(context, Keys.LOC_LATITUDE, (float) location.getLatitude());
             PrefManager.set(context, Keys.LOC_LONGITUDE, (float) location.getLongitude());
             PrefManager.set(context, Keys.LOC_TIMEZONE, (float) location.getTimezone());
-            AMSettings.saveConfiguration(context, new LocationConfig(EGYPT, SHAFII, NONE));
-            AManager.log(TAG, "saveLocation: " + location);
+            return true;
         }
+        return false;
     }
 
     /**
      * @return The current saved location in pref or {@code null} if no location was found
      */
     public static Location getCurrentLocation(Context context) {
-        if (!PrefManager.contains(context, Keys.LOC_LATITUDE) || !PrefManager.contains(context, Keys.LOC_LONGITUDE) || !PrefManager.contains(context, Keys.LOC_TIMEZONE)) return null;
-        return new Location(PrefManager.get(context, Keys.LOC_COUNTRY_CODE, "EG"),
+        if (isLocationSet(context)) return new Location(
+                PrefManager.get(context, Keys.LOC_COUNTRY_CODE, "EG"),
                 PrefManager.get(context, Keys.LOC_COUNTRY_NAME, context.getString(R.string.egypt)),
                 PrefManager.get(context, Keys.LOC_CITY_NAME, context.getString(R.string.cairo)),
                 PrefManager.get(context, Keys.LOC_LATITUDE, 30.044281f),
                 PrefManager.get(context, Keys.LOC_LONGITUDE, 30.340002f),
                 PrefManager.get(context, Keys.LOC_TIMEZONE, 2.00f),
                 getCurrentConfiguration(context));
+        else return null;
+    }
+
+    public static boolean isLocationSet(Context context) {
+        return PrefManager.contains(context, Keys.LOC_LATITUDE) && PrefManager.contains(context, Keys.LOC_LONGITUDE) && PrefManager.contains(context, Keys.LOC_TIMEZONE);
+    }
+
+    public static boolean isConfigSet(Context ctx) {
+        return PrefManager.contains(ctx, Keys.CONFIG_CALC_METHOD) && PrefManager.contains(ctx, Keys.CONFIG_ASR_METHOD) && PrefManager.contains(ctx, Keys.CONFIG_HIGHER_LAT_METHOD);
     }
 
     public static TrackerRange getTrackerRange(Context context) {
