@@ -9,6 +9,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:theme="@style/Theme.AnaMuslim">
 
     <ScrollView
@@ -31,7 +32,7 @@
                 android:id="@+id/tv_pbuu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="25dp"
                 android:gravity="center"
                 android:labelFor="@id/tv_username"
                 android:maxLines="1"
@@ -134,7 +135,6 @@
                     android:transitionName="transition_card_to_activity" />
 
                 <!-- Tracker card -->
-
                 <com.typ.muslim.ui.dashboard.tracker.TrackerDashboardCard
                     android:id="@+id/tracker_dashboard_card"
                     android:layout_width="match_parent"
@@ -240,26 +240,6 @@
                     android:animateLayoutChanges="true"
                     android:transitionName="transition_card_to_activity"
                     tools:ignore="DuplicateSpeakableTextCheck" />
-
-                <!-- Main Menu Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_main_menu"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
-                    app:backgroundTint="?attr/colorOnPrimary"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="@string/explore_more_features"
-                    app:iconTint="?attr/colorPrimary"
-                    android:textAlignment="viewStart"
-                    android:transitionName="transition_card_to_activity"
-                    app:cornerRadius="15dp"
-                    app:iconGravity="end"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_username" />
 
                 <!-- Telegram bots card & Profile card -->
                 <LinearLayout

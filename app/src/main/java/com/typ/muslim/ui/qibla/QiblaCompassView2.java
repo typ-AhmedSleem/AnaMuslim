@@ -107,9 +107,9 @@ public class QiblaCompassView2 extends View implements SensorEventListener {
         paint.setColor(this.isArrowBearingToZero(this.currAngle) ? Color.GREEN : Color.BLACK);
         paint.setStyle(Paint.Style.FILL);
         canvas.drawCircle(radius, radius, radius, paint);
-        // Draw north indicator arrow
-        paint.setColor(this.isArrowBearingToZero(this.currAngle) ? Color.WHITE : Color.YELLOW);
+        // Draw qibla indicator arrow
         paint.setStrokeWidth(20f);
+        paint.setColor(this.isArrowBearingToZero(this.currAngle) ? Color.WHITE : Color.YELLOW);
         canvas.drawLine(radius, radius, radius, 0, paint);
         // Draw rotation angle text on compass
         paint.setColor(this.isArrowBearingToZero(this.currAngle) ? Color.GREEN : Color.WHITE);
@@ -145,13 +145,13 @@ public class QiblaCompassView2 extends View implements SensorEventListener {
         // Get and filter sensors readings
         final float[] smoothedValues;
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            smoothedValues = LowPassFilter.filter(0.015f, event.values, gravityMatrix);
+            smoothedValues = LowPassFilter.filter(0.05f, event.values, gravityMatrix);
             this.gravityMatrix[0] = smoothedValues[0];
             this.gravityMatrix[1] = smoothedValues[1];
             this.gravityMatrix[2] = smoothedValues[2];
             this.currGravityY = gravityMatrix[1];
         } else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
-            smoothedValues = LowPassFilter.filter(0.015f, event.values, magneticMatrix);
+            smoothedValues = LowPassFilter.filter(0.05f, event.values, magneticMatrix);
             this.magneticMatrix[0] = smoothedValues[0];
             this.magneticMatrix[1] = smoothedValues[1];
             this.magneticMatrix[2] = smoothedValues[2];

@@ -4,417 +4,228 @@
   ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    android:theme="@style/Theme.AnaMuslim.SplashScreen">
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_step_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:maxLines="1"
-        android:text="@string/preview"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:transitionName="transition_wizard_step_title"
-        app:autoSizeMaxTextSize="35dp"
-        app:autoSizeTextType="uniform"
-        app:fontFamily="@font/g" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/t1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_step_title"
-        android:gravity="center_horizontal"
-        android:typeface="monospace"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:text="@string/lt_prev_prayers_subtitle"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textColor="@color/darkAdaptiveColor"
-        android:textSize="13sp"
-        app:autoSizeMaxTextSize="20dp"
-        app:autoSizeTextType="uniform"
-        app:lineHeight="20dp"
-        app:textAllCaps="false" />
-
+    android:theme="@style/Theme.AnaMuslim">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/btn_more_options"
-        android:layout_below="@id/t1"
+        android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btn_continue"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
 
-            <LinearLayout
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_step_title"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/you_are_done"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:transitionName="transition_wizard_step_title"
+                app:autoSizeMaxTextSize="35dp"
+                app:autoSizeTextType="uniform"
+                app:fontFamily="@font/font_omar_light"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_city_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="Cityname"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                    android:textColor="@color/darkAdaptiveColor"
-                    android:textSize="25sp"
-                    app:autoSizeMaxTextSize="24sp"
-                    app:autoSizeTextType="uniform" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_step_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:alpha="0.7"
+                android:gravity="center_horizontal"
+                android:maxLines="2"
+                android:text="@string/lt_prev_prayers_subtitle"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/adaptiveSubtitleTextColor"
+                android:textSize="12sp"
+                android:transitionName="transition_wizard_step_subtitle"
+                app:autoSizeTextType="uniform"
+                app:fontFamily="@font/font_omar_light"
+                app:layout_constraintTop_toBottomOf="@id/tv_step_title"
+                app:lineHeight="15dp"
+                app:textAllCaps="false"
+                tools:ignore="HardcodedText" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_country_name"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_preview_loc"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:enabled="false"
+                android:hint="@string/current_location"
+                android:textColorHint="@color/btn_stroke_color"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="@dimen/default_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/default_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/default_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/default_corner_radius"
+                app:boxStrokeColor="@color/btn_stroke_color"
+                app:boxStrokeWidth="1dp"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="Countryname"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
-                    android:textColor="@color/darkAdaptiveColor"
+                    android:layout_height="match_parent"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
-                    app:autoSizeMaxTextSize="15sp"
-                    app:autoSizeMinTextSize="10sp"
-                    app:autoSizeTextType="uniform" />
+                    tools:ignore="HardcodedText" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_config"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_preview_config"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:enabled="false"
+                android:hint="@string/current_config"
+                android:textColorHint="@color/btn_stroke_color"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="@dimen/default_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/default_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/default_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/default_corner_radius"
+                app:boxStrokeColor="@color/btn_stroke_color"
+                app:boxStrokeWidth="1dp"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="CONFIG [?? - ?? - ??]"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
-                    android:textColor="@color/darkAdaptiveColor"
-                    android:textSize="11sp"
-                    app:autoSizeMaxTextSize="12sp"
-                    app:autoSizeMinTextSize="10sp"
-                    app:autoSizeTextType="uniform"
-                    app:textAllCaps="true" />
+                    android:layout_height="match_parent"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText" />
 
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
+            <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="0.8dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp"
+                android:alpha="0.5"
+                android:background="@color/btn_stroke_color" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="@string/fajr"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="20sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.1"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/_two_dots"
-                    android:textColor="@color/darkAdaptiveColor"
-                    android:textStyle="bold"
-                    app:autoSizeMaxTextSize="22sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_fajr_time"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="hh:mm aa"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="18sp"
-                    app:autoSizeTextType="uniform" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:alpha="0.8"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
+                android:text="@string/prays_for_today"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:transitionName="transition_wizard_step_subtitle"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintTop_toBottomOf="@id/tv_step_title"
+                app:lineHeight="15dp"
+                app:textAllCaps="false"
+                tools:ignore="HardcodedText" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="@string/sunrise"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="20sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.1"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/_two_dots"
-                    android:textColor="@color/darkAdaptiveColor"
-                    android:textStyle="bold"
-                    app:autoSizeMaxTextSize="22sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_sunrise_time"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="hh:mm aa"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="18sp"
-                    app:autoSizeTextType="uniform" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.typ.muslim.ui.VerticalPrayView
+                android:id="@+id/vpv_fajr"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:pivPray="FAJR" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="@string/dhuhr"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="20sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.1"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/_two_dots"
-                    android:textColor="@color/darkAdaptiveColor"
-                    android:textStyle="bold"
-                    app:autoSizeMaxTextSize="22sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_dhuhr_time"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="hh:mm aa"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="18sp"
-                    app:autoSizeTextType="uniform" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.typ.muslim.ui.VerticalPrayView
+                android:id="@+id/vpv_sunrise"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:pivPray="SUNRISE" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="@string/asr"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="20sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.1"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/_two_dots"
-                    android:textColor="@color/darkAdaptiveColor"
-                    android:textStyle="bold"
-                    app:autoSizeMaxTextSize="22sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_asr_time"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="hh:mm aa"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="18sp"
-                    app:autoSizeTextType="uniform" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.typ.muslim.ui.VerticalPrayView
+                android:id="@+id/vpv_dhuhr"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:pivPray="DHUHR" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="@string/maghrib"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="20sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.1"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/_two_dots"
-                    android:textColor="@color/darkAdaptiveColor"
-                    android:textStyle="bold"
-                    app:autoSizeMaxTextSize="22sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_maghrib_time"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="hh:mm aa"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="18sp"
-                    app:autoSizeTextType="uniform" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <com.typ.muslim.ui.VerticalPrayView
+                android:id="@+id/vpv_asr"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:pivPray="ASR" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="@string/isha"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="20sp"
-                    app:autoSizeTextType="uniform" />
+            <com.typ.muslim.ui.VerticalPrayView
+                android:id="@+id/vpv_maghrib"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:pivPray="MAGHRIB" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.1"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/_two_dots"
-                    android:textColor="@color/darkAdaptiveColor"
-                    android:textStyle="bold"
-                    app:autoSizeMaxTextSize="22sp"
-                    app:autoSizeTextType="uniform" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_isha_time"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.95"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:text="hh:mm aa"
-                    android:textColor="@color/darkAdaptiveColor"
-                    app:autoSizeMaxTextSize="18sp"
-                    app:autoSizeTextType="uniform" />
-
-            </LinearLayout>
+            <com.typ.muslim.ui.VerticalPrayView
+                android:id="@+id/vpv_isha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:pivPray="ISHA" />
 
         </LinearLayout>
 
     </FrameLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_more_options"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:id="@+id/btn_continue"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_alignParentBottom="true"
+        android:layout_height="60dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/more_options"
+        android:layout_marginBottom="40dp"
+        android:text="@string/finish"
         android:textColor="@color/white"
-        app:backgroundTint="@color/colorPrimary"
-        app:cornerRadius="@dimen/default_corner_radius" />
+        app:cornerRadius="@dimen/default_corner_radius"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="20dp" />
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@ import com.typ.muslim.core.praytime.PrayTimeCore;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.libs.easyjava.data.EasyList;
+import com.typ.muslim.models.Location;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.PrayTimes;
 import com.typ.muslim.models.PrayTrackerRecord;
@@ -23,26 +24,34 @@ import java.util.List;
 
 public class PrayerManager {
 
-	// Statics
-	private static final String TAG = "PrayerManager";
+    // Statics
+    private static final String TAG = "PrayerManager";
 
-	public static PrayTimes getTodayPrays(Context context) {
-		return getPrays(context, 0);
-	}
+    public static PrayTimes getTodayPrays(Context context) {
+        return getPrays(context, 0);
+    }
 
-	public static PrayTimes getPrays(Context context, int rollDays) {
-		return PrayTimeCore.getSingletonInstance(context, AMSettings.getCurrentLocation(context)).getPrayTimes(rollDays);
-	}
+    public static PrayTimes getTodayPrays(Context context, Location location) {
+        return getPrays(context, location, 0);
+    }
 
-	public static PrayTimes getPrays(Context context, Timestamp in) {
-		return PrayTimeCore.getNewInstance(context, AMSettings.getCurrentLocation(context)).getPrayTimes(in);
-	}
+    public static PrayTimes getPrays(Context context, int rollDays) {
+        return PrayTimeCore.getSingletonInstance(context, AMSettings.getCurrentLocation(context)).getPrayTimes(rollDays);
+    }
 
-	public static EasyList<Pray> getUpcomingPrays(Context context) {
-		return PrayTimeCore.getSingletonInstance(context, AMSettings.getCurrentLocation(context)).getUpcomingPrays();
-	}
+    public static PrayTimes getPrays(Context context, Location location, int rollDays) {
+        return PrayTimeCore.getSingletonInstance(context, location).getPrayTimes(rollDays);
+    }
 
-	public static Pray getNextPray(Context context) {
+    public static PrayTimes getPrays(Context context, Timestamp in) {
+        return PrayTimeCore.getNewInstance(context, AMSettings.getCurrentLocation(context)).getPrayTimes(in);
+    }
+
+    public static EasyList<Pray> getUpcomingPrays(Context context) {
+        return PrayTimeCore.getSingletonInstance(context, AMSettings.getCurrentLocation(context)).getUpcomingPrays();
+    }
+
+    public static Pray getNextPray(Context context) {
 		return getNextPray(context, getTodayPrays(context));
 	}
 

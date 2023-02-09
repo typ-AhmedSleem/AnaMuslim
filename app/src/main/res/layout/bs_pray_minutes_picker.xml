@@ -231,7 +231,7 @@
             android:gravity="center"
             android:maxLines="1"
             android:text="@string/save"
-            android:textColor="@color/colorText"
+            android:textColor="#616161"
             android:textSize="15sp"
             app:textAllCaps="true" />
 

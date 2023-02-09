@@ -28,7 +28,8 @@ public enum KhatmaPlans {
 
     PLAN_10_DAYS(10), // 3 Parts a day
     PLAN_15_DAYS(15), // 2 Parts a day
-    PLAN_30_DAYS(30); // 1 Part a day
+    PLAN_30_DAYS(30), // 1 Part a day
+    PLAN_60_DAYS(60); // 0.5 Part a day
 
     /**
      * Duration in Days

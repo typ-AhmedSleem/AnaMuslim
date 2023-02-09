@@ -18,7 +18,7 @@ import android.content.Context;
 
 import com.typ.muslim.R;
 import com.typ.muslim.core.praytime.enums.CalculationMethod;
-import com.typ.muslim.core.praytime.enums.HigherLatitudes;
+import com.typ.muslim.core.praytime.enums.HigherLatitudesMethod;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.libs.easyjava.data.EasyList;
@@ -122,24 +122,24 @@ public class PrayTimeCore {
     /**
      * Create a singleton instance of PrayTimeCore with given parameters if current instance wasn't found
      *
-     * @param context         Context to access Resources.
-     * @param currentLocation Location holds data used in calculation.
+     * @param context  Context to access Resources.
+     * @param location Location holds data used in calculation.
      * @return Initialized Singleton Instance of PrayTimeCore.
      */
-    public static PrayTimeCore getSingletonInstance(Context context, Location currentLocation) {
-        if (singletonInstance == null) singletonInstance = new PrayTimeCore(context, currentLocation);
+    public static PrayTimeCore getSingletonInstance(Context context, Location location) {
+        if (singletonInstance == null) singletonInstance = new PrayTimeCore(context, location);
         return singletonInstance;
     }
 
     /**
      * Create a new instance of PrayTimeCore class with given parameters
      *
-     * @param context         Context to access Resources.
-     * @param currentLocation Location holds data used in calculation.
+     * @param context  Context to access Resources.
+     * @param location Location holds data used in calculation.
      * @return New Initialized Instance of PrayTimeCore.
      */
-    public static PrayTimeCore getNewInstance(Context context, Location currentLocation) {
-        return new PrayTimeCore(context, currentLocation);
+    public static PrayTimeCore getNewInstance(Context context, Location location) {
+        return new PrayTimeCore(context, location);
     }
 
     // ---------------------- Trigonometric Functions -----------------------
@@ -556,7 +556,7 @@ public class PrayTimeCore {
         times[2] += this.dhuhrMinutes / 60f; // Dhuhr
         if (methodParams.get(this.getCurrentLocation().getConfig().getCalculationMethod().ordinal())[1] == 1) times[5] = times[4] + methodParams.get(this.getCurrentLocation().getConfig().getCalculationMethod().ordinal())[2] / 60; // Maghrib
         if (methodParams.get(this.getCurrentLocation().getConfig().getCalculationMethod().ordinal())[3] == 1) times[6] = times[5] + methodParams.get(this.getCurrentLocation().getConfig().getCalculationMethod().ordinal())[4] / 60; // Isha
-        if (this.getCurrentLocation().getConfig().getHigherLatitude() != HigherLatitudes.NONE) adjustHighLatTimes(times);
+        if (this.getCurrentLocation().getConfig().getHigherLatitude() != HigherLatitudesMethod.NONE) adjustHighLatTimes(times);
     }
 
     // Convert times array to long timestamp
@@ -604,9 +604,9 @@ public class PrayTimeCore {
     // The night portion used for adjusting times in higher latitudes
     private double nightPortion(double angle) {
         double calc = 0;
-        if (this.getCurrentLocation().getConfig().getHigherLatitude() == HigherLatitudes.ANGLEBASED) calc = (angle) / 60.0;
-        else if (this.getCurrentLocation().getConfig().getHigherLatitude() == HigherLatitudes.MIDNIGHT) calc = 0.5;
-        else if (this.getCurrentLocation().getConfig().getHigherLatitude() == HigherLatitudes.ONESEVENTH) calc = 0.14286;
+        if (this.getCurrentLocation().getConfig().getHigherLatitude() == HigherLatitudesMethod.ANGLEBASED) calc = (angle) / 60.0;
+        else if (this.getCurrentLocation().getConfig().getHigherLatitude() == HigherLatitudesMethod.MIDNIGHT) calc = 0.5;
+        else if (this.getCurrentLocation().getConfig().getHigherLatitude() == HigherLatitudesMethod.ONESEVENTH) calc = 0.14286;
         return calc;
     }
 

@@ -45,6 +45,8 @@ public class RamadanDashboardCard extends DashboardCard implements PrayTimeCameL
         // Inflate card view and change card bg color
         inflate(context, R.layout.layout_ramadan_card, this);
         setCardBackgroundColor(getColor(R.color.isha_bg));
+        setOnClickListener(this);
+        setOnLongClickListener(this);
         // Init view switcher
         this.switcher = $(R.id.vs_ramadan);
         // Perform UI refresh
@@ -76,9 +78,7 @@ public class RamadanDashboardCard extends DashboardCard implements PrayTimeCameL
 
     @Override
     public Pray onPrayTimeCame(Pray pray) {
-        if (switcher.getCurrentView() instanceof InRamadanView &&
-                (pray.getType() == Prays.FAJR ||
-                        pray.getType() == Prays.MAGHRIB)) {
+        if (switcher.getCurrentView() instanceof InRamadanView && (pray.getType() == Prays.FAJR || pray.getType() == Prays.MAGHRIB)) {
             // Refresh InRamadanView
             ((InRamadanView) switcher.getCurrentView()).refreshUI();
         }

@@ -77,6 +77,8 @@ public class TasbeehDashboardCard extends DashboardCard {
 	public void prepareCardView(Context context) {
 		// Inflate view
 		inflate(context, R.layout.layout_tasbeeh_card, this);
+		setOnClickListener(this);
+		setOnLongClickListener(this);
 		// Init views
 		this.tvContent = $(R.id.tv_tasbeeh_content);
 		this.fabPlusOne = $(R.id.ibtn_plus_one);

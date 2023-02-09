@@ -45,7 +45,7 @@
         android:textStyle="bold"
         app:autoSizeMaxTextSize="15sp"
         app:autoSizeTextType="uniform"
-        app:fontFamily="@font/font_jf_flat_regular"
+        app:fontFamily="@font/font_mokhtar"
         tools:ignore="HardcodedText" />
 
     <ImageButton
@@ -74,13 +74,13 @@
         android:maxLines="1"
         android:paddingStart="10dp"
         android:paddingEnd="30dp"
-        android:text="hh:mm aa"
+        android:text="@string/mask_hh_mm_aa"
         android:textColor="@color/green"
         android:textSize="18sp"
         android:textStyle="bold"
         app:autoSizeMaxTextSize="15sp"
         app:autoSizeTextType="uniform"
-        app:fontFamily="@font/font_jf_flat_regular"
+        app:fontFamily="@font/font_mokhtar"
         tools:ignore="HardcodedText" />
 
 

@@ -29,7 +29,6 @@ import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.activities.khatma.KhatmaActivity;
 import com.typ.muslim.ui.activities.names.HolyNameOfAllahDescActivity;
-import com.typ.muslim.ui.activities.quran.QuranReaderActivity;
 import com.typ.muslim.ui.dashboard.AllahNamesDashboardCard;
 import com.typ.muslim.ui.dashboard.DashboardCard;
 import com.typ.muslim.ui.dashboard.TasbeehDashboardCard;
@@ -91,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
             final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, "transition_card_to_activity");
             startActivity(new Intent(this, KhatmaActivity.class), op.toBundle());
         });
-        findViewById(R.id.btn_main_menu).setOnClickListener(v -> startActivity(new Intent(this, QuranReaderActivity.class)));
         // Register callbacks
         ((QiblaDashboardCard) cards.get(6)).register();
         ((MiniNextPrayDashboardCard) cards.get(0)).setPrayTimeCameListener(this);

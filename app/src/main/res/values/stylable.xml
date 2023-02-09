@@ -63,6 +63,8 @@
             <enum name="OFF" value="0" />
             <enum name="SILENT_NOTIFY" value="1" />
         </attr>
+        <attr name="pivPrayShowProgressIndicator" format="boolean" />
+        <attr name="pivPrayShowNotifMethod" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="DashboardSectionHeader">

@@ -1,7 +1,19 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.AnaMuslim.SplashScreen" parent="Theme.Material3.DayNight">
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
+    <style name="Theme.AnaMuslim.SplashScreen" parent="Theme.SplashScreen">
+        <!-- Set the splash screen background, animated icon, and animation duration. -->
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <!-- Use windowSplashScreenAnimatedIcon to add either a drawable or an animated drawable. One of these is required. -->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <!-- Required for animated icons -->
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        <!-- Set the theme of the Activity that directly follows your splash screen. -->
+        <item name="postSplashScreenTheme">@style/Theme.AnaMuslim</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="Theme.AnaMuslim" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
         <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
@@ -27,45 +39,23 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
-    </style>
-
-    <!-- Base application theme. -->
-    <style name="Theme.AnaMuslim" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/md_theme_light_background</item>
-        <item name="colorOnPrimary">@color/md_theme_light_primary</item>
-        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
-        <item name="colorSecondary">@color/md_theme_light_secondary</item>
-        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
-        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
-        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
-        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
-        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
-        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
-        <item name="colorError">@color/md_theme_light_error</item>
-        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
-        <item name="colorOnError">@color/md_theme_light_onError</item>
-        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_light_background</item>
-        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
-        <item name="colorSurface">@color/md_theme_light_surface</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
-        <item name="colorOutline">@color/md_theme_light_outline</item>
-        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
-        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
-        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
-        <!-- Status bar color and icons color. -->
         <item name="android:windowLightStatusBar">true</item>
-        <!--        <item name="android:statusBarColor" >@color/transparent</item>-->
-        <!-- AnaMuslim custom theme-->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <!-- Set the splash screen background, animated icon, and animation duration. -->
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <!-- Use windowSplashScreenAnimatedIcon to add either a drawable or an animated drawable. One of these is required. -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/bg_header1</item>
+        <!-- Required for animated icons -->
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        <!-- Set the theme of the Activity that directly follows your splash screen. -->
+        <item name="postSplashScreenTheme">@style/Theme.AnaMuslim</item>
+        <!-- Status bar color and icons color. -->
         <!--        <item name="android:windowActionBarOverlay">true</item>-->
         <!--        <item name="android:windowTranslucentNavigation">true</item>-->
         <!--        <item name="android:windowContentTransitions">true</item>-->
         <!--        <item name="android:windowTranslucentStatus">true</item>-->
-        <!--        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>-->
         <item name="bottomSheetStyle">@style/BottomSheets</item>
     </style>
 
@@ -102,9 +92,8 @@
     </style>
 
     <style name="TextAppearances.HeaderTitle">
-        <item name="fontFamily">@font/font_bukrar</item>
-        <item name="android:fontFamily">@font/font_bukrar</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">-0.015625</item>
@@ -117,6 +106,13 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">9sp</item>
         <item name="android:letterSpacing">-0.015625</item>
+    </style>
+
+    <style name="TextAppearances.TIL_Prefix">
+        <item name="fontFamily">@font/font_omar_light</item>
+        <item name="android:fontFamily">@font/font_omar_light</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="Theme.Transparent" parent="Theme.MaterialComponents">

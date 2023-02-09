@@ -131,12 +131,12 @@ public abstract class DashboardCard extends MaterialCardView implements ViewHelp
     private void initCard() {
         this.setRadius(40f);
         this.setElevation(0f);
-        this.setRippleColorResource(R.color.ripple_white);
-        this.setCardBackgroundColor(getColor(R.color.adaptiveBackgroundColor));
-        this.setOnClickListener(this);
-        this.setOnLongClickListener(this);
         this.setHapticFeedbackEnabled(true);
         this.setLayoutTransition(new LayoutTransition());
+        this.setRippleColorResource(R.color.ripple_white);
+        this.setCardBackgroundColor(getColor(R.color.white));
+        this.setStrokeWidth(1);
+        this.setStrokeColor(ResMan.getColor(getContext(), R.color.btn_stroke_color));
     }
 
     public void animateCardColor(@ColorInt int targetColor) {

@@ -7,7 +7,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/adaptiveBackgroundColor">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +33,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_find_loc_another_way"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
@@ -40,9 +41,9 @@
             android:paddingStart="25dp"
             android:paddingEnd="25dp"
             android:text="@string/search_online"
-            android:textColor="@color/colorAccent"
-            app:backgroundTint="@color/colorPrimary"
-            app:cornerRadius="@dimen/default_corner_radius" />
+            android:textColor="@color/colorPrimary"
+            app:cornerRadius="@dimen/default_corner_radius"
+            app:rippleColor="@color/ripple_som_card" />
 
     </LinearLayout>
 

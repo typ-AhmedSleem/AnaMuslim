@@ -70,15 +70,18 @@ public class Location implements Serializable {
     }
 
 
+    @NonNull
     public String getCountryCode() {
         return countryCode;
     }
+
 
     public Location setCountryCode(String countryCode) {
         this.countryCode = countryCode;
         return this;
     }
 
+    @NonNull
     public String getCountryName() {
         return countryName;
     }
@@ -88,6 +91,7 @@ public class Location implements Serializable {
         return this;
     }
 
+    @NonNull
     public String getCityName() {
         return cityName;
     }

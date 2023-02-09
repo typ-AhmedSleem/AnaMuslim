@@ -20,7 +20,7 @@
     <string name="search_online">Search Online</string>_location
     <string name="retry">Retry</string>
     <string name="search_cities">Search Cities</string>
-    <string name="enter_city_name">City name...</string>
+    <string name="enter_city_name">Type city-name...</string>
     <string name="search_offline">Search offline</string>
     <string name="locate_using_gps">Locate using GPS</string>
     <string name="auto_detect_location">Auto Detect Location</string>
@@ -55,7 +55,7 @@
     <string name="select_calc_method_your_loc_is_following">Select Calculation Method your location is following</string>
     <string name="select_asr_method_your_loc_is_following">Select the Asr Juristic your country follows\nImportant for computing Asr</string>
     <string name="select_high_lat_method_your_loc_is_following">If your location is above sea-level, select the method your local location is using to calculate prayers</string>
-    <string name="lt_prev_prayers_subtitle">According to Location and Config you selected,\nAnaMuslim calculated PrayTimes for today</string>
+    <string name="lt_prev_prayers_subtitle">According to Location and Config you previoulsy selected,\nAnaMuslim calculated PrayTimes for today</string>
     <string name="lt_quick_settings_subtitle">Here are some quick settings users are using most. Edit what you want or leave it unchanged, you are free</string>
     <string name="preview">Preview</string>
     <string name="_two_dots" translatable="false">:</string>
@@ -282,7 +282,7 @@
     <string name="completed">Completed</string>
     <string name="today">Today</string>
     <string name="start_new_khatma">Start new Khatma</string>
-    <string name="msg_no_active_khatma">You have no active khatma</string>
+    <string name="msg_no_active_khatma">You have no active Khatma</string>
     <string name="no_active_khatma">NO ACTIVE KHATMA</string>
     <string name="new_step">New Step</string>
     <string name="qibla">Qibla</string>
@@ -464,7 +464,7 @@
     <string name="view_all_events">VIew all events</string>
     <string name="no_events_in_selected_date">No events in selected day</string>
     <string name="click_to_view_khatma_details">Click to view khatma details</string>
-    <string name="msg_create_or_join_khatma">Create a new Khatma by choosing a plan or Join an active one online or offline</string>
+    <string name="msg_create_or_join_khatma">Create a new Khatma by choosing a plan\nor Join an active one online or offline</string>
     <string name="create_new_khatma">Create new Khatma</string>
     <string name="join_khatma">Join Khatma</string>
     <string name="active_khatma">Active Khatma</string>
@@ -527,4 +527,42 @@
     <string name="right">Right</string>
     <string name="rotate_phone_to">Rotate phone to the</string>
     <string name="you_are_heading_to">You are heading to</string>
+    <string name="choose_a_city">Choose a city</string>
+    <string name="located">Located</string>
+    <string name="location_conflict">Location Conflict</string>
+    <string name="msg_pick_location_alert">You selected two locations. Please determine which one to use</string>
+    <string name="use_manual_location">Use manual location</string>
+    <string name="use_gps_location">Use GPS location</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="failed_to_detect_location">Failed to detect location</string>
+    <string name="location_perm_denied">Location permission is denied</string>
+    <string name="locating_you">Locating you ...</string>
+    <string name="preview_location">Preview Location</string>
+    <string name="msg_prev_loc">Previewing the location you have selected.\nIf you see any invalid data, dismiss me and reselect location.</string>
+
+    <string name="tag_country">Country</string>
+    <string name="tag_city">City</string>
+    <string name="tag_latitude">Latitude</string>
+    <string name="tag_longitude">Longitude</string>
+    <string name="tag_timezone">Timezone</string>
+    <string name="asr_method">Asr method</string>
+    <string name="higher_latitudes_method">Higher Latitudes method</string>
+    <string name="missing_params">Missing parameters</string>
+    <string name="msg_missing_params">Configuration is missing parameters. Check them again</string>
+    <string name="current_location">Current Location</string>
+    <string name="current_config">Current Configuration</string>
+    <string name="you_are_done">We\'re done</string>
+    <string name="prays_for_today">PrayTimes for today</string>
+    <string name="mask_hh_mm_aa">hh:mm aa</string>
+    <string name="go_to_anamuslim">Go to AnaMuslim</string>
+    <string name="setup_anamuslim">Setup AnaMuslim</string>
+    <string name="start_setup">Start Setup</string>
+    <string name="preview_prays">Praview Prays</string>
+    <string name="continue_setup__preview">Continue Setup (Preview)</string>
+    <string name="continue_setup__config">Continue Setup (Configuration)</string>
+    <string name="start_setup__location">Start Setup (Location)</string>
+    <string name="select_one">Select one...</string>
+    <string name="gps_location">GPS location</string>
+    <string name="confirm_location">Confirm Location</string>
+
 </resources>

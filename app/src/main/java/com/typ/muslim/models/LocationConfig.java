@@ -11,11 +11,12 @@ import android.os.Bundle;
 import com.typ.muslim.app.Extras;
 import com.typ.muslim.core.praytime.enums.AsrMethod;
 import com.typ.muslim.core.praytime.enums.CalculationMethod;
-import com.typ.muslim.core.praytime.enums.HigherLatitudes;
+import com.typ.muslim.core.praytime.enums.HigherLatitudesMethod;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Locale;
 
 /**
  * Model class representing config of parent location
@@ -33,9 +34,9 @@ public class LocationConfig implements Serializable {
     /**
      * HigherLatitudes method used if this city uses high-lat method. Default is NONE
      */
-    private HigherLatitudes higherLatitude;
+    private HigherLatitudesMethod higherLatitude;
 
-    public LocationConfig(CalculationMethod calculationMethod, AsrMethod asrMethod, HigherLatitudes higherLatitude) {
+    public LocationConfig(CalculationMethod calculationMethod, AsrMethod asrMethod, HigherLatitudesMethod higherLatitude) {
         this.calculationMethod = calculationMethod;
         this.asrMethod = asrMethod;
         this.higherLatitude = higherLatitude;
@@ -44,7 +45,7 @@ public class LocationConfig implements Serializable {
     public LocationConfig(int calculationMethod, int asrMethod, int higherLatitude) {
         this.calculationMethod = CalculationMethod.valueOf(calculationMethod);
         this.asrMethod = AsrMethod.valueOf(asrMethod);
-        this.higherLatitude = HigherLatitudes.valueOf(higherLatitude);
+        this.higherLatitude = HigherLatitudesMethod.valueOf(higherLatitude);
     }
 
     public CalculationMethod getCalculationMethod() {
@@ -65,11 +66,11 @@ public class LocationConfig implements Serializable {
         return this;
     }
 
-    public HigherLatitudes getHigherLatitude() {
+    public HigherLatitudesMethod getHigherLatitude() {
         return higherLatitude;
     }
 
-    public LocationConfig setHigherLatitude(HigherLatitudes higherLatitude) {
+    public LocationConfig setHigherLatitude(HigherLatitudesMethod higherLatitude) {
         this.higherLatitude = higherLatitude;
         return this;
     }
@@ -87,5 +88,9 @@ public class LocationConfig implements Serializable {
         Bundle bundle = new Bundle();
         bundle.putSerializable(Extras.EXTRA_LOCATION_CONFIG, this);
         return bundle;
+    }
+
+    public String toDisplayableString() {
+        return String.format(Locale.getDefault(), "%s - %s - %s", calculationMethod.name(), asrMethod.name(), higherLatitude.name());
     }
 }

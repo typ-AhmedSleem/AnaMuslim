@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     buildToolsVersion '32.0.0'
 
     defaultConfig {
         applicationId "com.typ.muslim"
         minSdkVersion 23
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 1
         versionName "1.2"
         multiDexEnabled true
@@ -28,7 +29,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation files('libs/scenery.aar')
@@ -38,7 +38,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:2.4.1"
     implementation "androidx.navigation:navigation-ui:2.4.1"
     implementation "androidx.multidex:multidex:2.0.1"
-    implementation "androidx.palette:palette:1.0.0"
+    implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "android.arch.persistence.room:runtime:1.1.1"
     implementation 'androidx.annotation:annotation:1.3.0'
     implementation 'androidx.test.ext:junit:1.1.3'
@@ -47,6 +47,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'com.google.android.gms:play-services-location:19.0.1'
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
 
     implementation "de.hdodenhof:circleimageview:3.1.0"
     //implementation "com.karumi:dexter:6.2.1"
@@ -107,7 +110,11 @@ dependencies {
     implementation 'com.github.iwgang:simplifyspan:2.2'
     implementation 'com.sdsmdg.harjot:rotatingtext:1.0.2'
     implementation 'com.jackandphantom.android:blurimage:1.2.0'
+    implementation 'com.github.sarnavakonar:TextWriter:v1.0'
+    implementation 'com.github.florent37:expansionpanel:1.2.4'
+    implementation 'androidx.core:core-splashscreen:1.0.0'
 //    implementation 'com.github.iamporus:TypedTextView:x.y.z'
 //    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 //    implementation 'com.github.perfomer:blitz:LATEST_VERSION'
 }
+

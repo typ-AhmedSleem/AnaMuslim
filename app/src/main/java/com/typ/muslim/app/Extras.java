@@ -12,5 +12,7 @@ package com.typ.muslim.app;
 public class Extras {
 
     public static final String EXTRA_LOCATION = "location";
+    public static final String EXTRA_SELECTED_LOCATION = "selectedLocation";
+    public static final String EXTRA_GPS_LOCATION = "gpsLocation";
     public static final String EXTRA_LOCATION_CONFIG = "locationConfig";
 }

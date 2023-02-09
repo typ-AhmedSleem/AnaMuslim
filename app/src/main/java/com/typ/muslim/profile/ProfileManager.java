@@ -62,7 +62,7 @@ public final class ProfileManager {
 
 	@Contract(pure = true)
 	public static boolean hasProfile(Context context) {
-		return getProfile(context) != null;
+		return PrefManager.contains(context, KEY_PROFILE_ID);
 	}
 
 	/**

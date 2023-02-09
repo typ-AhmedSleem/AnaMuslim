@@ -118,9 +118,9 @@ public class AMNumberSelector extends RelativeLayout implements ThemeChangeObser
 
 	@Override
 	public void onThemeChanged(View madeCallView, ColorSystem.GlobalTheme globalTheme, ColorSystem.ColorTheme colorTheme) {
-		ibtnIncrease.setBackgroundResource(R.drawable.btn_bg_circle_green);
-		ibtnDecrease.setBackgroundResource(R.drawable.btn_bg_circle_green);
-		atsValue.setTextColor(colorTheme);
-	}
+//		ibtnIncrease.setBackgroundResource(R.drawable.btn_bg_circle_green);
+//		ibtnDecrease.setBackgroundResource(R.drawable.btn_bg_circle_green);
+//		atsValue.setTextColor(colorTheme);
+    }
 
 }

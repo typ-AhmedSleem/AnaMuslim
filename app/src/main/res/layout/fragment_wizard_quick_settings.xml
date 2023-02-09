@@ -8,6 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/Theme.AnaMuslim.SplashScreen">
 
     <androidx.core.widget.NestedScrollView
@@ -26,34 +27,36 @@
                 android:id="@+id/tv_step_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/quick_settings"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                android:textColor="@color/colorText"
-                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:transitionName="transition_wizard_step_title"
                 app:autoSizeMaxTextSize="35dp"
                 app:autoSizeTextType="uniform"
-                app:fontFamily="@font/g" />
+                app:fontFamily="@font/font_omar_light"
+                app:layout_constraintBottom_toTopOf="@id/tv_step_info" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/t1"
+                android:id="@+id/tv_step_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
                 android:alpha="0.8"
+                android:gravity="center_horizontal"
+                android:maxLines="2"
                 android:text="@string/lt_quick_settings_subtitle"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
-                android:textColor="@color/darkAdaptiveColor"
-                android:typeface="monospace"
-                android:textSize="13sp"
-                app:autoSizeMaxTextSize="20dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/adaptiveSubtitleTextColor"
+                android:textSize="12sp"
+                android:transitionName="transition_wizard_step_subtitle"
                 app:autoSizeTextType="uniform"
-                app:lineHeight="20dp"
-                app:textAllCaps="false" />
+                app:fontFamily="@font/font_omar_light"
+                app:lineHeight="15dp"
+                app:textAllCaps="false"
+                tools:ignore="HardcodedText" />
 
             <View
                 android:layout_width="match_parent"
@@ -457,18 +460,20 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_finish"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/font_jf_flat_regular"
-        android:text="@string/finish"
-        android:textStyle="bold"
-        app:backgroundTint="@color/colorText"
-        app:cornerRadius="@dimen/default_corner_radius" />
+        android:layout_marginBottom="40dp"
+        android:text="@string/go_to_anamuslim"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="@dimen/default_corner_radius"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 
 </RelativeLayout>

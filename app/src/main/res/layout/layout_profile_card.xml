@@ -69,10 +69,9 @@
         android:maxLines="1"
         android:text="@string/ahmed_sleem"
         android:textColor="@color/colorPrimary2"
-        android:textSize="17sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         app:autoSizeTextType="uniform"
-        app:fontFamily="@font/font_jf_flat_regular"
+        app:fontFamily="sans"
         app:layout_constraintTop_toBottomOf="@id/cimg_user_pic" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -86,8 +85,7 @@
         android:gravity="top|start"
         android:text="Joined in: 13 Mar 2021"
         android:textColor="@color/subtitleTextColor"
-        android:textSize="8sp"
-
+        android:textSize="10sp"
         app:layout_constraintTop_toBottomOf="@id/tv_username"
         tools:ignore="SmallSp" />
 

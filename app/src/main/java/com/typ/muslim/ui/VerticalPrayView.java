@@ -45,10 +45,10 @@ public class VerticalPrayView extends DashboardCard {
     private Pray pray;
     private PrayNotifyMethod notifyMethod;
     // Views
-    private RelativeLayout rlContainer;
     private ImageView ivIndicator;
-    private SpannableTextView tvPrayName;
+    private RelativeLayout rlContainer;
     private MaterialTextView tvPrayTime;
+    private SpannableTextView tvPrayName;
     private ImageButton ibtnChangeNotifyMethod;
     // Callbacks
     private VerticalPraysDashboardCard.PrayNotifyMethodChangedCallback callback;
@@ -79,8 +79,9 @@ public class VerticalPrayView extends DashboardCard {
     public void prepareCardView(Context context) {
         // Inflate card view and prepare card
         inflate(context, R.layout.layout_pray_item, this);
-        setCardBackgroundColor(getColor(R.color.adaptiveBackgroundColor));
+        setRadius(30f);
         setRippleColorResource(R.color.transparent);
+        setCardBackgroundColor(getColor(R.color.white));
         // Setup inner views
         rlContainer = findViewById(R.id.rl_piv_container);
         ivIndicator = findViewById(R.id.prayIndicatorIV);
@@ -187,6 +188,21 @@ public class VerticalPrayView extends DashboardCard {
 
     public void setCallback(VerticalPraysDashboardCard.PrayNotifyMethodChangedCallback callback) {
         this.callback = callback;
+    }
+
+    public void changeIndicatorVisibility(boolean makeVisible) {
+        this.ivIndicator.setEnabled(makeVisible);
+        this.ivIndicator.setVisibility(makeVisible ? VISIBLE : INVISIBLE);
+    }
+
+    public void changeNotifMethodVisibility(boolean makeVisible) {
+        this.ibtnChangeNotifyMethod.setEnabled(makeVisible);
+        this.ibtnChangeNotifyMethod.setVisibility(makeVisible ? VISIBLE : INVISIBLE);
+    }
+
+    public void changeIndicatorsVisibility(boolean makeVisible) {
+        this.changeIndicatorVisibility(makeVisible);
+        this.changeNotifMethodVisibility(makeVisible);
     }
 
     @Override

@@ -103,18 +103,18 @@ public class TelegramBotsDashboardCard extends DashboardCard {
 			// Found bots
 			btnAction.setText(R.string.manage_bots);
 			stvBots.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "%d ", myBots.size()))
-					.superscript()
-					.textSize(30)
+                    .superscript()
+                    .textSize(60)
 					.style(Typeface.BOLD)
 					.textColor(Color.WHITE)
 					.build());
 			stvBots.addSlice(new Slice.Builder(getString(myBots.size() == 1 ? R.string.bot : R.string.bots))
-					.superscript()
-					.textSize(20)
+                    .superscript()
+                    .textSize(50)
 					.textColor(getColor(R.color.white))
 					.build());
 			stvBots.addSlice(new Slice.Builder("\n" + getString(R.string.click_to_manage_bots))
-					.textSize(20)
+					.textSize(35)
 					.textColor(getColor(R.color.brightSubtitleTextColor))
 					.build());
 		}

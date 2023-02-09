@@ -211,5 +211,6 @@
     <string name="after">بعد</string>
     <string name="today_prays">الصلوات اليوم</string>
     <string name="forgot_or_missed">Forgot or Missed</string>
+    <string name="mask_hh_mm_aa">سس:دد وو</string>
 
 </resources>
