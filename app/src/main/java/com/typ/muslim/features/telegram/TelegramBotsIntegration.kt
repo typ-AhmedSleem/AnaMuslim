@@ -11,31 +11,33 @@ import android.text.TextUtils
 import com.typ.muslim.db.LocalDatabase.Companion.getInstance
 import com.typ.muslim.features.telegram.models.TelegramBot
 import com.typ.muslim.features.telegram.models.TelegramBot.Companion.resolve
-import com.typ.muslim.features.telegram.models.TelegramBot.Companion.resolveAll
 import com.typ.muslim.features.telegram.models.TelegramRequestResult
 import com.typ.muslim.libs.easyjava.data.EasyList
 import org.json.JSONException
 import org.json.JSONObject
-import java.util.*
+import java.util.Locale
 
 /**
  * Contains all code that handles bots and its operations from storing bot info to handle network requests
  */
 object TelegramBotsIntegration {
+
     // todo: Add API methods like: [updateBot].
+
     private val block = Any()
 
     @JvmStatic
     fun getMyBots(context: Context?, performOnlineRefresh: Boolean): EasyList<TelegramBot> {
         val myBots = EasyList<TelegramBot>()
-        myBots.add(TelegramBot(TelegramConstants.AM_BOT_TOKEN))
-        // Get my bots from local database
-        myBots.addAll(resolveAll(getInstance(context!!)!!.query("SELECT * FROM telegram")))
-        // Perform online refresh for every bot if it's requested
-        if (performOnlineRefresh) {
-            synchronized(block) { for (bot in myBots) bot.me }
-        }
         return myBots
+//        myBots.add(TelegramBot(TelegramConstants.AM_BOT_TOKEN))
+//        // Get my bots from local database
+//        myBots.addAll(resolveAll(getInstance(context!!)!!.query("SELECT * FROM telegram")))
+//        // Perform online refresh for every bot if it's requested
+//        if (performOnlineRefresh) {
+//            synchronized(block) { for (bot in myBots) bot.me }
+//        }
+//        return myBots
     }
 
     fun persistBot(context: Context?, bot: TelegramBot?): Boolean {

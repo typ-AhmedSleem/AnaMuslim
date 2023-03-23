@@ -564,5 +564,6 @@
     <string name="select_one">Select one...</string>
     <string name="gps_location">GPS location</string>
     <string name="confirm_location">Confirm Location</string>
+    <string name="feature_under_dev">This feature is still under development</string>
 
 </resources>

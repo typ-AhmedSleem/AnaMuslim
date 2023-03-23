@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -65,12 +66,7 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
         cards.add(findViewById(R.id.ramadan_dashboard_card)); // 7 -> Ramadan card.
         cards.add(findViewById(R.id.telegram_bots_dashboard_card)); // 8 -> TelegramBots card.
         cards.add(findViewById(R.id.profile_dashboard_card)); // 9 -> Profile card.
-        // Click listeners
-        cards.get(1).setOnLongClickListener(v -> {
-            final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, cards.get(1).getViewsTransitionPairs());
-            startActivity(new Intent(this, TrackerActivity.class), op.toBundle());
-            return true;
-        });
+        /* Click listeners */
         cards.get(2).setOnClickListener(v -> {
             final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, "transition_card_to_activity");
             startActivity(new Intent(this, HijriCalendarActivity.class), op.toBundle());
@@ -81,18 +77,19 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
             intent.putExtra(Keys.NAME_OF_ALLAH, ((AllahNamesDashboardCard) cards.get(4)).getHoldingName());
             startActivity(intent, op.toBundle());
         });
-        cards.get(6).setOnClickListener(v -> {
-            ((QiblaDashboardCard) cards.get(6)).unregister();
-            final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, "transition_card_to_activity");
-            startActivity(new Intent(this, QiblaActivity.class), op.toBundle());
-        });
         cards.get(5).setOnClickListener(v -> {
             final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, "transition_card_to_activity");
             startActivity(new Intent(this, KhatmaActivity.class), op.toBundle());
         });
+        cards.get(6).setOnClickListener(v -> {
+            final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, "transition_card_to_activity");
+            startActivity(new Intent(this, QiblaActivity.class), op.toBundle());
+        });
+        cards.get(7).setOnClickListener(v -> Toast.makeText(this, "NOT YET IMPLEMENTED", Toast.LENGTH_SHORT).show());
+        cards.get(9).setOnClickListener(v -> Toast.makeText(this, R.string.feature_under_dev, Toast.LENGTH_LONG).show());
         // Register callbacks
-        ((QiblaDashboardCard) cards.get(6)).register();
         ((MiniNextPrayDashboardCard) cards.get(0)).setPrayTimeCameListener(this);
+        ((QiblaDashboardCard) cards.get(6)).register();
     }
 
     @Override

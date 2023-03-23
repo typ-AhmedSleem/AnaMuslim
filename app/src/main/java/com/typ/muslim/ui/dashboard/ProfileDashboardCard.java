@@ -9,6 +9,7 @@ package com.typ.muslim.ui.dashboard;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
@@ -28,9 +29,9 @@ public class ProfileDashboardCard extends DashboardCard {
 
 	// Statics
 	private static final String TAG = "ProfileDashboardCard";
-	// Runtim
+	// Runtime
 	private Profile profile;
-	private boolean hasLoadedProfilePic;
+	private boolean hasLoadedProfilePic = false;
 	// Views
 	private MaterialTextView tvName, tvJoinedIn;
 	private CircleImageView cimgUserPic;
@@ -66,7 +67,6 @@ public class ProfileDashboardCard extends DashboardCard {
 		this.btnManageProfile = $(R.id.btn_profile_options);
 		// Listener
 		this.btnManageProfile.setOnClickListener(this);
-		this.btnManageProfile.setOnLongClickListener(this);
 		// Perform UI refresh
 		if (!isInEditMode()) this.refreshUI();
 	}
@@ -80,7 +80,10 @@ public class ProfileDashboardCard extends DashboardCard {
 	@Override
 	public void refreshUI() {
 		this.tvName.setText(this.profile.getName());
-		if (!hasLoadedProfilePic) this.profile.loadPhotoIn(this.cimgUserPic);
+		if (!hasLoadedProfilePic) {
+			profile.loadPhotoIn(this.cimgUserPic);
+			hasLoadedProfilePic = true;
+		}
 		this.tvJoinedIn.setText(String.format(Locale.getDefault(), "%s: %s",
 				getString(R.string.joined_in),
 				this.profile.getCreatedIn().getFormatted(FormatPatterns.DATE_NORMAL)));
@@ -88,6 +91,7 @@ public class ProfileDashboardCard extends DashboardCard {
 
 	@Override
 	public void onClick(View v) {
+		Toast.makeText(getContext(), R.string.feature_under_dev, Toast.LENGTH_LONG).show();
 		// todo: Open ProfileBottomSheet in {half_expanded} state displaying profile info and show settings button and settings list is displayed when the bs is in {full_screen} state
 	}
 
