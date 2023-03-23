@@ -35,11 +35,9 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
 import com.typ.muslim.R;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.enums.KhatmaPlans;
+import com.typ.muslim.features.khatma.interfaces.KhatmaManagerCallback;
 import com.typ.muslim.features.quran.Quran;
-import com.typ.muslim.interfaces.KhatmaManagerCallback;
 import com.typ.muslim.interfaces.ResultCallback;
-import com.typ.muslim.managers.KhatmaManager;
-import com.typ.muslim.models.Khatma;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.AnimatedTextView;
 import com.typ.muslim.ui.BottomSheets;
@@ -103,13 +101,13 @@ public class KhatmaActivity extends AppCompatActivity implements KhatmaManagerCa
     }
 
     @Override
-    public void onNoActiveKhatmaFound() {
+    public void onNoActiveKhatma() {
         flContainer.removeAllViews();
         flContainer.addView(nkv, new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
     }
 
     @Override
-    public void onKhatmaProgressUpdated() {
+    public void onProgressUpdated() {
         if (flContainer.getChildCount() > 0) {
             final ActiveKhatmaView akv = (ActiveKhatmaView) flContainer.getChildAt(0);
             akv.refreshUI();
@@ -117,7 +115,7 @@ public class KhatmaActivity extends AppCompatActivity implements KhatmaManagerCa
     }
 
     @Override
-    public void onKhatmaReleased() {
+    public void onSwitchKhatma() {
         finishAfterTransition();
     }
 
@@ -212,10 +210,10 @@ public class KhatmaActivity extends AppCompatActivity implements KhatmaManagerCa
         @Override
         public void refreshUI() {
             if (khatma == null) {
-                onNoActiveKhatmaFound();
+                onNoActiveKhatma();
                 return;
             } else if (!khatma.isActive()) {
-                onNoActiveKhatmaFound();
+                onNoActiveKhatma();
                 return;
             }
             // Khatma details

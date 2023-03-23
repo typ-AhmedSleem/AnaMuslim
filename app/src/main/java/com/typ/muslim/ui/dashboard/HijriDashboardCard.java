@@ -13,10 +13,10 @@ import android.view.View;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.managers.HijriCalendar;
+import com.typ.muslim.features.calendar.HijriCalendar;
 import com.typ.muslim.managers.IslamicEvents;
 import com.typ.muslim.managers.ResMan;
-import com.typ.muslim.models.HijriDate;
+import com.typ.muslim.features.calendar.models.HijriDate;
 import com.typ.muslim.models.IslamicEvent;
 import com.typ.muslim.ui.activities.HijriCalendarActivity;
 import com.typ.muslim.utils.DateUtils;

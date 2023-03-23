@@ -7,10 +7,12 @@
 package com.typ.muslim.models;
 
 import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
 import com.typ.muslim.enums.FormatPatterns;
-import com.typ.muslim.managers.HijriCalendar;
+import com.typ.muslim.features.calendar.HijriCalendar;
+import com.typ.muslim.features.calendar.models.HijriDate;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -62,6 +64,7 @@ public class IslamicEvent extends HijriDate implements Serializable {
 		return Objects.hash(this);
 	}
 
+	@NonNull
 	@Override
 	public String toString() {
 		return "IslamicEvent{" +

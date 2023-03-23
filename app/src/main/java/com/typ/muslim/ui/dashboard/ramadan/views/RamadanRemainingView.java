@@ -20,8 +20,8 @@ import com.typ.muslim.R;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.Period;
-import com.typ.muslim.ramadan.RamadanManager;
-import com.typ.muslim.ramadan.models.Ramadan;
+import com.typ.muslim.features.ramadan.RamadanManager;
+import com.typ.muslim.features.ramadan.models.Ramadan;
 import com.typ.muslim.ui.ViewContainer;
 
 import org.jetbrains.annotations.NotNull;

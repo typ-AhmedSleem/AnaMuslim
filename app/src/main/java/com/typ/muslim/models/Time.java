@@ -6,10 +6,12 @@
 
 package com.typ.muslim.models;
 
+import java.io.Serializable;
+
 /**
  * Model class that can hold time as Hours-Minutes-Seconds
  */
-public class Time {
+public class Time implements Serializable {
 
     private final int hours;
     private final int minutes;

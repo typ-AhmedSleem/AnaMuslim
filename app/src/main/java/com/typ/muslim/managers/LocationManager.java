@@ -35,10 +35,10 @@ public class LocationManager {
 
     // Statics
     private static final String TAG = "LocationManager";
-    // Runtime Variables
-    private Activity activity;
     private final LocationsDatabase locationsDatabase;
     private final android.location.LocationManager androidLocManager;
+    // Runtime Variables
+    private final Activity activity;
 
     public LocationManager(Activity activity) {
         this.activity = activity;

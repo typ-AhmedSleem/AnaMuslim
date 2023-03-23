@@ -31,7 +31,7 @@ import com.typ.muslim.managers.IslamicEvents;
 import com.typ.muslim.managers.PrayerManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.DayTrackerRecords;
-import com.typ.muslim.models.HijriDate;
+import com.typ.muslim.features.calendar.models.HijriDate;
 import com.typ.muslim.models.IslamicEvent;
 import com.typ.muslim.models.PrayTimes;
 import com.typ.muslim.models.Timestamp;

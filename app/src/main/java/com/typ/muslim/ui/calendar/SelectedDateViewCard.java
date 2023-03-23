@@ -25,9 +25,8 @@ import androidx.annotation.Nullable;
 
 import com.typ.muslim.R;
 import com.typ.muslim.enums.FormatPatterns;
-import com.typ.muslim.managers.AManager;
-import com.typ.muslim.managers.HijriCalendar;
-import com.typ.muslim.models.HijriDate;
+import com.typ.muslim.features.calendar.HijriCalendar;
+import com.typ.muslim.features.calendar.models.HijriDate;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.AnimatedTextView;
 import com.typ.muslim.ui.Dimension;

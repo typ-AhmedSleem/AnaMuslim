@@ -50,9 +50,8 @@ package com.typ.muslim.libs.iclib;
  *   <li>fajrAngle - angle for Fajr time
  *   <li>ishaAngle - angle for Isha time
  * </ul>
-
- * @author fikr4n
  *
+ * @author fikr4n
  */
 public class Formula {
 
@@ -210,14 +209,14 @@ public class Formula {
     /**
      * Return qibla direction in degrees from the north (clock-wise).
      *
-     * @param lat latitude in degrees
-     * @param lng longitude in degrees
+     * @param curLat latitude in degrees
+     * @param curLng longitude in degrees
      * @return 0 means north, 90 means east, 270 means west, etc
      */
-    public static double qibla(double lat, double lng) {
-        double lngA = 39.82616111;
-        double latA = 21.42250833;
-        double deg = atan2Deg(sinDeg(lngA - lng), cosDeg(lat) * tanDeg(latA) - sinDeg(lat) * cosDeg(lngA - lng));
+    public static double qibla(double curLat, double curLng) {
+        double mkhLng = 39.82616111;
+        double mkgLat = 21.42250833;
+        double deg = atan2Deg(sinDeg(mkhLng - curLng), cosDeg(curLat) * tanDeg(mkgLat) - sinDeg(curLat) * cosDeg(mkhLng - curLng));
         return deg >= 0 ? deg : deg + 360;
     }
 

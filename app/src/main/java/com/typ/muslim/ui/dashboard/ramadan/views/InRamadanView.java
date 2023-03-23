@@ -19,8 +19,8 @@ import com.typ.muslim.R;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.Timestamp;
-import com.typ.muslim.ramadan.RamadanManager;
-import com.typ.muslim.ramadan.models.RamadanDay;
+import com.typ.muslim.features.ramadan.RamadanManager;
+import com.typ.muslim.features.ramadan.models.RamadanDay;
 import com.typ.muslim.ui.ViewContainer;
 import com.typ.muslim.ui.dashboard.ramadan.RamadanDashboardCard;
 

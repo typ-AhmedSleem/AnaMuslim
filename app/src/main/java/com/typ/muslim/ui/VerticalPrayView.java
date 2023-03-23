@@ -31,7 +31,7 @@ import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrayerManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
-import com.typ.muslim.ramadan.RamadanManager;
+import com.typ.muslim.features.ramadan.RamadanManager;
 import com.typ.muslim.ui.dashboard.DashboardCard;
 import com.typ.muslim.ui.dashboard.prays.VerticalPraysDashboardCard;
 

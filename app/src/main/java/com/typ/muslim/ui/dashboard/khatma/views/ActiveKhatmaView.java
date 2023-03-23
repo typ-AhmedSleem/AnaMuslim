@@ -7,7 +7,6 @@
 package com.typ.muslim.ui.dashboard.khatma.views;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
@@ -15,10 +14,9 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
-import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.managers.KhatmaManager;
+import com.typ.muslim.features.khatma.KhatmaManager;
 import com.typ.muslim.ui.ViewContainer;
 
 import org.jetbrains.annotations.NotNull;

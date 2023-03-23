@@ -13,8 +13,6 @@ import android.view.View;
 import com.app.progresviews.ProgressWheel;
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.managers.KhatmaManager;
-import com.typ.muslim.models.Khatma;
 import com.typ.muslim.ui.dashboard.DashboardCard;
 
 public class KhatmaDashboardCard extends DashboardCard {
@@ -68,6 +66,8 @@ public class KhatmaDashboardCard extends DashboardCard {
         tvMsg.setTextColor(getColor(R.color.subtitleTextColor));
     }
 
+
+
     @Override
     public void refreshUI() {
         if (this.khatma == null) reset();
@@ -94,4 +94,6 @@ public class KhatmaDashboardCard extends DashboardCard {
     public void refreshRuntime() {
         prepareRuntime(getContext());
     }
+
+
 }
