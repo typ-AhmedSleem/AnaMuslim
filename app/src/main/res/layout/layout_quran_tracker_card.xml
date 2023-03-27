@@ -79,25 +79,25 @@
             app:layout_constraintTop_toBottomOf="@id/tv_tracker_range"
             tools:ignore="HardcodedText" />
 
-<!--        <com.db.williamchart.view.LineChartView-->
-<!--            android:id="@+id/line_chart_quran_tracker"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_marginStart="0dp"-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:layout_marginEnd="0dp"-->
-<!--            android:layout_marginBottom="0dp"-->
-<!--            app:chart_axis="x"-->
-<!--            app:chart_labelsColor="#4262CD"-->
-<!--            app:chart_labelsSize="10dp"-->
-<!--            app:chart_lineColor="#4262CD"-->
-<!--            app:chart_lineThickness="3dp"-->
-<!--            app:chart_pointsDrawable="@drawable/white_dot"-->
-<!--            app:chart_smoothLine="true"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/tv_total_reading_time" />-->
+        <com.db.williamchart.view.LineChartView
+            android:id="@+id/line_chart_quran_tracker"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            app:chart_axis="x"
+            app:chart_labelsColor="#4262CD"
+            app:chart_labelsSize="10dp"
+            app:chart_lineColor="#4262CD"
+            app:chart_lineThickness="3dp"
+            app:chart_pointsDrawable="@drawable/white_dot"
+            app:chart_smoothLine="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_total_reading_time" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

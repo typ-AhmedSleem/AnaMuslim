@@ -7,18 +7,17 @@
 <ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/vs_ramadan"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:animateFirstView="true"
+    android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     android:background="@color/transparent"
     android:inAnimation="@anim/fade_in_slide_in"
     android:outAnimation="@anim/fade_out_slide_out">
 
-    <com.typ.muslim.ui.dashboard.ramadan.views.InRamadanView
+    <com.typ.muslim.ui.ramadan.views.InRamadanView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.typ.muslim.ui.dashboard.ramadan.views.RamadanRemainingView
+    <com.typ.muslim.ui.ramadan.views.RamadanRemainingView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

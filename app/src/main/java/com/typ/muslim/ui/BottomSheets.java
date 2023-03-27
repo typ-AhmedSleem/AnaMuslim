@@ -77,8 +77,8 @@ import com.typ.muslim.models.IslamicEvent;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.PrayTimes;
 import com.typ.muslim.models.Timestamp;
-import com.typ.muslim.ui.activities.names.HolyNamesOfAllahActivity;
-import com.typ.muslim.ui.dashboard.prays.VerticalPraysDashboardCard;
+import com.typ.muslim.ui.names.HolyNamesOfAllahActivity;
+import com.typ.muslim.ui.prays.VerticalPraysDashboardCard;
 import com.typ.muslim.utils.DateUtils;
 
 import org.jetbrains.annotations.NotNull;

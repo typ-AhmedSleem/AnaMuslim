@@ -22,7 +22,7 @@ interface KhatmaDAO {
     fun deleteKhatma(khatma: Khatma)
 
     @Update(entity = Khatma::class, onConflict = OnConflictStrategy.IGNORE)
-    fun updateKhatma()
+    fun updateKhatma(khatma: Khatma)
 
     @Query("SELECT DISTINCT * FROM Khatma WHERE startedIn BETWEEN :start AND :end")
     fun getWithinRange(start: Long, end: Long): Array<Khatma>

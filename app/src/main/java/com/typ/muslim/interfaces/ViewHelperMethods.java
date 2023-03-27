@@ -8,6 +8,7 @@ package com.typ.muslim.interfaces;
 
 import android.app.AlarmManager;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.telecom.TelecomManager;
 import android.view.View;
@@ -19,23 +20,31 @@ import androidx.annotation.StringRes;
 
 public interface ViewHelperMethods {
 
-	TelecomManager getTelecomManager();
+    TelecomManager getTelecomManager();
 
-	Vibrator getVibrator();
+    Vibrator getVibrator();
 
-	AlarmManager getAlarmManager();
+    AlarmManager getAlarmManager();
 
-	@ColorInt
-	int getColor(@ColorRes int colorResId);
+    @ColorInt
+    int getColor(@ColorRes int colorResId);
 
-	String getString(@StringRes int stringResId);
+    String getString(@StringRes int stringResId);
 
-	<T extends View> T $(@IdRes int resId);
+    String getString(boolean condition, @StringRes int whenTrue, @StringRes int whenFalse);
 
-	void startActivity(Intent intent);
+    String getString(int number, @StringRes int whenOne, @StringRes int whenMany);
 
-	int sp2px(float sp);
+    String getString(@StringRes int whenArabic, @StringRes int whenOther);
 
-	int dp2px(float dip);
+    <T extends View> T $(@IdRes int resId);
+
+    void startActivity(Intent intent);
+
+    void startActivity(Intent intent, Bundle options);
+
+    int sp2px(float sp);
+
+    int dp2px(float dip);
 
 }

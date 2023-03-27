@@ -3,7 +3,7 @@ package com.typ.muslim.features.khatma.models
 import com.typ.muslim.models.ReminderFrequency
 import com.typ.muslim.models.Time
 import org.json.JSONObject
-import java.util.*
+import java.util.Locale
 
 data class ReminderPlan(
     val time: Time = Time(0, 0, 0),
@@ -32,5 +32,14 @@ data class ReminderPlan(
     }
 
     override fun toString(): String = toJson()
+
+    companion object {
+
+        @JvmStatic
+        fun fromJson(json: String?) : ReminderPlan? {
+            return null // todo: to be coded
+        }
+
+    }
 
 }

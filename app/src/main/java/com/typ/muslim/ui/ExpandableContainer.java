@@ -119,10 +119,6 @@ public class ExpandableContainer extends ViewContainer {
 	@Override
 	void setListeners() {
 		cardHeader.setOnClickListener(v -> toggle());
-		setOnLongClickListener(v -> {
-			ExpandableContainer.super.toggle();
-			return true;
-		});
 	}
 
 	@Override
@@ -137,6 +133,7 @@ public class ExpandableContainer extends ViewContainer {
 		final int targetHeight = flContent.getMeasuredHeight();
 		AManager.log(TAG, "wannaExpandToHeight: %d", targetHeight);
 		// Make content container visible and make its height = 0
+		flContent.getLayoutParams().height = 0;
 		flContent.setVisibility(VISIBLE);
 		// Create expand animation
 		final Animation animExpand = new Animation() {
@@ -226,6 +223,17 @@ public class ExpandableContainer extends ViewContainer {
 
 	@Override
 	public void toggle() {
+
+//		if (expansionState == ExpansionState.COLLAPSED) {
+//			flContent.animate().scaleY(1f).alpha(1f).setDuration(300).start();
+//			expansionState = ExpansionState.EXPANDED;
+//		}
+//		else {
+//			flContent.animate().scaleY(0f).alpha(0f).setDuration(300).start();
+//			expansionState = ExpansionState.COLLAPSED;
+//		}
+
+
 		if (expansionState == ExpansionState.COLLAPSED) expand();
 		else collapse();
 	}

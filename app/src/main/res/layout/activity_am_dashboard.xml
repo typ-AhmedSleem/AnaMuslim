@@ -41,35 +41,35 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
-                <com.typ.muslim.ui.dashboard.prays.NextPrayDashboardCard
+                <com.typ.muslim.ui.prays.NextPrayDashboardCard
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp" />
 
-                <com.typ.muslim.ui.dashboard.tracker.TrackerDashboardCard
+                <com.typ.muslim.ui.tracker.dashboard.TrackerDashboardCard
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp" />
 
-                <com.typ.muslim.ui.dashboard.KhatmaDashboardCard
+                <com.typ.muslim.ui.home.KhatmaDashboardCard
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp" />
 
-                <com.typ.muslim.ui.dashboard.HijriDashboardCard
+                <com.typ.muslim.ui.calendar.dashboard.HijriDashboardCard
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp" />
 
-                <com.typ.muslim.ui.dashboard.AllahNamesDashboardCard
+                <com.typ.muslim.ui.names.AllahNamesDashboardCard
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -80,7 +80,7 @@
 
         </ScrollView>
 
-        <com.typ.muslim.ui.dashboard.prays.MiniNextPrayDashboardCard
+        <com.typ.muslim.ui.prays.MiniNextPrayDashboardCard
             android:id="@+id/mini_next_pray_card"
             android:layout_width="match_parent"
             android:layout_height="65dp"

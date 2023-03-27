@@ -33,8 +33,8 @@ import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrayerManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
-import com.typ.muslim.ui.dashboard.DashboardCard;
-import com.typ.muslim.ui.dashboard.prays.VerticalPraysDashboardCard;
+import com.typ.muslim.ui.home.DashboardCard;
+import com.typ.muslim.ui.prays.VerticalPraysDashboardCard;
 
 import java.util.Locale;
 

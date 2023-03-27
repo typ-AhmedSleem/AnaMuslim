@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 /**
  * Util Code that works with Date and Time
@@ -164,7 +165,7 @@ public class DateUtils {
             // Today is Jum'a
             return ResMan.getString(c, R.string.jumaa);
         } else {
-            final String pattern = format == "3" ? "EE" : format == "1" ? "EEEEE" : "EEEE";
+            final String pattern = Objects.equals(format, "3") ? "EE" : Objects.equals(format, "1") ? "EEEEE" : "EEEE";
             return new SimpleDateFormat(pattern, Locale.getDefault()).format(when.asDate());
         }
     }

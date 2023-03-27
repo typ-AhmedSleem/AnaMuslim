@@ -13,7 +13,7 @@
     app:cardCornerRadius="0dp"
     app:cardElevation="0dp"
     app:contentPadding="5dp"
-    app:rippleColor="@color/ripple_som_card">
+    app:rippleColor="@color/ripple_green">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

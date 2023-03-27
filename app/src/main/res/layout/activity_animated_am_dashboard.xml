@@ -51,7 +51,7 @@
                 app:contentInsetStart="0dp"
                 app:layout_collapseMode="pin">
 
-                <com.typ.muslim.ui.dashboard.prays.MiniNextPrayDashboardCard
+                <com.typ.muslim.ui.prays.MiniNextPrayDashboardCard
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -80,7 +80,7 @@
             android:layout_marginTop="5dp"
             android:orientation="vertical">
 
-            <com.typ.muslim.ui.dashboard.prays.NextPrayDashboardCard
+            <com.typ.muslim.ui.prays.NextPrayDashboardCard
                 android:id="@+id/nextPrayCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                 android:layout_marginEnd="15dp"
                 android:visibility="gone" />
 
-            <com.typ.muslim.ui.dashboard.prays.MiniNextPrayDashboardCard
+            <com.typ.muslim.ui.prays.MiniNextPrayDashboardCard
                 android:id="@+id/nextPrayMiniCard2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 android:layout_marginEnd="15dp"
                 android:visibility="gone" />
 
-            <com.typ.muslim.ui.dashboard.prays.VerticalPraysDashboardCard
+            <com.typ.muslim.ui.prays.VerticalPraysDashboardCard
                 android:id="@+id/praysCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp" />
 
-            <com.typ.muslim.ui.dashboard.AllahNamesDashboardCard
+            <com.typ.muslim.ui.names.AllahNamesDashboardCard
                 android:id="@+id/allahNamesCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,15 +114,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp" />
 
-            <com.typ.muslim.ui.KhatmaDashboardCard
-                android:id="@+id/khatmaCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp" />
-
-            <com.typ.muslim.ui.dashboard.HijriDashboardCard
+            <com.typ.muslim.ui.calendar.dashboard.HijriDashboardCard
                 android:id="@+id/calendarCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

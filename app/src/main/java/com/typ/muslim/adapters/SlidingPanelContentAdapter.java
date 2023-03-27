@@ -12,10 +12,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.typ.muslim.models.PrayTimes;
-import com.typ.muslim.ui.dashboard.prays.VerticalPraysDashboardCard;
-import com.typ.muslim.ui.fragments.panel.MenuFragment;
-import com.typ.muslim.ui.fragments.panel.PraysFragment;
-import com.typ.muslim.ui.fragments.panel.QiblaFragment;
+import com.typ.muslim.ui.prays.VerticalPraysDashboardCard;
+import com.typ.muslim.ui.fragments.MenuFragment;
+import com.typ.muslim.ui.fragments.PraysFragment;
+import com.typ.muslim.ui.fragments.QiblaFragment;
 
 import org.jetbrains.annotations.NotNull;
 

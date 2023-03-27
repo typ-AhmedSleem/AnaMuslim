@@ -43,7 +43,7 @@
             android:text="@string/search_online"
             android:textColor="@color/colorPrimary"
             app:cornerRadius="@dimen/default_corner_radius"
-            app:rippleColor="@color/ripple_som_card" />
+            app:rippleColor="@color/ripple_green" />
 
     </LinearLayout>
 

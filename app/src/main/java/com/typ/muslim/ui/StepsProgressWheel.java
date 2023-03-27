@@ -69,10 +69,10 @@ public final class StepsProgressWheel extends BaseView {
         super(context, attrs);
         Consumers.doIf(() -> steps = EasyList.createList(
                 new ProgressStep(true, R.color.green),
-                new ProgressStep(false, R.color.red),
+                new ProgressStep(false, R.color.bg_input_box),
                 new ProgressStep(true, R.color.green),
                 new ProgressStep(true, R.color.green),
-                new ProgressStep(false, R.color.red)), isInEditMode());
+                new ProgressStep(false, R.color.bg_input_box)), isInEditMode());
     }
 
     public StepsProgressWheel(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -191,7 +191,7 @@ public final class StepsProgressWheel extends BaseView {
             // Start and target angles
             final float angleStep = getStepAngle();
             // Paint color
-            paintStep.setColor(getColor(step.isDone() ? step.getColor() : R.color.red));
+            paintStep.setColor(getColor(step.isDone() ? step.getColor() : R.color.bg_input_box));
             // Draw the arc
             canvas.drawArc(
                     rectBar,

@@ -6,7 +6,7 @@
 
 package com.typ.muslim.managers;
 
-import static com.typ.muslim.db.LocalDatabase.TABLE_READ_QURAN;
+import static com.typ.muslim.db.OldDatabase.TABLE_READ_QURAN;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -15,7 +15,7 @@ import android.database.sqlite.SQLiteException;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.db.LocalDatabase;
+import com.typ.muslim.db.OldDatabase;
 import com.typ.muslim.models.ReadQuranRecord;
 import com.typ.muslim.utils.DateUtils;
 
@@ -39,7 +39,7 @@ public class QuranTrackerManager {
     public static boolean record(Context context, ReadQuranRecord quranRecord) {
         if (quranRecord == null) return false;
         try {
-            LocalDatabase.getInstance(context).execute("INSERT INTO " + TABLE_READ_QURAN + " (` from_ayah `,` from_surah `,` to_ayah `,` to_surah `,` duration `,` day_timestamp `) VALUES (" +
+            OldDatabase.getInstance(context).execute("INSERT INTO " + TABLE_READ_QURAN + " (` from_ayah `,` from_surah `,` to_ayah `,` to_surah `,` duration `,` day_timestamp `) VALUES (" +
                     "" + quranRecord.getFromAyah() + "," +
                     "" + quranRecord.getFromSurah() + "," +
                     "" + quranRecord.getToAyah() + "," +
@@ -63,7 +63,7 @@ public class QuranTrackerManager {
      */
     public static List<ReadQuranRecord> getReadQuranRecordsInRange(Context context, long rangeStart, long rangeEnd) {
         if (rangeStart > rangeEnd) return new ArrayList<>(); // Invalid range.
-        Cursor cursor = LocalDatabase.getInstance(context).query(String.format(Locale.ENGLISH, "SELECT * FROM %s WHERE ` day_timestamp ` BETWEEN %d AND %d", TABLE_READ_QURAN, rangeStart, rangeEnd));
+        Cursor cursor = OldDatabase.getInstance(context).query(String.format(Locale.ENGLISH, "SELECT * FROM %s WHERE ` day_timestamp ` BETWEEN %d AND %d", TABLE_READ_QURAN, rangeStart, rangeEnd));
         if (cursor == null) return new ArrayList<>(); // Faced an error.
         List<ReadQuranRecord> readQuranRecords = new ArrayList<>();
         if (cursor.getCount() == 0) return readQuranRecords;

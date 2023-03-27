@@ -6,7 +6,7 @@
 
 package com.typ.muslim.managers;
 
-import static com.typ.muslim.db.LocalDatabase.TABLE_PRAYER_TRACKER;
+import static com.typ.muslim.db.OldDatabase.TABLE_PRAYER_TRACKER;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -17,7 +17,7 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 
 import com.typ.muslim.core.praytime.enums.Prays;
-import com.typ.muslim.db.LocalDatabase;
+import com.typ.muslim.db.OldDatabase;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.Timestamp;
@@ -57,7 +57,7 @@ public class PrayTrackerManager {
                 DateUtils.dfDateTimeSNX(true).format(new Date(trackerRecord.getDayTimestamp().toMillis())),
                 DateUtils.dfDateTimeSNX(true).format(new Date(System.currentTimeMillis())));
         try {
-            LocalDatabase.getInstance(context).execute("INSERT INTO " + TABLE_PRAYER_TRACKER + " (` what_pray `,` status `,` at_mosque `,` pray_time `,` prayed_in `,` day_timestamp `) VALUES(" +
+            OldDatabase.getInstance(context).execute("INSERT INTO " + TABLE_PRAYER_TRACKER + " (` what_pray `,` status `,` at_mosque `,` pray_time `,` prayed_in `,` day_timestamp `) VALUES(" +
                     "" + trackerRecord.getPray().ordinal() + "," +
                     "" + trackerRecord.getStatus().ordinal() + "," +
                     "" + (trackerRecord.wasAtMosque() ? 1 : 0) + "," +
@@ -83,7 +83,7 @@ public class PrayTrackerManager {
     public static List<PrayTrackerRecord> getPrayTrackerRecordsInRange(Context context, long rangeStart, long rangeEnd) {
         Log.i("AnaMuslim", "getPrayTrackerRecordsInRange: " + "SELECT * FROM " + TABLE_PRAYER_TRACKER + " WHERE ` day_timestamp ` BETWEEN " + rangeStart + " AND " + rangeEnd);
         if (rangeStart > rangeEnd) return new ArrayList<>(); // Doesn't meet the condition.
-        Cursor cursor = LocalDatabase.getInstance(context).query("SELECT * FROM " + TABLE_PRAYER_TRACKER + " WHERE ` day_timestamp ` BETWEEN " + rangeStart + " AND " + rangeEnd);
+        Cursor cursor = OldDatabase.getInstance(context).query("SELECT * FROM " + TABLE_PRAYER_TRACKER + " WHERE ` day_timestamp ` BETWEEN " + rangeStart + " AND " + rangeEnd);
         if (cursor == null) return new ArrayList<>(); // Error executing query.
         List<PrayTrackerRecord> trackerRecords = new ArrayList<>(); // Create new empty list.
         if (cursor.getCount() == 0) return trackerRecords; // No Records were found.

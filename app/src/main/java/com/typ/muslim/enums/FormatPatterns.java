@@ -15,71 +15,76 @@ import java.util.Locale;
 
 public enum FormatPatterns {
 
-	/**
-	 * @return Pattern [hh:mm aa]. eg: 3:25 pm
-	 */
-	TIME12SX("hh:mm aa"),
+    /**
+     * Pattern [hh:mm aa]. eg: 3:25 pm
+     */
+    TIME12SX("hh:mm aa"),
 
-	/**
-	 * @return Pattern [hh:mm]. eg: 3:25
-	 */
-	TIME12NSX("hh:mm"),
+    /**
+     * Pattern [hh:mm]. eg: 3:25
+     */
+    TIME12NSX("hh:mm"),
 
-	/**
-	 * @return Pattern [HH:mm]. eg: 15:30
-	 */
-	TIME24("HH:mm"),
+    /**
+     * Pattern [HH:mm]. eg: 15:30
+     */
+    TIME24("HH:mm"),
 
-	/**
-	 * @return Pattern [dd/MM/yyyy]. eg: 01/08/2001
-	 */
-	DATE_SHORT("dd/MM/yyyy"),
+    /**
+     * Pattern [dd MMM]. eg: 01 Aug
+     */
+    DATE_MONTH("dd MMM"),
 
-	/**
-	 * @return Pattern [dd MMM yyyy]. eg: 01 Aug 2001
-	 */
-	DATE_NORMAL("dd MMM yyyy"),
+    /**
+     * Pattern [dd/MM/yyyy]. eg: 01/08/2001
+     */
+    DATE_SHORT("dd/MM/yyyy"),
 
-	/**
-	 * @return Pattern [dd MMM yyyy]. eg: 01 Aug 2001
-	 */
-	DATE_FULL("dd MMMM yyyy"),
+    /**
+     * Pattern [dd MMM yyyy]. eg: 01 Aug 2001
+     */
+    DATE_NORMAL("dd MMM yyyy"),
 
-	/**
-	 * @return Pattern [dd/MM/yyyy hh:mm aa]. eg: 01/08/2001 12:03 am
-	 */
-	DATETIME_NORMAL("dd/MM/yyyy hh:mm aa"),
+    /**
+     * Pattern [dd MMM yyyy]. eg: 01 Aug 2001
+     */
+    DATE_FULL("dd MMMM yyyy"),
 
-	/**
-	 * @return Pattern [dd MMM yyyy hh:mm aa]. eg: 01 Aug 2001 12:03 am
-	 */
-	DATETIME_FULL("dd MMM yyyy hh:mm aa");
+    /**
+     * Pattern [dd/MM/yyyy hh:mm aa]. eg: 01/08/2001 12:03 am
+     */
+    DATETIME_NORMAL("dd/MM/yyyy hh:mm aa"),
 
-	public static FormatPatterns valueOf(int ordinal) {
-		FormatPatterns formatPattern = null;
-		for (FormatPatterns fp : values()) {
-			if (fp.ordinal() == ordinal) {
-				formatPattern = fp;
-				break;
-			}
-		}
-		return formatPattern;
-	}
+    /**
+     * Pattern [dd MMM yyyy hh:mm aa]. eg: 01 Aug 2001 12:03 am
+     */
+    DATETIME_FULL("dd MMM yyyy hh:mm aa");
 
-	final String pattern;
+    final String pattern;
 
-	FormatPatterns(String pattern) {
-		this.pattern = pattern;
-	}
+    FormatPatterns(String pattern) {
+        this.pattern = pattern;
+    }
 
-	@NonNull
-	public String getPattern() {
-		return pattern;
-	}
+    public static FormatPatterns valueOf(int ordinal) {
+        FormatPatterns formatPattern = null;
+        for (FormatPatterns fp : values()) {
+            if (fp.ordinal() == ordinal) {
+                formatPattern = fp;
+                break;
+            }
+        }
+        return formatPattern;
+    }
 
-	@NonNull
-	public String format(Timestamp timestamp) {
-		return new SimpleDateFormat(pattern, Locale.getDefault()).format(timestamp.asDate());
-	}
+    @NonNull
+    public String getPattern() {
+        return pattern;
+    }
+
+    @NonNull
+    public String format(Timestamp timestamp) {
+        return new SimpleDateFormat(pattern, Locale.getDefault()).format(timestamp.asDate());
+    }
 
 }

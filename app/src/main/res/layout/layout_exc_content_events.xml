@@ -10,7 +10,7 @@
     android:layout_height="wrap_content"
     android:padding="10dp">
 
-    <com.typ.muslim.ui.calendar.IslamicEventView
+    <com.typ.muslim.ui.calendar.views.IslamicEventView
         android:id="@+id/iev_exc_events"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,6 +56,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iev_exc_events"
-        app:rippleColor="@color/ripple_som_card" />
+        app:rippleColor="@color/ripple_green" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

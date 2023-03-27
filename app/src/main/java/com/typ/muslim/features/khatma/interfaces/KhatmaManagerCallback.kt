@@ -25,7 +25,7 @@ interface KhatmaManagerCallback {
     /**
      * Called when KhatmaManager deletes a khatma or
      */
-    fun onNoActiveKhatma()
+    fun onHaveNoKhatma()
 
     /**
      * Called when the currently under-management active khatma has made a new progress on it.

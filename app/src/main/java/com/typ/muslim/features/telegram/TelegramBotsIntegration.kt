@@ -8,7 +8,7 @@ package com.typ.muslim.features.telegram
 import android.content.Context
 import android.database.sqlite.SQLiteException
 import android.text.TextUtils
-import com.typ.muslim.db.LocalDatabase.Companion.getInstance
+import com.typ.muslim.db.OldDatabase.Companion.getInstance
 import com.typ.muslim.features.telegram.models.TelegramBot
 import com.typ.muslim.features.telegram.models.TelegramBot.Companion.resolve
 import com.typ.muslim.features.telegram.models.TelegramRequestResult

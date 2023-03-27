@@ -18,11 +18,9 @@
         android:background="@color/adaptiveBackgroundColor"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_to_left"
-        app:navigationIconTint="@color/darkAdaptiveColor"
+        app:navigationIconTint="@color/darkGray"
         app:title="@string/khatma"
-        app:titleCentered="true"
-        app:titleTextAppearance="@style/TextAppearances.HeaderTitle"
-        app:titleTextColor="@color/darkAdaptiveColor" />
+        app:titleTextColor="@color/darkGray" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/t6"
@@ -35,7 +33,7 @@
         android:text="@string/khatma_number_and_name"
         android:textColor="@color/subtitleTextColor"
         android:textSize="13sp"
-        app:layout_constraintEnd_toStartOf="@id/prw_khatma_percentage"
+        app:layout_constraintEnd_toStartOf="@id/prw_khatma_rem_parts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:textAllCaps="false" />
@@ -58,7 +56,7 @@
         tools:ignore="HardcodedText" />
 
     <com.app.progresviews.ProgressWheel
-        android:id="@+id/prw_khatma_percentage"
+        android:id="@+id/prw_khatma_rem_parts"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginEnd="20dp"

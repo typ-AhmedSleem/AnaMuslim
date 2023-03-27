@@ -13,9 +13,8 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/color_hijri_cal_header_bg"
-        android:paddingTop="24dp"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_to_left"
         app:navigationIconTint="@color/darkAdaptiveColor"

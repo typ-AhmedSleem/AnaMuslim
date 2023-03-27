@@ -13,6 +13,7 @@ import android.animation.LayoutTransition;
 import android.app.AlarmManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.telecom.TelecomManager;
 import android.util.AttributeSet;
@@ -37,6 +38,7 @@ import com.typ.muslim.interfaces.Expandable;
 import com.typ.muslim.interfaces.ExpansionListener;
 import com.typ.muslim.interfaces.ViewHelperMethods;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.LocaleManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.utils.DisplayUtils;
 
@@ -46,9 +48,9 @@ public abstract class ViewContainer extends FrameLayout implements ViewHelperMet
 
     // Runtime
     public boolean isBottomSheetShown;
-    private ExpansionState expansionState;
     // Listeners
     public ExpansionListener listener;
+    private ExpansionState expansionState;
 
     public ViewContainer(@NonNull Context context) {
         super(context);
@@ -262,6 +264,30 @@ public abstract class ViewContainer extends FrameLayout implements ViewHelperMet
     public final void startActivity(Intent intent) {
         if (intent == null) return;
         getContext().startActivity(intent);
+    }
+
+    @Override
+    public final void startActivity(Intent intent, Bundle options) {
+        if (intent == null) return;
+        if (options == null) {
+            startActivity(intent);
+            return;
+        }
+        getContext().startActivity(intent, options);
+    }
+    @Override
+    public final String getString(boolean condition, @StringRes int whenTrue, @StringRes int whenFalse) {
+        return ResMan.getString(getContext(), condition ? whenTrue : whenFalse);
+    }
+
+    @Override
+    public final String getString(int number, @StringRes int whenOne, @StringRes int whenMany) {
+        return ResMan.getString(getContext(), (number == 1) ? whenOne : whenMany);
+    }
+
+    @Override
+    public final String getString(@StringRes int whenArabic, @StringRes int whenOther) {
+        return ResMan.getString(getContext(), LocaleManager.isArabic(getContext()) ? whenArabic : whenOther);
     }
 
     @Override

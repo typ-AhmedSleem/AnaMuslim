@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:maxHeight="80dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/stv_plan_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="{d}"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/josefin_sans_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:textAllCaps="true"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/div"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/stv_plan_duration"
+        app:layout_constraintStart_toEndOf="@id/stv_plan_duration"
+        app:layout_constraintTop_toTopOf="@id/stv_plan_duration" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/stv_plan_start_end"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="2"
+        android:text="1 Jan -> 15 Feb"
+        android:textColor="@color/darkAdaptiveColor"
+        android:textSize="18sp"
+        app:autoSizeMaxTextSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/div" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/stv_plan_werd_size"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="2"
+        android:text="(1 parts / day) × 30 days"
+        android:textColor="@color/darkGray"
+        android:textSize="16sp"
+        app:autoSizeMaxTextSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/div"
+        app:layout_constraintTop_toBottomOf="@id/stv_plan_start_end" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

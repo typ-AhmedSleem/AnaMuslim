@@ -14,10 +14,12 @@ import com.typ.muslim.R;
 import com.typ.muslim.enums.QiblaCompassMode;
 import com.typ.muslim.enums.SensorAccuracy;
 import com.typ.muslim.interfaces.QiblaCompassCallback;
+import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.LocaleManager;
 import com.typ.muslim.models.Location;
-import com.typ.muslim.ui.dashboard.DashboardCard;
-import com.typ.muslim.ui.qibla.QiblaCompassView;
+import com.typ.muslim.ui.home.DashboardCard;
+import com.typ.muslim.ui.qibla.views.QiblaCompassView;
 
 import java.util.Locale;
 
@@ -27,8 +29,6 @@ public class QiblaDashboardCard extends DashboardCard implements QiblaCompassCal
     private static final String TAG = "FastingDashboardCard";
     // Runtime
     private Location location;
-    private float qiblaBearing = 0f;
-    private boolean isAutoSwitchEnabled = false;
     // Views
     private MaterialTextView tvLocation,
             tvQiblaAngle,
@@ -48,9 +48,13 @@ public class QiblaDashboardCard extends DashboardCard implements QiblaCompassCal
     }
 
     @Override
+    public void prepareRuntime(Context context) {
+        location = AMSettings.getCurrentLocation(context);
+    }
+
+    @Override
     public void prepareCardView(Context context) {
         inflate(R.layout.layout_qibla_card);
-        if (isInEditMode()) return;
         // Init views
         qiblaCompass = $(R.id.qibla_compass);
         tvLocation = $(R.id.tv_location_city_name);
@@ -60,7 +64,7 @@ public class QiblaDashboardCard extends DashboardCard implements QiblaCompassCal
         if (isInEditMode() || location == null) return;
         qiblaCompass.disableVibration();
         tvLocation.setText(location.getCityName());
-        tvQiblaAngle.setText(String.format(Locale.getDefault(), "%.2f%s", qiblaCompass.getQiblaAngle(), getString(R.string.degree_symbol)));
+        tvQiblaAngle.setText(String.format(LocaleManager.getCurrLocale(context), "%.2f%s", qiblaCompass.getQiblaAngle(), getString(R.string.degree_symbol)));
         // Register Qibla listener
         register();
     }
@@ -85,7 +89,7 @@ public class QiblaDashboardCard extends DashboardCard implements QiblaCompassCal
 
     @Override
     public void onSensorChanged(float[] sensorValues) {
-        tvCurrentAngle.setText(String.format(Locale.getDefault(), "%d%s", (int) qiblaCompass.getCurrentBearing(), getString(R.string.degree_symbol)));
+        tvCurrentAngle.setText(String.format(LocaleManager.getCurrLocale(getContext()), "%d%s", (int) qiblaCompass.getCurrentBearing(), getString(R.string.degree_symbol)));
     }
 
     @Override
@@ -96,6 +100,18 @@ public class QiblaDashboardCard extends DashboardCard implements QiblaCompassCal
     @Override
     public void onCompassViewChanged(QiblaCompassMode newMode) {
 //        Toast.makeText(getContext(), "onCompassViewChanged: NEW_MODE=" + newMode, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void refreshRuntime() {
+        location = AMSettings.getCurrentLocation(getContext());
+    }
+
+    @Override
+    public void refreshUI() {
+        if (location == null) return;
+        tvLocation.setText(location.getCityName());
+        tvQiblaAngle.setText(String.format(Locale.getDefault(), "%.2f%s", qiblaCompass.getQiblaAngle(), getString(R.string.degree_symbol)));
     }
 
     public QiblaCompassView getQiblaCompass() {

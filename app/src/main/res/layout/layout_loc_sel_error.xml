@@ -40,7 +40,7 @@
             android:paddingStart="25dp"
             android:paddingEnd="25dp"
             android:text="@string/retry"
-            app:rippleColor="@color/ripple_som_card"
+            app:rippleColor="@color/ripple_green"
             app:cornerRadius="@dimen/default_corner_radius" />
 
     </LinearLayout>

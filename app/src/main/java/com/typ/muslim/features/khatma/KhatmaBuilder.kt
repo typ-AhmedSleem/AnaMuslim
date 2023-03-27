@@ -1,11 +1,12 @@
 package com.typ.muslim.features.khatma
 
+import com.typ.muslim.features.khatma.data.KhatmaPlans
 import com.typ.muslim.features.khatma.models.Khatma
 import com.typ.muslim.features.khatma.models.KhatmaPlan
 import com.typ.muslim.features.khatma.models.ReminderPlan
 import com.typ.muslim.features.quran.Quran
 import com.typ.muslim.models.Timestamp
-import java.util.*
+import java.util.UUID
 
 /**
  * Builder class used in process of creating a new khatma
@@ -31,20 +32,18 @@ class KhatmaBuilder(
         return this
     }
 
-    fun build() {
-        Khatma(
-            id = UUID.randomUUID().toString().split("-")[0],
-            name = this.name,
-            plan = this.plan,
-            createdIn = Timestamp.NOW().toMillis(),
-            reminder = this.reminder,
-            werdLength = Quran.QURAN_JUZ2S_COUNT / plan.duration
-        )
-    }
+    fun build() = Khatma(
+        id = UUID.randomUUID().toString().split("-")[0],
+        name = this.name,
+        plan = this.plan,
+        reminder = this.reminder,
+        createdIn = Timestamp.NOW().toMillis(),
+        werdLength = Quran.QURAN_JUZ2S_COUNT / plan.duration
+    )
 
     fun reset() {
         name = null
-        plan = KhatmaPlan.plan30Days
+        plan = KhatmaPlans.plan30Days
         reminder = null
     }
 

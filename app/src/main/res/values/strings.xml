@@ -112,7 +112,6 @@
     <string name="show_event_in_calendar">Show Event in Calendar</string>
     <string name="eventRamadanEnd">Ramadan Ends</string>
     <string name="eventRamadanStart">Ramadan Starts</string>
-    <string name="H">H</string>
 
     <!-- Allah names -->
     <string name="allahName_AlRahman">Al-Rahman</string>
@@ -392,7 +391,6 @@
     <string name="from">From:</string>
     <string name="to">to:</string>
     <string name="my_progress">My progress:</string>
-    <string name="day">day</string>
     <string name="som">God’s Blessings Be Upon Mohammed</string>
     <string name="som_sub">and His Pure Family</string>
     <string name="som_hadeeth">Prophet Mohamed said:\nWhomever ever says: May Allah </string>
@@ -414,19 +412,16 @@
     <string name="joined_in">Joined in:</string>
     <string name="profile">Profile</string>
     <string name="my_profile">My profile</string>
-    <string name="starts_in">Starts in</string>
     <string name="remaining">Remaining</string>
     <string name="may_allah_make_us_reach_ramadan">May Allah make us reach Ramadan</string>
     <string name="month">month</string>
     <string name="months">months</string>
-    <string name="days">days</string>
     <string name="today_is">Today is</string>
     <string name="suhur">Suhur</string>
     <string name="suhur_tomorrow">Suhur (tomorrow)</string>
     <string name="iftar">Iftar</string>
     <string name="ramadan_khatma">Ramadan khatma</string>
     <string name="continue_khatma">Continue Khatma</string>
-    <string name="_Day">Day</string>
     <string name="meaning_of_the_name">Meaning of the Name</string>
     <string name="show_next_name">Show next name</string>
     <string name="share">Share</string>
@@ -459,13 +454,12 @@
     <string name="current">Current</string>
     <string name="forgot_or_missed">Forgot or Missed</string>
     <string name="selected">Selected</string>
-    <string name="click_to_jump_today">click to Jump to today</string>
+    <string name="click_to_jump_today">Click to Jump to today</string>
     <string name="no_events">No events</string>
     <string name="view_all_events">VIew all events</string>
     <string name="no_events_in_selected_date">No events in selected day</string>
     <string name="click_to_view_khatma_details">Click to view khatma details</string>
     <string name="msg_create_or_join_khatma">Create a new Khatma by choosing a plan\nor Join an active one online or offline</string>
-    <string name="create_new_khatma">Create new Khatma</string>
     <string name="join_khatma">Join Khatma</string>
     <string name="active_khatma">Active Khatma</string>
     <string name="view_my_progress">View my progress</string>
@@ -489,7 +483,7 @@
     <string name="remaining_days">Remaining days</string>
     <string name="progress">Progress</string>
     <string name="khatma_details">Khatma Details</string>
-    <string name="khatma_number_and_name">Khatma number and name</string>
+    <string name="khatma_number_and_name">Khatma name</string>
     <string name="completed_days">Completed Days</string>
     <string name="qiyam">Qiyam</string>
     <string name="show_more">Show more</string>
@@ -507,7 +501,7 @@
     <string name="a_day">a day</string>
     <string name="untitled_khatma">Untitled Khatma</string>
     <string name="angle">Angle</string>
-    <string name="degree_symbol">°</string>
+    <string name="degree_symbol" translatable="false">°</string>
     <string name="bearing">Bearing</string>
     <string name="accuracy">Accuracy</string>
     <string name="good">Good</string>
@@ -565,5 +559,29 @@
     <string name="gps_location">GPS location</string>
     <string name="confirm_location">Confirm Location</string>
     <string name="feature_under_dev">This feature is still under development</string>
+    <string name="txt_plan_or_create_khatma">You can choose a preplanned Khatma or create a new one that is suitable for you</string>
+    <string name="dummy_werd_today">AlFatihah (1) - AlBaqarah (252)</string>
+    <string name="one_part" translatable="false">جزء واحد</string>
+    <string name="two_parts" translatable="false">جزءان</string>
+    <string name="_parts1" translatable="false">أجزاء</string>
+    <string name="_parts2" translatable="false">جزء</string>
+    <string name="plan_khatma">Plan khatma</string>
+    <string name="khatma_planner">Khatma planner</string>
+    <string name="hint_khatma_planner1">Choose the suitable plan for you or create your own</string>
+    <string name="preplanned">Preplanned</string>
+    <string name="custom">Custom</string>
+    <string name="plan_my_own_khatma">Plan my own Khatma</string>
+    <string name="_dummy_day_26">Day 26 of Ramadan</string>
+    <string name="start_siyam">Fasting</string>
+    <string name="starts_in">Starts in</string>
+    <string name="of_ramadan">of Ramadan</string>
+    <string name="_Day">Day</string>
+    <string name="create_new_khatma">Create a new khatma..</string>
+    <string name="days">days</string>
+    <string name="day">day</string>
+    <string name="starts">Starts</string>
+    <string name="ends">Ends</string>
+    <string name="H">H</string>
+    <string name="of">of</string>
 
 </resources>

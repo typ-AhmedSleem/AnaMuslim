@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.typ.muslim.features.khatma.utils.KhatmaConverters
 import com.typ.muslim.features.quran.Quran
 import com.typ.muslim.models.Timestamp
 import java.io.Serializable
@@ -14,19 +16,20 @@ import java.util.concurrent.TimeUnit
  * Constructor used for constructing a khatma model loaded from database
  */
 @Entity
+@TypeConverters(KhatmaConverters::class)
 class Khatma(
     @PrimaryKey(false)
     val id: String,
 
     var name: String? = null,
 
-    @ColumnInfo(name = "duration", typeAffinity = ColumnInfo.INTEGER, defaultValue = "30")
+    @ColumnInfo(name = "duration")
     val plan: KhatmaPlan,
 
     @ColumnInfo(name = "startedIn")
-    private val createdIn: Long,
+    val createdIn: Long = Timestamp.NOW().toMillis(),
 
-    @ColumnInfo(typeAffinity = ColumnInfo.TEXT)
+    @ColumnInfo()
     var reminder: ReminderPlan?,
 
     @ColumnInfo(name = "progress")
