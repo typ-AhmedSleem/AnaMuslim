@@ -79,6 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="none"
+            android:text="@string/calcMethod_egypt"
             android:textColor="@color/black"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -112,6 +113,7 @@
             android:layout_height="match_parent"
             android:inputType="none"
             android:textColor="@color/black"
+            android:text="@string/shafii_malikki_hanballi"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -144,6 +146,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="none"
+            android:text="@string/none"
             android:textColor="@color/black"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -153,7 +156,7 @@
         android:id="@+id/btn_continue"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="40dp"

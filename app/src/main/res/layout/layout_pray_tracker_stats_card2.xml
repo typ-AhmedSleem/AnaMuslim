@@ -66,8 +66,7 @@
         android:maxLines="1"
         android:text="@string/you_prayed_today"
         android:textColor="@color/cardBackground3"
-        android:textSize="14sp"
-        android:textStyle="bold"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/spw_pray_tracker"
         app:layout_constraintEnd_toStartOf="@id/spw_pray_tracker"
         app:layout_constraintStart_toStartOf="@id/icon"
@@ -87,7 +86,8 @@
         app:layout_constraintTop_toTopOf="@id/icon"
         app:spw_info_text="@string/remaining"
         app:spw_step_width="5dp"
-        app:spw_value_text="1"
-        app:spw_value_textColor="@color/darkAdaptiveColor" />
+        app:spw_value_text="3"
+        app:spw_info_textColor="@color/darkGray"
+        app:spw_value_textColor="@color/green" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

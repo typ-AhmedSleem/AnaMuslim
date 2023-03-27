@@ -6,6 +6,7 @@
 
 package com.typ.muslim.enums;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.StringRes;
 
 import com.typ.muslim.R;
@@ -32,6 +33,20 @@ public enum SensorAccuracy {
                 return R.string.medium;
             case HIGH:
                 return R.string.high;
+        }
+    }
+
+    public @ColorRes
+    int getTextColorRes() {
+        switch (this) {
+            default:
+            case UNRELIABLE:
+            case LOW:
+                return R.color.red;
+            case MEDIUM:
+                return R.color.orange;
+            case HIGH:
+                return R.color.green;
         }
     }
 

@@ -43,7 +43,7 @@ public class PrayTimeCore {
 
     // Static Singleton Instance of PrayTimeCore
     private static final String TAG = "PrayTimeCore";
-    private static PrayTimeCore singletonInstance;
+    private static volatile PrayTimeCore singletonInstance;
     private final List<String> prayerNames = new ArrayList<>(); // Time Names
     private final String InvalidTime = "--:-- --"; // The string used for invalid times
     // ------------------- Calc Method Parameters --------------------
@@ -127,7 +127,11 @@ public class PrayTimeCore {
      * @return Initialized Singleton Instance of PrayTimeCore.
      */
     public static PrayTimeCore getSingletonInstance(Context context, Location location) {
-        if (singletonInstance == null) singletonInstance = new PrayTimeCore(context, location);
+        if (singletonInstance == null) {
+            synchronized (PrayTimeCore.class) {
+                if (singletonInstance == null) singletonInstance = new PrayTimeCore(context, location);
+            }
+        }
         return singletonInstance;
     }
 

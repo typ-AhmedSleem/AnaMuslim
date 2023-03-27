@@ -9,6 +9,7 @@ package com.typ.muslim.ui;
 import android.app.AlarmManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.telecom.TelecomManager;
 import android.util.AttributeSet;
@@ -22,6 +23,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 import com.typ.muslim.interfaces.ViewHelperMethods;
+import com.typ.muslim.managers.LocaleManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.utils.DisplayUtils;
 
@@ -70,7 +72,28 @@ public class BaseView extends View implements ViewHelperMethods {
     }
 
     @Override
+    public final String getString(boolean condition, @StringRes int whenTrue, @StringRes int whenFalse) {
+        return ResMan.getString(getContext(), condition ? whenTrue : whenFalse);
+    }
+
+    @Override
+    public final String getString(int number, @StringRes int whenOne, @StringRes int whenMany) {
+        return ResMan.getString(getContext(), (number == 1) ? whenOne : whenMany);
+    }
+
+    @Override
+    public final String getString(@StringRes int whenArabic, @StringRes int whenOther) {
+        return ResMan.getString(getContext(), LocaleManager.isArabic(getContext()) ? whenArabic : whenOther);
+    }
+
+    @Override
     public void startActivity(Intent intent) {
+        getContext().startActivity(intent);
+    }
+
+    @Override
+    public void startActivity(Intent intent, Bundle options) {
+        getContext().startActivity(intent, options);
     }
 
     @Override

@@ -1,94 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~ This app is developed by AHMED SLEEM
-  ~
-  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
-  -->
+<?xml version="1.0" encoding="utf-8"?>
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/adaptiveBackgroundColor">
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@color/transparent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:padding="1dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_quran_star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/green"
+        app:tintMode="multiply"
+        tools:ignore="ContentDescription" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_step_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="@string/msg_no_active_khatma"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:transitionName="transition_wizard_step_title"
-            app:autoSizeMaxTextSize="35dp"
-            app:autoSizeTextType="uniform"
-            app:fontFamily="@font/font_omar_light"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center_vertical|start"
+        android:maxLines="1"
+        android:text="@string/khatma"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintBottom_toBottomOf="@id/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        app:textAllCaps="true"
+        tools:ignore="SmallSp" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_step_info"
-            android:layout_marginStart="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
-            android:gravity="center_horizontal"
-            android:maxLines="2"
-            android:text="@string/msg_create_or_join_khatma"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textColor="@color/btn_stroke_color"
-            android:textSize="14sp"
-            android:transitionName="transition_wizard_step_subtitle"
-            app:fontFamily="@font/font_omar_light"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintTop_toBottomOf="@id/tv_step_title"
-            app:lineHeight="19dp"
-            app:textAllCaps="false"
-            tools:ignore="HardcodedText" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/create_new_khatma"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        android:textColor="@color/adaptiveSubtitleTextColor"
+        android:textSize="20sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="@id/fab"
+        app:layout_constraintEnd_toStartOf="@id/fab"
+        app:layout_constraintStart_toStartOf="@id/icon"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:lineHeight="20dp"
+        tools:ignore="HardcodedText" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_create_khatma"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginStart="20dp"
-            android:textAllCaps="false"
-            android:layout_marginEnd="20dp"
-            android:text="@string/create_new_khatma"
-            android:typeface="sans"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/green"
-            app:cornerRadius="15dp"
-            app:layout_constraintBottom_toTopOf="@id/btn_join_khatma"
-            app:rippleColor="@color/ripple_white" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:src="@drawable/ic_arrow_to_right"
+        app:backgroundTint="@color/ripple_green"
+        app:elevation="0dp"
+        app:fabCustomSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:rippleColor="@color/ripple_green"
+        app:tint="@color/green" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_join_khatma"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="30dp"
-            android:text="@string/join_khatma"
-            android:textAllCaps="false"
-            android:textColor="@color/darkAdaptiveColor"
-            android:typeface="sans"
-            android:textSize="15sp"
-            app:backgroundTint="@color/bg_input_box"
-            app:cornerRadius="15dp"
-            app:elevation="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:rippleColor="@color/ripple_som_card" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

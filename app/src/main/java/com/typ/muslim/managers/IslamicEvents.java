@@ -16,8 +16,9 @@ import androidx.annotation.IntRange;
 
 import com.typ.muslim.R;
 import com.typ.muslim.core.ummelqura.UmmalquraCalendar;
+import com.typ.muslim.features.calendar.HijriCalendar;
 import com.typ.muslim.libs.easyjava.interfaces.EasyListLooper;
-import com.typ.muslim.models.HijriDate;
+import com.typ.muslim.features.calendar.models.HijriDate;
 import com.typ.muslim.models.IslamicEvent;
 import com.typ.muslim.models.Timestamp;
 

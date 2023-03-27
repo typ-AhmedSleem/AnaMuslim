@@ -6,7 +6,7 @@
 
 package com.typ.muslim.interfaces;
 
-import com.typ.muslim.models.HijriDate;
+import com.typ.muslim.features.calendar.models.HijriDate;
 
 public interface OnHijriDateClickListener {
 

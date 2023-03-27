@@ -1,5 +1,7 @@
-apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.devtools.ksp'
+//apply plugin: 'com.google.services'
 
 android {
     compileSdkVersion 33
@@ -32,24 +34,32 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation files('libs/scenery.aar')
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation "androidx.recyclerview:recyclerview:1.2.1"
-    implementation "androidx.constraintlayout:constraintlayout:2.1.3"
-    implementation "androidx.navigation:navigation-fragment:2.4.1"
-    implementation "androidx.navigation:navigation-ui:2.4.1"
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation "androidx.recyclerview:recyclerview:1.3.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
     implementation "androidx.multidex:multidex:2.0.1"
     implementation "androidx.palette:palette-ktx:1.0.0"
-    implementation "android.arch.persistence.room:runtime:1.1.1"
-    implementation 'androidx.annotation:annotation:1.3.0'
-    implementation 'androidx.test.ext:junit:1.1.3'
-    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    implementation 'androidx.annotation:annotation:1.6.0'
+    implementation 'androidx.test.ext:junit:1.1.5'
 
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'com.google.android.gms:play-services-maps:18.0.2'
-    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    ksp "androidx.room:room-compiler:2.5.1"
+    implementation "androidx.room:room-ktx:2.5.1"
+    implementation "androidx.room:room-runtime:2.5.1"
+    implementation 'androidx.work:work-runtime:2.8.1'
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
 
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
+    implementation 'androidx.core:core-splashscreen:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+
+    implementation 'com.github.BirjuVachhani:locus-android:3.0.1'
 
     implementation "de.hdodenhof:circleimageview:3.1.0"
     //implementation "com.karumi:dexter:6.2.1"
@@ -80,7 +90,6 @@ dependencies {
     implementation 'com.jraska:falcon:2.1.1'
     implementation 'com.github.smart-fun:Perm:1.2.0'
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
-    implementation 'com.github.robinkrsingh:easylocation:0.1.0'
     implementation "com.furkanakdemir:surroundcardview:1.0.1"
     implementation "com.paulrybitskyi.valuepicker:valuepicker:1.0.0"
 //    implementation 'com.github.iammert:TileProgressView:0.1'
@@ -112,7 +121,6 @@ dependencies {
     implementation 'com.jackandphantom.android:blurimage:1.2.0'
     implementation 'com.github.sarnavakonar:TextWriter:v1.0'
     implementation 'com.github.florent37:expansionpanel:1.2.4'
-    implementation 'androidx.core:core-splashscreen:1.0.0'
 //    implementation 'com.github.iamporus:TypedTextView:x.y.z'
 //    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 //    implementation 'com.github.perfomer:blitz:LATEST_VERSION'

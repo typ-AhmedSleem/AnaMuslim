@@ -20,7 +20,7 @@ import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.Timestamp;
-import com.typ.muslim.ui.dashboard.DashboardCard;
+import com.typ.muslim.ui.home.DashboardCard;
 
 public class TrackerPrayRecordView extends DashboardCard {
 

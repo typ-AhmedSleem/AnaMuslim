@@ -25,7 +25,7 @@ import com.typ.muslim.interfaces.OnTestCompletedListener;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.StageInfo;
-import com.typ.muslim.ui.activities.MainActivity;
+import com.typ.muslim.ui.home.MainActivity;
 
 import java.security.InvalidParameterException;
 import java.util.concurrent.ExecutionException;

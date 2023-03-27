@@ -15,21 +15,20 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_marginTop="24dp"
         android:background="@color/adaptiveBackgroundColor"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_to_left"
-        app:navigationIconTint="@color/darkAdaptiveColor"
+        app:navigationIconTint="@color/darkGray"
         app:title="@string/names_of_allah"
-        app:titleCentered="true"
-        app:titleTextAppearance="@style/TextAppearances.HeaderTitle"
-        app:titleTextColor="@color/darkAdaptiveColor" />
+        app:titleCentered="false"
+        app:titleTextColor="@color/darkGray" />
 
     <com.typ.muslim.ui.AnimatedTextView
         android:id="@+id/atv_name_of_allah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/font_bukrar"
@@ -37,26 +36,26 @@
         android:maxLines="1"
         android:text="@string/allahName_AlRahman"
         android:textAllCaps="true"
-        android:textColor="@color/green"
-        android:textSize="18sp"
+        android:textColor="@color/colorPrimary2"
+        android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/atv_name_of_allah_desc"
         tools:ignore="HardcodedText" />
 
     <com.typ.muslim.ui.AnimatedTextView
         android:id="@+id/atv_name_of_allah_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:alpha="0.9"
-        android:fontFamily="@font/font_bukrar"
         android:gravity="center_horizontal|top"
         android:text="@string/allahNameDesc_AlRahman"
-        android:textColor="@color/darkAdaptiveColor"
-        android:textSize="7sp"
+        android:textColor="@color/darkGray"
+        android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="@id/atv_name_of_allah"
         app:layout_constraintStart_toStartOf="@id/atv_name_of_allah"
-        app:layout_constraintTop_toBottomOf="@id/atv_name_of_allah"
+        app:layout_constraintBottom_toTopOf="@id/fab_rand"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:ignore="HardcodedText,SmallSp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -72,7 +71,7 @@
         app:layout_constraintEnd_toStartOf="@id/fab_rand"
         app:layout_constraintTop_toTopOf="@+id/fab_rand"
         app:pressedTranslationZ="0dp"
-        app:rippleColor="@color/ripple_som_card"
+        app:rippleColor="@color/ripple_green"
         app:tint="@color/darkAdaptiveColor" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -81,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="40dp"
         android:src="@drawable/ic_random"
         app:backgroundTint="@color/colorPrimary2"
         app:elevation="10dp"
@@ -90,7 +89,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:pressedTranslationZ="0dp"
-        app:rippleColor="@color/ripple_som_card"
+        app:rippleColor="@color/ripple_green"
         app:tint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -106,7 +105,7 @@
         app:layout_constraintStart_toEndOf="@id/fab_rand"
         app:layout_constraintTop_toTopOf="@+id/fab_rand"
         app:pressedTranslationZ="0dp"
-        app:rippleColor="@color/ripple_som_card"
+        app:rippleColor="@color/ripple_green"
         app:tint="@color/darkAdaptiveColor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

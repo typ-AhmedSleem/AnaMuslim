@@ -13,23 +13,20 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="?actionBarSize"
         android:background="@color/color_hijri_cal_header_bg"
-        android:paddingTop="24dp"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_to_left"
-        app:navigationIconTint="@color/darkAdaptiveColor"
+        app:navigationIconTint="@color/darkGray"
         app:title="@string/hijri_calendar"
-        app:titleCentered="true"
-        app:titleTextAppearance="@style/TextAppearances.HeaderTitle"
-        app:titleTextColor="@color/darkAdaptiveColor" />
+        app:titleTextColor="@color/darkGray" />
 
     <com.haibin.calendarview.CalendarLayout
         android:id="@+id/cal_layout_hijri"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:calendar_show_mode="both_month_week_view"
-        app:default_status="shrink"
+        app:default_status="expand"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <com.haibin.calendarview.CalendarView
@@ -39,29 +36,31 @@
             android:background="@color/color_hijri_cal_header_bg"
             app:current_day_lunar_text_color="@color/green"
             app:current_day_text_color="@color/green"
-            app:current_month_lunar_text_color="@color/orange"
-            app:current_month_text_color="@color/orange"
+            app:current_month_lunar_text_color="@color/blue"
+            app:current_month_text_color="@color/blue"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:min_year="1980"
-            app:month_view="com.typ.muslim.ui.calendar.HijriCalendarMonthView"
+            app:month_view="com.typ.muslim.ui.calendar.views.HijriCalendarMonthView"
             app:month_view_show_mode="mode_fix"
             app:other_month_lunar_text_color="@color/subtitleTextColor"
             app:other_month_text_color="@color/subtitleTextColor"
-            app:scheme_lunar_text_color="@color/red"
+            app:month_view_auto_select_day="first_day_of_month"
             app:scheme_month_text_color="@color/yellow"
-            app:scheme_text_color="@color/red"
+            app:month_view_scrollable="true"
             app:selected_lunar_text_color="@color/darkAdaptiveColor"
             app:selected_text_color="@color/darkAdaptiveColor"
             app:week_background="@color/color_hijri_cal_header_bg"
             app:week_start_with="sat"
-            app:week_text_color="@color/darkAdaptiveColor"
-            app:week_view="com.typ.muslim.ui.calendar.HijriCalendarWeekView"
+            app:scheme_lunar_text_color="@color/green"
+            app:scheme_text_color="@color/green"
+            app:week_text_color="@color/blue"
+            app:week_view="com.typ.muslim.ui.calendar.views.HijriCalendarWeekView"
             app:week_view_scrollable="true"
             app:year_view_background="@color/color_hijri_cal_header_bg"
-            app:year_view_current_day_text_color="@color/red"
-            app:year_view_day_text_color="@color/darkAdaptiveColor"
+            app:year_view_current_day_text_color="@color/green"
+            app:year_view_day_text_color="@color/darkGray"
             app:year_view_scheme_color="@color/purple_500"
-            app:year_view_scrollable="false" />
+            app:year_view_scrollable="true" />
 
     </com.haibin.calendarview.CalendarLayout>
 
@@ -78,7 +77,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.typ.muslim.ui.calendar.SelectedDateViewCard
+            <com.typ.muslim.ui.calendar.views.SelectedDateViewCard
                 android:id="@+id/sdv_calendar_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

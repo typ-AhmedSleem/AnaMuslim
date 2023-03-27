@@ -125,7 +125,7 @@
 
                 <!-- MiniNextPray card -->
 
-                <com.typ.muslim.ui.dashboard.prays.MiniNextPrayDashboardCard
+                <com.typ.muslim.ui.prays.MiniNextPrayDashboardCard
                     android:id="@+id/mini_next_pray_dashboard_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                     android:transitionName="transition_card_to_activity" />
 
                 <!-- Tracker card -->
-                <com.typ.muslim.ui.dashboard.tracker.TrackerDashboardCard
+                <com.typ.muslim.ui.tracker.dashboard.TrackerDashboardCard
                     android:id="@+id/tracker_dashboard_card"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
@@ -155,7 +155,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <com.typ.muslim.ui.dashboard.HijriDashboardCard
+                    <com.typ.muslim.ui.calendar.dashboard.HijriDashboardCard
                         android:id="@+id/hijri_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -168,7 +168,7 @@
                         android:layout_weight="0.08" />
 
 
-                    <com.typ.muslim.ui.dashboard.TasbeehDashboardCard
+                    <com.typ.muslim.ui.home.TasbeehDashboardCard
                         android:id="@+id/tasbeeh_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -177,7 +177,7 @@
                 </LinearLayout>
 
                 <!-- AllahNames card -->
-                <com.typ.muslim.ui.dashboard.AllahNamesDashboardCard
+                <com.typ.muslim.ui.names.AllahNamesDashboardCard
                     android:id="@+id/allah_names_dashboard_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -187,14 +187,14 @@
                     android:transitionName="transition_card_to_activity" />
 
                 <!-- Khatma card -->
-                <com.typ.muslim.ui.KhatmaDashboardCard
+                <com.typ.muslim.ui.khatma.dashboard.KhatmaDashboardCard
                     android:id="@+id/khatma_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
-                    android:transitionName="transition_card_to_card"
+                    android:transitionName="transition_card_to_activity"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <!-- Ramadan card & Fasting card -->
@@ -220,7 +220,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.08" />
 
-                    <com.typ.muslim.ui.dashboard.ramadan.RamadanDashboardCard
+                    <com.typ.muslim.ui.ramadan.RamadanDashboardCard
                         android:id="@+id/ramadan_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -230,7 +230,7 @@
                 </LinearLayout>
 
                 <!-- SalatOnMohamed card -->
-                <com.typ.muslim.ui.dashboard.SalatOnMohamedDashboardCard
+                <com.typ.muslim.ui.home.SalatOnMohamedDashboardCard
                     android:id="@+id/som_dashboard_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -252,7 +252,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <com.typ.muslim.ui.dashboard.TelegramBotsDashboardCard
+                    <com.typ.muslim.ui.home.TelegramBotsDashboardCard
                         android:id="@+id/telegram_bots_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="200dp"
@@ -264,7 +264,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.08" />
 
-                    <com.typ.muslim.ui.dashboard.ProfileDashboardCard
+                    <com.typ.muslim.ui.home.ProfileDashboardCard
                         android:id="@+id/profile_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="200dp"

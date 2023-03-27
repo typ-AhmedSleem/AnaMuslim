@@ -7,15 +7,15 @@
 <ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/vs_khatma_card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:animateFirstView="true">
+    android:layout_height="100dp"
+    android:animateFirstView="false">
 
-    <com.typ.muslim.ui.dashboard.khatma.views.NoActiveKhatmaView
+    <com.typ.muslim.ui.khatma.dashboard.views.NoActiveKhatmaView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
-    <com.typ.muslim.ui.dashboard.khatma.views.ActiveKhatmaView
+    <com.typ.muslim.ui.khatma.dashboard.views.ActiveKhatmaView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 </ViewSwitcher>

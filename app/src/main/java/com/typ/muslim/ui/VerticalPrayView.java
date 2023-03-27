@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
@@ -27,13 +28,13 @@ import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
 import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.PrayNotifyMethod;
+import com.typ.muslim.features.ramadan.RamadanManager;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrayerManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
-import com.typ.muslim.ramadan.RamadanManager;
-import com.typ.muslim.ui.dashboard.DashboardCard;
-import com.typ.muslim.ui.dashboard.prays.VerticalPraysDashboardCard;
+import com.typ.muslim.ui.home.DashboardCard;
+import com.typ.muslim.ui.prays.VerticalPraysDashboardCard;
 
 import java.util.Locale;
 
@@ -107,16 +108,20 @@ public class VerticalPrayView extends DashboardCard {
                 .textSize(sp2px(16f))
                 .textColor(getColor(isPrayPassed() ? R.color.green : nextPray.equals(pray) ? pray.getSurfaceColorRes() : R.color.darkAdaptiveColor))
                 .build());
+        // Add Suhur, Iftar, Qiyam subscript to pray name (if in Ramadan)
         if (RamadanManager.isInRamadan() && (pray.getType() == FAJR || pray.getType() == MAGHRIB || pray.getType() == ISHA)) {
             final String sliceText;
-            if (pray.getType() == FAJR) sliceText = getString(R.string.suhur);
-            else if (pray.getType() == MAGHRIB) sliceText = getString(R.string.iftar);
+//            if (pray.getType() == FAJR) sliceText = getString(R.string.suhur);
+            if (pray.getType() == MAGHRIB) sliceText = getString(R.string.iftar);
             else if (pray.getType() == ISHA) sliceText = getString(R.string.qiyam);
             else sliceText = "";
-            this.tvPrayName.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "  (%s)", sliceText))
-                    .textSize(sp2px(10f))
-                    .textColor(getColor(isPrayPassed() ? R.color.green : nextPray.equals(pray) ? pray.getType().getSurfaceColorRes() : R.color.darkAdaptiveColor))
-                    .build());
+            if (!TextUtils.isEmpty(sliceText)) {
+                this.tvPrayName.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "  (%s)", sliceText))
+                        .textSize(sp2px(10f))
+                        .textColor(getColor(isPrayPassed() ? R.color.green : nextPray.equals(pray) ? pray.getType().getSurfaceColorRes() : R.color.darkAdaptiveColor))
+                        .build());
+            }
+
         }
         this.tvPrayName.display();
         // PrayTime and indicators

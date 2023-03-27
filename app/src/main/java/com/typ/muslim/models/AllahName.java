@@ -37,7 +37,7 @@ public class AllahName implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null)return false;
+        if (o == null) return false;
         if (this == o) return true;
         if (!(o instanceof AllahName)) return false;
         AllahName allahName = (AllahName) o;
@@ -50,7 +50,8 @@ public class AllahName implements Serializable {
     }
 
     @NonNull
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "AllahName{" +
                 "ordinal=" + ordinal +
                 ", getName='" + name + '\'' +

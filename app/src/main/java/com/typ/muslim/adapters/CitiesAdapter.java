@@ -14,7 +14,6 @@ import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.typ.muslim.R;
-import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.Location;
 
 import java.util.List;
@@ -38,7 +37,6 @@ public class CitiesAdapter extends RecyclerArrayAdapter<Location> {
      * Refresh contents of RecyclerView by clearing it and add new cities
      */
     public void refresh(List<Location> cities) {
-        AManager.log("CRA", "refresh: " + cities == null ? "null" : cities.size());
         if (cities == null) return;
         if (cities.size() == 0) {
             erv.showEmpty();

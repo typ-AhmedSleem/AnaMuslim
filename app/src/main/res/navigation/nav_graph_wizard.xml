@@ -12,7 +12,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.typ.muslim.ui.fragments.wizard.WelcomeFragment"
+        android:name="com.typ.muslim.ui.setup.wizard.WelcomeFragment"
         android:label="WelcomeFragment"
         tools:layout="@layout/fragment_wizard_welcome">
         <action
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/themeSelectorFragment"
-        android:name="com.typ.muslim.ui.fragments.wizard.ThemeSelectorFragment"
+        android:name="com.typ.muslim.ui.setup.wizard.ThemeSelectorFragment"
         android:label="ThemeSelectorFragment"
         tools:layout="@layout/fragment_wizard_theme_selector">
         <action
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/locationSelectorFragment"
-        android:name="com.typ.muslim.ui.fragments.wizard.LocationSelectorFragment"
+        android:name="com.typ.muslim.ui.setup.wizard.LocationSelectorFragment"
         android:label="LocationSelectorFragment"
         tools:layout="@layout/fragment_wizard_loc_selector">
         <action
@@ -51,7 +51,7 @@
 
     <fragment
         android:id="@+id/selectPrayConfigFragment"
-        android:name="com.typ.muslim.ui.fragments.wizard.SelectPrayConfigFragment"
+        android:name="com.typ.muslim.ui.setup.wizard.SelectPrayConfigFragment"
         android:label="SelectPrayConfigFragment"
         tools:layout="@layout/fragment_wizard_pray_config">
         <action
@@ -61,7 +61,7 @@
 
     <fragment
         android:id="@+id/previewPrayTimeFragment"
-        android:name="com.typ.muslim.ui.fragments.wizard.PreviewPrayTimeFragment"
+        android:name="com.typ.muslim.ui.setup.wizard.PreviewPrayTimeFragment"
         android:label="PreviewPrayTimeFragment"
         tools:layout="@layout/fragment_wizard_preview_prayers">
     </fragment>

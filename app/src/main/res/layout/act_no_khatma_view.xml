@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/adaptiveBackgroundColor">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_step_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/msg_no_active_khatma"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:transitionName="transition_wizard_step_title"
+            app:autoSizeMaxTextSize="35dp"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/font_omar_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_step_info"
+            android:layout_marginStart="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_horizontal"
+            android:maxLines="2"
+            android:text="@string/msg_create_or_join_khatma"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@color/btn_stroke_color"
+            android:textSize="14sp"
+            android:transitionName="transition_wizard_step_subtitle"
+            app:fontFamily="@font/font_omar_light"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintTop_toBottomOf="@id/tv_step_title"
+            app:lineHeight="19dp"
+            app:textAllCaps="false"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_create_khatma"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:textAllCaps="false"
+            android:layout_marginEnd="20dp"
+            android:text="@string/create_new_khatma"
+            android:typeface="sans"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/green"
+            app:cornerRadius="15dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_join_khatma"
+            app:rippleColor="@color/ripple_white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_join_khatma"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/join_khatma"
+            android:textAllCaps="false"
+            android:textColor="@color/darkAdaptiveColor"
+            android:typeface="sans"
+            android:textSize="15sp"
+            app:backgroundTint="@color/bg_input_box"
+            app:cornerRadius="15dp"
+            app:elevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:rippleColor="@color/ripple_green" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -67,6 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:gravity="start|center_vertical"
+        android:textAlignment="viewStart"
         android:maxLines="1"
         android:text="@string/cairo"
         android:textColor="@color/darkAdaptiveColor"
@@ -92,7 +93,7 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:fontFamily="@font/font_bukrar"
-        app:layout_constraintBottom_toTopOf="@id/tv_location_qibla_angle"
+        app:layout_constraintTop_toBottomOf="@id/tv_location_city_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.45" />
 
@@ -109,12 +110,12 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:fontFamily="@font/font_jf_flat_regular"
-        app:layout_constraintBottom_toBottomOf="@id/qibla_compass"
+        app:layout_constraintTop_toBottomOf="@id/t2"
         app:layout_constraintEnd_toEndOf="@id/t2"
         app:layout_constraintStart_toStartOf="@id/t2"
         tools:ignore="HardcodedText" />
 
-    <com.typ.muslim.ui.qibla.QiblaCompassView
+    <com.typ.muslim.ui.qibla.views.QiblaCompassView
         android:id="@+id/qibla_compass"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -131,8 +132,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:transitionName="tvCurrentAngle"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
         android:gravity="start|center_vertical"
         android:maxLines="1"
         android:padding="0dp"
