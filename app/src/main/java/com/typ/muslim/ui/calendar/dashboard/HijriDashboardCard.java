@@ -8,6 +8,7 @@ package com.typ.muslim.ui.calendar.dashboard;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -58,8 +59,9 @@ public class HijriDashboardCard extends DashboardCard {
 
     @Override
     public void prepareCardView(Context context) {
-        inflate(getContext(), R.layout.layout_hijri_card, this);
+        setStrokeColor(Color.TRANSPARENT);
         setRippleColorResource(R.color.transparent);
+        inflate(getContext(), R.layout.layout_hijri_card, this);
         // Init content views
         tvDayName = $(R.id.tv_day_name);
         tvHijriDay = $(R.id.tv_hijri_day);

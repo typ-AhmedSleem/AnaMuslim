@@ -9,7 +9,6 @@ import android.animation.LayoutTransition
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
@@ -22,29 +21,33 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textview.MaterialTextView
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
+import com.irozon.alertview.AlertActionStyle
+import com.irozon.alertview.AlertStyle
+import com.irozon.alertview.AlertTheme
+import com.irozon.alertview.AlertView
+import com.irozon.alertview.objects.AlertAction
 import com.typ.muslim.R
 import com.typ.muslim.enums.FormatPatterns
 import com.typ.muslim.features.khatma.KhatmaManager
-import com.typ.muslim.features.khatma.KhatmaManager.Companion.getLastActiveKhatma
-import com.typ.muslim.features.khatma.KhatmaManager.Companion.manageKhatma
 import com.typ.muslim.features.khatma.data.KhatmaPlans.plan10Days
 import com.typ.muslim.features.khatma.data.KhatmaPlans.plan30Days
 import com.typ.muslim.features.khatma.interfaces.KhatmaManagerCallback
 import com.typ.muslim.features.khatma.models.Khatma
 import com.typ.muslim.features.khatma.models.KhatmaPlan
 import com.typ.muslim.features.khatma.models.KhatmaWerd
-import com.typ.muslim.features.quran.Quran
 import com.typ.muslim.interfaces.ResultCallback
+import com.typ.muslim.managers.AManager
 import com.typ.muslim.managers.LocaleManager
 import com.typ.muslim.ui.AnimatedTextView
 import com.typ.muslim.ui.BottomSheets.BaseBottomSheet
 import com.typ.muslim.ui.ViewContainer
 import com.zyyoona7.wheel.WheelView
-import java.util.Objects
 
 class KhatmaActivity : AppCompatActivity(), KhatmaManagerCallback {
-    // Runtime
-    private var manager: KhatmaManager? = null
+
+
+    private val tag = "KhatmaActivity"
+    private lateinit var manager: KhatmaManager
 
     // Views
     private var flContainer: FrameLayout? = null
@@ -56,7 +59,7 @@ class KhatmaActivity : AppCompatActivity(), KhatmaManagerCallback {
         // Setup transitions
         val transition = MaterialContainerTransform()
         transition.addTarget(android.R.id.content)
-        transition.scrimColor = Color.TRANSPARENT
+        transition.scrimColor = Color.WHITE
         transition.drawingViewId = android.R.id.content
         // Setup the activity
         window.sharedElementEnterTransition = transition
@@ -65,33 +68,37 @@ class KhatmaActivity : AppCompatActivity(), KhatmaManagerCallback {
         super.onCreate(savedInstanceState)
         // Hide default actionBar
         if (supportActionBar != null) supportActionBar!!.hide()
-        // Setup Khatma Manager instance
-        manager = manageKhatma(this, getLastActiveKhatma(this), this)
         // Set content to activity
+        flContainer = FrameLayout(this)
+        flContainer!!.layoutTransition = LayoutTransition()
         setContentView(flContainer)
+        // Setup Khatma Manager instance
+        manager = KhatmaManager.newInstance(this, KhatmaManager.getLastActiveKhatma(this), this)
+        manager.putKhatmaUnderManagement()
     }
 
     override fun onPrepareManager() {
-        // Setup container view
-        flContainer = FrameLayout(this)
-        flContainer!!.layoutTransition = LayoutTransition()
         // Setup khatma views
         akv = ActiveKhatmaView(this)
         nkv = NoKhatmaView(this)
+        AManager.log(tag, "onPrepareManager")
     }
 
     override fun onManageKhatma(khatma: Khatma) {
         flContainer!!.removeAllViews()
         flContainer!!.addView(akv, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
-        akv!!.setKhatma(khatma)
+        akv!!.refreshUI()
     }
 
     override fun onHaveNoKhatma() {
-        flContainer!!.removeAllViews()
-        flContainer!!.addView(nkv, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+        finishAfterTransition()
+        AManager.log(tag, "onHaveNoKhatma")
+//        flContainer!!.removeAllViews()
+//        flContainer!!.addView(nkv, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
     }
 
     override fun onProgressUpdated(nextWerd: KhatmaWerd) {
+        AManager.log(tag, "onProgressUpdated: ${nextWerd}")
         if (flContainer!!.childCount > 0) {
             val akv = flContainer!!.getChildAt(0) as ActiveKhatmaView
             akv.refreshUI()
@@ -102,12 +109,13 @@ class KhatmaActivity : AppCompatActivity(), KhatmaManagerCallback {
         finishAfterTransition()
     }
 
-    override fun onFinishKhatma() {}
+    override fun onFinishKhatma() {
+        finishAfterTransition()
+        Toast.makeText(this, R.string.congrat_finishing_khatma, Toast.LENGTH_SHORT).show()
+        AManager.log(tag, "onFinishKhatma")
+    }
 
-    class CreateKhatmaBottomSheet(
-        context: Context?, // Callbacks
-        private val callback: ResultCallback<Khatma>
-    ) : BaseBottomSheet(context, null, true) {
+    class CreateKhatmaBottomSheet(context: Context?, private val callback: ResultCallback<Khatma>) : BaseBottomSheet(context, null, true) {
         // Runtime
         private var plan: KhatmaPlan? = null
 
@@ -131,14 +139,14 @@ class KhatmaActivity : AppCompatActivity(), KhatmaManagerCallback {
         }
 
         override fun prepareInnerViews() {
-            inputKhatmaName = `$`(R.id.til_khatma_name)
-            atvExpectedEnd = `$`(R.id.atv_plan_expected_end)
-            wheelPlanPicker = `$`(R.id.wheel_plan_picker)
-            btnCreate = `$`(R.id.btn_create_khatma)
+            inputKhatmaName = findViewById(R.id.til_khatma_name)
+            atvExpectedEnd = findViewById(R.id.atv_plan_expected_end)
+            wheelPlanPicker = findViewById(R.id.wheel_plan_picker)
+            btnCreate = findViewById(R.id.btn_create_khatma)
         }
 
         override fun bindInnerViews() {
-            Objects.requireNonNull(inputKhatmaName!!.editText)?.text = null
+            inputKhatmaName!!.editText?.text = null
             wheelPlanPicker!!.selectedItemPosition = plan30Days.duration
             wheelPlanPicker!!.data = mutableListOf()
         }
@@ -174,83 +182,79 @@ class KhatmaActivity : AppCompatActivity(), KhatmaManagerCallback {
             // Setup listeners of buttons
             findViewById<View>(R.id.btn_join_khatma).setOnClickListener { v: View? ->
                 // todo: Open JoinKhatmaBottomSheet and listen for result
-                Toast.makeText(context, "Under development.. will be available in the next update.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.currently_under_development, Toast.LENGTH_SHORT).show()
             }
             findViewById<View>(R.id.btn_create_khatma).setOnClickListener { v: View? -> CreateKhatmaBottomSheet(context) { khatma: Khatma? -> }.show() }
         }
     }
 
     private inner class ActiveKhatmaView(context: Context) : ViewContainer(context) {
-        // Runtime
-        private var khatma: Khatma? = null
+
+        private lateinit var khatma: Khatma
 
         // Views
-        private var pwPercentage: ProgressWheel? = null
-        private var tvCompletedDays: MaterialTextView? = null
-        private var tvName: MaterialTextView? = null
-        private var tvPlanDays: MaterialTextView? = null
-        private var tvRemDays: MaterialTextView? = null
-        private var tvStartedIn: MaterialTextView? = null
-        private var tvEndsIn: MaterialTextView? = null
-        private var tvWerdStartSurah: MaterialTextView? = null
-        private var tvWerdStartAyah: MaterialTextView? = null
-        private var tvWerdEndSurah: MaterialTextView? = null
-        private var tvWerdEndAyah: MaterialTextView? = null
+        private lateinit var pwPercentage: ProgressWheel
+        private lateinit var tvCompletedDays: MaterialTextView
+        private lateinit var tvName: MaterialTextView
+        private lateinit var tvPlanDays: MaterialTextView
+        private lateinit var tvRemDays: MaterialTextView
+        private lateinit var tvStartedIn: MaterialTextView
+        private lateinit var tvEndsIn: MaterialTextView
+        private lateinit var tvWerdStartSurah: MaterialTextView
+        private lateinit var tvWerdStartAyah: MaterialTextView
+        private lateinit var tvWerdEndSurah: MaterialTextView
+        private lateinit var tvWerdEndAyah: MaterialTextView
         override fun prepareView(context: Context) {
             inflate(R.layout.layout_active_khatma_view)
             // Setup views
-            pwPercentage = `$`(R.id.prw_khatma_rem_parts)
-            tvCompletedDays = `$`(R.id.tv_khatma_completed_days)
-            tvName = `$`(R.id.tv_khatma_num_name)
-            tvPlanDays = `$`(R.id.tv_khatma_plan)
-            tvRemDays = `$`(R.id.tv_khatma_rem_days)
-            tvStartedIn = `$`(R.id.tv_khatma_start_date)
-            tvEndsIn = `$`(R.id.tv_khatma_end_date)
-            tvWerdStartSurah = `$`(R.id.tv_werd_start_surah)
-            tvWerdStartAyah = `$`(R.id.tv_werd_start_ayah)
-            tvWerdEndSurah = `$`(R.id.tv_werd_end_surah)
-            tvWerdEndAyah = `$`(R.id.tv_werd_end_ayah)
-            val btnViewProgress = `$`<MaterialButton>(R.id.btn_save_khatma_progress)
-            val btnDeleteKhatma = `$`<MaterialButton>(R.id.btn_delete_khatma)
-            val btnViewHistory = `$`<MaterialButton>(R.id.btn_khatma_history)
+            pwPercentage = findViewById(R.id.prw_khatma_rem_parts)
+            tvCompletedDays = findViewById(R.id.tv_khatma_completed_days)
+            tvName = findViewById(R.id.tv_khatma_num_name)
+            tvPlanDays = findViewById(R.id.tv_khatma_plan)
+            tvRemDays = findViewById(R.id.tv_khatma_rem_days)
+            tvStartedIn = findViewById(R.id.tv_khatma_start_date)
+            tvEndsIn = findViewById(R.id.tv_khatma_end_date)
+            tvWerdStartSurah = findViewById(R.id.tv_werd_start_surah)
+            tvWerdStartAyah = findViewById(R.id.tv_werd_start_ayah)
+            tvWerdEndSurah = findViewById(R.id.tv_werd_end_surah)
+            tvWerdEndAyah = findViewById(R.id.tv_werd_end_ayah)
+            val btnViewProgress = findViewById<MaterialButton>(R.id.btn_save_khatma_progress)
+            val btnDeleteKhatma = findViewById<MaterialButton>(R.id.btn_delete_khatma)
+            val btnViewHistory = findViewById<MaterialButton>(R.id.btn_khatma_history)
             // Setup listeners
-            btnViewProgress.setOnClickListener { v: View? ->
-                Handler().postDelayed({}, (10 * 1000).toLong())
-                manager!!.saveProgress() // Save progress.
+            btnViewProgress.setOnClickListener { _ -> manager.saveProgress() }
+            btnDeleteKhatma.setOnClickListener { _ ->
+                val alert = AlertView(getString(R.string.delete_khatma), getString(R.string.msg_delete_khatma), AlertStyle.BOTTOM_SHEET).apply {
+                    setTheme(AlertTheme.LIGHT)
+                    addAction(AlertAction(getString(R.string.confirm), AlertActionStyle.NEGATIVE) { manager.deleteKhatma() })
+                    addAction(AlertAction(getString(R.string.cancel), AlertActionStyle.DEFAULT) { })
+                    show(this@KhatmaActivity)
+                }
             }
-            btnDeleteKhatma.setOnClickListener { v: View? -> manager!!.delete() } // todo: Ask user first for confirmation.
-            btnViewHistory.setOnClickListener { v: View? -> Toast.makeText(context, "Under development.. Will be available in the next version.", Toast.LENGTH_SHORT).show() }
-        }
-
-        fun setKhatma(khatma: Khatma) {
-            this.khatma = khatma
-            refreshUI()
+            btnViewHistory.setOnClickListener { _ -> Toast.makeText(context, R.string.currently_under_development, Toast.LENGTH_SHORT).show() }
         }
 
         override fun refreshUI() {
-            if (khatma == null) {
-                onHaveNoKhatma()
-                return
-            } else if (manager!!.holdsActiveKhatma.not()) {
-                onHaveNoKhatma()
+            if (manager.holdsActiveKhatma.not()) {
+                onFinishKhatma()
                 return
             }
+            this.khatma = manager.khatma!! // sure khatma isn't null.
             // Khatma details
-            tvCompletedDays!!.text = khatma!!.name
-            pwPercentage!!.setStepCountText(khatma!!.progressPercentage.toString() + "%")
-            pwPercentage!!.setPercentage((khatma!!.progressPercentage / 100f * 360).toInt())
-            tvName!!.text = tvCompletedDays!!.text
-            tvPlanDays!!.text = String.format(LocaleManager.getCurrLocale(context), "%d %s (%d/%s)", khatma!!.plan.duration, getString(R.string.days), khatma!!.werdLength, getString(R.string.day))
-            val remParts = Quran.QURAN_JUZ2S_COUNT - khatma!!.completedWerds * khatma!!.werdLength
-            tvRemDays!!.text = String.format(LocaleManager.getCurrLocale(context), "%d %s", remParts, getString(if (remParts == 1) R.string.part else R.string.parts))
-            tvStartedIn!!.text = khatma!!.startedIn.getFormatted(FormatPatterns.DATE_NORMAL)
-            tvEndsIn!!.text = khatma!!.expectedEnd.getFormatted(FormatPatterns.DATE_NORMAL)
+            tvCompletedDays.text = khatma.name
+            pwPercentage.setStepCountText("${khatma.progressPercentage.toInt().toString()} %")
+            pwPercentage.setPercentage((khatma.progressPercentage / 100 * 360).toInt())
+            tvName.text = tvCompletedDays.text
+            tvPlanDays.text = String.format(LocaleManager.getCurrLocale(context), "%d %s (%d/%s)", khatma.plan.duration, getString(R.string.days), khatma.werdLength, getString(R.string.day))
+            val remParts = khatma.remainingWerds
+            tvRemDays.text = String.format(LocaleManager.getCurrLocale(context), "%d %s", remParts, getString(if (remParts == 1) R.string.part else R.string.parts))
+            tvStartedIn.text = khatma.startedIn.getFormatted(FormatPatterns.DATE_NORMAL)
+            tvEndsIn.text = khatma.expectedEnd.getFormatted(FormatPatterns.DATE_NORMAL)
             // Werd
-            khatma!!.currentWerd
-            tvWerdStartSurah!!.text = khatma!!.currentWerd.start.surah.getName(context)
-            tvWerdStartAyah!!.text = khatma!!.currentWerd.start.number.toString()
-            tvWerdEndSurah!!.text = khatma!!.currentWerd.end.surah.getName(context)
-            tvWerdEndAyah!!.text = khatma!!.currentWerd.end.number.toString()
+            tvWerdStartSurah.text = khatma.currentWerd.start.surah.getName(context)
+            tvWerdStartAyah.text = khatma.currentWerd.start.number.toString()
+            tvWerdEndSurah.text = khatma.currentWerd.end.surah.getName(context)
+            tvWerdEndAyah.text = khatma.currentWerd.end.number.toString()
         }
     }
 }

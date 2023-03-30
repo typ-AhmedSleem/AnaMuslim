@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.typ.muslim.enums.FormatPatterns
 import com.typ.muslim.features.khatma.utils.KhatmaConverters
 import com.typ.muslim.features.quran.Quran
 import com.typ.muslim.models.Timestamp
@@ -32,12 +33,18 @@ class Khatma(
     @ColumnInfo()
     var reminder: ReminderPlan?,
 
-    @ColumnInfo(name = "progress")
-    var completedWerds: Int = 0,
+    @ColumnInfo()
+    var progress: Int = 0,
 
     @ColumnInfo(name = "step")
-    val werdLength: Int = Quran.QURAN_JUZ2S_COUNT / plan.duration
+    val werdLength: Int = Quran.QURAN_PARTS_COUNT / plan.duration
 ) : Serializable {
+
+    var completedParts: Int
+        get() = (progress * werdLength).coerceAtMost(Quran.QURAN_PARTS_COUNT)
+        set(value) {
+            progress = value
+        }
 
     val startedIn: Timestamp
         get() = Timestamp(createdIn)
@@ -62,8 +69,8 @@ class Khatma(
     val currentWerd: KhatmaWerd
         get() {
             return KhatmaWerd(
-                Quran.getJuz2((completedWerds * werdLength) + 1).start,
-                Quran.getJuz2((completedWerds * werdLength) + werdLength).end
+                Quran.getPart(completedParts + 1).start,
+                Quran.getPart(completedParts + werdLength).end
             )
         }
 
@@ -73,8 +80,8 @@ class Khatma(
     val nextWerd: KhatmaWerd?
         get() {
             return KhatmaWerd(
-                Quran.getJuz2(((completedWerds + 1) * werdLength) + 1).start,
-                Quran.getJuz2(((completedWerds + 1) * werdLength) + werdLength).end
+                Quran.getPart((completedParts + werdLength) + 1).start,
+                Quran.getPart((completedParts + werdLength) + werdLength).end
             ).takeIf { hasRemainingWerds }
         }
 
@@ -82,25 +89,25 @@ class Khatma(
      * `true` if khatma is still active, `false` otherwise
      */
     val isActive: Boolean
-        get() = expectedEnd.isAfter(Timestamp.NOW()) and (completedWerds < plan.duration)
+        get() = expectedEnd.isAfter(Timestamp.NOW()) and (completedParts < Quran.QURAN_PARTS_COUNT)
 
     /**
      * Completed werds as a percentage
      */
-    val progressPercentage: Int
-        get() = (completedWerds / plan.duration).coerceAtMost(100) // <= 100
+    val progressPercentage: Float
+        get() = (completedParts / Quran.QURAN_PARTS_COUNT.toFloat() * 100f).coerceAtMost(100f) // <= 100
 
     /**
      * `true` if there are remaining werds, `false` otherwise
      */
     val hasRemainingWerds: Boolean
-        get() = plan.duration > completedWerds
+        get() = remainingWerds > 0
 
     /**
      * Number of werds remaining
      */
     val remainingWerds: Int
-        get() = (plan.duration - completedWerds).coerceAtLeast(0)
+        get() = (Quran.QURAN_PARTS_COUNT - completedParts).coerceAtLeast(0)
 
     /**
      * List that holds records of user progress in this khatma
@@ -133,7 +140,7 @@ class Khatma(
      * Mark the current werd as done, calculate next werd then refresh Khatma runtime
      */
     fun saveProgress() {
-        if (hasRemainingWerds) completedWerds++
+        if (hasRemainingWerds) progress++
     }
 
     /**
@@ -145,5 +152,26 @@ class Khatma(
     fun changePlan(newPlan: KhatmaPlan): Boolean {
         TODO("[WILL BE IMPLEMENTED IN FUTURE DEVELOPMENT].")
     }
+
+    override fun toString(): String {
+        return """
+            Khatma={
+                id=${id},
+                name=${name},
+                plan=${plan},
+                createdIn=${createdIn.asTimestamp().getFormatted(FormatPatterns.DATE_MONTH)},
+                reminder=${reminder},
+                completedWerds=${completedParts},
+                werdLength=${werdLength},
+                expectedEnd=${expectedEnd},
+                currentWerd=${currentWerd},
+                isActive=${isActive},
+                todayNumber=${todayNumber},
+                progressPercentage=${progressPercentage},
+            }
+        """.trimIndent()
+    }
+
+    fun Long.asTimestamp() = Timestamp(this)
 
 }

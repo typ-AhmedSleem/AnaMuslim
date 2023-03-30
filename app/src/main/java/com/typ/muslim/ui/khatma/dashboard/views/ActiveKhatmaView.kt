@@ -15,7 +15,6 @@ import com.typ.muslim.managers.LocaleManager
 import com.typ.muslim.managers.LocaleManager.Locales.ARABIC
 import com.typ.muslim.managers.ResMan
 import com.typ.muslim.ui.ViewContainer
-import java.util.Locale
 
 class ActiveKhatmaView : ViewContainer {
 
@@ -44,7 +43,7 @@ class ActiveKhatmaView : ViewContainer {
             // Khatma current werd
             val werd = it.currentWerd
             tvKhatmaWerd.text = String.format(
-                Locale.getDefault(),
+                LocaleManager.getCurrLocale(context),
                 "${werd.start.surah.getName(context)} (${werd.start.number}) - ${werd.end.surah.getName(context)} (${werd.end.number})"
             )
             // Khatma progress
@@ -53,7 +52,7 @@ class ActiveKhatmaView : ViewContainer {
             val strRemParts = if (isLocaleArabic) {
                 // Arabic only requires some grammar formatting for sentence
                 when (remWerds) {
-                    1 -> ResMan.getString(context, R.string.safar) // Part 1
+                    1 -> ResMan.getString(context, R.string.one_part) // Part 1
                     2 -> ResMan.getString(context, R.string.two_parts)// Part 2
                     in 3..10 -> String.format(ARABIC, "$remWerds ${ResMan.getString(context, R.string._parts1)}") // Parts (3 -> 10)
                     else -> String.format(ARABIC, "$remWerds ${ResMan.getString(context, R.string._parts2)}") // Parts (11 -> 30)
@@ -65,9 +64,9 @@ class ActiveKhatmaView : ViewContainer {
                     "$remWerds ${ResMan.getString(context, if (remWerds == 1) R.string.part else R.string.parts)}"
                 )
             }
-            prwRemParts.setPercentage(360 - ((it.progressPercentage / 100f) * 360).toInt()) // Decremental.
+            prwRemParts.setPercentage(360 - (it.progressPercentage / 100 * 360).toInt()) // Decremental.
             prwRemParts.setStepCountText(strRemParts)
         }
-
     }
+
 }

@@ -96,11 +96,14 @@ public class PrayTrackerStatisticsView2 extends ViewContainer {
         this.stvPrayStats.addSlice(new Slice(
                 new Slice.Builder(String.format(locale, " %s 5", getString(R.string.of)))
                         .textColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor))
-                        .textSize(dp2px(25f))));
+                        .textSize(dp2px(30f))));
         this.stvPrayStats.display();
         // Tracker SPW
         spwTracker.setValueText(String.valueOf(5 - todayPrayedPrays));
-        for (PrayTrackerRecord record : records) spwTracker.updateStep(record.getPray().ordinalWithoutSunrise(), record.wasPrayed(), record.wasPrayed() ? R.color.green : R.color.bg_input_box);
+        for (PrayTrackerRecord record : records) {
+            spwTracker.updateStep(record.getPray().ordinalWithoutSunrise(),
+                    record.wasPrayed(), record.wasPrayed() ? R.color.green : R.color.bg_input_box);
+        }
         spwTracker.drawSteps();
     }
 

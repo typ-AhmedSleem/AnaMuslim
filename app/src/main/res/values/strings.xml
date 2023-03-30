@@ -108,10 +108,10 @@
     <string name="remaining_time">Remaining time</string>
     <string name="in">in</string>
     <string name="today_prays_in">Today Prays in</string>
-    <string name="islamic_events">Islamic Events</string>
     <string name="show_event_in_calendar">Show Event in Calendar</string>
     <string name="eventRamadanEnd">Ramadan Ends</string>
     <string name="eventRamadanStart">Ramadan Starts</string>
+    <string name="islamic_events">Islamic Events</string>
 
     <!-- Allah names -->
     <string name="allahName_AlRahman">Al-Rahman</string>
@@ -319,7 +319,6 @@
     <string name="_5_today">/ 5 Prayed today</string>
     <string name="this_week">This week</string>
     <string name="this_month">This month</string>
-    <string name="have_you_prayed">Have you prayed</string>
     <string name="ahmed_sleem">Ahmed Sleem</string>
     <string name="menu">Menu</string>
     <string name="main_menu">Main Menu</string>
@@ -406,7 +405,6 @@
     <string name="click_to_manage_bots">Click to manage them</string>
     <string name="click_to_add_first_bot">Click to add your first bot</string>
     <string name="no_bots_yet">No bots yet</string>
-    <string name="tomorrow">tomorrow</string>
     <string name="default_profile_name">AnaMuslim user</string>
     <string name="profile_options">Profile options</string>
     <string name="joined_in">Joined in:</string>
@@ -558,7 +556,7 @@
     <string name="select_one">Select one...</string>
     <string name="gps_location">GPS location</string>
     <string name="confirm_location">Confirm Location</string>
-    <string name="feature_under_dev">This feature is still under development</string>
+    <string name="feature_under_dev">Still under development</string>
     <string name="txt_plan_or_create_khatma">You can choose a preplanned Khatma or create a new one that is suitable for you</string>
     <string name="dummy_werd_today">AlFatihah (1) - AlBaqarah (252)</string>
     <string name="one_part" translatable="false">جزء واحد</string>
@@ -572,7 +570,7 @@
     <string name="custom">Custom</string>
     <string name="plan_my_own_khatma">Plan my own Khatma</string>
     <string name="_dummy_day_26">Day 26 of Ramadan</string>
-    <string name="start_siyam">Fasting</string>
+    <string name="fasting">Fasting</string>
     <string name="starts_in">Starts in</string>
     <string name="of_ramadan">of Ramadan</string>
     <string name="_Day">Day</string>
@@ -583,5 +581,21 @@
     <string name="ends">Ends</string>
     <string name="H">H</string>
     <string name="of">of</string>
+    <string name="configure_khatma">Configure Khatma</string>
+    <string name="set_reminder">Set Reminder</string>
+    <string name="reminder">Reminder</string>
+    <string name="msg_khatma_bs">By creating this Khatma, it will replace the last active one you created</string>
+    <string name="khatma_title">Khatma title</string>
+    <string name="assign_title_for_khatma">Assign a title for your Khatma</string>
+    <string name="customize_your_khatma">Make your new Khatma even more customizable</string>
+    <string name="khatma_title_cant_be_empty">Khatma title can\'t be empty</string>
+    <string name="currently_under_development">Currently under development</string>
+    <string name="your_personal_digital_islamic_companion">Your personal digital Islamic companion</string>
+    <string name="have_you_prayed">Have you prayed</string>
+    <string name="planned_in_next_versions">Feature planned in next versions</string>
+    <string name="msg_delete_khatma">Are you sure to delete this Khatma?\\nIt will be deleted forever</string>
+    <string name="confirm">Confirm</string>
+    <string name="tomorrow">tomorrow</string>
+    <string name="congrat_finishing_khatma">Congratulations on finishing your Khatma</string>
 
 </resources>

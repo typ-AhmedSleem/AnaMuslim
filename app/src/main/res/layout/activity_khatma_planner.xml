@@ -68,6 +68,7 @@
         android:id="@+id/kpb_60days"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp" />
@@ -87,9 +88,9 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_custom_plan"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
@@ -97,11 +98,10 @@
         android:textAlignment="viewStart"
         android:textSize="16sp"
         app:cornerRadius="10dp"
-        app:strokeWidth="0.5dp"
         app:icon="@drawable/ic_quran_star"
         app:iconPadding="10dp"
-        app:iconSize="20dp"
+        app:backgroundTint="@color/colorPrimary"
         app:rippleColor="@color/ripple_white"
-        app:strokeColor="@color/btn_stroke_color" />
+        app:iconSize="28dp" />
 
 </LinearLayout>

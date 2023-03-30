@@ -53,7 +53,7 @@ class KhatmaPlanButton @JvmOverloads constructor(
 
     override fun refreshUI() {
         val locale = LocaleManager.getCurrLocale(context)
-        if (isInEditMode) plan = KhatmaPlans.plan30Days // For viewing purpose only.
+        if (isInEditMode) plan = KhatmaPlan(arrayOf(15, 30, 45, 60).random()) // For viewing purpose only.
         // Reset STVs
         stvDuration.reset()
         stvStartEnd.reset()
@@ -63,16 +63,16 @@ class KhatmaPlanButton @JvmOverloads constructor(
             addSlice(
                 Slice.Builder(String.format(locale, "%d", plan.duration))
                     .textColor((R.color.darkAdaptiveColor).toColor(context))
-                    .textSize(26f.sp(context))
+                    .textSize(22f.sp(context))
                     .style(Typeface.BOLD)
                     .build()
             )
             addSlice(
                 Slice.Builder(
-                    "\n" + getString(R.string.days)
+                    "\n${getString(R.string.days)}"
                 )
                     .textColor((R.color.darkGray).toColor(context))
-                    .textSize(10f.sp(context))
+                    .textSize(11f.sp(context))
                     .build()
             )
         }
@@ -81,6 +81,7 @@ class KhatmaPlanButton @JvmOverloads constructor(
             addSlice(
                 Slice.Builder("%s\t ".format(locale, getString(R.string.starts)))
                     .textSize(14f.dp(context))
+                    .textColor((R.color.darkGray).toColor(context))
                     .build()
             )
             addSlice(
@@ -92,6 +93,7 @@ class KhatmaPlanButton @JvmOverloads constructor(
             addSlice(
                 Slice.Builder("\t %s\t".format(locale, getString(R.string.ends)))
                     .textSize(14f.dp(context))
+                    .textColor((R.color.darkGray).toColor(context))
                     .build()
             )
             addSlice(
@@ -103,7 +105,7 @@ class KhatmaPlanButton @JvmOverloads constructor(
         }
         // Werd size
         stvWerdSize.apply {
-            val werdSize = Quran.QURAN_JUZ2S_COUNT / plan.duration.toFloat()
+            val werdSize = Quran.QURAN_PARTS_COUNT / plan.duration.toFloat()
             addSlice(
                 Slice.Builder(
                     "(%.1f %s %s) × %d %s".format(

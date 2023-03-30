@@ -1,4 +1,4 @@
-package com.typ.muslim.features.khatma
+package com.typ.muslim.features.khatma.data
 
 import com.typ.muslim.features.khatma.models.KhatmaAchievement
 

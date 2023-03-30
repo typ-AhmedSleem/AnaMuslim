@@ -22,6 +22,7 @@ import com.typ.muslim.ui.home.DashboardCard
 import com.typ.muslim.ui.khatma.KhatmaActivity
 import com.typ.muslim.ui.khatma.KhatmaPlannerActivity
 import com.typ.muslim.ui.khatma.dashboard.views.ActiveKhatmaView
+import com.typ.muslim.ui.utils.ViewUtils.dp
 
 class KhatmaDashboardCard : DashboardCard, KhatmaManagerCallback {
 
@@ -29,7 +30,7 @@ class KhatmaDashboardCard : DashboardCard, KhatmaManagerCallback {
     private val tag = "KhatmaDashboardCard"
 
     // Runtime
-    private lateinit var manager: KhatmaManager
+    private var manager: KhatmaManager? = null
     private val isShowingActive: Boolean
         get() = switcher.currentView is ActiveKhatmaView
 
@@ -40,31 +41,46 @@ class KhatmaDashboardCard : DashboardCard, KhatmaManagerCallback {
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
+    init {
+        if (!isInEditMode) manager = KhatmaManager.newInstance(context, KhatmaManager.getLastActiveKhatma(context), this)
+    }
+
     override fun prepareCardView(context: Context) {
         // Inflate card view and init switcher
         transitionName = "transition_card_to_activity"
         inflate(context, R.layout.layout_khatma_card, this)
         switcher = findViewById(R.id.vs_khatma_card)
-        switcher.setInAnimation(context, R.anim.fade_in_slide_in)
-        switcher.setOutAnimation(context, R.anim.fade_out_slide_out)
+//        switcher.setInAnimation(context, R.anim.fade_in_slide_in)
+//        switcher.setOutAnimation(context, R.anim.fade_out_slide_out)
         setCardBackgroundColor(ResMan.getColor(context, R.color.white))
         rippleColor = ColorStateList.valueOf(ResMan.getColor(context, R.color.ripple_white))
-        // Init a KhatmaManager instance
-        if (isInEditMode) return
-        manager = KhatmaManager.manageKhatma(context, KhatmaManager.getLastActiveKhatma(context), this)
+    }
+
+    override fun refreshRuntime() {
+        manager = KhatmaManager.newInstance(context, KhatmaManager.getLastActiveKhatma(context), this)
     }
 
     override fun refreshUI() {
-        if (manager.holdsActiveKhatma) flipToActiveKhatma()
-        else flipToNoKhatma()
+        if (((manager?.holdsActiveKhatma) == true)) flipToActiveKhatma()
+        else {
+            if (switcher.currentView is ActiveKhatmaView) flipToNoKhatma()
+        }
     }
 
     private fun flipToActiveKhatma() {
-        if (!isShowingActive) switcher.showNext()
-        manager.khatma?.let { (switcher.currentView as ActiveKhatmaView).refreshUI(it) }
+        if (!isShowingActive) {
+            switcher.showNext()
+            strokeWidth =0
+        }
+        manager?.khatma?.let { (switcher.currentView as ActiveKhatmaView).refreshUI(it) }
     }
 
-    private fun flipToNoKhatma() = if (isShowingActive) switcher.showPrevious() else Unit
+    private fun flipToNoKhatma() {
+        if (isShowingActive) {
+            switcher.showPrevious()
+            strokeWidth = 0.5f.dp(context)
+        }
+    }
 
     override
     fun onPrepareManager() {
@@ -93,7 +109,7 @@ class KhatmaDashboardCard : DashboardCard, KhatmaManagerCallback {
 
     fun handleClick(activity: Activity) {
         val opt = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, this, "transition_card_to_activity")
-        startActivity(Intent(context, if (isShowingActive) KhatmaActivity::class.java else KhatmaPlannerActivity::class.java))
+        startActivity(Intent(context, if (isShowingActive) KhatmaActivity::class.java else KhatmaPlannerActivity::class.java), opt.toBundle())
     }
 
 }

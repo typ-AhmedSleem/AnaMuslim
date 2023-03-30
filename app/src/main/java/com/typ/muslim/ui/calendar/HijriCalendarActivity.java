@@ -71,7 +71,7 @@ public class HijriCalendarActivity extends AppCompatActivity implements
         final MaterialContainerTransform transition = new MaterialContainerTransform();
         transition.setPathMotion(new MaterialArcMotion());
         transition.addTarget(android.R.id.content);
-        transition.setScrimColor(Color.TRANSPARENT);
+        transition.setScrimColor(Color.WHITE);
         transition.setDrawingViewId(android.R.id.content);
         // Setup the activity
         getWindow().setSharedElementEnterTransition(transition);

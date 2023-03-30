@@ -38,7 +38,7 @@ class KhatmaBuilder(
         plan = this.plan,
         reminder = this.reminder,
         createdIn = Timestamp.NOW().toMillis(),
-        werdLength = Quran.QURAN_JUZ2S_COUNT / plan.duration
+        werdLength = Quran.QURAN_PARTS_COUNT / plan.duration
     )
 
     fun reset() {

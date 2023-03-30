@@ -27,15 +27,17 @@
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
             android:textColor="@color/colorPrimary"
-            android:textSize="70sp"
+            android:textSize="50sp"
+            android:textStyle="bold"
             android:transitionName="transition_wizard_step_title"
-            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMaxTextSize="70dp"
             app:autoSizeTextType="uniform"
-            app:fontFamily="@font/c" />
+            app:fontFamily="@font/font_bukrar" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:alpha="0.6"
             android:gravity="center"
             android:maxLines="3"
@@ -45,10 +47,10 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
             android:textColor="@color/black"
             android:textSize="17sp"
+            android:transitionName="transition_wizard_step_subtitle"
             android:visibility="gone"
             app:autoSizeMaxTextSize="20sp"
             app:autoSizeTextType="uniform"
-            android:transitionName="transition_wizard_step_subtitle"
             app:textAllCaps="false"
             tools:ignore="HardcodedText" />
 

@@ -173,7 +173,7 @@ public class BottomSheets {
 
         public abstract void setupListeners();
 
-        public final <T extends View> T $(@IdRes int id) {
+        public final <T extends View> T findViewById(@IdRes int id) {
             return this.bsView.findViewById(id);
         }
 
@@ -255,9 +255,9 @@ public class BottomSheets {
 
         @Override
         public void prepareInnerViews() {
-            tvTitle = $(R.id.tv_title);
-            tvSubtitle = $(R.id.tv_subtitle);
-            rvActions = $(R.id.rv_actions);
+            tvTitle = findViewById(R.id.tv_title);
+            tvSubtitle = findViewById(R.id.tv_subtitle);
+            rvActions = findViewById(R.id.rv_actions);
         }
 
         @Override
@@ -352,12 +352,12 @@ public class BottomSheets {
         @Override
         public void prepareInnerViews() {
 //            this.stvNextPray = $(R.id.tv_next_pray_name);
-            this.prayIVs = EasyList.createList($(R.id.fajrPIV),
-                    $(R.id.sunrisePIV),
-                    $(R.id.dhuhrPIV),
-                    $(R.id.asrPIV),
-                    $(R.id.maghribPIV),
-                    $(R.id.ishaPIV));
+            this.prayIVs = EasyList.createList(findViewById(R.id.fajrPIV),
+                    findViewById(R.id.sunrisePIV),
+                    findViewById(R.id.dhuhrPIV),
+                    findViewById(R.id.asrPIV),
+                    findViewById(R.id.maghribPIV),
+                    findViewById(R.id.ishaPIV));
         }
 
         @Override
@@ -492,10 +492,10 @@ public class BottomSheets {
 
         @Override
         public void prepareInnerViews() {
-            rvHijriDates = $(R.id.rv_hijri_dates);
-            ervIslamicEvents = $(R.id.erv_islamic_events);
-            btnShowEvents = $(R.id.btn_show_events);
-            btnOpenFullscreen = $(R.id.btn_open_full_cal);
+            rvHijriDates = findViewById(R.id.rv_hijri_dates);
+            ervIslamicEvents = findViewById(R.id.erv_islamic_events);
+            btnShowEvents = findViewById(R.id.btn_show_events);
+            btnOpenFullscreen = findViewById(R.id.btn_open_full_cal);
         }
 
         @Override
@@ -657,10 +657,10 @@ public class BottomSheets {
 
         @Override
         public void prepareInnerViews() {
-            this.switcherUseVolumeButtons = $(R.id.switcherx_use_volume_buttons);
-            this.btnChangeTarget = $(R.id.btn_change_tasbeeh_target);
-            this.btnReset = $(R.id.btn_reset_tasbeeh);
-            this.btnOpenActivity = $(R.id.btn_open_tasbeeh_activity);
+            this.switcherUseVolumeButtons = findViewById(R.id.switcherx_use_volume_buttons);
+            this.btnChangeTarget = findViewById(R.id.btn_change_tasbeeh_target);
+            this.btnReset = findViewById(R.id.btn_reset_tasbeeh);
+            this.btnOpenActivity = findViewById(R.id.btn_open_tasbeeh_activity);
         }
 
         @Override
@@ -753,10 +753,10 @@ public class BottomSheets {
 
         @Override
         public void prepareInnerViews() {
-            this.rgWhen = $(R.id.radio_group_prayed_when);
-            this.rgWhere = $(R.id.radio_group_prayed_where);
-            this.tvTitle2 = $(R.id.t3);
-            this.btnSubmit = $(R.id.btn_submit);
+            this.rgWhen = findViewById(R.id.radio_group_prayed_when);
+            this.rgWhere = findViewById(R.id.radio_group_prayed_where);
+            this.tvTitle2 = findViewById(R.id.t3);
+            this.btnSubmit = findViewById(R.id.btn_submit);
         }
 
         @Override
@@ -841,15 +841,15 @@ public class BottomSheets {
         @Override
         public void prepareInnerViews() {
             // TextViews
-            tvNameOrdinal = $(R.id.tv_name_of_allah_ordinal);
-            tvNameContent = $(R.id.tv_allah_name_content);
-            tvNameDesc = $(R.id.tv_allah_name_desc);
+            tvNameOrdinal = findViewById(R.id.tv_name_of_allah_ordinal);
+            tvNameContent = findViewById(R.id.tv_allah_name_content);
+            tvNameDesc = findViewById(R.id.tv_allah_name_desc);
             // Action Buttons
-            btnNext = $(R.id.btn_prev_name);
-            btnPrev = $(R.id.btn_next_name);
-            btnRandomize = $(R.id.btn_random_name);
-            btnShowAll = $(R.id.btn_show_all_names);
-            btnShare = $(R.id.btn_share);
+            btnNext = findViewById(R.id.btn_prev_name);
+            btnPrev = findViewById(R.id.btn_next_name);
+            btnRandomize = findViewById(R.id.btn_random_name);
+            btnShowAll = findViewById(R.id.btn_show_all_names);
+            btnShare = findViewById(R.id.btn_share);
         }
 
         @Override
@@ -957,10 +957,10 @@ public class BottomSheets {
 
         @Override
         public void prepareInnerViews() {
-            tvEventTitle = $(R.id.tv_islamic_event_title);
-            tvHijriDate = $(R.id.tv_islamic_event_date);
-            tvEventDesc = $(R.id.tv_islamic_event_desc);
-            btnShare = $(R.id.btn_share_event);
+            tvEventTitle = findViewById(R.id.tv_islamic_event_title);
+            tvHijriDate = findViewById(R.id.tv_islamic_event_date);
+            tvEventDesc = findViewById(R.id.tv_islamic_event_desc);
+            btnShare = findViewById(R.id.btn_share_event);
         }
 
         @Override

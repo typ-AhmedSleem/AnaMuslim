@@ -91,7 +91,7 @@ public class ProfileDashboardCard extends DashboardCard {
 
 	@Override
 	public void onClick(View v) {
-		Toast.makeText(getContext(), R.string.feature_under_dev, Toast.LENGTH_LONG).show();
+		Toast.makeText(getContext(), R.string.planned_in_next_versions, Toast.LENGTH_LONG).show();
 		// todo: Open ProfileBottomSheet in {half_expanded} state displaying profile info and show settings button and settings list is displayed when the bs is in {full_screen} state
 	}
 

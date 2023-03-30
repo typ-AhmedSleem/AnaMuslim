@@ -68,9 +68,10 @@ public class TelegramBotsDashboardCard extends DashboardCard {
     @Override
     public void prepareCardView(Context context) {
         // Inflate card view and change card color
-        inflate(context, R.layout.layout_telegram_bots_card, this);
-        setCardBackgroundColor(getColor(R.color.telegram_bg_color));
+        setStrokeColor(Color.TRANSPARENT);
         setRippleColorResource(R.color.ripple_telegram_card);
+        setCardBackgroundColor(getColor(R.color.telegram_bg_color));
+        inflate(context, R.layout.layout_telegram_bots_card, this);
         // Init views
         stvBots = $(R.id.stv_bots);
         btnAction = $(R.id.btn_bots);
@@ -99,7 +100,7 @@ public class TelegramBotsDashboardCard extends DashboardCard {
                     .build());
             stvBots.addSlice(new Slice.Builder("\n" + getString(R.string.click_to_add_first_bot))
                     .textSize(25)
-                    .textColor(getColor(R.color.subtitleTextColor))
+                    .textColor(getColor(R.color.bg_input_box))
                     .build());
         } else {
             // Found bots
@@ -125,7 +126,7 @@ public class TelegramBotsDashboardCard extends DashboardCard {
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(getContext(), R.string.feature_under_dev, Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), R.string.planned_in_next_versions, Toast.LENGTH_LONG).show();
         // todo: Open AddTelegramBotBottomSheet that makes user add his bot if there's no bots at all yet.
         // todo: Open TelegramBotsBottomSheet (if user already has bots) that handles all work on bots instead of an activity.
     }
@@ -157,7 +158,7 @@ public class TelegramBotsDashboardCard extends DashboardCard {
                                 result.optString("title", ""),
                                 result.optString("description", ""),
                                 TelegramHelper.optPermissions(result.optJSONObject("permissions", null)));
-                        AManager.log(TAG, "getChat: " + chat.toString());
+                        AManager.log(TAG, "getChat: " + chat);
                     } else {
                         // todo: show request failed to user
                     }

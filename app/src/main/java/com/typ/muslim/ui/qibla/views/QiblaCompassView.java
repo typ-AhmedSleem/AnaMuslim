@@ -58,7 +58,7 @@ public class QiblaCompassView extends View implements SensorEventListener {
     private SensorManager sensorManager;
     private WindowManager windowManager;
     private SensorAccuracy currAccuracy = SensorAccuracy.UNRELIABLE;
-    private boolean isVibrating = false;
+    private final boolean isVibrating = false;
     private QiblaCompassMode currMode = COMPASS_2D;
     private float currNorthAngle = 0f, qiblaAngle = 0f, currQiblaAngle = 0f, currentRollAngle = 0f;
     // Listeners and Callbacks
@@ -112,13 +112,13 @@ public class QiblaCompassView extends View implements SensorEventListener {
         paint.setAntiAlias(true);
         paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currQiblaAngle) ? R.color.green : R.color.isha_bg));
         paint.setStyle(Paint.Style.FILL);
-        if (currMode == LIVE_COMPASS) {
-            // Live compass
-            paint.setColor(ResMan.getColor(getContext(), R.color.color_maghrib_isha_highlight));
-            canvas.drawCircle(radius, radius, radius, paint);
-            return;
-        } else canvas.drawCircle(radius, radius, radius, paint); // Normal 2D.
-
+//        if (currMode == LIVE_COMPASS) {
+//            // Live compass
+//            paint.setColor(ResMan.getColor(getContext(), R.color.color_maghrib_isha_highlight));
+//            canvas.drawCircle(radius, radius, radius, paint);
+//            return;
+//        } else
+        canvas.drawCircle(radius, radius, radius, paint); // Normal 2D.
         /* Draw indicator arrows */
         paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currQiblaAngle) ? R.color.isha_bg : R.color.color_maghrib_isha_highlight));
         paint.setStrokeWidth(15f);

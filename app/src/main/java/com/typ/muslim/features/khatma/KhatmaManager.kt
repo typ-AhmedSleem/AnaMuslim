@@ -16,19 +16,28 @@ class KhatmaManager private constructor(
     val callback: KhatmaManagerCallback
 ) {
 
+    private var managing = false
     val holdsKhatma: Boolean
         get() = khatma != null
 
     val holdsActiveKhatma: Boolean
         get() = khatma?.isActive == true
 
-    init {
-        callback.onPrepareManager()
-        if (holdsKhatma) {
-            // NOTE: khatma will always be non-null in this scope
-            if (holdsActiveKhatma) callback.onManageKhatma(khatma!!)
-            else callback.onFinishKhatma()
-        } else callback.onHaveNoKhatma()
+    fun putKhatmaUnderManagement() {
+        if (!managing) {
+            callback.onPrepareManager()
+            if (holdsKhatma) {
+                // NOTE: khatma will always be non-null in this scope
+                if (holdsActiveKhatma) callback.onManageKhatma(khatma!!)
+                else callback.onFinishKhatma()
+            } else callback.onHaveNoKhatma()
+            managing = true
+        }
+    }
+
+    fun release() {
+        if (managing) managing = false
+        // todo: Call onReleaseKhatma
     }
 
     /**
@@ -36,8 +45,8 @@ class KhatmaManager private constructor(
      *
      * @return `true`  if deleted successfully. `false` if failed.
      */
-    fun delete() {
-        khatma?.let { LocalDatabase.getInstance(context)?.getKhatmaDao()?.deleteKhatma(it) } ?: callback.onHaveNoKhatma()
+    fun deleteKhatma() {
+        khatma?.let { if (deleteKhatma(context, it)) callback.onHaveNoKhatma() }
     }
 
     /**
@@ -45,10 +54,11 @@ class KhatmaManager private constructor(
      */
     fun saveProgress() {
         khatma?.let {
-            it.saveProgress() // Save progress.
             val nextWerd = it.nextWerd // Calculate next werd (if available).
-            if (nextWerd != null) callback.onProgressUpdated(nextWerd) // Notify UI about progress update.
-            else callback.onFinishKhatma() // Khatma has finished.
+            if (nextWerd != null) {
+                it.saveProgress() // Save progress.
+                if (updateKhatma(context, it)) callback.onProgressUpdated(nextWerd) // Notify UI about progress update.
+            } else callback.onFinishKhatma() // Khatma has finished.
         }
     }
 
@@ -61,7 +71,7 @@ class KhatmaManager private constructor(
          * @param callback Callback to async send updates to UI.
          */
         @JvmStatic
-        fun manageKhatma(
+        fun newInstance(
             context: Context,
             khatma: Khatma?,
             callback: KhatmaManagerCallback
@@ -116,6 +126,9 @@ class KhatmaManager private constructor(
 
         @JvmStatic
         fun updateKhatma(context: Context, khatma: Khatma) = LocalDatabase.getInstance(context)?.getKhatmaDao()?.updateKhatma(khatma) != null
+
+        @JvmStatic
+        fun deleteKhatma(context: Context, khatma: Khatma): Boolean = LocalDatabase.getInstance(context)?.getKhatmaDao()?.deleteKhatma(khatma) != null
 
     }
 

@@ -14,10 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.typ.muslim.features.quran.Quran;
+import com.typ.muslim.interfaces.Exportable;
 
 import java.io.Serializable;
+import java.util.Locale;
 
-public class QuranAyah implements Serializable {
+public class QuranAyah implements Serializable, Exportable<String> {
 
     private final @IntRange(from = 1, to = 114)
     int surah;
@@ -44,14 +46,6 @@ public class QuranAyah implements Serializable {
         return number;
     }
 
-    @NonNull
-    public String getContent(Context context) {
-        if (TextUtils.isEmpty(content) && context != null) {
-            this.content = Quran.getAyahInSurah(context, number, surah).content;
-        }
-        return content;
-    }
-
     public int getSurahNumber() {
         return surah;
     }
@@ -61,10 +55,25 @@ public class QuranAyah implements Serializable {
     }
 
     @Override
+    public String export() {
+        return String.format(Locale.ENGLISH, "%d,%d", number, surah);
+    }
+
+    @NonNull
+    public String getContent(Context context) {
+        if (TextUtils.isEmpty(content) && context != null) {
+            this.content = Quran.getAyahInSurah(context, number, surah).content;
+        }
+        assert content != null;
+        return content;
+    }
+
+    @NonNull
+    @Override
     public String toString() {
         return "QuranAyah{" +
                 "number=" + number +
-                "surah=" + surah +
+                ", surah=" + surah +
                 ", content='" + content + '\'' +
                 '}';
     }
@@ -72,7 +81,7 @@ public class QuranAyah implements Serializable {
     public String toString(Context context) {
         return "QuranAyah{" +
                 "number=" + number +
-                "surah=" + getSurah() +
+                ", surah=" + getSurah() +
                 ", content='" + getContent(context) + '\'' +
                 '}';
     }

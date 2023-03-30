@@ -12,6 +12,7 @@ import static com.typ.muslim.core.praytime.enums.Prays.MAGHRIB;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -77,8 +78,9 @@ public class MiniNextPrayDashboardCard extends DashboardCard {
     @Override
     public void prepareCardView(Context context) {
         // Inflate card view and change its bg color
-        inflate(getContext(), R.layout.layout_minimized_next_pray_card, this);
+        setStrokeColor(Color.TRANSPARENT);
         setCardBackgroundColor(getColor(R.color.nextPrayCardSurfaceStartColor));
+        inflate(getContext(), R.layout.layout_minimized_next_pray_card, this);
         // Setup content views
         this.prayNotifMethodIFV = $(R.id.prayNotifMethodIFV);
         this.stvNextPrayName = $(R.id.tv_next_pray_name);
@@ -130,8 +132,8 @@ public class MiniNextPrayDashboardCard extends DashboardCard {
         // Add Suhur, Iftar, Qiyam slice if in Ramadan
         if (RamadanManager.isInRamadan() && (nextPray.getType() == FAJR || nextPray.getType() == MAGHRIB || nextPray.getType() == ISHA)) {
             final String sliceText;
-//			if (nextPray.getType() == FAJR) sliceText = getString(R.string.suhur);
-            if (nextPray.getType() == MAGHRIB) sliceText = getString(R.string.iftar);
+            if (nextPray.getType() == FAJR) sliceText = getString(R.string.fasting);
+            else if (nextPray.getType() == MAGHRIB) sliceText = getString(R.string.iftar);
             else if (nextPray.getType() == ISHA) sliceText = getString(R.string.qiyam);
             else sliceText = "";
             if (!TextUtils.isEmpty(sliceText)) {
