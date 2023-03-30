@@ -25,19 +25,19 @@ import java.util.List;
 public class Quran {
 
     // Quran constants
-    public static final int QURAN_JUZ2S_COUNT = 30;
     public static final int QURAN_HIZBS_COUNT = 60;
-    public static final int QURAN_SURAHS_COUNT = 114;
+    public static final int QURAN_PARTS_COUNT = 30;
     public static final int QURAN_AYAT_COUNT = 6236;
+    public static final int QURAN_SURAHS_COUNT = 114;
 
     // Runtime
     private static final String TAG = "QuranProvider";
-    private static final QuranPart[] QURAN_JUZ2S;
+    private static final QuranPart[] QURAN_PARTS;
     private static final QuranSurah[] QURAN_SURAHS;
 
     static {
         // Quran Juz2s
-        QURAN_JUZ2S = new QuranPart[]{
+        QURAN_PARTS = new QuranPart[]{
                 new QuranPart(1, 1, 1, 2, 141),
                 new QuranPart(2, 2, 142, 2, 252),
                 new QuranPart(3, 2, 253, 3, 91),
@@ -220,8 +220,14 @@ public class Quran {
         return getSurah(surahNumber).getAyat(context).get(ayahNumber - 1);
     }
 
-    public static QuranPart getJuz2(@IntRange(from = 1, to = 30) int juz2Number) {
-        return QURAN_JUZ2S[juz2Number - 1];
+    /**
+     * @param partNumber: Part number (1..30 or 0..29)
+     * @return QuranPart
+     */
+    public static QuranPart getPart(@IntRange(from = 1, to = 30) int partNumber) {
+        if (partNumber < 1) partNumber = 1;
+        else if (partNumber > 30) partNumber = 30;
+        return QURAN_PARTS[partNumber - 1];
     }
 
 }

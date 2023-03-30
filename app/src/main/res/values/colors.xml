@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="btn_stroke_color">#707070</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,10 +8,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#4CAF50</color>
-    <color name="btn_stroke_color">#707070</color>
-    <!--    <color name="colorPrimary">#004530</color>-->
+    <color name="green">#4CAF50</color>
+    <color name="colorPrimary">#3C1848</color>
     <color name="colorPrimary2">#3C1848</color>
+    <color name="colorPrimary3">#2E7D32</color>
     <color name="colorAccent">#77D3B7</color>
     <color name="colorText">#004530</color>
     <color name="colorText2">#FEDFDA</color>
@@ -44,7 +45,6 @@
 
     <color name="nextPrayCardSurfaceStartColor">#11152E</color>
     <color name="nextPrayCardSurfaceEndColor">#3C4258</color>
-    <color name="green">#4CAF50</color>
     <color name="whiteOpacity80">#CCFFFFFF</color>
     <color name="whiteOpacity60">#99FFFFFF</color>
     <color name="blackOpacity60">#99000000</color>

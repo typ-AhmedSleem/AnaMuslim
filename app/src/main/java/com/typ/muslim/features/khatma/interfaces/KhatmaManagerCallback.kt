@@ -39,4 +39,6 @@ interface KhatmaManagerCallback {
 
     fun onFinishKhatma()
 
+//    fun onReleaseKhatma()
+
 }

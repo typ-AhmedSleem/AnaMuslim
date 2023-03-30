@@ -60,6 +60,11 @@
             android:theme="@style/Theme.AnaMuslim" />
 
         <activity
+            android:name=".ui.khatma.KhatmaPlannerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
             android:name=".ui.khatma.KhatmaActivity"
             android:theme="@style/Theme.AnaMuslim" />
 
@@ -78,8 +83,6 @@
         <activity android:name=".ui.setup.SelectLocationActivity" />
 
         <activity android:name=".ui.setup.QuickSettingsActivity" />
-
-        <activity android:name=".ui.khatma.KhatmaPlannerActivity" />
 
     </application>
 

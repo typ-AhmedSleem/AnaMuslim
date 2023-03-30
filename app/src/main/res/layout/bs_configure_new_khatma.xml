@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/Theme.AnaMuslim">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_step_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/configure_khatma"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:transitionName="transition_wizard_step_title"
+        app:autoSizeMaxTextSize="40dp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_omar_light"
+        app:layout_constraintBottom_toTopOf="@id/tv_step_info" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_step_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:alpha="0.75"
+        android:gravity="center_horizontal"
+        android:maxLines="2"
+        android:text="@string/customize_your_khatma"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/adaptiveSubtitleTextColor"
+        android:textSize="18sp"
+        android:transitionName="transition_wizard_step_subtitle"
+        app:layout_constraintBottom_toTopOf="@id/til_new_khatma_name"
+        app:lineHeight="15dp"
+        app:textAllCaps="false"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_new_khatma_name"
+        style="?attr/textInputOutlinedExposedDropdownMenuStyle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/khatma_title"
+        android:textColorHint="@color/btn_stroke_color"
+        app:boxCornerRadiusBottomEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopStart="@dimen/default_corner_radius"
+        android:textAlignment="viewStart"
+        app:boxStrokeColor="@color/btn_stroke_color"
+        app:boxStrokeWidth="1dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/btn_stroke_color"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/btn_stroke_color"
+        app:layout_constraintBottom_toTopOf="@id/til_new_khatma_reminder"
+        app:placeholderText="@string/assign_title_for_khatma"
+        app:placeholderTextColor="@color/btn_stroke_color"
+        app:startIconCheckable="false"
+        app:startIconDrawable="@drawable/ic_title"
+        app:startIconTint="@color/btn_stroke_color">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textAutoCorrect"
+            android:maxLines="2"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_new_khatma_reminder"
+        style="?attr/textInputOutlinedExposedDropdownMenuStyle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:hint="@string/reminder"
+        android:textAlignment="viewStart"
+        android:textColorHint="@color/btn_stroke_color"
+        app:boxCornerRadiusBottomEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/default_corner_radius"
+        app:boxCornerRadiusTopStart="@dimen/default_corner_radius"
+        app:boxStrokeColor="@color/btn_stroke_color"
+        app:boxStrokeWidth="1dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/btn_stroke_color"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/btn_stroke_color"
+        app:layout_constraintBottom_toTopOf="@id/btn_create_khatma"
+        app:placeholderText="@string/set_reminder"
+        app:placeholderTextColor="@color/btn_stroke_color"
+        app:startIconDrawable="@drawable/ic_alarm_clock"
+        app:startIconTint="@color/btn_stroke_color">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:textColor="@color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_create_khatma"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/font_bukrar"
+        android:text="@string/create_khatma"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="@dimen/default_corner_radius"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/_t_info" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/_t_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center_horizontal"
+        android:maxLines="2"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="@string/msg_khatma_bs"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/subtitleTextColor"
+        android:textSize="14sp"
+        android:transitionName="transition_wizard_step_subtitle"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/btn_create_khatma"
+        app:layout_constraintStart_toStartOf="@id/btn_create_khatma"
+        app:lineHeight="15dp"
+        app:textAllCaps="false"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

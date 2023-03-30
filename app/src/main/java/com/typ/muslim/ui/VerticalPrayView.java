@@ -111,8 +111,8 @@ public class VerticalPrayView extends DashboardCard {
         // Add Suhur, Iftar, Qiyam subscript to pray name (if in Ramadan)
         if (RamadanManager.isInRamadan() && (pray.getType() == FAJR || pray.getType() == MAGHRIB || pray.getType() == ISHA)) {
             final String sliceText;
-//            if (pray.getType() == FAJR) sliceText = getString(R.string.suhur);
-            if (pray.getType() == MAGHRIB) sliceText = getString(R.string.iftar);
+            if (pray.getType() == FAJR) sliceText = getString(R.string.fasting);
+            else if (pray.getType() == MAGHRIB) sliceText = getString(R.string.iftar);
             else if (pray.getType() == ISHA) sliceText = getString(R.string.qiyam);
             else sliceText = "";
             if (!TextUtils.isEmpty(sliceText)) {

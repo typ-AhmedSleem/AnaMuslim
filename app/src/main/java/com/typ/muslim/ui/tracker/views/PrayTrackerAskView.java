@@ -19,12 +19,11 @@ import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.LocaleManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.ui.ViewContainer;
 import com.typ.muslim.ui.tracker.dashboard.TrackerDashboardCard;
-
-import java.util.Locale;
 
 public final class PrayTrackerAskView extends ViewContainer implements View.OnClickListener {
 
@@ -61,7 +60,7 @@ public final class PrayTrackerAskView extends ViewContainer implements View.OnCl
 		// Show data in views
         this.tvPrayName.reset();
         this.tvPrayName.addSlice(new Slice(
-                new Slice.Builder(String.format(Locale.getDefault(), "%s,  ", ResMan.getString(getContext(), R.string.have_you_prayed)))
+				new Slice.Builder(String.format(LocaleManager.getCurrLocale(getContext()), "%s,  ?", ResMan.getString(getContext(), R.string.have_you_prayed)))
                         .textSize(sp2px(14f))
                         .textColor(ResMan.getColor(getContext(), R.color.darkAdaptiveColor))));
         this.tvPrayName.addSlice(new Slice(

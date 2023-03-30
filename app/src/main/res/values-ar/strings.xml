@@ -27,9 +27,9 @@
     <!-- Allah names descriptions -->
     <string name="allahNameDesc_AlRahman">هو الله الذي ينزل رحمته علي كل خلقه</string>
     <string name="allahNameDesc_AlRaheem">هو الله الذي رحمته فاقت كل شئ سبحانه</string>
-    <string name="allahNameDesc_AlMalik">The Sovereign Lord, The One with the complete Dominion,The One Whose Dominion is clear from imperfection</string>
-    <string name="allahNameDesc_AlQuddus">The One who is pure from any imperfection and clear from children and adversaries</string>
-    <string name="allahNameDesc_AlSalam">هو الله المتحرر من كل عيب</string>
+    <string name="allahNameDesc_AlMalik">إن كل من في السموات والأرض إلا آتي الرحمن عبدًا” (مريم: 93). “ولله يسجد من في السموات والأرض طوعًا وكرها</string>
+    <string name="allahNameDesc_AlQuddus">المطهر من كل عيب، المنزه عن كل نقص، ومحور التسبيح يدور على هذا المعنى، سبحانه وتعالى</string>
+    <string name="allahNameDesc_AlSalam">الذي لا يجيئ من قبله عدوان، بل يرتقب الخير والرضا</string>
 
     <!-- Islamic Events -->
     <string name="arafat_day">يوم عرفة</string>
@@ -314,7 +314,7 @@
     <string name="view_my_progress">عرض تقدمي</string>
     <string name="started_in">بدأت في</string>
     <string name="ends_in">تنتهي في</string>
-    <string name="create_khatma">انشاء الختمة</string>
+    <string name="create_khatma">إنشاء الخِتمة</string>
     <string name="plan_10_days">10 أيام</string>
     <string name="plan_60_days">60 يوماً</string>
     <string name="plan_40_days">40 يوماً</string>
@@ -330,7 +330,7 @@
     <string name="khatma_details">تفاصيل الختمة</string>
     <string name="khatma_number_and_name">عنوان الختمة</string>
     <string name="completed_days">الأيام المكتملة</string>
-    <string name="qiyam">القيام</string>
+    <string name="qiyam">صلاة القيام</string>
     <string name="show_more">عرض المزيد</string>
     <string name="mark_werd_as_done">تحديد الوِرد كمكتمل</string>
     <string name="delete_khatma">حذف الختمة</string>
@@ -398,25 +398,49 @@
     <string name="select_one">اختر واحداً…</string>
     <string name="gps_location">موقع الGPS</string>
     <string name="confirm_location">تأكيد الموقع</string>
-    <string name="feature_under_dev">هذه الميزة مازالت تحت التطوير</string>
+    <string name="feature_under_dev">مازالت تحت التطوير</string>
     <string name="plan_khatma">انشاء ختمة</string>
     <string name="khatma_planner">خِتمة جديدة</string>
-    <string name="hint_khatma_planner1">قم باختيار الختمة الي تجدها مناسبة لك أو انشئ واحده جديده</string>
+    <string name="hint_khatma_planner1">قم باختيار الخِتمَة الي تجدها مناسبة لك أو انشئ واحده جديده</string>
     <string name="preplanned">مُعَدَة مُسبَقاً</string>
     <string name="custom">جديد</string>
-    <string name="plan_my_own_khatma">إنشاء خِتمة خاصة</string>
+    <string name="plan_my_own_khatma">إنشاء خِتمَة خاصة</string>
     <string name="_dummy_day_26">اليوم 26 من أيام رمضان</string>
     <string name="today_is">اليوم هو</string>
-    <string name="start_siyam">الصيام</string>
+    <string name="fasting">الصيام</string>
     <string name="starts_in">يبدأ في</string>
     <string name="of_ramadan">من رمضان</string>
     <string name="_Day">اليوم</string>
-    <string name="create_new_khatma">إنشاء ختمة جديده</string>
+    <string name="create_new_khatma">إنشاء خِتمة جديده</string>
     <string name="days">أيام</string>
     <string name="day">يوم</string>
     <string name="starts">تبدأ</string>
     <string name="ends">تنتهي</string>
-    <string name="H">ه</string>
+    <string name="H">هجرياً</string>
     <string name="of">من</string>
+    <string name="configure_khatma">إعداد الخِتمَة</string>
+    <string name="set_reminder">تعيين تذكير…</string>
+    <string name="reminder">تذكير</string>
+    <string name="msg_khatma_bs">عند إنشاءك هذه الخِتمة, سيتم استبدال اخر خِتمة نَشِطَه قُمتَ بإنشاءها</string>
+    <string name="khatma_title">عَنوان الخِتمَة</string>
+    <string name="assign_title_for_khatma">قُم بتعيين عُنوان للخِتمَة الخاصة بك…</string>
+    <string name="customize_your_khatma">اجعل الخِتمَة الجَديدَه الخاصة بك اكثر تخصيصاً</string>
+    <string name="khatma_title_cant_be_empty">Khatma title can\'t be empty</string>
+    <string name="currently_under_development">Currently under development</string>
+    <string name="your_personal_digital_islamic_companion">مساعدك الرقمي الإسلامي</string>
+    <string name="have_you_prayed">هَل صَليتَ صَلاةَ</string>
+    <string name="planned_in_next_versions">ستكون متاحة في الإصدارات القادمه</string>
+    Are you sure to delete this Khatma?\\nIt will be deleted forever
+    <string name="msg_delete_khatma">هل حقاً تريد أن تقوم بحذف هذه الخِتمَة؟\nلن تكون قادراً علي استعادتها بمجرد حذفها</string>
+    <string name="confirm">تأكيد</string>
+    <string name="cancel">إلغاء</string>
+    <string name="remaining_time">الوقت المتبقي</string>
+    <string name="in">في</string>
+    <string name="today_prays_in">مواقيت الصلاة لليوم في</string>
+    <string name="show_event_in_calendar">عرض الحدث في التقويم</string>
+    <string name="eventRamadanEnd">نهاية شهر رمضان الكريم</string>
+    <string name="eventRamadanStart">بداية شهر رمضان الكريم</string>
+    <string name="tomorrow">غداً</string>
+    <string name="congrat_finishing_khatma">ماشاء الله .. بارك الله فيك علي إتمامك الخِتمَة</string>
 
 </resources>
