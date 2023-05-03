@@ -1,2 +1,2 @@
 # AnaMuslim
- Your all-way muslim mate
+Your Islamic digital companion
