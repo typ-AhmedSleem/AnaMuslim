@@ -7,10 +7,10 @@
 package com.typ.muslim.ui;
 
 import static com.typ.muslim.enums.FormatPatterns.DATE_NORMAL;
-import static com.typ.muslim.enums.TasbeehatTimesTarget.TIMES_33;
-import static com.typ.muslim.enums.TasbeehatTimesTarget.TIMES_66;
-import static com.typ.muslim.enums.TasbeehatTimesTarget.TIMES_99;
-import static com.typ.muslim.enums.TasbeehatTimesTarget.TIMES_INFINITE;
+import static com.typ.muslim.features.tasbeeh.enums.TasbeehTimes.TIMES_33;
+import static com.typ.muslim.features.tasbeeh.enums.TasbeehTimes.TIMES_66;
+import static com.typ.muslim.features.tasbeeh.enums.TasbeehTimes.TIMES_99;
+import static com.typ.muslim.features.tasbeeh.enums.TasbeehTimes.TIMES_INFINITE;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -60,7 +60,7 @@ import com.typ.muslim.core.praytime.enums.Prays;
 import com.typ.muslim.enums.CalendarDots;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.enums.SoMReminderFreq;
-import com.typ.muslim.enums.TasbeehatTimesTarget;
+import com.typ.muslim.features.tasbeeh.enums.TasbeehTimes;
 import com.typ.muslim.interfaces.OnIslamicEventClickListener;
 import com.typ.muslim.interfaces.ResultCallback;
 import com.typ.muslim.libs.easyjava.data.EasyList;
@@ -105,10 +105,6 @@ public class BottomSheets {
 
     public static HijriCalendarBottomSheet newHijriCalendar(Context context, View.OnClickListener actionClickListener, OnIslamicEventClickListener eventClickListener, ResultCallback<Boolean> showHideCallback) {
         return new HijriCalendarBottomSheet(context, actionClickListener, eventClickListener, showHideCallback);
-    }
-
-    public static TasbeehOptionsBottomSheet newTasbeehOptions(Context context, TasbeehatTimesTarget currTarget, ResultCallback<TasbeehatTimesTarget> timesSelectorListener, ResultCallback<Integer> actionClickListener, ResultCallback<Boolean> volumeButtonsEnableListener, ResultCallback<Boolean> showHideCallback) {
-        return new TasbeehOptionsBottomSheet(context, currTarget, timesSelectorListener, actionClickListener, volumeButtonsEnableListener, showHideCallback);
     }
 
     public static AnswerPrayedBottomSheet newAnswerPrayed(Context context, Pray whichPray, ResultCallback<Pair<PrayStatus, Boolean>> callback, ResultCallback<Boolean> showHideCallback) {
@@ -616,106 +612,6 @@ public class BottomSheets {
             }
         }
 
-    }
-
-    public static class TasbeehOptionsBottomSheet extends BaseBottomSheet {
-
-        // Callbacks
-        private final ResultCallback<TasbeehatTimesTarget> targetChangedListener;
-        private final ResultCallback<Integer> actionClickListener;
-        private final ResultCallback<Boolean> volumeButtonsEnableListener;
-        private TasbeehatTimesTarget currTarget;
-        // Runtime
-        private boolean isVolumeButtonsEnabled;
-        // Inner views
-        private SwitcherX switcherUseVolumeButtons;
-        private MaterialButton btnChangeTarget, btnReset, btnOpenActivity;
-
-        public TasbeehOptionsBottomSheet(Context context, TasbeehatTimesTarget currTarget, ResultCallback<TasbeehatTimesTarget> timesSelectorListener, ResultCallback<Integer> actionClickListener, ResultCallback<Boolean> buttonsEnableListener, ResultCallback<Boolean> showHideListener) {
-            super(context, showHideListener, true);
-            // Set runtime and callbacks
-            this.currTarget = currTarget;
-            this.actionClickListener = actionClickListener;
-            this.targetChangedListener = timesSelectorListener;
-            this.volumeButtonsEnableListener = buttonsEnableListener;
-            // Bind data to views and set listeners
-            setupListeners();
-            bindInnerViews();
-        }
-
-        @Override
-        public void prepareRuntime() {
-            this.isVolumeButtonsEnabled = AMSettings.isUsingVolumeButtonsInTasbeeh(context);
-        }
-
-        @NonNull
-        @NotNull
-        @Override
-        public View onCreateView() {
-            return inflate(R.layout.bs_tasbeeh_options);
-        }
-
-        @Override
-        public void prepareInnerViews() {
-            this.switcherUseVolumeButtons = findViewById(R.id.switcherx_use_volume_buttons);
-            this.btnChangeTarget = findViewById(R.id.btn_change_tasbeeh_target);
-            this.btnReset = findViewById(R.id.btn_reset_tasbeeh);
-            this.btnOpenActivity = findViewById(R.id.btn_open_tasbeeh_activity);
-        }
-
-        @Override
-        public void bindInnerViews() {
-            // Switcher
-            this.switcherUseVolumeButtons.setChecked(isVolumeButtonsEnabled, true);
-            // Tasbeeh target
-            TextDrawable targetIcon = TextDrawable.builder().beginConfig()
-                    .bold()
-                    .width(90)
-                    .height(90)
-                    .textColor(ResMan.getColor(context, R.color.darkAdaptiveColor))
-                    .endConfig()
-                    .buildRect(currTarget == TIMES_INFINITE ? "INF" : String.valueOf(currTarget.howMany()), Color.TRANSPARENT);
-            this.btnChangeTarget.setIcon(targetIcon);
-        }
-
-        @Override
-        public void setupListeners() {
-            this.switcherUseVolumeButtons.setOnCheckedChangeListener(isChecked -> {
-                this.isVolumeButtonsEnabled = isChecked;
-                if (this.volumeButtonsEnableListener != null) this.volumeButtonsEnableListener.onResult(isChecked);
-                return null;
-            });
-            this.btnChangeTarget.setOnClickListener(v -> {
-                // Create PopupMenu
-                PopupMenu popupMenu = new PopupMenu(context, this.btnChangeTarget, Gravity.END | Gravity.CENTER_VERTICAL);
-                popupMenu.inflate(R.menu.menu_tasbeeh_target);
-                popupMenu.setOnMenuItemClickListener(item -> {
-                    // Handle clicked target
-                    if (item.getItemId() == R.id.menu_item_tasbeeh_33) this.currTarget = TIMES_33;
-                    else if (item.getItemId() == R.id.menu_item_tasbeeh_66) this.currTarget = TIMES_66;
-                    else if (item.getItemId() == R.id.menu_item_tasbeeh_99) this.currTarget = TIMES_99;
-                    else if (item.getItemId() == R.id.menu_item_tasbeeh_infinite) this.currTarget = TIMES_INFINITE;
-                    // Fire the target changed listener and update ui
-                    if (this.targetChangedListener != null) this.targetChangedListener.onResult(this.currTarget);
-                    this.bindInnerViews();
-                    return true;
-                });
-                // Show selection on current target
-                MenuItem selectedItem = popupMenu.getMenu().getItem(this.currTarget.ordinal());
-                selectedItem.setIcon(R.drawable.ic_done);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) selectedItem.setIconTintList(ColorStateList.valueOf(ResMan.getColor(context, R.color.green)));
-                // Show the popup
-                popupMenu.show();
-            });
-            this.btnReset.setOnClickListener(v -> {
-                this.actionClickListener.onResult(v.getId());
-                cancel();
-            });
-            this.btnOpenActivity.setOnClickListener(v -> {
-                this.actionClickListener.onResult(v.getId());
-                cancel();
-            });
-        }
     }
 
     public static class AnswerPrayedBottomSheet extends BaseBottomSheet {

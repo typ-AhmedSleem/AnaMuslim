@@ -33,6 +33,7 @@ import com.typ.muslim.ui.khatma.dashboard.KhatmaDashboardCard;
 import com.typ.muslim.ui.names.AllahNamesDashboardCard;
 import com.typ.muslim.ui.names.HolyNameOfAllahDescActivity;
 import com.typ.muslim.ui.prays.MiniNextPrayDashboardCard;
+import com.typ.muslim.ui.tasbeeh.TasbeehDashboardCard;
 import com.typ.muslim.ui.tracker.dashboard.TrackerDashboardCard;
 
 import org.jetbrains.annotations.NotNull;

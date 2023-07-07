@@ -442,5 +442,9 @@
     <string name="eventRamadanStart">بداية شهر رمضان الكريم</string>
     <string name="tomorrow">غداً</string>
     <string name="congrat_finishing_khatma">ماشاء الله .. بارك الله فيك علي إتمامك الخِتمَة</string>
+    <string name="daily_tasbeeh_1">سبحان الله</string>
+    <string name="daily_tasbeeh_2">الحمدلله</string>
+    <string name="daily_tasbeeh_3">الله أكبر</string>
+    <string name="daily_tasbeeh_4">لا اله الا الله وحده لا شريك له.. له الملك وله الحمد وهو علي كل شئ قدير</string>
 
 </resources>

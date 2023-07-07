@@ -168,7 +168,7 @@
                         android:layout_weight="0.08" />
 
 
-                    <com.typ.muslim.ui.home.TasbeehDashboardCard
+                    <com.typ.muslim.ui.tasbeeh.TasbeehDashboardCard
                         android:id="@+id/tasbeeh_dashboard_card"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"

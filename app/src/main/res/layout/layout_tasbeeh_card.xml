@@ -7,9 +7,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/adaptiveBackgroundColor"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:background="@color/material_dynamic_primary99"
+    android:elevation="10dp"
     android:paddingStart="10dp"
     android:paddingTop="10dp"
     android:paddingEnd="10dp"
@@ -24,7 +25,7 @@
         android:src="@drawable/ic_tasbih2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/darkAdaptiveColor"
+        app:tint="@color/material_dynamic_primary30"
         tools:ignore="ContentDescription" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -33,182 +34,46 @@
         android:layout_marginStart="5dp"
         android:maxLines="1"
         android:text="@string/tasbeeh"
-        android:textColor="@color/darkAdaptiveColor"
+        android:textColor="@color/material_dynamic_primary30"
         android:textSize="12sp"
-        android:textStyle="bold"
         app:fontFamily="@font/font_jf_flat_regular"
         app:layout_constraintBottom_toBottomOf="@id/icon"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/pw_tasbeeh_count"
         app:layout_constraintStart_toEndOf="@id/icon"
         app:layout_constraintTop_toTopOf="@id/icon"
         tools:ignore="SmallSp" />
 
     <com.app.progresviews.ProgressWheel
-        android:id="@+id/progress_tasbeeh_count"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:barWidth="2dp"
+        android:id="@+id/pw_tasbeeh_count"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:barWidth="1.25dp"
         app:countText="0"
-        app:countTextColor="@color/green"
-        app:countTextSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:countTextColor="@color/material_dynamic_primary30"
+        app:countTextSize="9sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:marginBtwText="6dp"
-        app:percentage="0"
-        app:progressColor="@color/green"
-        app:rimColor="@color/bg_input_box" />
+        app:percentage="260"
+        app:progressColor="@color/material_dynamic_primary30"
+        app:rimColor="@color/material_dynamic_primary99" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_tasbeeh_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="5dp"
-        android:text="ALLAH is the only god"
-        android:textColor="@color/darkAdaptiveColor"
-        android:textSize="18sp"
-        app:fontFamily="@font/font_bukrar"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:text="@string/daily_tasbeeh_4"
+        android:textColor="@color/material_dynamic_primary50"
+        android:textSize="15sp"
         app:autoSizeMaxTextSize="20sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@id/progress_tasbeeh_count"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/icon"
         tools:ignore="HardcodedText" />
 
-    <ImageButton
-        android:id="@+id/ibtn_plus_one"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/btn_bg_plus_one"
-        android:contentDescription="+1"
-        android:padding="12dp"
-        android:scaleType="centerCrop"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="@color/ripple_white"
-        app:srcCompat="@drawable/ic_plus_1"
-        app:strokeColor="@color/bg_input_box"
-        app:strokeWidth="1dp"
-        app:tint="@color/adaptiveTitleTextColor"
-        tools:ignore="HardcodedText" />
-
-    <!-- todo: replace HowManyTimesTV with AnimatedNumberTextView  -->
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_tasbeeh_how_many_times"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:maxLines="1"
-        android:text="33 times"
-        android:textColor="@color/darkAdaptiveColor"
-        android:textSize="12sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="HardcodedText" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="200dp"-->
-    <!--android:layout_height="200dp"-->
-    <!--android:background="@color/adaptiveBackgroundColor"-->
-    <!--android:paddingStart="10dp"-->
-    <!--android:paddingTop="10dp"-->
-    <!--android:paddingEnd="10dp"-->
-    <!--android:paddingBottom="5dp">-->
-
-    <!--<ImageView-->
-    <!--    android:id="@+id/icon"-->
-    <!--    android:layout_width="15dp"-->
-    <!--    android:layout_height="15dp"-->
-    <!--    android:padding="1dp"-->
-    <!--    android:scaleType="centerCrop"-->
-    <!--    android:src="@drawable/ic_tasbih2"-->
-    <!--    app:layout_constraintStart_toStartOf="parent"-->
-    <!--    app:layout_constraintTop_toTopOf="parent"-->
-    <!--    app:tint="@color/darkAdaptiveColor"-->
-    <!--    tools:ignore="ContentDescription" />-->
-
-    <!--<com.google.android.material.textview.MaterialTextView-->
-    <!--    android:layout_width="0dp"-->
-    <!--    android:layout_height="0dp"-->
-    <!--    android:layout_marginStart="5dp"-->
-    <!--    android:maxLines="1"-->
-    <!--    android:text="@string/tasbeeh"-->
-    <!--    android:textColor="@color/darkAdaptiveColor"-->
-    <!--    android:textSize="12sp"-->
-    <!--    android:textStyle="bold"-->
-    <!--    app:fontFamily="@font/e"-->
-    <!--    app:layout_constraintBottom_toBottomOf="@id/icon"-->
-    <!--    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--    app:layout_constraintStart_toEndOf="@id/icon"-->
-    <!--    app:layout_constraintTop_toTopOf="@id/icon"-->
-    <!--    tools:ignore="SmallSp" />-->
-
-    <!--<com.google.android.material.textview.MaterialTextView-->
-    <!--    android:id="@+id/tv_tasbeeh_content"-->
-    <!--    android:layout_width="0dp"-->
-    <!--    android:layout_height="0dp"-->
-    <!--    android:gravity="center"-->
-    <!--    android:paddingStart="10dp"-->
-    <!--    android:paddingTop="5dp"-->
-    <!--    android:paddingEnd="10dp"-->
-    <!--    android:paddingBottom="5dp"-->
-    <!--    android:text="ALLAH is the only god"-->
-    <!--    android:textColor="@color/darkAdaptiveColor"-->
-    <!--    android:textSize="12sp"-->
-    <!--    app:autoSizeMaxTextSize="16sp"-->
-    <!--    app:autoSizeTextType="uniform"-->
-    <!--    app:layout_constraintBottom_toTopOf="@id/fab_plus_one"-->
-    <!--    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--    app:layout_constraintStart_toStartOf="parent"-->
-    <!--    app:layout_constraintTop_toBottomOf="@id/icon"-->
-    <!--    tools:ignore="HardcodedText" />-->
-
-    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
-    <!--    android:id="@+id/fab_plus_one"-->
-    <!--    android:layout_width="wrap_content"-->
-    <!--    android:layout_height="wrap_content"-->
-    <!--    android:contentDescription="+1"-->
-    <!--    android:src="@drawable/ic_plus_1"-->
-    <!--    app:backgroundTint="@color/colorPrimary"-->
-    <!--    app:elevation="0dp"-->
-    <!--    app:fabSize="mini"-->
-    <!--    app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--    app:layout_constraintStart_toStartOf="parent"-->
-    <!--    app:maxImageSize="20dp"-->
-    <!--    app:rippleColor="@color/ripple"-->
-    <!--    app:tint="@color/white"-->
-    <!--    tools:ignore="HardcodedText" />-->
-
-    <!--&lt;!&ndash; todo: replace HowManyTimesTV with AnimatedNumberTextView  &ndash;&gt;-->
-
-    <!--<com.google.android.material.textview.MaterialTextView-->
-    <!--    android:id="@+id/tv_tasbeeh_how_many_times"-->
-    <!--    android:layout_width="0dp"-->
-    <!--    android:layout_height="wrap_content"-->
-    <!--    android:gravity="center"-->
-    <!--    android:maxLines="1"-->
-    <!--    android:text="33 times"-->
-    <!--    android:textColor="@color/darkAdaptiveColor"-->
-    <!--    android:textSize="12sp"-->
-    <!--    android:visibility="gone"-->
-    <!--    app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--    app:layout_constraintStart_toStartOf="parent"-->
-    <!--    tools:ignore="HardcodedText" />-->
-
-    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

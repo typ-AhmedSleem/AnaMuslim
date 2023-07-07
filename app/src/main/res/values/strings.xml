@@ -597,5 +597,9 @@
     <string name="confirm">Confirm</string>
     <string name="tomorrow">tomorrow</string>
     <string name="congrat_finishing_khatma">Congratulations on finishing your Khatma</string>
+    <string name="daily_tasbeeh_1">سبحان الله</string>
+    <string name="daily_tasbeeh_2">الحمدلله</string>
+    <string name="daily_tasbeeh_3">الله أكبر</string>
+    <string name="daily_tasbeeh_4">لا اله الا الله وحده لا شريك له.. له الملك وله الحمد وهو علي كل شئ قدير</string>
 
 </resources>

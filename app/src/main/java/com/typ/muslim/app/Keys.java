@@ -61,6 +61,13 @@ public class Keys {
 	public static final String PRAY_NOTIFY_METHOD = "prayNotifyMethod";
 	public static final String PRAY_OFFSET = "prayTimesOffsets";
 
+	// Keys used by modules/Tasbeeh
+	public static final String TasbeehMode = "TasbeehMode";
+	public static final String TasbeehTimes = "TasbeehTimes";
+	public static final String TasbeehIsVibrationEnabled = "TasbeehIsVibrationEnabled";
+	public static final String TasbeehIsVolumeCounterEnabled = "TasbeehIsVolumeCounterEnabled";
+	public static final String TasbeehIsSpeakOnFlipEnabled = "TasbeehIsSpeakOnFlipEnabled";
+
 	// Keys used in args bundle
 	public static final String NAME_OF_ALLAH = "nameOfAllah";
 
