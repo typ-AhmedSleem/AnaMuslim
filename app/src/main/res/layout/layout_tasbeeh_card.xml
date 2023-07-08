@@ -45,15 +45,14 @@
 
     <com.app.progresviews.ProgressWheel
         android:id="@+id/pw_tasbeeh_count"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         app:barWidth="1.25dp"
         app:countText="0"
         app:countTextColor="@color/material_dynamic_primary30"
-        app:countTextSize="9sp"
+        app:countTextSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:marginBtwText="6dp"
         app:percentage="260"
         app:progressColor="@color/material_dynamic_primary30"
         app:rimColor="@color/material_dynamic_primary99" />

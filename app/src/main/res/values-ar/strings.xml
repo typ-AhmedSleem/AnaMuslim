@@ -278,9 +278,9 @@
     <string name="reset_tasbeeh">تصفير المسبحه</string>
     <string name="use_volume_counter">استخدام ازرار الصوت للتسبيح</string>
     <string name="change_tasbeeh_target">تغيير العداد</string>
-    <string name="_33_times">33 مره</string>
-    <string name="_66_times">66 مره</string>
-    <string name="_99_times">99 مره</string>
+    <string name="_33_times">33 عده</string>
+    <string name="_66_times">66 عده</string>
+    <string name="_99_times">99 عده</string>
     <string name="infinite">غير محدود</string>
     <string name="jumaa">الجمعه</string>
     <string name="birth_of_prophet_mohamed">ميلاد سيدنا محمد (صل الله عليه وسلم)</string>
@@ -436,6 +436,7 @@
     <string name="cancel">إلغاء</string>
     <string name="remaining_time">الوقت المتبقي</string>
     <string name="in">في</string>
+    <string name="some_text_goes_here">سيعرض النص هنا</string>
     <string name="today_prays_in">مواقيت الصلاة لليوم في</string>
     <string name="show_event_in_calendar">عرض الحدث في التقويم</string>
     <string name="eventRamadanEnd">نهاية شهر رمضان الكريم</string>
@@ -446,17 +447,18 @@
     <string name="daily_tasbeeh_2">الحمدلله</string>
     <string name="daily_tasbeeh_3">الله أكبر</string>
     <string name="daily_tasbeeh_4">لا اله الا الله وحده لا شريك له.. له الملك وله الحمد وهو علي كل شئ قدير</string>
-    <string name="tasbeeh_settings">Tasbeeh Settings</string>
-    <string name="mode">Mode</string>
-    <string name="counter">Counter</string>
-    <string name="tasbeeh_mode">Tasbeeh mode</string>
-    <string name="free_mode">Free mode</string>
-    <string name="other">Other</string>
-    <string name="accessibility">Accessibility</string>
-    <string name="vibrate_on_tick">Vibrate on tick</string>
-    <string name="speak_next_tasbeeh">Speak next tasbeeh</string>
-    <string name="reset_settings">Reset settings</string>
-    <string name="save_settings">Save settings</string>
-    <string name="apply_settings">Apply settings</string>
+    <string name="tasbeeh_settings">إعدادات السبحة</string>
+    <string name="mode">الوضع</string>
+    <string name="counter">العداد</string>
+    <string name="tasbeeh_mode">وضع التسبيح</string>
+    <string name="free_mode">الوضع الحر</string>
+    <string name="other">أخري</string>
+    <string name="accessibility">إمكانية الوصول</string>
+    <string name="vibrate_on_tick">الإهتزاز عند التسبيح</string>
+    <string name="speak_next_tasbeeh">نطق التسبيحه التالية</string>
+    <string name="reset_settings">إعادة الاعدادات الافتراضية</string>
+    <string name="save_settings">حفظ الاعدادات</string>
+    <string name="apply_settings">تطبيق الاعدادات</string>
+    <string name="items">العناصر</string>
 
 </resources>
