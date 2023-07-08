@@ -86,11 +86,11 @@ public class StageItemView extends RelativeLayout {
                 this.indicatorIV.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.darkAdaptiveColor)));
                 break;
             case WORKING:
-                this.indicatorIV.setColorFilter(ResMan.getColor(getContext(), R.color.scv_surround_color_default));
+                this.indicatorIV.setColorFilter(ResMan.getColor(getContext(), R.color.btn_stroke_color));
                 this.indicatorIV.setImageResource(R.drawable.ic_arrow_to_right);
                 this.indicatorIV.setBackgroundResource(R.drawable.shape_coming_pray);
                 this.indicatorIV.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-                this.container.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.scv_surround_color_default)));
+                this.container.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.btn_stroke_color)));
                 this.stageTitleTV.setTextColor(ResMan.getColor(getContext(), R.color.white));
                 break;
             case DONE:
@@ -103,11 +103,11 @@ public class StageItemView extends RelativeLayout {
                 break;
             case FAILED:
             case CANCELLED:
-                this.indicatorIV.setColorFilter(ResMan.getColor(getContext(), R.color.switcher_off_color));
+                this.indicatorIV.setColorFilter(ResMan.getColor(getContext(), R.color.red));
                 this.indicatorIV.setImageResource(R.drawable.ic_close);
                 this.indicatorIV.setBackgroundResource(R.drawable.shape_passed_pray);
                 this.indicatorIV.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-                this.container.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.switcher_off_color)));
+                this.container.setBackgroundTintList(ColorStateList.valueOf(ResMan.getColor(getContext(), R.color.red)));
                 this.stageTitleTV.setTextColor(ResMan.getColor(getContext(), R.color.white));
                 break;
         }

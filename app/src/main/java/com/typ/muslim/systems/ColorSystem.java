@@ -167,11 +167,11 @@ public class ColorSystem {
 	}
 
 	public enum ColorTheme {
-		BLUE(R.color.design_default_color_primary_dark, R.color.white),
+		BLUE(R.color.blue, R.color.white),
 		GREEN(R.color.colorPrimary, R.color.white),
 		BROWN(R.color.colorPrimary2, R.color.white),
 		RED(R.color.red, R.color.white),
-		YELLOW(R.color.yellow, R.color.common_google_signin_btn_text_dark_disabled);
+		YELLOW(R.color.yellow, R.color.yellow);
 
 		// Runtime
 		private final @ColorRes int accentColor;
@@ -209,7 +209,7 @@ public class ColorSystem {
 			else if (pray.getType() == Prays.DHUHR) return ResMan.getColor(context, R.color.color_dhuhr_sunrise_bg);
 			else if (pray.getType() == Prays.ASR) return ResMan.getColor(context, R.color.color_asr_bg);
 			else if (pray.getType() == Prays.MAGHRIB) return ResMan.getColor(context, R.color.color_maghrib_isha_header);
-			else if (pray.getType() == Prays.ISHA) return ResMan.getColor(context, R.color.isha_bg);
+			else if (pray.getType() == Prays.ISHA) return ResMan.getColor(context, R.color.color_isha_bg);
 			return ResMan.getColor(context, R.color.color_fajr_header); // Fajr.
 		}
 

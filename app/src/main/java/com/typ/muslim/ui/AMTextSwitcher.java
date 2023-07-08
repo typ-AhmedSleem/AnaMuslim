@@ -23,7 +23,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 
-import com.typ.muslim.R;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.systems.ColorSystem;
 import com.typ.muslim.utils.DisplayUtils;
@@ -66,10 +65,10 @@ public class AMTextSwitcher extends TextSwitcher {
 		// Prepare runtime if needed
 		this.textSize = 15f;
 		// Init in & out animations
-		Animation inAnimation = AnimationUtils.loadAnimation(context, R.anim.fade_in_slide_in);
+		Animation inAnimation = AnimationUtils.loadAnimation(context, sumimakito.android.advtextswitcher.R.anim.fade_in_slide_in);
 		inAnimation.setInterpolator(new LinearOutSlowInInterpolator());
 		inAnimation.setDuration(1000);
-		Animation outAnimation = AnimationUtils.loadAnimation(context, R.anim.fade_out_slide_out);
+		Animation outAnimation = AnimationUtils.loadAnimation(context, sumimakito.android.advtextswitcher.R.anim.fade_out_slide_out);
 		outAnimation.setInterpolator(new LinearOutSlowInInterpolator());
 		outAnimation.setDuration(1000);
 		// Init switcher

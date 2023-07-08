@@ -77,8 +77,8 @@ public class InRamadanView extends ViewContainer {
 		tvSuhurIn.setText(today.getSuhurTime().getFormatted(timePattern));
 		tvIftarIn.setText(today.getIftarTime().getFormatted(timePattern));
 		// Change Suhur and Iftar textColors according to it has passed or not
-		tvSuhurIn.setTextColor(getColor(today.getSuhurTime().isBefore(Timestamp.NOW()) ? R.color.color_maghrib_isha_highlight : R.color.weixin_green));
-		tvIftarIn.setTextColor(getColor(today.getIftarTime().isBefore(Timestamp.NOW()) ? R.color.color_maghrib_isha_highlight : R.color.weixin_green));
+		tvSuhurIn.setTextColor(getColor(today.getSuhurTime().isBefore(Timestamp.NOW()) ? R.color.color_maghrib_isha_highlight : R.color.green));
+		tvIftarIn.setTextColor(getColor(today.getIftarTime().isBefore(Timestamp.NOW()) ? R.color.color_maghrib_isha_highlight : R.color.green));
 	}
 
 	@Override

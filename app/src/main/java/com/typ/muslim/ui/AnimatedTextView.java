@@ -86,8 +86,6 @@ public class AnimatedTextView extends ViewContainer {
 		// Inflate view and init switcher
 		inflate(R.layout.layout_animated_tv);
 		switcher = $(R.id.vs_atv);
-		switcher.setInAnimation(context, R.anim.fade_in_slide_in);
-		switcher.setOutAnimation(context, R.anim.fade_out_slide_out);
 		// Customize current tv with given parsed attrs
 		final MaterialTextView[] tvs = {getCurrent(), getNext()};
 		for (MaterialTextView tv : tvs) {

@@ -118,7 +118,7 @@ public class NextPrayDashboardCard extends DashboardCard {
                 targetTimeTextColor = ResMan.getColor(getContext(), R.color.whiteOpacity80);
                 break;
             case ISHA:
-                targetSurfaceColor = ResMan.getColor(getContext(), R.color.isha_bg);
+                targetSurfaceColor = ResMan.getColor(getContext(), R.color.color_isha_bg);
                 targetNameTextColor = ResMan.getColor(getContext(), R.color.yellow);
                 targetTimeTextColor = ResMan.getColor(getContext(), R.color.whiteOpacity80);
                 break;

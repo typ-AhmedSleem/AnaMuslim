@@ -137,5 +137,19 @@
     <color name="md_theme_dark_shadow">#000000</color>
     <color name="md_theme_dark_surfaceTint">#4DE16E</color>
     <color name="md_theme_dark_surfaceTintColor">#4DE16E</color>
+    <color name="darkGray">#aaa</color>
+
+    <color name="color_fajr_header">@color/material_dynamic_primary70</color>
+
+    <color name="color_asr_bg">@color/material_dynamic_primary90</color>
+    <color name="color_asr_header">@color/material_dynamic_secondary70</color>
+
+    <color name="color_dhuhr_sunrise_bg">@color/material_dynamic_primary70</color>
+    <color name="color_dhuhr_sunrise_header">@color/material_dynamic_primary20</color>
+    <color name="color_dhuhr_sunrise_highlight">@color/color_dhuhr_sunrise_header</color>
+
+    <color name="color_isha_bg">@color/material_dynamic_primary20</color>
+    <color name="color_maghrib_isha_header">@color/material_dynamic_primary60</color>
+    <color name="color_maghrib_isha_highlight">@color/material_dynamic_secondary50</color>
 
 </resources>

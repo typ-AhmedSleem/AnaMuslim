@@ -40,6 +40,7 @@
         android:id="@+id/btg_mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:checkedButton="@id/btn_tasbeeh_mode"
         app:layout_constraintTop_toBottomOf="@id/t1"
         app:selectionRequired="true"
         app:singleSelection="true">
@@ -49,6 +50,7 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:cornerRadius="10dp"
             android:layout_weight="0.5"
             android:text="@string/tasbeeh_mode"
             android:textAllCaps="false" />
@@ -59,6 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            app:cornerRadius="10dp"
             android:text="@string/free_mode"
             android:textAllCaps="false" />
 
@@ -79,6 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/t2"
+        app:checkedButton="@id/btn_66_times"
         app:selectionRequired="true"
         app:singleSelection="true">
 
@@ -88,6 +92,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
+            app:cornerRadius="10dp"
             android:text="33"
             android:textAllCaps="false"
             tools:ignore="HardcodedText" />
@@ -98,6 +103,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
+            app:cornerRadius="10dp"
             android:text="66"
             android:textAllCaps="false"
             tools:ignore="HardcodedText" />
@@ -106,6 +112,7 @@
             android:id="@+id/btn_99_times"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
+            app:cornerRadius="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:text="99"
@@ -117,6 +124,7 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:cornerRadius="10dp"
             android:layout_weight="0.40"
             android:text="@string/infinite"
             android:textAllCaps="false" />
@@ -136,7 +144,11 @@
     <com.typ.muslim.ui.views.SwitcherCard
         android:id="@+id/swc_volume_counter"
         android:layout_height="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/btn_stroke_color"
+        app:strokeWidth="0.75dp"
         android:layout_width="match_parent"
         app:layout_constraintTop_toBottomOf="@id/t3"
         app:swc_checked="true"
@@ -146,18 +158,38 @@
         android:id="@+id/swc_vibrate_on_tick"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/btn_stroke_color"
+        app:strokeWidth="0.75dp"
         app:layout_constraintTop_toBottomOf="@id/swc_volume_counter"
         app:swc_checked="true"
-        app:swc_text="@string/use_volume_counter" />
+        app:swc_text="@string/vibrate_on_tick" />
 
     <com.typ.muslim.ui.views.SwitcherCard
         android:id="@+id/swc_speak_tasbeeh"
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="50dp"
-        android:layout_marginTop="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/btn_stroke_color"
+        app:strokeWidth="0.75dp"
         app:layout_constraintTop_toBottomOf="@id/swc_vibrate_on_tick"
         app:swc_checked="true"
-        app:swc_text="@string/use_volume_counter" />
+        app:swc_text="@string/speak_next_tasbeeh" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_reset_tasbeeh_settings"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/reset_settings"
+        android:textAllCaps="false"
+        app:backgroundTint="@color/material_dynamic_primary50"
+        app:cornerRadius="5dp"
+        app:layout_constraintTop_toBottomOf="@id/swc_speak_tasbeeh" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

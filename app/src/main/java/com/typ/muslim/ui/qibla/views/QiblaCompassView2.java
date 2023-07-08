@@ -108,11 +108,11 @@ public class QiblaCompassView2 extends View implements SensorEventListener {
         float radius = Math.min(getHeight(), getWidth()) / 2.0f;
         // Draw base circle
         paint.setAntiAlias(true);
-        paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currAngle) ? R.color.green : R.color.isha_bg));
+        paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currAngle) ? R.color.green : R.color.color_isha_bg));
         paint.setStyle(Paint.Style.FILL);
         canvas.drawCircle(radius, radius, radius, paint);
         /* Draw indicator arrows */
-        paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currAngle) ? R.color.isha_bg : R.color.color_maghrib_isha_highlight));
+        paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currAngle) ? R.color.color_isha_bg : R.color.color_maghrib_isha_highlight));
         paint.setStrokeWidth(10f);
         paint.setStrokeCap(Paint.Cap.ROUND);
         paint.setStyle(Paint.Style.FILL);

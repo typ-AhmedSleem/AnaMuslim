@@ -23,11 +23,11 @@ class KhatmaConverters {
     fun exportWerd(werd: KhatmaWerd) = werd.export()
 
     @TypeConverter
-    fun importWerd(werd: String) {
-        werd.split(':').let { it ->
+    fun importWerd(werd: String): KhatmaWerd {
+        return werd.split(':').let { it ->
             val start = it[0].split(',').let { ayah -> QuranAyah(ayah[0].toInt(), ayah[1].toInt()) }
             val end = it[1].split(',').let { ayah -> QuranAyah(ayah[0].toInt(), ayah[1].toInt()) }
-            return@let KhatmaWerd(start, end)
+            KhatmaWerd(start, end)
         }
     }
 

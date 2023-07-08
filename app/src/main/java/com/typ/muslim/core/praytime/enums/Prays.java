@@ -40,7 +40,7 @@ public enum Prays {
     public int getSurfaceColorRes() {
         switch (this) {
             case FAJR:
-                return Timestamp.NOW().getHour() < 23 ? R.color.isha_bg : R.color.color_fajr_header;
+                return Timestamp.NOW().getHour() < 23 ? R.color.color_isha_bg : R.color.color_fajr_header;
             case SUNRISE:
                 return R.color.color_dhuhr_sunrise_highlight;
             case DHUHR:
@@ -50,7 +50,7 @@ public enum Prays {
             case MAGHRIB:
                 return R.color.color_maghrib_isha_header;
             default:
-                return R.color.isha_bg;
+                return R.color.color_isha_bg;
         }
     }
 

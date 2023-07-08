@@ -453,5 +453,8 @@
     <string name="free_mode">Free mode</string>
     <string name="other">Other</string>
     <string name="accessibility">Accessibility</string>
+    <string name="vibrate_on_tick">Vibrate on tick</string>
+    <string name="speak_next_tasbeeh">Speak next tasbeeh</string>
+    <string name="reset_settings">Reset settings</string>
 
 </resources>

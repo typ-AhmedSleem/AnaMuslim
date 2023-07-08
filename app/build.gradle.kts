@@ -49,7 +49,7 @@ android {
     }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/{*}"
         }
     }
 }
@@ -158,6 +158,7 @@ dependencies {
     implementation("com.crowdfire.cfalertdialog:cfalertdialog:1.1.0")
     implementation("com.github.kapil93:circular-layout-manager:2.0.0")
     implementation("com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar")
+    implementation ("com.amitshekhar.android:android-networking:1.0.2")
     implementation("com.amulyakhare:com.amulyakhare.textdrawable:1.0.1")
     implementation("com.diogobernardino.williamchart:tooltip-slider:3.11.0")
     implementation("com.diogobernardino.williamchart:tooltip-points:3.11.0")

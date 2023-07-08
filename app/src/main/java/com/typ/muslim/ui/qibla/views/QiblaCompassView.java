@@ -110,7 +110,7 @@ public class QiblaCompassView extends View implements SensorEventListener {
         float radius = Math.min(getHeight(), getWidth()) / 2.0f;
         // Draw base circle
         paint.setAntiAlias(true);
-        paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currQiblaAngle) ? R.color.green : R.color.isha_bg));
+        paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currQiblaAngle) ? R.color.green : R.color.color_isha_bg));
         paint.setStyle(Paint.Style.FILL);
 //        if (currMode == LIVE_COMPASS) {
 //            // Live compass
@@ -120,7 +120,7 @@ public class QiblaCompassView extends View implements SensorEventListener {
 //        } else
         canvas.drawCircle(radius, radius, radius, paint); // Normal 2D.
         /* Draw indicator arrows */
-        paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currQiblaAngle) ? R.color.isha_bg : R.color.color_maghrib_isha_highlight));
+        paint.setColor(ResMan.getColor(getContext(), isArrowBearingToZero(this.currQiblaAngle) ? R.color.color_isha_bg : R.color.color_maghrib_isha_highlight));
         paint.setStrokeWidth(15f);
         paint.setStrokeCap(Paint.Cap.ROUND);
         paint.setStyle(Paint.Style.FILL);

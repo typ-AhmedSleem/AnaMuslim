@@ -1,14 +1,14 @@
 package com.typ.muslim.ui.views
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import com.bitvale.switcher.SwitcherX
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
 import com.typ.muslim.R
-import com.typ.muslim.managers.ResMan
 
+@SuppressLint("ResourceType")
 class SwitcherCard @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -25,10 +25,6 @@ class SwitcherCard @JvmOverloads constructor(
 
     init {
         // Init card
-        radius = 40f
-        strokeWidth = 1
-        strokeColor = ResMan.getColor(context, R.color.btn_stroke_color)
-        setCardBackgroundColor(Color.TRANSPARENT)
         setOnClickListener { toggleCheck() }
         // Init components
         inflate(context, R.layout.layout_switcher_card, this)
@@ -36,12 +32,20 @@ class SwitcherCard @JvmOverloads constructor(
         tvText = findViewById(R.id.tv_swc_text)
         // Parse attrs (if specified)
         if (attrs != null) {
-            val ta = context.obtainStyledAttributes(attrs, R.styleable.SwitcherCard)
-            val text = ta.getString(R.styleable.SwitcherCard_swc_text)
-            val checked = ta.getBoolean(R.styleable.SwitcherCard_swc_checked, false)
-            if (text != null) setText(text)
-            check(checked)
-            ta.recycle()
+            context.obtainStyledAttributes(attrs, R.styleable.SwitcherCard).apply {
+                val text = getString(R.styleable.SwitcherCard_swc_text)
+                val checked = getBoolean(R.styleable.SwitcherCard_swc_checked, false)
+//                val bgColor = getDimension(androidx.cardview.R.styleable.CardView_cardCornerRadius, 20f)
+//                val cornerRad = getDimension(androidx.cardview.R.styleable.CardView_cardCornerRadius, 20f)
+//                val strokeW = getDimension(androidx.cardview.R.styleable.CardView_cardCornerRadius, 20f)
+//                val strokeC = getColor(com.google.android.material.R.attr.strokeColor, (R.color.btn_stroke_color).toColor(context))
+
+                if (text != null) setText(text)
+                check(checked)
+
+
+                recycle()
+            }
         }
     }
 
