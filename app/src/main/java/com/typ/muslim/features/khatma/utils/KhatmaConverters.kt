@@ -24,10 +24,10 @@ class KhatmaConverters {
 
     @TypeConverter
     fun importWerd(werd: String) {
-        return werd.split(':').let { werd ->
-            val start = werd[0].split(',').let { ayah -> QuranAyah(ayah[0].toInt(), ayah[1].toInt()) }
-            val end = werd[1].split(',').let { ayah -> QuranAyah(ayah[0].toInt(), ayah[1].toInt()) }
-            KhatmaWerd(start, end)
+        werd.split(':').let { it ->
+            val start = it[0].split(',').let { ayah -> QuranAyah(ayah[0].toInt(), ayah[1].toInt()) }
+            val end = it[1].split(',').let { ayah -> QuranAyah(ayah[0].toInt(), ayah[1].toInt()) }
+            return@let KhatmaWerd(start, end)
         }
     }
 
