@@ -27,10 +27,10 @@ class TasbeehSettingsBottomSheet(
 
     init {
         bs.apply {
-            // Init BottomSheet
+
             setContentView(R.layout.bs_tasbeeh_options)
             behavior.isFitToContents = true
-            // Init views
+
             btgMode = findViewById<MaterialButtonToggleGroup>(R.id.btg_mode)?.apply {
                 check(
                     when (config.mode) {
@@ -42,13 +42,28 @@ class TasbeehSettingsBottomSheet(
             btgCounter = findViewById<MaterialButtonToggleGroup>(R.id.btg_counter)?.apply {
                 check(
                     when (config.times) {
-                        33 -> R.id.btn_33_times
                         66 -> R.id.btn_66_times
                         99 -> R.id.btn_99_times
-                        else -> R.id.btn_inf_times
+                        else -> R.id.btn_33_times
                     }
                 )
             }!!
+
+            // Create mode change listener
+            val modeChangeListener = MaterialButtonToggleGroup.OnButtonCheckedListener { btg, id, checked ->
+                if (id == R.id.btn_tasbeeh_mode && checked) {
+                    // Tasbeeh mode can't work with INFINITE counter
+                    btgCounter.check(R.id.btn_33_times)
+                    btgCounter.animate().alpha(0f).scaleX(0f).setDuration(250).withEndAction {
+
+                    }.start()
+                } else if (id == R.id.btn_free_mode && checked) {
+                    btgCounter.animate().alpha(1f).scaleX(1f).setDuration(250).withStartAction {
+
+                    }.start()
+                }
+            }
+            btgMode.addOnButtonCheckedListener(modeChangeListener)
 
             swcUseVolumeCounter = findViewById<SwitcherCard>(R.id.swc_volume_counter)?.apply {
                 check(config.isVolumeCounterEnabled)
@@ -62,7 +77,7 @@ class TasbeehSettingsBottomSheet(
 
             findViewById<MaterialButton>(R.id.btn_reset_tasbeeh_settings)?.setOnClickListener {
                 btgMode.check(R.id.btn_tasbeeh_mode)
-                btgCounter.check(R.id.btn_66_times)
+                btgCounter.check(R.id.btn_33_times)
                 swcUseVolumeCounter.check(true)
                 swcVibrateOnCount.check(true)
                 swcSpeakTasbeeh.check(true)
@@ -70,21 +85,23 @@ class TasbeehSettingsBottomSheet(
             findViewById<MaterialButton>(R.id.btn_apply_tasbeeh_settings)?.setOnClickListener {
                 callback.onResult(
                     TasbeehConfig(
+                        mode = when (btgMode.checkedButtonId) {
+                            R.id.btn_free_mode -> TasbeehMode.FREE_MODE
+                            else -> TasbeehMode.TASBEEH_MODE
+                        },
+                        tasbeehat = emptyArray(),
                         times = when (btgCounter.checkedButtonId) {
                             R.id.btn_33_times -> TasbeehTimes.TIMES_33.howMany
                             R.id.btn_66_times -> TasbeehTimes.TIMES_66.howMany
                             R.id.btn_99_times -> TasbeehTimes.TIMES_99.howMany
                             else -> TasbeehTimes.TIMES_INFINITE.howMany
                         },
-                        mode = when (btgMode.checkedButtonId) {
-                            R.id.btn_free_mode -> TasbeehMode.FREE_MODE
-                            else -> TasbeehMode.TASBEEH_MODE
-                        },
                         isVibrationEnabled = swcVibrateOnCount.isOn,
                         isVolumeCounterEnabled = swcUseVolumeCounter.isOn,
                         isSpeakTasbeehOnFlipEnabled = swcSpeakTasbeeh.isOn
                     )
                 )
+                btgMode.removeOnButtonCheckedListener(modeChangeListener)
                 cancel()
             }
         }

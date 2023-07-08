@@ -40,7 +40,10 @@ object TasbeehManager {
             isVibrationEnabled = PrefManager.get(ctx, Keys.TasbeehIsVibrationEnabled, true),
             isVolumeCounterEnabled = PrefManager.get(ctx, Keys.TasbeehIsVolumeCounterEnabled, true),
             mode = TasbeehMode.valueOf(PrefManager.get(ctx, Keys.TasbeehMode, TasbeehMode.TASBEEH_MODE.name)),
-            isSpeakTasbeehOnFlipEnabled = PrefManager.get(ctx, Keys.TasbeehIsSpeakOnFlipEnabled, true)
+            isSpeakTasbeehOnFlipEnabled = PrefManager.get(ctx, Keys.TasbeehIsSpeakOnFlipEnabled, true),
+            tasbeehat = arrayOf(
+                TODO()
+            )
         )
     }
 

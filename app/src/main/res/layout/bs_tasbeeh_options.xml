@@ -40,6 +40,7 @@
         android:id="@+id/btg_mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:checkedButton="@id/btn_tasbeeh_mode"
         app:layout_constraintTop_toBottomOf="@id/t1"
         app:selectionRequired="true"
         app:singleSelection="true">
@@ -80,6 +81,7 @@
         android:id="@+id/btg_counter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:checkedButton="@id/btn_33_times"
         app:layout_constraintTop_toBottomOf="@id/t2"
         app:selectionRequired="true"
         app:singleSelection="true">
@@ -89,7 +91,7 @@
             style="@style/ToggleOutlinedButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="0.33"
             app:cornerRadius="10dp"
             android:text="33"
             android:textAllCaps="false"
@@ -100,7 +102,7 @@
             style="@style/ToggleOutlinedButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="0.33"
             app:cornerRadius="10dp"
             android:text="66"
             android:textAllCaps="false"
@@ -112,20 +114,10 @@
             android:layout_width="0dp"
             app:cornerRadius="10dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="0.33"
             android:text="99"
             android:textAllCaps="false"
             tools:ignore="HardcodedText" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_inf_times"
-            style="@style/ToggleOutlinedButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:cornerRadius="10dp"
-            android:layout_weight="0.40"
-            android:text="@string/infinite"
-            android:textAllCaps="false" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 

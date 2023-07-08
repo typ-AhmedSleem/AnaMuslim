@@ -20,6 +20,7 @@ import com.typ.muslim.features.tasbeeh.TasbeehManager
 import com.typ.muslim.features.tasbeeh.enums.TasbeehMode
 import com.typ.muslim.features.tasbeeh.models.TasbeehConfig
 import com.typ.muslim.features.tasbeeh.models.TasbeehItem
+import com.typ.muslim.managers.AManager
 import com.typ.muslim.ui.home.DashboardCard
 import com.typ.muslim.utils.toLocaleString
 
@@ -35,7 +36,7 @@ class TasbeehDashboardCard : DashboardCard {
     private var ticksMade: Int = 0
     private val config: TasbeehConfig
     private var lastTickTime: Long = 0
-    private var tasbeehat: Array<TasbeehItem>
+    private var tasbeehat: List<TasbeehItem>
     private lateinit var tickPlayer: MediaPlayer
 
     // UI
@@ -52,6 +53,7 @@ class TasbeehDashboardCard : DashboardCard {
             TasbeehConfig(
                 times = 33,
                 mode = TasbeehMode.TASBEEH_MODE,
+                tasbeehat = emptyArray(),
                 isVibrationEnabled = true,
                 isVolumeCounterEnabled = true,
                 isSpeakTasbeehOnFlipEnabled = true
@@ -63,27 +65,31 @@ class TasbeehDashboardCard : DashboardCard {
         // Create tick player instance
         if (!isInEditMode) tickPlayer = MediaPlayer.create(context, R.raw.sound_tick)
         // Get default tasbeehat
-        tasbeehat = TasbeehManager.getDefaultTasbeehat(context)
+        tasbeehat = emptyList()
     }
 
     override fun prepareCardView(context: Context) {
-        strokeWidth = 0
         inflate(R.layout.layout_tasbeeh_card)
         tvContent = findViewById(R.id.tv_tasbeeh_content)
         pwCounter = findViewById(R.id.pw_tasbeeh_count)
+
+        setOnClickListener(this)
+        setOnLongClickListener(this)
     }
 
     override fun refreshUI() {
         if (isInEditMode) return
+        if (currIdx >= tasbeehat.size) currIdx = 0
         tvContent.text = tasbeehat[currIdx].content
         pwCounter.setStepCountText(ticksMade.toLocaleString(context))
-        pwCounter.setPercentage(((ticksMade / config.times.toFloat()).coerceIn(0.0f, 1.0f) * 360).toInt())
+        if (config.mode == TasbeehMode.FREE_MODE) pwCounter.setPercentage(360)
+        else pwCounter.setPercentage(((ticksMade / config.times.toFloat()).coerceIn(0.0f, 1.0f) * 360).toInt())
     }
 
     override fun reset() {
         // Reset runtime
         config.update(TasbeehManager.loadConfig(context))
-        tasbeehat = TasbeehManager.getDefaultTasbeehat(context)
+        tasbeehat = emptyList()
         // Refresh UI
         refreshUI()
     }
@@ -106,6 +112,7 @@ class TasbeehDashboardCard : DashboardCard {
                     // Current item has finished
                     if (currIdx >= tasbeehat.size) currIdx = 0
                     else currIdx++
+                    ticksMade = 0
                     doFlipEffects()
                 } else {
                     // Current item still not completed
@@ -163,6 +170,7 @@ class TasbeehDashboardCard : DashboardCard {
                 }
                 update(config)
                 TasbeehManager.saveConfig(context, this)
+                AManager.log("TasbeehDashCard", "Saved config: ${this}")
             }
             refreshUI()
         }
