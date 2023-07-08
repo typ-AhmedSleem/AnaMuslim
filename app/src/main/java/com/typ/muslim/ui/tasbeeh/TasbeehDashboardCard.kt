@@ -35,8 +35,8 @@ class TasbeehDashboardCard : DashboardCard {
     private var ticksMade: Int = 0
     private val config: TasbeehConfig
     private var lastTickTime: Long = 0
-    private val tickPlayer: MediaPlayer
     private var tasbeehat: Array<TasbeehItem>
+    private lateinit var tickPlayer: MediaPlayer
 
     // UI
     private lateinit var tvContent: MaterialTextView
@@ -61,12 +61,13 @@ class TasbeehDashboardCard : DashboardCard {
         tickVibEffect = VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK)
         flipVibEffect = VibrationEffect.createWaveform(longArrayOf(50, 50, 50, 50), -1)
         // Create tick player instance
-        tickPlayer = MediaPlayer.create(context, R.raw.sound_tick)
+        if (!isInEditMode) tickPlayer = MediaPlayer.create(context, R.raw.sound_tick)
         // Get default tasbeehat
         tasbeehat = TasbeehManager.getDefaultTasbeehat(context)
     }
 
     override fun prepareCardView(context: Context) {
+        strokeWidth = 0
         inflate(R.layout.layout_tasbeeh_card)
         tvContent = findViewById(R.id.tv_tasbeeh_content)
         pwCounter = findViewById(R.id.pw_tasbeeh_count)
@@ -151,7 +152,21 @@ class TasbeehDashboardCard : DashboardCard {
     override fun onClick(v: View?) = this.plusOne()
 
     override fun onLongClick(v: View?): Boolean {
-        TODO("Show TasbeehOptionsBottomSheet")
+        val bs = TasbeehSettingsBottomSheet(
+            context,
+            config
+        ) { config ->
+            this@TasbeehDashboardCard.config.apply {
+                if (config.mode != this.mode) {
+                    currIdx = 0
+                    ticksMade = 0
+                }
+                update(config)
+                TasbeehManager.saveConfig(context, this)
+            }
+            refreshUI()
+        }
+        bs.show()
         return true
     }
 

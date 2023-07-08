@@ -27,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
+        app:switcher_on_color="@color/material_dynamic_primary40"
         android:checked="false"
         app:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

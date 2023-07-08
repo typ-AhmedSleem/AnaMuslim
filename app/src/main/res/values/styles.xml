@@ -28,4 +28,12 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <style name="ToggleOutlinedButtonStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconTint">@color/toggle_btn_text_color_selector</item>
+        <item name="backgroundTint">@color/toggle_btn_bg_color_selector</item>
+        <item name="rippleColor">@color/toggle_btn_ripple_color_selector</item>
+        <item name="strokeColor">@color/toggle_btn_stroke_color_selector</item>
+        <item name="android:textColor">@color/toggle_btn_text_color_selector</item>
+    </style>
+
 </resources>

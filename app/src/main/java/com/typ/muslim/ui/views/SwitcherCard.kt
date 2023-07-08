@@ -35,11 +35,6 @@ class SwitcherCard @JvmOverloads constructor(
             context.obtainStyledAttributes(attrs, R.styleable.SwitcherCard).apply {
                 val text = getString(R.styleable.SwitcherCard_swc_text)
                 val checked = getBoolean(R.styleable.SwitcherCard_swc_checked, false)
-//                val bgColor = getDimension(androidx.cardview.R.styleable.CardView_cardCornerRadius, 20f)
-//                val cornerRad = getDimension(androidx.cardview.R.styleable.CardView_cardCornerRadius, 20f)
-//                val strokeW = getDimension(androidx.cardview.R.styleable.CardView_cardCornerRadius, 20f)
-//                val strokeC = getColor(com.google.android.material.R.attr.strokeColor, (R.color.btn_stroke_color).toColor(context))
-
                 if (text != null) setText(text)
                 check(checked)
 
