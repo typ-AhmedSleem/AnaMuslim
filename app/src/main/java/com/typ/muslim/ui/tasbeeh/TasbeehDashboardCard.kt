@@ -19,12 +19,11 @@ import com.typ.muslim.R
 import com.typ.muslim.features.tasbeeh.TasbeehManager
 import com.typ.muslim.features.tasbeeh.enums.TasbeehMode
 import com.typ.muslim.features.tasbeeh.models.TasbeehConfig
-import com.typ.muslim.features.tasbeeh.models.TasbeehItem
-import com.typ.muslim.managers.AManager
 import com.typ.muslim.ui.home.DashboardCard
 import com.typ.muslim.utils.toLocaleString
 
 @SuppressLint("NewApi")
+@Suppress("DEPRECATION")
 class TasbeehDashboardCard : DashboardCard {
 
     // Constants
@@ -36,7 +35,6 @@ class TasbeehDashboardCard : DashboardCard {
     private var ticksMade: Int = 0
     private val config: TasbeehConfig
     private var lastTickTime: Long = 0
-    private var tasbeehat: List<TasbeehItem>
     private lateinit var tickPlayer: MediaPlayer
 
     // UI
@@ -60,12 +58,10 @@ class TasbeehDashboardCard : DashboardCard {
             )
         } else TasbeehManager.loadConfig(context)
         // Create VibrationEffects
-        tickVibEffect = VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK)
+        tickVibEffect = VibrationEffect.createPredefined(VibrationEffect.EFFECT_CLICK)
         flipVibEffect = VibrationEffect.createWaveform(longArrayOf(50, 50, 50, 50), -1)
         // Create tick player instance
         if (!isInEditMode) tickPlayer = MediaPlayer.create(context, R.raw.sound_tick)
-        // Get default tasbeehat
-        tasbeehat = emptyList()
     }
 
     override fun prepareCardView(context: Context) {
@@ -79,22 +75,21 @@ class TasbeehDashboardCard : DashboardCard {
 
     override fun refreshUI() {
         if (isInEditMode) return
-        if (currIdx >= tasbeehat.size) currIdx = 0
-        tvContent.text = tasbeehat[currIdx].content
+        if (currIdx >= config.tasbeehat.size) currIdx = 0
+        tvContent.text = config.tasbeehat[currIdx].content
         pwCounter.setStepCountText(ticksMade.toLocaleString(context))
         if (config.mode == TasbeehMode.FREE_MODE) pwCounter.setPercentage(360)
         else pwCounter.setPercentage(((ticksMade / config.times.toFloat()).coerceIn(0.0f, 1.0f) * 360).toInt())
     }
 
     override fun reset() {
-        // Reset runtime
+        // Reset config
         config.update(TasbeehManager.loadConfig(context))
-        tasbeehat = emptyList()
         // Refresh UI
         refreshUI()
     }
 
-    fun handleKeyEvent(keyCode: Int, event: KeyEvent?): Boolean {
+    fun handleKeyEvent(keyCode: Int): Boolean {
         // Increase if VolumeCounter is enabled and any of volume buttons is clicked
         if (config.isVolumeCounterEnabled && (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP)) {
             this.plusOne()
@@ -110,7 +105,7 @@ class TasbeehDashboardCard : DashboardCard {
             if (config.mode == TasbeehMode.TASBEEH_MODE) {
                 if (ticksMade >= config.times) {
                     // Current item has finished
-                    if (currIdx >= tasbeehat.size) currIdx = 0
+                    if (currIdx >= config.tasbeehat.size) currIdx = 0
                     else currIdx++
                     ticksMade = 0
                     doFlipEffects()
@@ -164,13 +159,13 @@ class TasbeehDashboardCard : DashboardCard {
             config
         ) { config ->
             this@TasbeehDashboardCard.config.apply {
-                if (config.mode != this.mode) {
+                if (config.mode != this.mode || config.tasbeehat.size != tasbeehat.size) {
                     currIdx = 0
                     ticksMade = 0
                 }
+                if (config.times < ticksMade) ticksMade = config.times
                 update(config)
                 TasbeehManager.saveConfig(context, this)
-                AManager.log("TasbeehDashCard", "Saved config: ${this}")
             }
             refreshUI()
         }
@@ -178,7 +173,7 @@ class TasbeehDashboardCard : DashboardCard {
         return true
     }
 
-    override fun toString() = "TasbeehDashboardCard"
+    override fun toString() = "TasbeehDashCard"
 
     companion object {
         private const val WARMUP_MILLIS = 50L

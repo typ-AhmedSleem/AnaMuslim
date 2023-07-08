@@ -8,7 +8,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BottomSheets"
+    android:id="@+id/container"
     android:layout_width="match_parent"
+    android:animateLayoutChanges="false"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="15dp">
@@ -17,9 +19,8 @@
         android:id="@+id/tt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/tasbeeh_settings"
         android:gravity="center"
+        android:text="@string/tasbeeh_settings"
         android:textColor="@color/material_dynamic_primary30"
         android:textSize="17sp"
         android:textStyle="bold"
@@ -27,10 +28,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:layout_width="match_parent"
         android:id="@+id/t1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:textStyle="bold"
         android:text="@string/mode"
         android:textAlignment="viewStart"
         android:textSize="12sp"
@@ -39,7 +40,7 @@
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/btg_mode"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         app:checkedButton="@id/btn_tasbeeh_mode"
         app:layout_constraintTop_toBottomOf="@id/t1"
         app:selectionRequired="true"
@@ -49,21 +50,23 @@
             android:id="@+id/btn_tasbeeh_mode"
             style="@style/ToggleOutlinedButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:cornerRadius="10dp"
+            android:layout_height="match_parent"
             android:layout_weight="0.5"
+            android:fontFamily="@font/cairo_regular"
             android:text="@string/tasbeeh_mode"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            app:cornerRadius="10dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_free_mode"
             style="@style/ToggleOutlinedButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/cairo_regular"
             android:layout_weight="0.5"
-            app:cornerRadius="10dp"
             android:text="@string/free_mode"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            app:cornerRadius="10dp" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -71,6 +74,7 @@
         android:id="@+id/t2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:text="@string/counter"
         android:textAlignment="viewStart"
@@ -80,7 +84,7 @@
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/btg_counter"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         app:checkedButton="@id/btn_33_times"
         app:layout_constraintTop_toBottomOf="@id/t2"
         app:selectionRequired="true"
@@ -90,57 +94,139 @@
             android:id="@+id/btn_33_times"
             style="@style/ToggleOutlinedButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/cairo_regular"
             android:layout_weight="0.33"
-            app:cornerRadius="10dp"
-            android:text="33"
+            android:text="@string/_33_times"
             android:textAllCaps="false"
+            app:cornerRadius="10dp"
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_66_times"
             style="@style/ToggleOutlinedButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/cairo_regular"
             android:layout_weight="0.33"
-            app:cornerRadius="10dp"
-            android:text="66"
+            android:text="@string/_66_times"
             android:textAllCaps="false"
+            app:cornerRadius="10dp"
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_99_times"
             style="@style/ToggleOutlinedButtonStyle"
             android:layout_width="0dp"
-            app:cornerRadius="10dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="0.33"
-            android:text="99"
+            android:fontFamily="@font/cairo_regular"
+            android:text="@string/_99_times"
             android:textAllCaps="false"
+            app:cornerRadius="10dp"
             tools:ignore="HardcodedText" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <com.google.android.material.textview.MaterialTextView
-        android:layout_width="match_parent"
         android:id="@+id/t3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/items"
+        android:textAlignment="viewStart"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btg_counter" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/btg_tasbeehat"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:layout_constraintTop_toBottomOf="@id/t3"
+        app:selectionRequired="true"
+        app:singleSelection="false">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_item1"
+            style="@style/ToggleOutlinedButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:fontFamily="@font/cairo_regular"
+            android:text="@string/daily_tasbeeh_1"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_item2"
+            style="@style/ToggleOutlinedButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.23"
+            android:fontFamily="@font/cairo_regular"
+            android:text="@string/daily_tasbeeh_2"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_item3"
+            style="@style/ToggleOutlinedButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.22"
+            android:fontFamily="@font/cairo_regular"
+            android:text="@string/daily_tasbeeh_3"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_item4"
+            style="@style/ToggleOutlinedButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:fontFamily="@font/cairo_regular"
+            android:maxLength="15"
+            android:text="@string/daily_tasbeeh_4"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            tools:ignore="HardcodedText" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:textStyle="bold"
         android:text="@string/accessibility"
         android:textAlignment="viewStart"
         android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@id/btg_counter" />
+        app:layout_constraintTop_toBottomOf="@id/btg_tasbeehat" />
 
     <com.typ.muslim.ui.views.SwitcherCard
         android:id="@+id/swc_volume_counter"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
+        app:layout_constraintTop_toBottomOf="@id/t4"
         app:strokeColor="@color/toggle_btn_stroke_color_selector"
         app:strokeWidth="0.75dp"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/t3"
         app:swc_checked="true"
         app:swc_text="@string/use_volume_counter" />
 
@@ -151,22 +237,22 @@
         android:layout_marginTop="10dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
+        app:layout_constraintTop_toBottomOf="@id/swc_volume_counter"
         app:strokeColor="@color/toggle_btn_stroke_color_selector"
         app:strokeWidth="0.75dp"
-        app:layout_constraintTop_toBottomOf="@id/swc_volume_counter"
         app:swc_checked="true"
         app:swc_text="@string/vibrate_on_tick" />
 
     <com.typ.muslim.ui.views.SwitcherCard
         android:id="@+id/swc_speak_tasbeeh"
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
+        app:layout_constraintTop_toBottomOf="@id/swc_vibrate_on_tick"
         app:strokeColor="@color/toggle_btn_stroke_color_selector"
         app:strokeWidth="0.75dp"
-        app:layout_constraintTop_toBottomOf="@id/swc_vibrate_on_tick"
         app:swc_checked="true"
         app:swc_text="@string/speak_next_tasbeeh" />
 
@@ -185,6 +271,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/cairo_regular"
         android:text="@string/reset_settings"
         android:textAllCaps="false"
         app:cornerRadius="10dp"
@@ -198,6 +285,7 @@
         android:text="@string/apply_settings"
         android:textAllCaps="false"
         android:textColor="@color/material_dynamic_primary95"
+        android:fontFamily="@font/cairo_regular"
         app:cornerRadius="10dp"
         app:layout_constraintTop_toBottomOf="@id/btn_reset_tasbeeh_settings" />
 

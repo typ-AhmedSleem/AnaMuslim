@@ -64,6 +64,7 @@ public class Keys {
 	// Keys used by modules/Tasbeeh
 	public static final String TasbeehMode = "TasbeehMode";
 	public static final String TasbeehTimes = "TasbeehTimes";
+	public static final String TasbeehItems = "TasbeehItems";
 	public static final String TasbeehIsVibrationEnabled = "TasbeehIsVibrationEnabled";
 	public static final String TasbeehIsVolumeCounterEnabled = "TasbeehIsVolumeCounterEnabled";
 	public static final String TasbeehIsSpeakOnFlipEnabled = "TasbeehIsSpeakOnFlipEnabled";

@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        boolean isHandled = ((TasbeehDashboardCard) cards.get(3)).handleKeyEvent(keyCode, event);
+        boolean isHandled = ((TasbeehDashboardCard) cards.get(3)).handleKeyEvent(keyCode);
         return isHandled || super.onKeyDown(keyCode, event);
     }
 
