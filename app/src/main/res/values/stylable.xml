@@ -106,4 +106,9 @@
         <attr name="android:text" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="SwitcherCard">
+        <attr name="swc_text" format="string" />
+        <attr name="swc_checked" format="boolean" />
+    </declare-styleable>
+
 </resources>

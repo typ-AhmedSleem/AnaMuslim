@@ -276,7 +276,7 @@
     <string name="hijri_calendar">التقويم الهجري</string>
     <string name="upcoming_islamic_events">الاحداث الاسلامية القادمه</string>
     <string name="reset_tasbeeh">تصفير المسبحه</string>
-    <string name="use_volume_buttons">استخدام ازرار الصوت للتسبيح</string>
+    <string name="use_volume_counter">استخدام ازرار الصوت للتسبيح</string>
     <string name="change_tasbeeh_target">تغيير العداد</string>
     <string name="_33_times">33 مره</string>
     <string name="_66_times">66 مره</string>
@@ -446,5 +446,12 @@
     <string name="daily_tasbeeh_2">الحمدلله</string>
     <string name="daily_tasbeeh_3">الله أكبر</string>
     <string name="daily_tasbeeh_4">لا اله الا الله وحده لا شريك له.. له الملك وله الحمد وهو علي كل شئ قدير</string>
+    <string name="tasbeeh_settings">Tasbeeh Settings</string>
+    <string name="mode">Mode</string>
+    <string name="counter">Counter</string>
+    <string name="tasbeeh_mode">Tasbeeh mode</string>
+    <string name="free_mode">Free mode</string>
+    <string name="other">Other</string>
+    <string name="accessibility">Accessibility</string>
 
 </resources>

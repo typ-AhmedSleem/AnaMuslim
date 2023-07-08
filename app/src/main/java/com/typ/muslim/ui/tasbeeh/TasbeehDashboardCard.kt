@@ -34,6 +34,7 @@ class TasbeehDashboardCard : DashboardCard {
     private var currIdx: Int = 0
     private var ticksMade: Int = 0
     private val config: TasbeehConfig
+    private var lastTickTime: Long = 0
     private val tickPlayer: MediaPlayer
     private var tasbeehat: Array<TasbeehItem>
 
@@ -96,7 +97,29 @@ class TasbeehDashboardCard : DashboardCard {
     }
 
     private fun plusOne() {
-
+        // Check warmup duration exceeded
+        if (System.currentTimeMillis() - lastTickTime > WARMUP_MILLIS) {
+            // Do plusOne logic
+            if (config.mode == TasbeehMode.TASBEEH_MODE) {
+                if (ticksMade >= config.times) {
+                    // Current item has finished
+                    if (currIdx >= tasbeehat.size) currIdx = 0
+                    else currIdx++
+                    doFlipEffects()
+                } else {
+                    // Current item still not completed
+                    ticksMade++
+                    doTickEffects()
+                }
+                refreshUI()
+            } else {
+                ticksMade++
+                doTickEffects()
+                pwCounter.setStepCountText(ticksMade.toLocaleString(context))
+            }
+            // Save lastTickTime
+            lastTickTime = System.currentTimeMillis()
+        }
     }
 
     private fun doTickEffects() {
@@ -115,8 +138,8 @@ class TasbeehDashboardCard : DashboardCard {
     }
 
     private fun doFlipEffects() {
-        // Play the sound of next tasbeeh name and do a long haptic feedback
         try {
+            // Play the sound of next tasbeeh
             // fixme: replace with next tasbeeh name sound file resId}
             MediaPlayer.create(context, R.raw.sound_flip).start()
         } catch (_: Throwable) {
@@ -133,4 +156,9 @@ class TasbeehDashboardCard : DashboardCard {
     }
 
     override fun toString() = "TasbeehDashboardCard"
+
+    companion object {
+        private const val WARMUP_MILLIS = 50L
+    }
+
 }
