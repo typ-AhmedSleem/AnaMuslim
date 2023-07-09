@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.features.calendar.HijriCalendar;
-import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.models.Period;
 import com.typ.muslim.models.PrayTimes;
 import com.typ.muslim.models.Timestamp;

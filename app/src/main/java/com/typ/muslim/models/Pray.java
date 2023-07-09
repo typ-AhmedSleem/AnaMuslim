@@ -8,7 +8,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
 import com.typ.muslim.app.AnaMuslimApp;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.ResMan;

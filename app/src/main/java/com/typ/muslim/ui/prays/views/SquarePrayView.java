@@ -4,7 +4,7 @@
  * Copyright (c) 2021.  TYP INC. All Rights Reserved
  */
 
-package com.typ.muslim.ui;
+package com.typ.muslim.ui.prays.views;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -21,6 +21,7 @@ import com.typ.muslim.R;
 import com.typ.muslim.interfaces.PrayTimeCameListener;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.Timestamp;
+import com.typ.muslim.ui.ViewContainer;
 
 import org.jetbrains.annotations.NotNull;
 

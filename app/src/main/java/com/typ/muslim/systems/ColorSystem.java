@@ -15,7 +15,7 @@ import androidx.annotation.ColorRes;
 
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.interfaces.ThemeChangeObserver;
 import com.typ.muslim.managers.PrefManager;
 import com.typ.muslim.managers.ResMan;

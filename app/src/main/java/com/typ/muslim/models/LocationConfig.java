@@ -9,9 +9,9 @@ package com.typ.muslim.models;
 import android.os.Bundle;
 
 import com.typ.muslim.app.Extras;
-import com.typ.muslim.core.praytime.enums.AsrMethod;
-import com.typ.muslim.core.praytime.enums.CalculationMethod;
-import com.typ.muslim.core.praytime.enums.HigherLatitudesMethod;
+import com.typ.muslim.features.prays.enums.AsrMethod;
+import com.typ.muslim.features.prays.enums.CalculationMethod;
+import com.typ.muslim.features.prays.enums.HigherLatitudesMethod;
 
 import org.jetbrains.annotations.NotNull;
 

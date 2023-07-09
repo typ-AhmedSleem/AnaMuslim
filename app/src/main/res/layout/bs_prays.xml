@@ -25,7 +25,7 @@
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.typ.muslim.ui.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.VerticalPrayView
         android:id="@+id/fajrPIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         app:pivPray="FAJR"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.VerticalPrayView
         android:id="@+id/sunrisePIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
         app:pivPray="SUNRISE"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.VerticalPrayView
         android:id="@+id/dhuhrPIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         app:pivPray="DHUHR"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.VerticalPrayView
         android:id="@+id/asrPIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         app:pivPray="ASR"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.VerticalPrayView
         android:id="@+id/maghribPIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         app:pivPray="MAGHRIB"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.VerticalPrayView
         android:id="@+id/ishaPIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -460,5 +460,8 @@
     <string name="save_settings">حفظ الاعدادات</string>
     <string name="apply_settings">تطبيق الاعدادات</string>
     <string name="items">العناصر</string>
+    <string name="hh_mm_aa">سس دد تت</string>
+    <string name="dummy_hh_mm_aa">07:49 am</string>
+    <string name="at">في</string>
 
 </resources>

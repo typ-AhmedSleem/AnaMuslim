@@ -4,107 +4,91 @@
   ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
   -->
 
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="65dp"
-    app:cardBackgroundColor="@color/transparent"
-    app:cardCornerRadius="0dp"
-    app:cardElevation="0dp"
-    app:rippleColor="#1AFFFFFF"
-    app:strokeWidth="0dp">
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    android:background="@color/material_dynamic_primary20">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/prayNotifMethodIFV"
+        android:layout_width="35dp"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_notify_with_sound"
+        app:tint="@color/material_dynamic_secondary80" />
 
-        <ImageView
-            android:id="@+id/prayNotifMethodIFV"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/rounded_bg"
-            android:backgroundTint="@color/white"
-            android:clickable="false"
-            android:padding="10dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_notify_with_sound"
-            app:tint="@color/colorPrimary" />
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/tv_next_pray_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:gravity="start|center_vertical"
+        android:text="Maghrib\n07:28 am"
+        android:textAlignment="viewStart"
+        android:textColor="@color/material_dynamic_primary90"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/reem_kufi_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cdv_next_pray_remaining"
+        app:layout_constraintStart_toEndOf="@id/prayNotifMethodIFV"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lineHeight="22dp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/prayNotifMethodIFV"
-            android:layout_alignBottom="@id/prayNotifMethodIFV"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/cdv_next_pray_remaining"
-            android:layout_toEndOf="@id/prayNotifMethodIFV">
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_next_pray_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:gravity="start|center_vertical"
+        android:maxLines="1"
+        android:text="@string/dummy_hh_mm_aa"
+        android:textAlignment="viewStart"
+        android:textColor="@color/material_dynamic_secondary70"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/font_jf_flat_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cdv_next_pray_remaining"
+        app:layout_constraintStart_toEndOf="@id/prayNotifMethodIFV"
+        app:layout_constraintTop_toBottomOf="@id/tv_next_pray_name"
+        tools:ignore="HardcodedText" />
 
-            <com.mpt.android.stv.SpannableTextView
-                android:id="@+id/tv_next_pray_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="start|center_vertical"
-                android:maxLines="1"
-                android:text="@string/maghrib"
-                android:textAlignment="viewStart"
-                android:textColor="@color/yellow"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:autoSizeMaxTextSize="15sp"
-                app:autoSizeTextType="uniform"
-                app:fontFamily="@font/font_bukrar" />
+    <cn.iwgang.countdownview.CountdownView
+        android:id="@+id/cdv_next_pray_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:isHideTimeBackground="false"
+        app:isShowHour="true"
+        app:isShowTimeBgBorder="false"
+        app:isShowTimeBgDivisionLine="false"
+        app:isTimeTextBold="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:suffixGravity="center"
+        app:suffixTextColor="@color/material_dynamic_primary90"
+        app:suffixTextSize="15sp"
+        app:timeBgColor="#1AFFFFFF"
+        app:timeBgRadius="12dp"
+        app:timeBgSize="35dp"
+        app:timeTextColor="@color/material_dynamic_primary90"
+        app:timeTextSize="15sp" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_next_pray_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_next_pray_name"
-                android:layout_marginEnd="5dp"
-                android:gravity="start|center_vertical"
-                android:maxLines="1"
-                android:text="5:23 pm"
-                android:textAlignment="viewStart"
-                android:textColor="@color/white"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                app:autoSizeMaxTextSize="16sp"
-                app:autoSizeTextType="uniform"
-                app:fontFamily="@font/font_jf_flat_regular"
-                tools:ignore="HardcodedText" />
-
-        </RelativeLayout>
-
-        <cn.iwgang.countdownview.CountdownView
-            android:id="@+id/cdv_next_pray_remaining"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="0dp"
-            app:isHideTimeBackground="false"
-            app:isShowHour="true"
-            app:isShowTimeBgBorder="false"
-            app:isShowTimeBgDivisionLine="false"
-            app:isTimeTextBold="true"
-            app:suffixGravity="center"
-            app:suffixTextColor="@color/white"
-            app:suffixTextSize="15sp"
-            app:timeBgColor="#1AFFFFFF"
-            app:timeBgRadius="15dp"
-            app:timeBgSize="35dp"
-            app:timeTextColor="@color/white"
-            app:timeTextSize="13sp" />
-
-    </RelativeLayout>
-
-</com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

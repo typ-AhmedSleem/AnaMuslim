@@ -29,14 +29,14 @@ import com.irozon.alertview.objects.AlertAction;
 import com.irozon.sneaker.Sneaker;
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
-import com.typ.muslim.core.praytime.PrayTimeCore;
+import com.typ.muslim.features.prays.PrayTimeCore;
 import com.typ.muslim.interfaces.ResultCallback;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.models.Location;
 import com.typ.muslim.models.PrayTimes;
 import com.typ.muslim.profile.ProfileManager;
 import com.typ.muslim.profile.models.Profile;
-import com.typ.muslim.ui.VerticalPrayView;
+import com.typ.muslim.ui.prays.views.VerticalPrayView;
 import com.typ.muslim.ui.home.MainActivity;
 import com.typ.muslim.ui.setup.QuickSettingsActivity;
 

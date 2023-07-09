@@ -20,7 +20,7 @@ import com.typ.muslim.R;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.interfaces.PrayTimeCameListener;
 import com.typ.muslim.managers.PrayTrackerManager;
-import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.BottomSheets;

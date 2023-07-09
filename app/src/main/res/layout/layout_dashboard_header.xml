@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.typ.muslim.ui.prays.MiniNextPrayDashboardCard
+    <com.typ.muslim.ui.prays.NextPrayDashboardCard1
         android:id="@+id/nextPrayMiniCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"

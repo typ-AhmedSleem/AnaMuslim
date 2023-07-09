@@ -8,7 +8,7 @@ package com.typ.muslim.models;
 
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 
 import java.io.Serializable;

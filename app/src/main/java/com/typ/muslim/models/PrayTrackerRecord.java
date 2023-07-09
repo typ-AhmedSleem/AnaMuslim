@@ -6,7 +6,7 @@
 
 package com.typ.muslim.models;
 
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.managers.AManager;
 

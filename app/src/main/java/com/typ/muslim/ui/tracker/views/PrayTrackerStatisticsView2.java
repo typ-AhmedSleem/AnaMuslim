@@ -17,7 +17,7 @@ import androidx.core.util.Pair;
 import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.TrackerRange;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.LocaleManager;

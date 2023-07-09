@@ -4,11 +4,11 @@
  * Copyright (c) 2021.  TYP INC. All Rights Reserved
  */
 
-package com.typ.muslim.ui;
+package com.typ.muslim.ui.prays.views;
 
-import static com.typ.muslim.core.praytime.enums.Prays.FAJR;
-import static com.typ.muslim.core.praytime.enums.Prays.ISHA;
-import static com.typ.muslim.core.praytime.enums.Prays.MAGHRIB;
+import static com.typ.muslim.features.prays.enums.Prays.FAJR;
+import static com.typ.muslim.features.prays.enums.Prays.ISHA;
+import static com.typ.muslim.features.prays.enums.Prays.MAGHRIB;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -26,15 +26,15 @@ import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.PrayNotifyMethod;
+import com.typ.muslim.features.prays.PrayNotifyMethodChangedCallback;
 import com.typ.muslim.features.ramadan.RamadanManager;
 import com.typ.muslim.managers.AMSettings;
-import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.ui.home.DashboardCard;
-import com.typ.muslim.ui.prays.VerticalPraysDashboardCard;
 
 import java.util.Locale;
 
@@ -52,7 +52,7 @@ public class VerticalPrayView extends DashboardCard {
     private SpannableTextView tvPrayName;
     private ImageButton ibtnChangeNotifyMethod;
     // Callbacks
-    private VerticalPraysDashboardCard.PrayNotifyMethodChangedCallback callback;
+    private PrayNotifyMethodChangedCallback callback;
 
     public VerticalPrayView(Context context) {
         super(context);
@@ -191,7 +191,7 @@ public class VerticalPrayView extends DashboardCard {
         return pray.hasPassed();
     }
 
-    public void setCallback(VerticalPraysDashboardCard.PrayNotifyMethodChangedCallback callback) {
+    public void setCallback(PrayNotifyMethodChangedCallback callback) {
         this.callback = callback;
     }
 

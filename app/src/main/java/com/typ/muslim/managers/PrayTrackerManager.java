@@ -16,7 +16,7 @@ import android.util.Log;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.db.OldDatabase;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.models.PrayTrackerRecord;

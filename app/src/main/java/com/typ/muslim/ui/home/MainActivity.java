@@ -25,14 +25,14 @@ import com.typ.muslim.features.qibla.ui.QiblaDashboardCard;
 import com.typ.muslim.interfaces.PrayTimeCameListener;
 import com.typ.muslim.interfaces.TimeChangedListener;
 import com.typ.muslim.libs.easyjava.data.EasyList;
-import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.calendar.HijriCalendarActivity;
 import com.typ.muslim.ui.khatma.dashboard.KhatmaDashboardCard;
 import com.typ.muslim.ui.names.AllahNamesDashboardCard;
 import com.typ.muslim.ui.names.HolyNameOfAllahDescActivity;
-import com.typ.muslim.ui.prays.MiniNextPrayDashboardCard;
+import com.typ.muslim.ui.prays.NextPrayDashboardCard1;
 import com.typ.muslim.ui.tasbeeh.TasbeehDashboardCard;
 import com.typ.muslim.ui.tracker.dashboard.TrackerDashboardCard;
 
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
         cards.get(7).setOnClickListener(v -> Toast.makeText(this, R.string.feature_under_dev, Toast.LENGTH_SHORT).show());
         cards.get(9).setOnClickListener(v -> Toast.makeText(this, R.string.feature_under_dev, Toast.LENGTH_LONG).show());
         // Register callbacks
-        ((MiniNextPrayDashboardCard) cards.get(0)).setPrayTimeCameListener(this);
+        ((NextPrayDashboardCard1) cards.get(0)).setPrayTimeCameListener(this);
         ((QiblaDashboardCard) cards.get(6)).register();
     }
 

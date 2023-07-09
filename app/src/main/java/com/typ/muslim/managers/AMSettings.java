@@ -6,15 +6,15 @@
 
 package com.typ.muslim.managers;
 
-import static com.typ.muslim.core.praytime.enums.AsrMethod.SHAFII;
-import static com.typ.muslim.core.praytime.enums.CalculationMethod.EGYPT;
-import static com.typ.muslim.core.praytime.enums.CalculationMethod.MAKKAH;
-import static com.typ.muslim.core.praytime.enums.HigherLatitudesMethod.NONE;
-import static com.typ.muslim.core.praytime.enums.Prays.ASR;
-import static com.typ.muslim.core.praytime.enums.Prays.DHUHR;
-import static com.typ.muslim.core.praytime.enums.Prays.FAJR;
-import static com.typ.muslim.core.praytime.enums.Prays.ISHA;
-import static com.typ.muslim.core.praytime.enums.Prays.MAGHRIB;
+import static com.typ.muslim.features.prays.enums.AsrMethod.SHAFII;
+import static com.typ.muslim.features.prays.enums.CalculationMethod.EGYPT;
+import static com.typ.muslim.features.prays.enums.CalculationMethod.MAKKAH;
+import static com.typ.muslim.features.prays.enums.HigherLatitudesMethod.NONE;
+import static com.typ.muslim.features.prays.enums.Prays.ASR;
+import static com.typ.muslim.features.prays.enums.Prays.DHUHR;
+import static com.typ.muslim.features.prays.enums.Prays.FAJR;
+import static com.typ.muslim.features.prays.enums.Prays.ISHA;
+import static com.typ.muslim.features.prays.enums.Prays.MAGHRIB;
 import static com.typ.muslim.enums.SoMNotifyMethod.NOTIFICATION;
 import static com.typ.muslim.enums.SoMReminderFreq.EVERY_30MIN;
 
@@ -25,8 +25,8 @@ import androidx.annotation.NonNull;
 
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
-import com.typ.muslim.core.praytime.enums.CalculationMethod;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.CalculationMethod;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.OngoingNotificationStyle;
 import com.typ.muslim.enums.PrayNotifyMethod;
 import com.typ.muslim.enums.SoMNotifyMethod;

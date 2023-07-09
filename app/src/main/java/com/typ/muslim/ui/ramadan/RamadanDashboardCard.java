@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ViewSwitcher;
 
 import com.typ.muslim.R;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.features.ramadan.RamadanManager;
 import com.typ.muslim.interfaces.PrayTimeCameListener;
 import com.typ.muslim.models.Pray;

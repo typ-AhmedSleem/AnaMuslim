@@ -8,7 +8,7 @@ package com.typ.muslim.app;
 
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 
 import org.jetbrains.annotations.NotNull;
 

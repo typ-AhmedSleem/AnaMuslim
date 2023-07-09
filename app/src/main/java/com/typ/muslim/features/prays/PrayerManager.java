@@ -4,16 +4,18 @@
  * Copyright (c) 2021.  TYP INC. All Rights Reserved
  */
 
-package com.typ.muslim.managers;
+package com.typ.muslim.features.prays;
 
 import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.core.praytime.PrayTimeCore;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.libs.easyjava.data.EasyList;
+import com.typ.muslim.managers.AMSettings;
+import com.typ.muslim.managers.AManager;
+import com.typ.muslim.managers.PrayTrackerManager;
 import com.typ.muslim.models.Location;
 import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.PrayTimes;

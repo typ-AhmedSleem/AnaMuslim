@@ -9,12 +9,12 @@ package com.typ.muslim.models;
 import android.content.Context;
 
 import com.typ.muslim.app.Consumers;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.libs.easyjava.interfaces.EasyListLooper;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.PrayTrackerManager;
-import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.features.prays.PrayerManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;

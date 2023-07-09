@@ -12,14 +12,14 @@
  * This library is written by praytimes.org and modified by : Ahmed Sleem (ME)
  */
 
-package com.typ.muslim.core.praytime;
+package com.typ.muslim.features.prays;
 
 import android.content.Context;
 
 import com.typ.muslim.R;
-import com.typ.muslim.core.praytime.enums.CalculationMethod;
-import com.typ.muslim.core.praytime.enums.HigherLatitudesMethod;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.CalculationMethod;
+import com.typ.muslim.features.prays.enums.HigherLatitudesMethod;
+import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AMSettings;

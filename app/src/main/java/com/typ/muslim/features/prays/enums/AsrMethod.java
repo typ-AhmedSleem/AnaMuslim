@@ -1,4 +1,4 @@
-package com.typ.muslim.core.praytime.enums;
+package com.typ.muslim.features.prays.enums;
 
 /**
  * AsrMethod used during calculating PrayTimes
