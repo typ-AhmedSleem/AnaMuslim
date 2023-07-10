@@ -33,7 +33,7 @@ import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.DayTrackerRecords;
 import com.typ.muslim.models.IslamicEvent;
-import com.typ.muslim.models.PrayTimes;
+import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.ExpandableContainer;
 import com.typ.muslim.ui.prays.views.SquarePrayView;

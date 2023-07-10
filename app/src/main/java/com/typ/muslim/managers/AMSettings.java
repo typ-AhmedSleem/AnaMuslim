@@ -10,11 +10,11 @@ import static com.typ.muslim.features.prays.enums.AsrMethod.SHAFII;
 import static com.typ.muslim.features.prays.enums.CalculationMethod.EGYPT;
 import static com.typ.muslim.features.prays.enums.CalculationMethod.MAKKAH;
 import static com.typ.muslim.features.prays.enums.HigherLatitudesMethod.NONE;
-import static com.typ.muslim.features.prays.enums.Prays.ASR;
-import static com.typ.muslim.features.prays.enums.Prays.DHUHR;
-import static com.typ.muslim.features.prays.enums.Prays.FAJR;
-import static com.typ.muslim.features.prays.enums.Prays.ISHA;
-import static com.typ.muslim.features.prays.enums.Prays.MAGHRIB;
+import static com.typ.muslim.features.prays.enums.PrayType.ASR;
+import static com.typ.muslim.features.prays.enums.PrayType.DHUHR;
+import static com.typ.muslim.features.prays.enums.PrayType.FAJR;
+import static com.typ.muslim.features.prays.enums.PrayType.ISHA;
+import static com.typ.muslim.features.prays.enums.PrayType.MAGHRIB;
 import static com.typ.muslim.enums.SoMNotifyMethod.NOTIFICATION;
 import static com.typ.muslim.enums.SoMReminderFreq.EVERY_30MIN;
 
@@ -26,7 +26,7 @@ import androidx.annotation.NonNull;
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
 import com.typ.muslim.features.prays.enums.CalculationMethod;
-import com.typ.muslim.features.prays.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.enums.OngoingNotificationStyle;
 import com.typ.muslim.enums.PrayNotifyMethod;
 import com.typ.muslim.enums.SoMNotifyMethod;
@@ -105,42 +105,42 @@ public class AMSettings {
     }
 
     @IntRange(from = 0, to = 60)
-    public static int getMuteTimeDuringPray(Context context, Prays whatPray) {
-        return PrefManager.get(context, Keys.MUTE_DURING_PRAY(whatPray), whatPray == Prays.FAJR ? 20 : 30);
+    public static int getMuteTimeDuringPray(Context context, PrayType whatPray) {
+        return PrefManager.get(context, Keys.MUTE_DURING_PRAY(whatPray), whatPray == PrayType.FAJR ? 20 : 30);
     }
 
     public static int[] getMuteTimeDuringPrays(Context context) {
         int[] result = new int[5];
-        for (Prays pray : Prays.values()) {
-            if (pray == Prays.SUNRISE) continue;
+        for (PrayType pray : PrayType.values()) {
+            if (pray == PrayType.SUNRISE) continue;
             result[pray.ordinalWithoutSunrise()] = getMuteTimeDuringPray(context, pray);
         }
         return result;
     }
 
-    public static boolean isIqamaEnabled(Context context, Prays whatPray) {
+    public static boolean isIqamaEnabled(Context context, PrayType whatPray) {
         return PrefManager.get(context, Keys.IQAMA_ENABLED_FOR(whatPray), false);
 
     }
 
     public static boolean[] isIqamaEnabledForPrays(Context context) {
         boolean[] result = new boolean[5];
-        for (Prays pray : Prays.values()) {
-            if (pray == Prays.SUNRISE) continue;
+        for (PrayType pray : PrayType.values()) {
+            if (pray == PrayType.SUNRISE) continue;
             result[pray.ordinalWithoutSunrise()] = isIqamaEnabled(context, pray);
         }
         return result;
     }
 
     @IntRange(from = 0, to = 30)
-    public static int getNotifyTimeBeforePray(Context context, Prays whatPray) {
+    public static int getNotifyTimeBeforePray(Context context, PrayType whatPray) {
         return PrefManager.get(context, Keys.NOTIFY_BEFORE_PRAY(whatPray), 15);
     }
 
     public static int[] getNotifyTimeBeforePrays(Context context) {
         int[] result = new int[5];
-        for (Prays pray : Prays.values()) {
-            if (pray == Prays.SUNRISE) continue;
+        for (PrayType pray : PrayType.values()) {
+            if (pray == PrayType.SUNRISE) continue;
             result[pray.ordinalWithoutSunrise()] = getNotifyTimeBeforePray(context, pray);
         }
         return result;
@@ -154,13 +154,13 @@ public class AMSettings {
         return OngoingNotificationStyle.of(PrefManager.get(context, Keys.ONGOING_NOTIFICATION_STYLE, OngoingNotificationStyle.STYLE1.getLayoutResId()));
     }
 
-    public static PrayNotifyMethod getPrayNotifyMethod(Context context, Prays whatPray) {
-        return PrayNotifyMethod.values()[PrefManager.get(context, Keys.PRAY_NOTIFY_METHOD(whatPray), whatPray != Prays.SUNRISE ? PrayNotifyMethod.AZAN.ordinal() : PrayNotifyMethod.NOTIFICATION_ONLY.ordinal())];
+    public static PrayNotifyMethod getPrayNotifyMethod(Context context, PrayType whatPray) {
+        return PrayNotifyMethod.values()[PrefManager.get(context, Keys.PRAY_NOTIFY_METHOD(whatPray), whatPray != PrayType.SUNRISE ? PrayNotifyMethod.AZAN.ordinal() : PrayNotifyMethod.NOTIFICATION_ONLY.ordinal())];
     }
 
     public static PrayNotifyMethod[] getPraysNotifyMethod(Context context) {
         final PrayNotifyMethod[] notifyMethods = new PrayNotifyMethod[6];
-        for (Prays pray : Prays.values()) notifyMethods[pray.ordinal()] = getPrayNotifyMethod(context, pray);
+        for (PrayType pray : PrayType.values()) notifyMethods[pray.ordinal()] = getPrayNotifyMethod(context, pray);
         return notifyMethods;
     }
 
@@ -169,13 +169,13 @@ public class AMSettings {
     }
 
     @IntRange(from = -60, to = 60)
-    public static int getOffsetMinutesForPray(Context context, Prays whatPray) {
+    public static int getOffsetMinutesForPray(Context context, PrayType whatPray) {
         return PrefManager.get(context, Keys.PRAY_OFFSET(whatPray), 0);
     }
 
     public static int[] getOffsetMinutesForPrays(Context context) {
         int[] result = new int[6];
-        for (Prays pray : Prays.values()) result[pray.ordinal()] = getNotifyTimeBeforePray(context, pray);
+        for (PrayType pray : PrayType.values()) result[pray.ordinal()] = getNotifyTimeBeforePray(context, pray);
         return result;
     }
 
@@ -363,7 +363,7 @@ public class AMSettings {
             else if (val instanceof List<?>) {
                 // Prays adjustments
                 List<Object> list = (List<Object>) val;
-                for (Prays pray : Prays.values()) {
+                for (PrayType pray : PrayType.values()) {
                     if (key.equals(Keys.IQAMA_ENABLED)) save(c, Keys.IQAMA_ENABLED_FOR(pray), (boolean) list.get(pray.ordinal()));
                     else if (key.equals(Keys.NOTIFY_BEFORE_PRAY)) save(c, Keys.NOTIFY_BEFORE_PRAY(pray), (int) list.get(pray.ordinal()));
                     else if (key.equals(Keys.MUTE_DURING_PRAY)) save(c, Keys.MUTE_DURING_PRAY(pray), (int) list.get(pray.ordinal()));
@@ -391,7 +391,7 @@ public class AMSettings {
         PrefManager.remove(c, Keys.IS_SOM_REMINDER_ENABLED);
         PrefManager.remove(c, Keys.SOM_NOTIFY_METHOD);
         PrefManager.remove(c, Keys.SOM_REMINDER_FREQUENCY);
-        for (Prays pray : Prays.values()) {
+        for (PrayType pray : PrayType.values()) {
             PrefManager.remove(c, Keys.IQAMA_ENABLED_FOR(pray));
             PrefManager.remove(c, Keys.NOTIFY_BEFORE_PRAY(pray));
             PrefManager.remove(c, Keys.MUTE_DURING_PRAY(pray));

@@ -18,8 +18,8 @@ import androidx.annotation.Nullable;
 import com.google.android.material.textview.MaterialTextView;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.interfaces.PrayTimeCameListener;
-import com.typ.muslim.models.Pray;
+import com.typ.muslim.features.prays.interfaces.PrayTimeCameListener;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.ViewContainer;
 

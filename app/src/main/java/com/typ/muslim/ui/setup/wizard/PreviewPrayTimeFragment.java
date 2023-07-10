@@ -33,7 +33,7 @@ import com.typ.muslim.features.prays.PrayTimeCore;
 import com.typ.muslim.interfaces.ResultCallback;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.models.Location;
-import com.typ.muslim.models.PrayTimes;
+import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.profile.ProfileManager;
 import com.typ.muslim.profile.models.Profile;
 import com.typ.muslim.ui.prays.views.VerticalPrayView;

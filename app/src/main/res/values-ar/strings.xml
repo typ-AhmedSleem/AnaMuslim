@@ -330,7 +330,7 @@
     <string name="khatma_details">تفاصيل الختمة</string>
     <string name="khatma_number_and_name">عنوان الختمة</string>
     <string name="completed_days">الأيام المكتملة</string>
-    <string name="qiyam">صلاة القيام</string>
+    <string name="qiyam">قيام الليل</string>
     <string name="show_more">عرض المزيد</string>
     <string name="mark_werd_as_done">تحديد الوِرد كمكتمل</string>
     <string name="delete_khatma">حذف الختمة</string>
@@ -463,5 +463,15 @@
     <string name="hh_mm_aa">سس دد تت</string>
     <string name="dummy_hh_mm_aa">07:49 am</string>
     <string name="at">في</string>
+
+    <string name="fajr_pray">صلاة الفجر</string>
+    <string name="dhuhr_pray">صلاة الظهر</string>
+    <string name="jumaa_pray">صلاة الجمعه</string>
+    <string name="asr_pray">صلاة العصر</string>
+    <string name="maghrib_pray">صلاة المغرب</string>
+    <string name="isha_pray">صلاة العشاء</string>
+    <string name="qiyam_pray">صلاة القيام</string>
+
+    <string name="cdesc_pray_notif_method">Pray notification method</string>
 
 </resources>

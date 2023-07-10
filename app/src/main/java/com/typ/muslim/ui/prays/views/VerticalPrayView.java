@@ -6,9 +6,9 @@
 
 package com.typ.muslim.ui.prays.views;
 
-import static com.typ.muslim.features.prays.enums.Prays.FAJR;
-import static com.typ.muslim.features.prays.enums.Prays.ISHA;
-import static com.typ.muslim.features.prays.enums.Prays.MAGHRIB;
+import static com.typ.muslim.features.prays.enums.PrayType.FAJR;
+import static com.typ.muslim.features.prays.enums.PrayType.ISHA;
+import static com.typ.muslim.features.prays.enums.PrayType.MAGHRIB;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -26,14 +26,14 @@ import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
-import com.typ.muslim.features.prays.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.enums.PrayNotifyMethod;
 import com.typ.muslim.features.prays.PrayNotifyMethodChangedCallback;
 import com.typ.muslim.features.ramadan.RamadanManager;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.managers.ResMan;
-import com.typ.muslim.models.Pray;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.ui.home.DashboardCard;
 
 import java.util.Locale;
@@ -70,7 +70,7 @@ public class VerticalPrayView extends DashboardCard {
     public void parseAttrs(Context context, AttributeSet attrs) {
         // Used only to view different data on each PrayItemView during design
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VerticalPrayView);
-        Prays pray = Prays.valueOf(typedArray.getInt(R.styleable.VerticalPrayView_pivPray, FAJR.ordinal()));
+        PrayType pray = PrayType.valueOf(typedArray.getInt(R.styleable.VerticalPrayView_pivPray, FAJR.ordinal()));
         this.pray = new Pray(pray, pray.name(), System.currentTimeMillis());
         this.notifyMethod = AMSettings.getPrayNotifyMethod(context, this.pray.getType());
         typedArray.recycle();
@@ -163,7 +163,7 @@ public class VerticalPrayView extends DashboardCard {
 
     public void updateNotifyMethodView() {
         if (notifyMethod == null) return;
-        if (this.pray.getType() == Prays.SUNRISE) {
+        if (this.pray.getType() == PrayType.SUNRISE) {
             this.ibtnChangeNotifyMethod.setEnabled(false);
             this.ibtnChangeNotifyMethod.setImageResource(R.drawable.ic_notify_off);
             this.ibtnChangeNotifyMethod.setColorFilter(ResMan.getColor(getContext(), R.color.red));
@@ -217,7 +217,7 @@ public class VerticalPrayView extends DashboardCard {
             if (this.notifyMethod == PrayNotifyMethod.AZAN) this.notifyMethod = PrayNotifyMethod.NOTIFICATION_ONLY;
             else if (this.notifyMethod == PrayNotifyMethod.NOTIFICATION_ONLY) this.notifyMethod = PrayNotifyMethod.OFF;
             else if (this.notifyMethod == PrayNotifyMethod.OFF) {
-                if (pray.getType() == Prays.SUNRISE) this.notifyMethod = PrayNotifyMethod.NOTIFICATION_ONLY;
+                if (pray.getType() == PrayType.SUNRISE) this.notifyMethod = PrayNotifyMethod.NOTIFICATION_ONLY;
                 else this.notifyMethod = PrayNotifyMethod.AZAN;
             }
             // Save new notify method in settings

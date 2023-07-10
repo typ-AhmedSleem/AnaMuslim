@@ -1,17 +1,19 @@
-package com.typ.muslim.features.prays.enums;
+package com.typ.muslim.features.prays.enums
 
 /**
  * The format of the PrayTimeCore returned from library
  */
-public enum eTimeFormat {
+enum class TimeFormat {
     /**
      * Time12 with Suffix Format
      */
     TIME12SX,
+
     /**
      * Time12 with NoSuffix Format
      */
     TIME12NSX,
+
     /**
      * Time24 Format
      */
@@ -24,5 +26,4 @@ public enum eTimeFormat {
      * Time In Long as Timestamp Format
      */
     TIMESTAMP
-
 }

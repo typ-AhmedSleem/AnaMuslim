@@ -1,19 +1,22 @@
-package com.typ.muslim.models;
+package com.typ.muslim.features.prays.models;
 
 import android.content.Context;
 import android.text.TextUtils;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
 import com.typ.muslim.app.AnaMuslimApp;
-import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.ResMan;
+import com.typ.muslim.models.Timestamp;
 
 import java.io.Serializable;
+import java.util.Locale;
 
 /**
  * Model class of Pray which holds all Pray Item data
@@ -23,7 +26,7 @@ public class Pray implements Serializable {
 	/**
 	 * Used only to indicate what this pray is by enum ordinal and name
 	 */
-	private final Prays type;
+	private final PrayType type;
 	/**
 	 * PrayName returned from string resources
 	 */
@@ -34,22 +37,21 @@ public class Pray implements Serializable {
 	 */
 	private final Timestamp in;
 
-	public Pray(Prays type, String name, Timestamp in) {
+	public Pray(PrayType type, String name, Timestamp in) {
 		this.type = type;
 		this.name = TextUtils.isEmpty(name) ? this.type.name() : name;
 		this.in = in;
 	}
 
-	public Pray(Prays type, String name, long in) {
+	public Pray(PrayType type, String name, long in) {
 		this(type, name, new Timestamp(in));
 	}
 
-	public Prays getType() {
+	public PrayType getType() {
 		return type;
 	}
 
 	public String getName() {
-		// fixme: use context from method parameter not the global context
 		return ResMan.getString(AnaMuslimApp.getContext().get(), getPrayNameRes());
 	}
 
@@ -78,7 +80,11 @@ public class Pray implements Serializable {
 	}
 
 	public String getFormattedTime(Context context) {
-		return AManager.getSelectedTimeFormat(context).format(this.in);
+		return getFormattedTime(context, Locale.getDefault());
+	}
+
+	public String getFormattedTime(Context context, Locale locale) {
+		return AManager.getSelectedTimeFormat(context).format(in, locale);
 	}
 
 	public boolean hasPassed() {
@@ -89,10 +95,8 @@ public class Pray implements Serializable {
 	public boolean equals(Object another) {
 		if (another == null) return false;
 		if (this == another) return true;
-		if (!(another instanceof Pray)) return false;
-		Pray pray = (Pray) another;
-		return type == pray.getType() &&
-		       in.matches(((Pray) another).in);
+		if (!(another instanceof Pray pray)) return false;
+		return type == pray.getType() && in.matches(((Pray) another).in);
 	}
 
 	@Override
@@ -100,6 +104,7 @@ public class Pray implements Serializable {
 		return type.hashCode();
 	}
 
+	@NonNull
 	@Override
 	public String toString() {
 		return "Pray{" +

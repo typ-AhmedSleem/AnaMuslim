@@ -21,7 +21,7 @@ import com.typ.muslim.R;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.LocaleManager;
 import com.typ.muslim.managers.ResMan;
-import com.typ.muslim.models.Pray;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.ui.ViewContainer;
 import com.typ.muslim.ui.tracker.dashboard.TrackerDashboardCard;
 

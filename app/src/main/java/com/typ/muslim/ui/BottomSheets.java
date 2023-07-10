@@ -8,11 +8,9 @@ package com.typ.muslim.ui;
 
 import static com.typ.muslim.enums.FormatPatterns.DATE_NORMAL;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -45,28 +43,22 @@ import com.michalsvec.singlerowcalendar.calendar.SingleRowCalendarAdapter;
 import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.CalendarDots;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.enums.SoMReminderFreq;
-import com.typ.muslim.features.prays.PrayNotifyMethodChangedCallback;
+import com.typ.muslim.features.calendar.HijriCalendar;
+import com.typ.muslim.features.calendar.models.HijriDate;
 import com.typ.muslim.interfaces.OnIslamicEventClickListener;
 import com.typ.muslim.interfaces.ResultCallback;
-import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AManager;
-import com.typ.muslim.features.calendar.HijriCalendar;
 import com.typ.muslim.managers.IslamicEvents;
-import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.ActionItem;
 import com.typ.muslim.models.AllahName;
-import com.typ.muslim.features.calendar.models.HijriDate;
 import com.typ.muslim.models.IslamicEvent;
-import com.typ.muslim.models.Pray;
-import com.typ.muslim.models.PrayTimes;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.names.HolyNamesOfAllahActivity;
-import com.typ.muslim.ui.prays.views.VerticalPrayView;
 import com.typ.muslim.utils.DateUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -86,11 +78,6 @@ public class BottomSheets {
     public static ActionSelectorBottomSheet newActions(Context context, @StringRes int title, @StringRes int subtitle, ResultCallback<Integer> listener, ResultCallback<Boolean> showHideCallback, ActionItem... actions) {
         return new ActionSelectorBottomSheet(context, title, subtitle, listener, showHideCallback, actions);
     }
-
-    public static TodayPraysBottomSheet newTodayPrays(Context context, PrayNotifyMethodChangedCallback callback, ResultCallback<Boolean> showHideCallback) {
-        return new TodayPraysBottomSheet(context, callback, showHideCallback);
-    }
-
     public static HijriCalendarBottomSheet newHijriCalendar(Context context, View.OnClickListener actionClickListener, OnIslamicEventClickListener eventClickListener, ResultCallback<Boolean> showHideCallback) {
         return new HijriCalendarBottomSheet(context, actionClickListener, eventClickListener, showHideCallback);
     }
@@ -292,103 +279,6 @@ public class BottomSheets {
                 }
             }
 
-        }
-    }
-
-    public static class TodayPraysBottomSheet extends BaseBottomSheet {
-
-        // Statics
-        private static final String TAG = "PraysBottomSheet";
-        // Callbacks
-        private final PrayNotifyMethodChangedCallback callback;
-        // Runtime
-        private PrayTimes prays;
-        private Pray nextPray;
-        private CountDownTimer cdt;
-        // Views
-        private SpannableTextView stvNextPray;
-        private EasyList<VerticalPrayView> prayIVs;
-
-        @SuppressLint("InflateParams")
-        public TodayPraysBottomSheet(Context context, PrayNotifyMethodChangedCallback callback, ResultCallback<Boolean> showHideCallback) {
-            super(context, showHideCallback, true);
-            this.callback = callback;
-            // Setup listeners
-            setupListeners();
-            // Bind data to views
-            bindInnerViews();
-        }
-
-        @Override
-        public void prepareRuntime() {
-            // Get today prays
-            prays = PrayerManager.getTodayPrays(context);
-            nextPray = PrayerManager.getNextPray(context, prays);
-        }
-
-        @NonNull
-        @NotNull
-        @Override
-        public View onCreateView() {
-            return inflate(R.layout.bs_prays);
-        }
-
-        @Override
-        public void prepareInnerViews() {
-//            this.stvNextPray = $(R.id.tv_next_pray_name);
-            this.prayIVs = EasyList.createList(findViewById(R.id.fajrPIV),
-                    findViewById(R.id.sunrisePIV),
-                    findViewById(R.id.dhuhrPIV),
-                    findViewById(R.id.asrPIV),
-                    findViewById(R.id.maghribPIV),
-                    findViewById(R.id.ishaPIV));
-        }
-
-        @Override
-        public void bindInnerViews() {
-            // Update PIVs
-            prayIVs.loop((index, piv) -> {
-                piv.setPray(prays.asList().get(index));
-                return false; // Loop to last item in list.
-            });
-            cdt = buildCountDownTimer();
-            cdt.start();
-        }
-
-        @Override
-        public void setupListeners() {
-            prayIVs.iterate(piv -> piv.setCallback(this.callback));
-        }
-
-        CountDownTimer buildCountDownTimer() {
-            return new CountDownTimer(nextPray.getIn().toMillis() - System.currentTimeMillis(), 1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                }
-
-                @Override
-                public void onFinish() {
-                    if (nextPray.getType() == Prays.ISHA) prays = PrayerManager.getPrays(context, 1);
-                    nextPray = PrayerManager.getNextPray(context, prays);
-                    bindInnerViews();
-                }
-            };
-        }
-
-        @Override
-        public BaseBottomSheet cancel() {
-            cdt.cancel();
-            return super.cancel();
-        }
-
-        @Override
-        public void onStateChanged(@NonNull @NotNull View bottomSheet, int newState) {
-            AManager.log(TAG, "onStateChanged: " + newState);
-        }
-
-        @Override
-        public void onSlide(@NonNull @NotNull View bottomSheet, float slideOffset) {
-            AManager.log(TAG, "onSlide: " + slideOffset);
         }
     }
 

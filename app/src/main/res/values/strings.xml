@@ -619,4 +619,13 @@
     <string name="dummy_hh_mm_aa">07:49 am</string>
     <string name="at">at</string>
 
+    <string name="fajr_pray">@string/fajr</string>
+    <string name="dhuhr_pray">@string/dhuhr</string>
+    <string name="jumaa_pray">@string/jumaa</string>
+    <string name="asr_pray">@string/asr</string>
+    <string name="maghrib_pray">@string/maghrib</string>
+    <string name="isha_pray">@string/isha</string>
+    <string name="qiyam_pray">@string/qiyam</string>
+    <string name="cdesc_pray_notif_method">Pray notification method</string>
+
 </resources>

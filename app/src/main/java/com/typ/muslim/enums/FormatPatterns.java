@@ -84,7 +84,12 @@ public enum FormatPatterns {
 
     @NonNull
     public String format(Timestamp timestamp) {
-        return new SimpleDateFormat(pattern, Locale.getDefault()).format(timestamp.asDate());
+        return format(timestamp, Locale.getDefault());
+    }
+
+    @NonNull
+    public String format(Timestamp timestamp, Locale locale) {
+        return new SimpleDateFormat(pattern, locale).format(timestamp.asDate());
     }
 
 }

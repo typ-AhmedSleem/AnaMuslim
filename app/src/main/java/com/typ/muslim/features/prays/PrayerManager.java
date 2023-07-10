@@ -10,15 +10,15 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.features.prays.enums.Prays;
 import com.typ.muslim.enums.PrayStatus;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.PrayTrackerManager;
 import com.typ.muslim.models.Location;
-import com.typ.muslim.models.Pray;
-import com.typ.muslim.models.PrayTimes;
+import com.typ.muslim.features.prays.models.Pray;
+import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.Timestamp;
 
@@ -80,11 +80,11 @@ public class PrayerManager {
         for (@NonNull Pray pray : prays.asList()) {
             AManager.log(TAG, "getCurrentPray: trying pray: %s", pray);
             if (pray.hasPassed()) {
-                if (pray.getType() == Prays.SUNRISE) continue;
+                if (pray.getType() == PrayType.SUNRISE) continue;
                 currentPray = pray;
             } else break;
         }
-        AManager.log(TAG, "getCurrentPray: current pray is: %s \n", currentPray);
+        AManager.log(TAG, "getCurrentPray: CurrentPray is [%s].", currentPray);
         return currentPray;
     }
 

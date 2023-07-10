@@ -8,7 +8,7 @@ package com.typ.muslim.app;
 
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.features.prays.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -73,27 +73,27 @@ public class Keys {
 	public static final String NAME_OF_ALLAH = "nameOfAllah";
 
 	@NotNull
-	public static String IQAMA_ENABLED_FOR(Prays whatPray) {
+	public static String IQAMA_ENABLED_FOR(PrayType whatPray) {
 		return "iqamaDelayFor" + whatPray.name();
 	}
 
 	@NotNull
-	public static String NOTIFY_BEFORE_PRAY(Prays whatPray) {
+	public static String NOTIFY_BEFORE_PRAY(PrayType whatPray) {
 		return "notifyBeforeAzanFor" + whatPray.name();
 	}
 
 	@NotNull
-	public static String MUTE_DURING_PRAY(Prays whatPray) {
+	public static String MUTE_DURING_PRAY(PrayType whatPray) {
 		return "muteMinutesDuring" + whatPray.name();
 	}
 
 	@NotNull
-	public static String PRAY_NOTIFY_METHOD(Prays whatPray) {
+	public static String PRAY_NOTIFY_METHOD(PrayType whatPray) {
 		return "notifyMethodFor" + whatPray.name();
 	}
 
 	@NonNull
-	public static String PRAY_OFFSET(Prays whatPray) {
+	public static String PRAY_OFFSET(PrayType whatPray) {
 		return "offsetOf" + whatPray.name();
 	}
 

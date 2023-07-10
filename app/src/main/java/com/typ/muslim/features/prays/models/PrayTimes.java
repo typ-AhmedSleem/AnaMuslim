@@ -4,11 +4,11 @@
  * Copyright (c) 2021.  TYP INC. All Rights Reserved
  */
 
-package com.typ.muslim.models;
+package com.typ.muslim.features.prays.models;
 
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.features.prays.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 
 import java.io.Serializable;
@@ -86,7 +86,7 @@ public class PrayTimes implements Serializable {
 		return this.prays.get(index);
 	}
 
-	public void remove(Prays whichPray) {
+	public void remove(PrayType whichPray) {
 		prays.remove(whichPray.ordinal());
 	}
 
@@ -145,12 +145,12 @@ public class PrayTimes implements Serializable {
 
 		public void add(Pray pray) {
 			if (pray == null) return;
-			if (pray.getType() == Prays.FAJR) setFajr(pray);
-			else if (pray.getType() == Prays.SUNRISE) setSunrise(pray);
-			else if (pray.getType() == Prays.DHUHR) setDhuhr(pray);
-			else if (pray.getType() == Prays.ASR) setAsr(pray);
-			else if (pray.getType() == Prays.MAGHRIB) setMaghrib(pray);
-			else if (pray.getType() == Prays.ISHA) setIsha(pray);
+			if (pray.getType() == PrayType.FAJR) setFajr(pray);
+			else if (pray.getType() == PrayType.SUNRISE) setSunrise(pray);
+			else if (pray.getType() == PrayType.DHUHR) setDhuhr(pray);
+			else if (pray.getType() == PrayType.ASR) setAsr(pray);
+			else if (pray.getType() == PrayType.MAGHRIB) setMaghrib(pray);
+			else if (pray.getType() == PrayType.ISHA) setIsha(pray);
 		}
 
 		public PrayTimes build() {

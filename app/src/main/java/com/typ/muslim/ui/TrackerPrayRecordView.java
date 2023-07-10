@@ -17,7 +17,7 @@ import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.enums.PrayStatus;
 import com.typ.muslim.managers.AManager;
-import com.typ.muslim.models.Pray;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.home.DashboardCard;

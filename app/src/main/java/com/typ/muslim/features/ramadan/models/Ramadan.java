@@ -16,7 +16,7 @@ import com.typ.muslim.managers.AManager;
 import com.typ.muslim.features.calendar.HijriCalendar;
 import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.models.Period;
-import com.typ.muslim.models.PrayTimes;
+import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.models.Timestamp;
 
 import java.util.concurrent.TimeUnit;

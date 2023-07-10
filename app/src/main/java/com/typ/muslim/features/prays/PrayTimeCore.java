@@ -19,15 +19,15 @@ import android.content.Context;
 import com.typ.muslim.R;
 import com.typ.muslim.features.prays.enums.CalculationMethod;
 import com.typ.muslim.features.prays.enums.HigherLatitudesMethod;
-import com.typ.muslim.features.prays.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Location;
-import com.typ.muslim.models.Pray;
-import com.typ.muslim.models.PrayTimes;
+import com.typ.muslim.features.prays.models.Pray;
+import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.models.Time;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.utils.DateUtils;
@@ -68,13 +68,13 @@ public class PrayTimeCore {
     private PrayTimeCore(Context context, Location currentLocation) {
         // Initialize variables
         this.setCurrentLocation(currentLocation).setDhuhrMinutes(0).setNumIterations(5); // Number of iterations needed to compute times
-        prayerNames.add(ResMan.getString(context, R.string.fajr));
+        prayerNames.add(ResMan.getString(context, R.string.fajr_pray));
         prayerNames.add(ResMan.getString(context, R.string.sunrise));
-        prayerNames.add(DateUtils.isTodayFriday() ? ResMan.getString(context, R.string.jumaa) : ResMan.getString(context, R.string.dhuhr));
-        prayerNames.add(ResMan.getString(context, R.string.asr));
+        prayerNames.add(DateUtils.isTodayFriday() ? ResMan.getString(context, R.string.jumaa_pray) : ResMan.getString(context, R.string.dhuhr_pray));
+        prayerNames.add(ResMan.getString(context, R.string.asr_pray));
         //prayerNames.add(AMRes.getString(context, R.string.sunset));
-        prayerNames.add(ResMan.getString(context, R.string.maghrib));
-        prayerNames.add(ResMan.getString(context, R.string.isha));
+        prayerNames.add(ResMan.getString(context, R.string.maghrib_pray));
+        prayerNames.add(ResMan.getString(context, R.string.isha_pray));
         // =============== Initialize PrayTimeCore instance ===============
         // Jafari
         double[] Jvalues = {16, 0, 4, 0, 14};
@@ -365,7 +365,7 @@ public class PrayTimeCore {
             timestamp.set(Calendar.HOUR_OF_DAY, computedPrayTimes[index].getHours());
             timestamp.set(Calendar.MINUTE, computedPrayTimes[index].getMinutes());
             timestamp.set(Calendar.SECOND, 0);
-            prayTimesBuilder.add(new Pray(Prays.valueOf(index), getPrayerNames().get(index), timestamp.toMillis()));
+            prayTimesBuilder.add(new Pray(PrayType.valueOf(index), getPrayerNames().get(index), timestamp.toMillis()));
         }
         AManager.log(TAG, "getPrayTimes: In[%s] | RollDays[%d] | PrayTimes[%s]",
                 Timestamp.NOW().getFormatted(FormatPatterns.DATETIME_FULL),
@@ -392,7 +392,7 @@ public class PrayTimeCore {
             in.set(Calendar.HOUR_OF_DAY, computedPrayTimes[index].getHours());
             in.set(Calendar.MINUTE, computedPrayTimes[index].getMinutes());
             in.set(Calendar.SECOND, 0);
-            prayTimesBuilder.add(new Pray(Prays.valueOf(index), getPrayerNames().get(index), in.toMillis()));
+            prayTimesBuilder.add(new Pray(PrayType.valueOf(index), getPrayerNames().get(index), in.toMillis()));
         }
         AManager.log(TAG, "getPrayTimes: In[%s] | PrayTimes[%s]",
                 Timestamp.NOW().getFormatted(FormatPatterns.DATETIME_FULL),
@@ -419,7 +419,7 @@ public class PrayTimeCore {
             timestamp.set(Calendar.MINUTE, computedPrayTimes[index].getMinutes());
             timestamp.set(Calendar.SECOND, 0);
             if (timestamp.isBefore(System.currentTimeMillis())) continue;
-            prayTimes.add(new Pray(Prays.valueOf(index), getPrayerNames().get(index), timestamp));
+            prayTimes.add(new Pray(PrayType.valueOf(index), getPrayerNames().get(index), timestamp));
         }
         AManager.log(TAG, "getUpcomingPrays: In[%s] | PrayTimes[%s]",
                 timestamp.getFormatted(FormatPatterns.DATETIME_NORMAL),

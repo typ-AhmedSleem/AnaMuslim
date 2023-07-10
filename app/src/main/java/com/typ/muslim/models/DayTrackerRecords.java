@@ -9,7 +9,8 @@ package com.typ.muslim.models;
 import android.content.Context;
 
 import com.typ.muslim.app.Consumers;
-import com.typ.muslim.features.prays.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
+import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.libs.easyjava.interfaces.EasyListLooper;
 import com.typ.muslim.managers.AManager;
@@ -31,36 +32,36 @@ public class DayTrackerRecords implements Serializable {
         if (Timestamp.NOW().isAfter(when)) {
             // Fill missed prays
             final PrayTimes prays = PrayerManager.getPrays(context, when);
-            prays.remove(Prays.SUNRISE);
-            final List<Prays> missedPrays = new ArrayList<>();
-            for (Prays pray : Prays.values()) {
+            prays.remove(PrayType.SUNRISE);
+            final List<PrayType> missedPrays = new ArrayList<>();
+            for (PrayType pray : PrayType.values()) {
                 // Pass sunrise
                 Consumers.doIf(() -> missedPrays.add(pray), records.getIf((i, rec) -> rec.getPray() == pray) == null);
             }
-            for (Prays mp : missedPrays) records.add(mp.ordinalWithoutSunrise(), PrayTrackerRecord.newMissedPrayRecord(prays.get(mp.ordinalWithoutSunrise())));
+            for (PrayType mp : missedPrays) records.add(mp.ordinalWithoutSunrise(), PrayTrackerRecord.newMissedPrayRecord(prays.get(mp.ordinalWithoutSunrise())));
             filledMissing = true;
         } else filledMissing = false;
         AManager.log("DayTrackerRecord", toString());
     }
 
     public PrayTrackerRecord getFajrRecord() {
-        return getIf((i, rec) -> rec.getPray() == Prays.FAJR);
+        return getIf((i, rec) -> rec.getPray() == PrayType.FAJR);
     }
 
     public PrayTrackerRecord getDhuhrRecord() {
-        return getIf((i, rec) -> rec.getPray() == Prays.DHUHR);
+        return getIf((i, rec) -> rec.getPray() == PrayType.DHUHR);
     }
 
     public PrayTrackerRecord getAsrRecord() {
-        return getIf((i, rec) -> rec.getPray() == Prays.ASR);
+        return getIf((i, rec) -> rec.getPray() == PrayType.ASR);
     }
 
     public PrayTrackerRecord getMaghribRecord() {
-        return getIf((i, rec) -> rec.getPray() == Prays.MAGHRIB);
+        return getIf((i, rec) -> rec.getPray() == PrayType.MAGHRIB);
     }
 
     public PrayTrackerRecord getIshaRecord() {
-        return getIf((i, rec) -> rec.getPray() == Prays.ISHA);
+        return getIf((i, rec) -> rec.getPray() == PrayType.ISHA);
     }
 
     public PrayTrackerRecord getIf(EasyListLooper<PrayTrackerRecord> condition) {

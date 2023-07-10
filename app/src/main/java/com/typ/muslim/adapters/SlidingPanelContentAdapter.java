@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.typ.muslim.features.prays.PrayNotifyMethodChangedCallback;
-import com.typ.muslim.models.PrayTimes;
+import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.ui.fragments.MenuFragment;
 import com.typ.muslim.ui.fragments.QiblaFragment;
 

@@ -21,18 +21,18 @@ import androidx.core.app.ActivityOptionsCompat;
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback;
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
+import com.typ.muslim.features.prays.PrayerManager;
+import com.typ.muslim.features.prays.interfaces.PrayTimeCameListener;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.features.qibla.ui.QiblaDashboardCard;
-import com.typ.muslim.interfaces.PrayTimeCameListener;
 import com.typ.muslim.interfaces.TimeChangedListener;
 import com.typ.muslim.libs.easyjava.data.EasyList;
-import com.typ.muslim.features.prays.PrayerManager;
-import com.typ.muslim.models.Pray;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.calendar.HijriCalendarActivity;
 import com.typ.muslim.ui.khatma.dashboard.KhatmaDashboardCard;
 import com.typ.muslim.ui.names.AllahNamesDashboardCard;
 import com.typ.muslim.ui.names.HolyNameOfAllahDescActivity;
-import com.typ.muslim.ui.prays.NextPrayDashboardCard1;
+import com.typ.muslim.ui.prays.NextPrayDashboardCard;
 import com.typ.muslim.ui.tasbeeh.TasbeehDashboardCard;
 import com.typ.muslim.ui.tracker.dashboard.TrackerDashboardCard;
 
@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
 
     // Statics
     private static final String TAG = "MainActivity";
+
+    // Runtime
+    private boolean madeFirstSetup = false;
     private final EasyList<DashboardCard> cards = new EasyList<>();
 
     @Override
@@ -90,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
         cards.get(7).setOnClickListener(v -> Toast.makeText(this, R.string.feature_under_dev, Toast.LENGTH_SHORT).show());
         cards.get(9).setOnClickListener(v -> Toast.makeText(this, R.string.feature_under_dev, Toast.LENGTH_LONG).show());
         // Register callbacks
-        ((NextPrayDashboardCard1) cards.get(0)).setPrayTimeCameListener(this);
+        ((NextPrayDashboardCard) cards.get(0)).setPrayTimeCameListener(this);
         ((QiblaDashboardCard) cards.get(6)).register();
     }
 
@@ -125,8 +128,9 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
     protected void onResume() {
         super.onResume();
         // Refresh cards
-        cards.iterate(DashboardCard::performRefresh);
+        if (madeFirstSetup) cards.iterate(DashboardCard::performRefresh);
         ((QiblaDashboardCard) cards.get(6)).register();
+        madeFirstSetup = true;
     }
 
     @Override
