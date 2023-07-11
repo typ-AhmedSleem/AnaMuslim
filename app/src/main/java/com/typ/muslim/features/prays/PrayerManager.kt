@@ -11,14 +11,13 @@ import com.typ.muslim.features.prays.enums.PrayStatus
 import com.typ.muslim.features.prays.models.Pray
 import com.typ.muslim.features.prays.models.PrayTimes
 import com.typ.muslim.managers.AMSettings
-import com.typ.muslim.managers.AManager
 import com.typ.muslim.managers.PrayTrackerManager
 import com.typ.muslim.models.Location
 import com.typ.muslim.models.Timestamp
 
 object PrayerManager {
 
-    private const val TAG = "PrayerManager"
+    const val TAG = "PrayerManager"
 
     @JvmStatic
     fun getTodayPrays(ctx: Context) = getPrays(ctx, 0)
@@ -31,12 +30,12 @@ object PrayerManager {
 
     @JvmStatic
     fun getPrays(context: Context, location: Location, rollDays: Int): PrayTimes {
-        return PrayTimeCore.getSingletonInstance(context, location).getPrayTimes(rollDays)
+        return PrayTimeCore.singletonInstance(context, location).getPrayTimes(rollDays)
     }
 
     @JvmStatic
     fun getPrays(ctx: Context, timestamp: Timestamp): PrayTimes {
-        return PrayTimeCore.getNewInstance(ctx, AMSettings.getCurrentLocation(ctx)).getPrayTimes(timestamp)
+        return PrayTimeCore.newInstance(ctx, AMSettings.getCurrentLocation(ctx)).getPrayTimes(timestamp)
     }
 
     @JvmStatic
@@ -61,6 +60,7 @@ object PrayerManager {
         for (pray in prays.toArray()) {
             if (pray.passed) continue
             nextPray = pray
+            break
         }
         return nextPray
     }
@@ -90,7 +90,6 @@ object PrayerManager {
                 break
             }
         }
-        AManager.log(TAG, "didHePray: %b | %s", didHePray, pray)
         return didHePray
     }
 }

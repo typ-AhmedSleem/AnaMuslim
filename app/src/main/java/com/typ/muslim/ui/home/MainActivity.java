@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
     protected void onResume() {
         super.onResume();
         // Refresh cards
+        madeFirstSetup = true;
         if (madeFirstSetup) cards.iterate(DashboardCard::performRefresh);
         ((QiblaDashboardCard) cards.get(6)).register();
         madeFirstSetup = true;

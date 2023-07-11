@@ -69,7 +69,7 @@ public class PreviewPrayTimeFragment extends Fragment {
 		// Get current location
 		final Location currLocation = AMSettings.getCurrentLocation(requireContext());
 		// Calculate PrayTimes
-		final PrayTimes prayTimes = PrayTimeCore.getNewInstance(requireContext(), currLocation).getPrayTimes(0);
+		final PrayTimes prayTimes = PrayTimeCore.newInstance(requireContext(), currLocation).getPrayTimes(0);
 		// Setup Views
 		assert currLocation != null : "Current Location is null";
 		final TextInputEditText tfLocation = (TextInputEditText) ((TextInputLayout) fragView.findViewById(R.id.til_preview_loc)).getEditText();
