@@ -27,7 +27,7 @@ import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
 import com.typ.muslim.features.prays.enums.PrayType;
-import com.typ.muslim.enums.PrayNotifyMethod;
+import com.typ.muslim.features.prays.enums.PrayNotifyMethod;
 import com.typ.muslim.features.prays.PrayNotifyMethodChangedCallback;
 import com.typ.muslim.features.ramadan.RamadanManager;
 import com.typ.muslim.managers.AMSettings;
@@ -72,7 +72,7 @@ public class VerticalPrayView extends DashboardCard {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VerticalPrayView);
         PrayType pray = PrayType.valueOf(typedArray.getInt(R.styleable.VerticalPrayView_pivPray, FAJR.ordinal()));
         this.pray = new Pray(pray, pray.name(), System.currentTimeMillis());
-        this.notifyMethod = AMSettings.getPrayNotifyMethod(context, this.pray.getType());
+        this.notifyMethod = AMSettings.getPrayNotifyMethod(context, this.pray.type);
         typedArray.recycle();
     }
 
@@ -106,26 +106,26 @@ public class VerticalPrayView extends DashboardCard {
         this.tvPrayName.addSlice(new Slice.Builder(getString(pray.getPrayNameRes()))
                 .style(Typeface.BOLD)
                 .textSize(sp2px(16f))
-                .textColor(getColor(isPrayPassed() ? R.color.green : nextPray.equals(pray) ? pray.getSurfaceColorRes() : R.color.darkAdaptiveColor))
+                .textColor(getColor(isPrayPassed() ? R.color.green : nextPray.equals(pray) ? R.color.yellow : R.color.darkAdaptiveColor))
                 .build());
         // Add Suhur, Iftar, Qiyam subscript to pray name (if in Ramadan)
-        if (RamadanManager.isInRamadan() && (pray.getType() == FAJR || pray.getType() == MAGHRIB || pray.getType() == ISHA)) {
+        if (RamadanManager.isInRamadan() && (pray.type == FAJR || pray.type == MAGHRIB || pray.type == ISHA)) {
             final String sliceText;
-            if (pray.getType() == FAJR) sliceText = getString(R.string.fasting);
-            else if (pray.getType() == MAGHRIB) sliceText = getString(R.string.iftar);
-            else if (pray.getType() == ISHA) sliceText = getString(R.string.qiyam);
+            if (pray.type == FAJR) sliceText = getString(R.string.fasting);
+            else if (pray.type == MAGHRIB) sliceText = getString(R.string.iftar);
+            else if (pray.type == ISHA) sliceText = getString(R.string.qiyam);
             else sliceText = "";
             if (!TextUtils.isEmpty(sliceText)) {
                 this.tvPrayName.addSlice(new Slice.Builder(String.format(Locale.getDefault(), "  (%s)", sliceText))
                         .textSize(sp2px(10f))
-                        .textColor(getColor(isPrayPassed() ? R.color.green : nextPray.equals(pray) ? pray.getType().getSurfaceColorRes() : R.color.darkAdaptiveColor))
+                        .textColor(getColor(isPrayPassed() ? R.color.green : nextPray.equals(pray) ? pray.type.getSurfaceColorRes() : R.color.darkAdaptiveColor))
                         .build());
             }
 
         }
         this.tvPrayName.display();
         // PrayTime and indicators
-        this.tvPrayTime.setTextColor(getColor(isPrayPassed() ? R.color.green : nextPray.equals(pray) ? pray.getType().getSurfaceColorRes() : R.color.darkAdaptiveColor));
+        this.tvPrayTime.setTextColor(getColor(isPrayPassed() ? R.color.green : nextPray.equals(pray) ? pray.type.getSurfaceColorRes() : R.color.darkAdaptiveColor));
         this.tvPrayTime.setText(this.pray.getFormattedTime(getContext()));
         this.changeIndicator(nextPray);
         this.updateNotifyMethodView();
@@ -142,8 +142,8 @@ public class VerticalPrayView extends DashboardCard {
             ivIndicator.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.green)));
         } else if (pray.equals(nextPray)) {
             // Next
-            final int surfaceColor = getColor(pray.getSurfaceColorRes());
-            final int onSurfaceColor = getColor(pray.getOnSurfaceColorRes());
+            final int surfaceColor = getColor(R.color.darkAdaptiveColor);
+            final int onSurfaceColor = getColor(R.color.yellow);
             this.setCardBackgroundColor(getColor(R.color.adaptiveBackgroundColor));
             ivIndicator.setColorFilter(surfaceColor);
             ivIndicator.setImageResource(R.drawable.ic_arrow_to_right);
@@ -163,7 +163,7 @@ public class VerticalPrayView extends DashboardCard {
 
     public void updateNotifyMethodView() {
         if (notifyMethod == null) return;
-        if (this.pray.getType() == PrayType.SUNRISE) {
+        if (this.pray.type == PrayType.SUNRISE) {
             this.ibtnChangeNotifyMethod.setEnabled(false);
             this.ibtnChangeNotifyMethod.setImageResource(R.drawable.ic_notify_off);
             this.ibtnChangeNotifyMethod.setColorFilter(ResMan.getColor(getContext(), R.color.red));
@@ -188,7 +188,7 @@ public class VerticalPrayView extends DashboardCard {
 
     public boolean isPrayPassed() {
         if (pray == null) return true;
-        return pray.hasPassed();
+        return pray.getPassed();
     }
 
     public void setCallback(PrayNotifyMethodChangedCallback callback) {
@@ -217,15 +217,15 @@ public class VerticalPrayView extends DashboardCard {
             if (this.notifyMethod == PrayNotifyMethod.AZAN) this.notifyMethod = PrayNotifyMethod.NOTIFICATION_ONLY;
             else if (this.notifyMethod == PrayNotifyMethod.NOTIFICATION_ONLY) this.notifyMethod = PrayNotifyMethod.OFF;
             else if (this.notifyMethod == PrayNotifyMethod.OFF) {
-                if (pray.getType() == PrayType.SUNRISE) this.notifyMethod = PrayNotifyMethod.NOTIFICATION_ONLY;
+                if (pray.type == PrayType.SUNRISE) this.notifyMethod = PrayNotifyMethod.NOTIFICATION_ONLY;
                 else this.notifyMethod = PrayNotifyMethod.AZAN;
             }
             // Save new notify method in settings
-            AMSettings.save(getContext(), Keys.PRAY_NOTIFY_METHOD(pray.getType()), this.notifyMethod);
+            AMSettings.save(getContext(), Keys.PRAY_NOTIFY_METHOD(pray.type), this.notifyMethod);
             // Update views
             this.updateNotifyMethodView();
             // Notify callback
-            if (callback != null) callback.onPrayNotifyMethodChanged(pray.getType(), this.notifyMethod);
+            if (callback != null) callback.onPrayNotifyMethodChanged(pray.type, this.notifyMethod);
         }
     }
 

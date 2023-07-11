@@ -18,7 +18,7 @@ import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.app.Consumers;
 import com.typ.muslim.features.prays.enums.PrayType;
-import com.typ.muslim.enums.PrayStatus;
+import com.typ.muslim.features.prays.enums.PrayStatus;
 import com.typ.muslim.enums.TrackerRange;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrayTrackerManager;
@@ -177,10 +177,10 @@ public class SimpleTrackerCard extends DashboardCard {
 		} else if (result.getFirst() == PrayStatus.DELAYED) prayedIn = Timestamp.NOW().toMillis();
 		// Build record then persist it
 		if (PrayTrackerManager.record(getContext(),
-				currentPray.getType(),
+				currentPray.type,
 				result.getFirst(),
 				result.getSecond(),
-				currentPray.getIn().toMillis(),
+				currentPray.time.toMillis(),
 				prayedIn,
 				Timestamp.NOW().toMillis())) {
 			// Show statistics

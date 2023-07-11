@@ -28,7 +28,7 @@ import com.typ.muslim.app.Keys;
 import com.typ.muslim.features.prays.enums.CalculationMethod;
 import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.enums.OngoingNotificationStyle;
-import com.typ.muslim.enums.PrayNotifyMethod;
+import com.typ.muslim.features.prays.enums.PrayNotifyMethod;
 import com.typ.muslim.enums.SoMNotifyMethod;
 import com.typ.muslim.enums.SoMReminderFreq;
 import com.typ.muslim.enums.TrackerRange;

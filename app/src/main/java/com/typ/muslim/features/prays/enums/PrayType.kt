@@ -1,7 +1,6 @@
 package com.typ.muslim.features.prays.enums
 
 import androidx.annotation.ColorRes
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.typ.muslim.R
 import com.typ.muslim.models.Timestamp
@@ -42,33 +41,12 @@ enum class PrayType {
             else -> R.color.color_isha_bg
         }
 
-    @get:ColorRes
-    val onSurfaceColorRes: Int
-        get() = when (this) {
-            MAGHRIB, ISHA, FAJR, DHUHR -> R.color.yellow
-            ASR, SUNRISE -> R.color.color_maghrib_isha_highlight
-            else -> R.color.nextPrayCardSurfaceStartColor
-        }
-
-    @get:DrawableRes
-    val iconRes: Int
-        get() = when (this) {
-            FAJR -> R.drawable.ic_sun
-            SUNRISE -> R.drawable.ic_sun
-            DHUHR -> R.drawable.ic_sun
-            ASR -> R.drawable.ic_sun
-            MAGHRIB -> R.drawable.ic_ramadan_moon
-            else -> R.drawable.ic_moon
-        }
-
     fun ordinalWithoutSunrise(): Int {
         return if (this == FAJR) 0 else ordinal - 1
     }
 
     companion object {
         @JvmStatic
-        fun valueOf(ordinal: Int): PrayType {
-            return if (ordinal == 1) SUNRISE else if (ordinal == 2) DHUHR else if (ordinal == 3) ASR else if (ordinal == 4) MAGHRIB else if (ordinal == 5) ISHA else FAJR
-        }
+        fun valueOf(ordinal: Int) = values()[ordinal]
     }
 }

@@ -7,7 +7,7 @@
 package com.typ.muslim.models;
 
 import com.typ.muslim.features.prays.enums.PrayType;
-import com.typ.muslim.enums.PrayStatus;
+import com.typ.muslim.features.prays.enums.PrayStatus;
 import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.managers.AManager;
 
@@ -44,12 +44,12 @@ public class PrayTrackerRecord implements Serializable {
 	}
 
 	public static PrayTrackerRecord newMissedPrayRecord(Pray pray) {
-		return new PrayTrackerRecord(pray.getType(),
+		return new PrayTrackerRecord(pray.type,
 				PrayStatus.FORGOT,
 				false,
-				pray.getIn(),
+				pray.time,
 				null,
-				pray.getIn());
+				pray.time);
 	}
 
 	public PrayType getPray() {

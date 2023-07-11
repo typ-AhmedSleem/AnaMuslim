@@ -15,8 +15,8 @@ import cn.iwgang.countdownview.CountdownView
 import com.mpt.android.stv.Slice
 import com.mpt.android.stv.SpannableTextView
 import com.typ.muslim.R
-import com.typ.muslim.enums.PrayNotifyMethod
 import com.typ.muslim.features.prays.PrayerManager
+import com.typ.muslim.features.prays.enums.PrayNotifyMethod
 import com.typ.muslim.features.prays.enums.PrayType
 import com.typ.muslim.features.prays.interfaces.PrayTimeCameListener
 import com.typ.muslim.features.prays.models.Pray
@@ -98,7 +98,7 @@ class NextPrayDashboardCard : DashboardCard {
     override fun refreshUI() {
         updateNotifyMethod()
         showNextPrayNameOnTv()
-        cdTimeRemaining.start(nextPray.getIn().toMillis() - System.currentTimeMillis())
+        cdTimeRemaining.start(nextPray.time.toMillis() - System.currentTimeMillis())
     }
 
     private fun updateNotifyMethod() {
@@ -140,7 +140,7 @@ class NextPrayDashboardCard : DashboardCard {
                 }
             }
             // Tomorrow if before 12 am next day and next pray is FAJR
-            if (nextPray.type == PrayType.FAJR && !nextPray.getIn().dateMatches(Timestamp.NOW())) {
+            if (nextPray.type == PrayType.FAJR && !nextPray.time.dateMatches(Timestamp.NOW())) {
                 stvNextPrayName.addSlice(
                     Slice.Builder(String.format(locale, " (%s)", getString(R.string.tomorrow)))
                         .textSize(30)
@@ -161,7 +161,7 @@ class NextPrayDashboardCard : DashboardCard {
 
     private fun setNextPray(nextPray: Pray) {
         this.currentPray = this.nextPray
-        this.nextPray = if (!nextPray.hasPassed()) nextPray else PrayerManager.getNextPray(context)
+        this.nextPray = if (!nextPray.passed) nextPray else PrayerManager.getNextPray(context)
     }
 
     override fun onClick(v: View) {

@@ -78,7 +78,7 @@ public class RamadanDashboardCard extends DashboardCard implements PrayTimeCameL
 
     @Override
     public Pray onPrayTimeCame(Pray pray) {
-        if (switcher.getCurrentView() instanceof InRamadanView && (pray.getType() == PrayType.FAJR || pray.getType() == PrayType.MAGHRIB)) {
+        if (switcher.getCurrentView() instanceof InRamadanView && (pray.type == PrayType.FAJR || pray.type == PrayType.MAGHRIB)) {
             // Refresh InRamadanView
             ((InRamadanView) switcher.getCurrentView()).refreshUI();
         }

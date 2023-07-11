@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 
 import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.db.OldDatabase;
-import com.typ.muslim.enums.PrayStatus;
+import com.typ.muslim.features.prays.enums.PrayStatus;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.utils.DateUtils;

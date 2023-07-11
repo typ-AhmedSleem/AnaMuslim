@@ -32,13 +32,12 @@ public class DayTrackerRecords implements Serializable {
         if (Timestamp.NOW().isAfter(when)) {
             // Fill missed prays
             final PrayTimes prays = PrayerManager.getPrays(context, when);
-            prays.remove(PrayType.SUNRISE);
             final List<PrayType> missedPrays = new ArrayList<>();
             for (PrayType pray : PrayType.values()) {
                 // Pass sunrise
                 Consumers.doIf(() -> missedPrays.add(pray), records.getIf((i, rec) -> rec.getPray() == pray) == null);
             }
-            for (PrayType mp : missedPrays) records.add(mp.ordinalWithoutSunrise(), PrayTrackerRecord.newMissedPrayRecord(prays.get(mp.ordinalWithoutSunrise())));
+            for (PrayType mp : missedPrays) records.add(mp.ordinalWithoutSunrise(), PrayTrackerRecord.newMissedPrayRecord(prays.get(mp.ordinal())));
             filledMissing = true;
         } else filledMissing = false;
         AManager.log("DayTrackerRecord", toString());

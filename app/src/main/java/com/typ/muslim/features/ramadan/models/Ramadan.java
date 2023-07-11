@@ -83,8 +83,8 @@ public class Ramadan {
 //		final Timestamp todayTimestamp = todayNum == 1 ? startsIn : startsIn.clone().roll(DATE, todayNum - 1);
         PrayTimes todayTimes = PrayerManager.getTodayPrays(context);
         return new RamadanDay(todayNum,
-                todayTimes.getFajr().getIn(),
-                todayTimes.getMaghrib().getIn());
+                todayTimes.getFajr().time,
+                todayTimes.getMaghrib().time);
     }
 
     @Override

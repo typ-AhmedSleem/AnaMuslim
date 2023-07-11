@@ -64,9 +64,9 @@ public class SquarePrayView extends ViewContainer implements PrayTimeCameListene
 		stvPrayName.setText(pray.getPrayNameRes());
 		tvPrayTime.setText(pray.getFormattedTime(getContext()));
 		// Change indicator or show icon
-		if (pray.getIn().isBefore(Timestamp.NOW()) || pray.getIn().isToday()) {
+		if (pray.time.isBefore(Timestamp.NOW()) || pray.time.isToday()) {
 			// Show indicator
-			if (pray.hasPassed()) {
+			if (pray.getPassed()) {
 				ivIconIndicator.setImageResource(R.drawable.ic_done);
 				ivIconIndicator.setBackgroundResource(R.drawable.shape_passed_pray);
 				ivIconIndicator.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.green)));
@@ -77,7 +77,6 @@ public class SquarePrayView extends ViewContainer implements PrayTimeCameListene
 			}
 		} else {
 			// Show icon
-			ivIconIndicator.setImageResource(pray.getPrayIconRes());
 			ivIconIndicator.setBackgroundResource(R.drawable.shape_next_pray);
 			ivIconIndicator.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.darkAdaptiveColor)));
 		}

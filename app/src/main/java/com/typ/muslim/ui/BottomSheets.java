@@ -44,7 +44,7 @@ import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.enums.CalendarDots;
-import com.typ.muslim.enums.PrayStatus;
+import com.typ.muslim.features.prays.enums.PrayStatus;
 import com.typ.muslim.enums.SoMReminderFreq;
 import com.typ.muslim.features.calendar.HijriCalendar;
 import com.typ.muslim.features.calendar.models.HijriDate;

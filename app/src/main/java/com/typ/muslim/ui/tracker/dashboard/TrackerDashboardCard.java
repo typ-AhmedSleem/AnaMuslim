@@ -17,11 +17,11 @@ import android.widget.ViewSwitcher;
 import androidx.core.app.ActivityOptionsCompat;
 
 import com.typ.muslim.R;
-import com.typ.muslim.enums.PrayStatus;
-import com.typ.muslim.features.prays.interfaces.PrayTimeCameListener;
-import com.typ.muslim.managers.PrayTrackerManager;
 import com.typ.muslim.features.prays.PrayerManager;
+import com.typ.muslim.features.prays.enums.PrayStatus;
+import com.typ.muslim.features.prays.interfaces.PrayTimeCameListener;
 import com.typ.muslim.features.prays.models.Pray;
+import com.typ.muslim.managers.PrayTrackerManager;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.BottomSheets;
 import com.typ.muslim.ui.home.DashboardCard;
@@ -123,10 +123,10 @@ public class TrackerDashboardCard extends DashboardCard implements PrayTimeCameL
         } else if (result.getFirst() == PrayStatus.DELAYED) prayedIn = Timestamp.NOW().toMillis();
         // Build record then persist it
         if (PrayTrackerManager.record(getContext(),
-                currentPray.getType(),
+                currentPray.type,
                 result.getFirst(),
                 result.getSecond(),
-                currentPray.getIn().toMillis(),
+                currentPray.time.toMillis(),
                 prayedIn,
                 Timestamp.NOW().toMillis())) {
             // Show statistics

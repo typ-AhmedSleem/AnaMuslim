@@ -17,17 +17,17 @@ package com.typ.muslim.features.prays;
 import android.content.Context;
 
 import com.typ.muslim.R;
+import com.typ.muslim.enums.FormatPatterns;
 import com.typ.muslim.features.prays.enums.CalculationMethod;
 import com.typ.muslim.features.prays.enums.HigherLatitudesMethod;
 import com.typ.muslim.features.prays.enums.PrayType;
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.features.prays.models.Pray;
+import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Location;
-import com.typ.muslim.features.prays.models.Pray;
-import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.models.Time;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.utils.DateUtils;
@@ -367,10 +367,6 @@ public class PrayTimeCore {
             timestamp.set(Calendar.SECOND, 0);
             prayTimesBuilder.add(new Pray(PrayType.valueOf(index), getPrayerNames().get(index), timestamp.toMillis()));
         }
-        AManager.log(TAG, "getPrayTimes: In[%s] | RollDays[%d] | PrayTimes[%s]",
-                Timestamp.NOW().getFormatted(FormatPatterns.DATETIME_FULL),
-                rollDays,
-                prayTimesBuilder.build());
         return prayTimesBuilder.build();
     }
 
@@ -394,9 +390,6 @@ public class PrayTimeCore {
             in.set(Calendar.SECOND, 0);
             prayTimesBuilder.add(new Pray(PrayType.valueOf(index), getPrayerNames().get(index), in.toMillis()));
         }
-        AManager.log(TAG, "getPrayTimes: In[%s] | PrayTimes[%s]",
-                Timestamp.NOW().getFormatted(FormatPatterns.DATETIME_FULL),
-                prayTimesBuilder.build());
         return prayTimesBuilder.build();
     }
 

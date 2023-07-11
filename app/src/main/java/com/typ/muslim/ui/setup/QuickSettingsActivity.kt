@@ -9,7 +9,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.typ.muslim.R
 import com.typ.muslim.enums.OngoingNotificationStyle
-import com.typ.muslim.enums.PrayNotifyMethod
+import com.typ.muslim.features.prays.enums.PrayNotifyMethod
 
 class QuickSettingsActivity : AppCompatActivity(R.layout.fragment_wizard_quick_settings) {
 

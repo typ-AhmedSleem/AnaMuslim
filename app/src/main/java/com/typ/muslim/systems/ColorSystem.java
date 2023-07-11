@@ -205,33 +205,33 @@ public class ColorSystem {
 		@ColorInt
 		public static int getPrayCardSurfaceColor(Context context, Pray pray) {
 			// TODO: 7/7/2021 to be completed
-			if (pray.getType() == PrayType.SUNRISE) return ResMan.getColor(context, R.color.color_dhuhr_sunrise_highlight);
-			else if (pray.getType() == PrayType.DHUHR) return ResMan.getColor(context, R.color.color_dhuhr_sunrise_bg);
-			else if (pray.getType() == PrayType.ASR) return ResMan.getColor(context, R.color.color_asr_bg);
-			else if (pray.getType() == PrayType.MAGHRIB) return ResMan.getColor(context, R.color.color_maghrib_isha_header);
-			else if (pray.getType() == PrayType.ISHA) return ResMan.getColor(context, R.color.color_isha_bg);
+			if (pray.type == PrayType.SUNRISE) return ResMan.getColor(context, R.color.color_dhuhr_sunrise_highlight);
+			else if (pray.type == PrayType.DHUHR) return ResMan.getColor(context, R.color.color_dhuhr_sunrise_bg);
+			else if (pray.type == PrayType.ASR) return ResMan.getColor(context, R.color.color_asr_bg);
+			else if (pray.type == PrayType.MAGHRIB) return ResMan.getColor(context, R.color.color_maghrib_isha_header);
+			else if (pray.type == PrayType.ISHA) return ResMan.getColor(context, R.color.color_isha_bg);
 			return ResMan.getColor(context, R.color.color_fajr_header); // Fajr.
 		}
 
 		@ColorInt
 		public static int getPrayCardHeadTextColor(Context context, Pray pray) {
 			// TODO: 7/7/2021 to be completed
-			if (pray.getType() == PrayType.SUNRISE) return Color.WHITE;
-			else if (pray.getType() == PrayType.DHUHR) return Color.BLACK;
-			else if (pray.getType() == PrayType.ASR) return Color.BLACK;
-			else if (pray.getType() == PrayType.MAGHRIB) return ResMan.getColor(context, R.color.color_maghrib_isha_highlight);
-			else if (pray.getType() == PrayType.ISHA) return ResMan.getColor(context, R.color.color_maghrib_isha_highlight);
+			if (pray.type == PrayType.SUNRISE) return Color.WHITE;
+			else if (pray.type == PrayType.DHUHR) return Color.BLACK;
+			else if (pray.type == PrayType.ASR) return Color.BLACK;
+			else if (pray.type == PrayType.MAGHRIB) return ResMan.getColor(context, R.color.color_maghrib_isha_highlight);
+			else if (pray.type == PrayType.ISHA) return ResMan.getColor(context, R.color.color_maghrib_isha_highlight);
 			return Color.WHITE; // Fajr.
 		}
 
 		@ColorInt
 		public static int getPrayCardSubTextColor(Context context, Pray pray) {
 			// TODO: 7/7/2021 to be completed
-			if (pray.getType() == PrayType.SUNRISE) return Color.parseColor("#B3FFFFFF");
-			else if (pray.getType() == PrayType.DHUHR) return Color.parseColor("#B3000000");
-			else if (pray.getType() == PrayType.ASR) return Color.parseColor("#B3FFFFFF");
-			else if (pray.getType() == PrayType.MAGHRIB) return Color.parseColor("#B3FFFFFF");
-			else if (pray.getType() == PrayType.ISHA) return Color.parseColor("#B3FFFFFF");
+			if (pray.type == PrayType.SUNRISE) return Color.parseColor("#B3FFFFFF");
+			else if (pray.type == PrayType.DHUHR) return Color.parseColor("#B3000000");
+			else if (pray.type == PrayType.ASR) return Color.parseColor("#B3FFFFFF");
+			else if (pray.type == PrayType.MAGHRIB) return Color.parseColor("#B3FFFFFF");
+			else if (pray.type == PrayType.ISHA) return Color.parseColor("#B3FFFFFF");
 			return Color.parseColor("#B3FFFFFF"); // Fajr.
 		}
 
