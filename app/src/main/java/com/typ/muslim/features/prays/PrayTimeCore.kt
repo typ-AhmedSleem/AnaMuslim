@@ -2,7 +2,7 @@
  * This product is developed by TYP Software
  * Project Head : Ahmed Sleem
  * Programmer : Ahmed Sleem
- * Pre-Release Tester : Ahmed Sleem & Ahmed Hafez
+ * Pre-Release Tester : Ahmed Sleem
  *
  * Copyright (c) TYP Electronics Corporation.  All Rights Reserved
  *//*
@@ -15,11 +15,13 @@ import android.content.Context
 import com.typ.muslim.R
 import com.typ.muslim.features.prays.enums.CalculationMethod
 import com.typ.muslim.features.prays.enums.HigherLatitudesMethod
+import com.typ.muslim.features.prays.enums.PrayType
 import com.typ.muslim.features.prays.enums.PrayType.Companion.valueOf
 import com.typ.muslim.features.prays.models.Pray
 import com.typ.muslim.features.prays.models.PrayTimes
 import com.typ.muslim.features.prays.models.PrayTimes.Companion.newBuilder
 import com.typ.muslim.managers.AMSettings
+import com.typ.muslim.managers.AManager
 import com.typ.muslim.managers.ResMan
 import com.typ.muslim.models.Location
 import com.typ.muslim.models.Time
@@ -49,17 +51,15 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
     private val methodParams = HashMap<Int, DoubleArray>()
 
     // ---------------------- Global Variables --------------------
-    private var dhuhrMinutes = 0 // minutes after mid-day for Dhuhr
+    private var dhuhrMinutes = 0 // Minutes after mid-day for Dhuhr.
     private var jDate = 0.0 // Julian date
-    private var offsets = IntArray(7)
+    private val offsets: IntArray // Prays offsets.
 
     // --------------------- Technical Settings --------------------
     private var numIterations = 5 // Number of iterations needed to compute times
 
     // ---------------------- Time-Zone Functions -----------------------
-    private val timeZone1: Double
-        get() = TimeZone.getDefault().rawOffset / 1000.0 / 3600
-    private val baseTimeZone: Double
+    private val defaultTimezone: Double
         // Compute base time-zone of the system
         get() = TimeZone.getDefault().rawOffset / 1000.0 / 3600
 
@@ -84,6 +84,16 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
             ResMan.getString(context, R.string.maghrib_pray),
             ResMan.getString(context, R.string.isha_pray)
         )
+        // Get offsets for each pray (index 5 is for sunrise and always equals to maghrib offset)
+        offsets = intArrayOf(
+            AMSettings.getOffsetMinutesForPray(context, PrayType.FAJR),
+            AMSettings.getOffsetMinutesForPray(context, PrayType.SUNRISE),
+            AMSettings.getOffsetMinutesForPray(context, PrayType.DHUHR),
+            AMSettings.getOffsetMinutesForPray(context, PrayType.ASR),
+            0, // Sunset (unnecessary).
+            AMSettings.getOffsetMinutesForPray(context, PrayType.MAGHRIB),
+            AMSettings.getOffsetMinutesForPray(context, PrayType.ISHA),
+        )
         // =============== Initialize PrayTimeCore instance ===============
         // Jafari
         methodParams[CalculationMethod.JAFARI.ordinal] = doubleArrayOf(16.0, 0.0, 4.0, 0.0, 14.0)
@@ -101,6 +111,12 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
         methodParams[CalculationMethod.TEHRAN.ordinal] = doubleArrayOf(17.7, 0.0, 4.5, 0.0, 14.0)
         // Custom
         methodParams[CalculationMethod.CUSTOM.ordinal] = doubleArrayOf(18.0, 1.0, 0.0, 0.0, 17.0)
+
+        AManager.log(TAG, "====================== Created instance with configuration ==========================\n")
+        AManager.log(TAG, "Offsets: $offsets")
+        AManager.log(TAG, "Params: $methodParams")
+        AManager.log(TAG, "Params: $methodParams")
+        AManager.log(TAG, "=====================================================================================\n")
     }
 
     // ---------------------- Trigonometric Functions -----------------------
@@ -294,20 +310,20 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
      *
      * @return Returns the computed PrayTimes for the given Location and Julian Date
      */
-    fun getPrayTimes(`in`: Timestamp): PrayTimes {
+    fun getPrayTimes(day: Timestamp): PrayTimes {
         // Do Calculations
-        jDate = julianDate(`in`.year, `in`.month, `in`.day)
+        jDate = julianDate(day.year, day.month, day.day)
         //		this.setJDate(julianDate(in.get(Calendar.YEAR), in.get(Calendar.MONTH) + 1, in.get(Calendar.DATE)));
         val lonDiff = currLocation.longitude / (15.0 * 24.0)
-        jDate = jDate - lonDiff
+        jDate -= lonDiff
         // Put result in array
         val computedPrayTimes = computeDayTimes()
         val prayTimesBuilder = newBuilder()
         for (index in computedPrayTimes.indices) {
-            `in`[Calendar.HOUR_OF_DAY] = computedPrayTimes[index].hours
-            `in`[Calendar.MINUTE] = computedPrayTimes[index].minutes
-            `in`[Calendar.SECOND] = 0
-            prayTimesBuilder.add(Pray(valueOf(index), prayerNames[index], `in`.toMillis()))
+            day[Calendar.HOUR_OF_DAY] = computedPrayTimes[index].hours
+            day[Calendar.MINUTE] = computedPrayTimes[index].minutes
+            day[Calendar.SECOND] = 0
+            prayTimesBuilder.add(Pray(valueOf(index), prayerNames[index], day.toMillis()))
         }
         return prayTimesBuilder.build()
     }
@@ -451,7 +467,7 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
 
     // adjust times in a prayer time array
     private fun adjustTimes(times: DoubleArray) {
-        for (i in times.indices) times[i] += currLocation.timezone - currLocation.longitude / 15
+        for (i in times.indices) times[i] += defaultTimezone - currLocation.longitude / 15 // fixme: replace defaultTimezone with currLocation.timezone
         times[2] += (dhuhrMinutes / 60f).toDouble() // Dhuhr
         if (methodParams[currLocation.config.calculationMethod.ordinal]!![1] == 1.0) times[5] = times[4] + methodParams[currLocation.config.calculationMethod.ordinal]!![2] / 60 // Maghrib
         if (methodParams[currLocation.config.calculationMethod.ordinal]!![3] == 1.0) times[6] = times[5] + methodParams[currLocation.config.calculationMethod.ordinal]!![4] / 60 // Isha
@@ -534,7 +550,7 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
     }
 
     private fun tuneTimes(times: DoubleArray) {
-        for (i in times.indices) times[i] = times[i] + offsets[i] / 60.0
+        for (i in times.indices) times[i] += offsets[i] / 60.0
     }
 
     companion object {

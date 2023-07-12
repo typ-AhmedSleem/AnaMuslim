@@ -23,7 +23,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_notify_with_sound"
+        app:srcCompat="@drawable/ic_alert_full"
         android:padding="8dp"
         app:tint="@color/material_dynamic_secondary80" />
 

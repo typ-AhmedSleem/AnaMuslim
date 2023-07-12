@@ -36,7 +36,7 @@ import com.typ.muslim.models.Location;
 import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.profile.ProfileManager;
 import com.typ.muslim.profile.models.Profile;
-import com.typ.muslim.ui.prays.views.VerticalPrayView;
+import com.typ.muslim.ui.prays.views.PrayView;
 import com.typ.muslim.ui.home.MainActivity;
 import com.typ.muslim.ui.setup.QuickSettingsActivity;
 
@@ -79,32 +79,32 @@ public class PreviewPrayTimeFragment extends Fragment {
 		final TextInputEditText tfConfig = (TextInputEditText) ((TextInputLayout) fragView.findViewById(R.id.til_preview_config)).getEditText();
 		Objects.requireNonNull(tfConfig).setText(currLocation.getConfig().toDisplayableString());
 
-		final VerticalPrayView pvFajr = fragView.findViewById(R.id.vpv_fajr);
+		final PrayView pvFajr = fragView.findViewById(R.id.vpv_fajr);
 		pvFajr.setEnabled(false);
 		pvFajr.setPray(prayTimes.getFajr());
 		pvFajr.changeNotifMethodVisibility(false);
 
-		final VerticalPrayView pvSunrise = fragView.findViewById(R.id.vpv_sunrise);
+		final PrayView pvSunrise = fragView.findViewById(R.id.vpv_sunrise);
 		pvSunrise.setEnabled(false);
 		pvSunrise.setPray(prayTimes.getSunrise());
 		pvSunrise.changeNotifMethodVisibility(false);
 
-		final VerticalPrayView pvDhuhr = fragView.findViewById(R.id.vpv_dhuhr);
+		final PrayView pvDhuhr = fragView.findViewById(R.id.vpv_dhuhr);
 		pvDhuhr.setEnabled(false);
 		pvDhuhr.setPray(prayTimes.getDhuhr());
 		pvDhuhr.changeNotifMethodVisibility(false);
 
-		final VerticalPrayView pvAsr = fragView.findViewById(R.id.vpv_asr);
+		final PrayView pvAsr = fragView.findViewById(R.id.vpv_asr);
 		pvAsr.setEnabled(false);
 		pvAsr.setPray(prayTimes.getAsr());
 		pvAsr.changeNotifMethodVisibility(false);
 
-		final VerticalPrayView pvMaghrib = fragView.findViewById(R.id.vpv_maghrib);
+		final PrayView pvMaghrib = fragView.findViewById(R.id.vpv_maghrib);
 		pvMaghrib.setEnabled(false);
 		pvMaghrib.setPray(prayTimes.getMaghrib());
 		pvMaghrib.changeNotifMethodVisibility(false);
 
-		final VerticalPrayView pvIsha = fragView.findViewById(R.id.vpv_isha);
+		final PrayView pvIsha = fragView.findViewById(R.id.vpv_isha);
 		pvIsha.setEnabled(false);
 		pvIsha.setPray(prayTimes.getIsha());
 		pvIsha.changeNotifMethodVisibility(false);

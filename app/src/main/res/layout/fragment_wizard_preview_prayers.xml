@@ -153,7 +153,7 @@
                 app:textAllCaps="false"
                 tools:ignore="HardcodedText" />
 
-            <com.typ.muslim.ui.prays.views.VerticalPrayView
+            <com.typ.muslim.ui.prays.views.PrayView
                 android:id="@+id/vpv_fajr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                 android:layout_marginEnd="20dp"
                 app:pivPray="FAJR" />
 
-            <com.typ.muslim.ui.prays.views.VerticalPrayView
+            <com.typ.muslim.ui.prays.views.PrayView
                 android:id="@+id/vpv_sunrise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                 android:layout_marginEnd="20dp"
                 app:pivPray="SUNRISE" />
 
-            <com.typ.muslim.ui.prays.views.VerticalPrayView
+            <com.typ.muslim.ui.prays.views.PrayView
                 android:id="@+id/vpv_dhuhr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
                 android:layout_marginEnd="20dp"
                 app:pivPray="DHUHR" />
 
-            <com.typ.muslim.ui.prays.views.VerticalPrayView
+            <com.typ.muslim.ui.prays.views.PrayView
                 android:id="@+id/vpv_asr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
                 android:layout_marginEnd="20dp"
                 app:pivPray="ASR" />
 
-            <com.typ.muslim.ui.prays.views.VerticalPrayView
+            <com.typ.muslim.ui.prays.views.PrayView
                 android:id="@+id/vpv_maghrib"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                 android:layout_marginEnd="20dp"
                 app:pivPray="MAGHRIB" />
 
-            <com.typ.muslim.ui.prays.views.VerticalPrayView
+            <com.typ.muslim.ui.prays.views.PrayView
                 android:id="@+id/vpv_isha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

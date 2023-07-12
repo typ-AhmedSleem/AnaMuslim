@@ -6,14 +6,17 @@
 
 package com.typ.muslim.enums;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 
+import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.Timestamp;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-public enum FormatPatterns {
+public enum FormatPattern {
 
     /**
      * Pattern [hh:mm aa]. eg: 3:25 pm
@@ -58,17 +61,19 @@ public enum FormatPatterns {
     /**
      * Pattern [dd MMM yyyy hh:mm aa]. eg: 01 Aug 2001 12:03 am
      */
-    DATETIME_FULL("dd MMM yyyy hh:mm aa");
+    DATETIME_FULL("dd MMM yyyy hh:mm aa"),
+
+    HMSA("hh:mm:ss aa");
 
     final String pattern;
 
-    FormatPatterns(String pattern) {
+    FormatPattern(String pattern) {
         this.pattern = pattern;
     }
 
-    public static FormatPatterns valueOf(int ordinal) {
-        FormatPatterns formatPattern = null;
-        for (FormatPatterns fp : values()) {
+    public static FormatPattern valueOf(int ordinal) {
+        FormatPattern formatPattern = null;
+        for (FormatPattern fp : values()) {
             if (fp.ordinal() == ordinal) {
                 formatPattern = fp;
                 break;
@@ -90,6 +95,10 @@ public enum FormatPatterns {
     @NonNull
     public String format(Timestamp timestamp, Locale locale) {
         return new SimpleDateFormat(pattern, locale).format(timestamp.asDate());
+    }
+
+    public static FormatPattern getDefault(Context ctx) {
+        return AManager.getSelectedTimeFormat(ctx);
     }
 
 }

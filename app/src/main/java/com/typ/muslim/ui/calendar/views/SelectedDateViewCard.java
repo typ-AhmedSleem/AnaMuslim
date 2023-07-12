@@ -24,7 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.typ.muslim.R;
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.enums.FormatPattern;
 import com.typ.muslim.features.calendar.HijriCalendar;
 import com.typ.muslim.features.calendar.models.HijriDate;
 import com.typ.muslim.models.Timestamp;
@@ -84,7 +84,7 @@ public class SelectedDateViewCard extends DashboardCard {
 				hijriDate.getDay(),
 				hijriDate.getMonthName(getContext()),
 				hijriDate.getYear(), getString(R.string.H)), NONE);
-		atvGeorg.setText(hijriDate.toGregorian().getFormatted(FormatPatterns.DATE_FULL), NONE);
+		atvGeorg.setText(hijriDate.toGregorian().getFormatted(FormatPattern.DATE_FULL), NONE);
 	}
 
 	@NonNull
@@ -123,7 +123,7 @@ public class SelectedDateViewCard extends DashboardCard {
 					hijriDate.getDay(),
 					hijriDate.getMonthName(getContext()),
 					hijriDate.getYear(), getString(R.string.H)), animDir);
-			atvGeorg.setText(tsSelected.getFormatted(FormatPatterns.DATE_FULL), animDir);
+			atvGeorg.setText(tsSelected.getFormatted(FormatPattern.DATE_FULL), animDir);
 		}
 	}
 

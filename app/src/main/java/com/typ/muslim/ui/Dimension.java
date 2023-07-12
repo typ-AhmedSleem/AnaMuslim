@@ -7,16 +7,13 @@
 package com.typ.muslim.ui;
 
 import static com.typ.muslim.utils.DisplayUtils.dp2px;
-import static com.typ.muslim.utils.DisplayUtils.px2dip;
+import static com.typ.muslim.utils.DisplayUtils.px2dp;
 import static com.typ.muslim.utils.DisplayUtils.px2sp;
 import static com.typ.muslim.utils.DisplayUtils.sp2px;
 
 import android.content.Context;
-import android.view.Display;
 
 import androidx.annotation.Px;
-
-import com.typ.muslim.utils.DisplayUtils;
 
 public class Dimension {
 
@@ -50,8 +47,8 @@ public class Dimension {
 	}
 
 	public float toDPs() {
-		if (type == PixelType.REAL_PIXEL) return px2dip(context, value);
-		else if (type == PixelType.SP) return px2dip(context, sp2px(context, value));
+		if (type == PixelType.REAL_PIXEL) return px2dp(context, value);
+		else if (type == PixelType.SP) return px2dp(context, sp2px(context, value));
 		else return value;
 	}
 

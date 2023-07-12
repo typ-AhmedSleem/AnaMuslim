@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.enums.FormatPattern;
 import com.typ.muslim.profile.ProfileManager;
 import com.typ.muslim.profile.models.Profile;
 
@@ -86,7 +86,7 @@ public class ProfileDashboardCard extends DashboardCard {
 		}
 		this.tvJoinedIn.setText(String.format(Locale.getDefault(), "%s: %s",
 				getString(R.string.joined_in),
-				this.profile.getCreatedIn().getFormatted(FormatPatterns.DATE_NORMAL)));
+				this.profile.getCreatedIn().getFormatted(FormatPattern.DATE_NORMAL)));
 	}
 
 	@Override

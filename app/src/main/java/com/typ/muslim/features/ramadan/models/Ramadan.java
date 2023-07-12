@@ -11,7 +11,7 @@ import android.content.Context;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.enums.FormatPattern;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.features.calendar.HijriCalendar;
 import com.typ.muslim.features.prays.PrayerManager;
@@ -29,8 +29,8 @@ public class Ramadan {
     public Ramadan(Timestamp startsIn, Timestamp endsIn) {
         this.startsIn = startsIn;
         this.endsIn = endsIn;
-        AManager.log("Ramadan", "%s | %s", startsIn.getFormatted(FormatPatterns.DATE_NORMAL),
-                endsIn.getFormatted(FormatPatterns.DATE_NORMAL));
+        AManager.log("Ramadan", "%s | %s", startsIn.getFormatted(FormatPattern.DATE_NORMAL),
+                endsIn.getFormatted(FormatPattern.DATE_NORMAL));
     }
 
     public Timestamp getStartsIn() {
@@ -90,8 +90,8 @@ public class Ramadan {
     @Override
     public String toString() {
         return "Ramadan{" +
-                "startsIn=" + startsIn.getFormatted(FormatPatterns.DATE_SHORT) +
-                "endsIn=" + endsIn.getFormatted(FormatPatterns.DATE_SHORT) +
+                "startsIn=" + startsIn.getFormatted(FormatPattern.DATE_SHORT) +
+                "endsIn=" + endsIn.getFormatted(FormatPattern.DATE_SHORT) +
                 '}';
     }
 

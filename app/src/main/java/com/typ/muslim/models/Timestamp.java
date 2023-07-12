@@ -9,7 +9,7 @@ package com.typ.muslim.models;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.enums.FormatPattern;
 import com.typ.muslim.features.calendar.HijriCalendar;
 import com.typ.muslim.features.calendar.models.HijriDate;
 
@@ -171,7 +171,7 @@ public class Timestamp implements Serializable {
         return this.toMillis() < timestamp;
     }
 
-    public String getFormatted(FormatPatterns pattern) {
+    public String getFormatted(FormatPattern pattern) {
         return pattern.format(this);
     }
 
@@ -239,6 +239,6 @@ public class Timestamp implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return "Timestamp{ " + getFormatted(FormatPatterns.DATETIME_FULL) + " }";
+        return "Timestamp{ " + getFormatted(FormatPattern.DATETIME_FULL) + " }";
     }
 }

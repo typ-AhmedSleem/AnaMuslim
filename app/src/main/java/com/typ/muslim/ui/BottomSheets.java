@@ -6,7 +6,7 @@
 
 package com.typ.muslim.ui;
 
-import static com.typ.muslim.enums.FormatPatterns.DATE_NORMAL;
+import static com.typ.muslim.enums.FormatPattern.DATE_NORMAL;
 
 import android.content.Context;
 import android.content.Intent;

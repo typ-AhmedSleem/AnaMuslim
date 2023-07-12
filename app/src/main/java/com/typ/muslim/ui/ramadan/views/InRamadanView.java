@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.enums.FormatPattern;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.features.ramadan.RamadanManager;
@@ -67,7 +67,7 @@ public class InRamadanView extends ViewContainer {
 	public void refreshUI() {
 		// Prepare necessary data
 		final RamadanDay today = RamadanManager.getNextRamadan().getToday(getContext());
-		final FormatPatterns timePattern = AManager.getSelectedTimeFormat(getContext());
+		final FormatPattern timePattern = AManager.getSelectedTimeFormat(getContext());
 		// Display data in views
 		tvDayNumber.setText(String.format(
 				Locale.getDefault(), "%s %s %s",

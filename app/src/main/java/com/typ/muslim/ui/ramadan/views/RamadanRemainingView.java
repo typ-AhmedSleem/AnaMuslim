@@ -17,7 +17,7 @@ import com.google.android.material.textview.MaterialTextView;
 import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.enums.FormatPattern;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.Period;
 import com.typ.muslim.features.ramadan.RamadanManager;
@@ -66,7 +66,7 @@ public class RamadanRemainingView extends ViewContainer {
         Period rem = ramadan.getPeriodTillStart();
         AManager.log(TAG, "[%s] | [%s] | [%s] | [%s]", ramadan.toString(), rem.toString(), RamadanManager.isRamadanThisYearPassed(), RamadanManager.isInRamadan());
         // Display data in views
-        tvRamadanStartDate.setText(ramadan.getStartsIn().getFormatted(FormatPatterns.DATE_NORMAL));
+        tvRamadanStartDate.setText(ramadan.getStartsIn().getFormatted(FormatPattern.DATE_NORMAL));
         stvRemainingTillRamadan.reset();
         if (rem.getMonths() > 0) {
             stvRemainingTillRamadan.addSlice(new Slice.Builder(String.valueOf(rem.getMonths()))

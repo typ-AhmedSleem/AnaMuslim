@@ -25,7 +25,7 @@ import com.typ.muslim.managers.AMSettings
 import com.typ.muslim.managers.LocaleManager
 import com.typ.muslim.models.Timestamp
 import com.typ.muslim.ui.home.DashboardCard
-import com.typ.muslim.utils.DisplayUtils
+import com.typ.muslim.utils.sp2px
 import java.util.Calendar
 import java.util.Locale
 
@@ -104,9 +104,9 @@ class NextPrayDashboardCard : DashboardCard {
     private fun updateNotifyMethod() {
         ifvPrayNotifMethod.setImageResource(
             when (notifyMethod) {
-                PrayNotifyMethod.AZAN -> R.drawable.ic_notify_with_sound
-                PrayNotifyMethod.NOTIFICATION_ONLY -> R.drawable.ic_notify_without_sound
-                PrayNotifyMethod.OFF -> R.drawable.ic_notify_off
+                PrayNotifyMethod.AZAN -> R.drawable.ic_alert_full
+                PrayNotifyMethod.NOTIFICATION_ONLY -> R.drawable.ic_alert_notif
+                PrayNotifyMethod.OFF -> R.drawable.ic_alert_off
             }
         )
     }
@@ -118,7 +118,7 @@ class NextPrayDashboardCard : DashboardCard {
             addSlice(
                 Slice.Builder(getString(nextPray.prayNameRes))
                     .textColor(getColor(com.google.android.material.R.color.material_dynamic_primary90))
-                    .textSize(DisplayUtils.sp2px(context, 22f))
+                    .textSize(sp2px(context, 20f))
                     .style(Typeface.BOLD)
                     .build()
             )
@@ -151,7 +151,7 @@ class NextPrayDashboardCard : DashboardCard {
             // Pray time
             stvNextPrayName.addSlice(
                 Slice.Builder(String.format(locale, "\n%s", nextPray.getFormattedTime(context, locale)))
-                    .textSize(DisplayUtils.sp2px(context, 17f))
+                    .textSize(sp2px(context, 17f))
                     .textColor(getColor(com.google.android.material.R.color.material_dynamic_primary80))
                     .build()
             )
@@ -165,7 +165,7 @@ class NextPrayDashboardCard : DashboardCard {
     }
 
     override fun onClick(v: View) {
-        // todo: show PraysBottomSheet
+        PraysBottomSheet(context)
     }
 
     override fun onLongClick(v: View?): Boolean {

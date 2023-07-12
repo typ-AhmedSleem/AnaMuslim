@@ -461,7 +461,7 @@
     <string name="apply_settings">تطبيق الاعدادات</string>
     <string name="items">العناصر</string>
     <string name="hh_mm_aa">سس دد تت</string>
-    <string name="dummy_hh_mm_aa">07:49 am</string>
+    <string name="dummy_hh_mm_aa">۳٩ : ٠٧ م</string>
     <string name="at">في</string>
 
     <string name="fajr_pray">صلاة الفجر</string>
@@ -473,5 +473,6 @@
     <string name="qiyam_pray">صلاة القيام</string>
 
     <string name="cdesc_pray_notif_method">Pray notification method</string>
+    <string name="cdesc_pray_passed_indicator">Pray passed indicator</string>
 
 </resources>

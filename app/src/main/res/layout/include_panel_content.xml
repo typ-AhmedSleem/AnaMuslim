@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:round="10dp"
-        app:srcCompat="@drawable/ic_notify_with_sound"
+        app:srcCompat="@drawable/ic_alert_full"
         app:tint="@color/adaptiveTextColor" />
 
     <com.google.android.material.textview.MaterialTextView

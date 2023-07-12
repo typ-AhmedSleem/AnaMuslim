@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/transparent">
+
+    <ImageView
+        android:id="@+id/iv_pray_pass_indicator"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="13dp"
+        android:background="@drawable/shape_next_pray"
+        android:backgroundTint="@color/colorIcon"
+        android:contentDescription="@string/cdesc_pray_passed_indicator"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_to_right"
+        app:tint="@color/colorIcon" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/stv_pray_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ibtn_pray_notif_method"
+        android:layout_alignBottom="@id/ibtn_pray_notif_method"
+        android:layout_marginStart="5dp"
+        android:layout_toStartOf="@id/ibtn_pray_notif_method"
+        android:layout_toEndOf="@id/iv_pray_pass_indicator"
+        android:gravity="start|center_vertical"
+        android:maxLines="1"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/maghrib_pray"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeTextType="none"
+        app:fontFamily="@font/cairo_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ibtn_pray_notif_method"
+        app:layout_constraintStart_toEndOf="@id/iv_pray_pass_indicator"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <ImageButton
+        android:id="@+id/ibtn_pray_notif_method"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="30dp"
+        android:background="@color/transparent"
+        android:contentDescription="@string/cdesc_pray_notif_method"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_alert_full"
+        app:tint="@color/colorIcon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_pray_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/ibtn_pray_notif_method"
+        android:gravity="center_vertical|end"
+        android:maxLines="1"
+        android:paddingStart="10dp"
+        android:paddingEnd="35dp"
+        android:text="@string/dummy_hh_mm_aa"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="none"
+        app:fontFamily="@font/cairo_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ibtn_pray_notif_method"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

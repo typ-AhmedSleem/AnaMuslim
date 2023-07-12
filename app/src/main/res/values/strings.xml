@@ -626,6 +626,7 @@
     <string name="maghrib_pray">@string/maghrib</string>
     <string name="isha_pray">@string/isha</string>
     <string name="qiyam_pray">@string/qiyam</string>
-    <string name="cdesc_pray_notif_method">Pray notification method</string>
+    <string name="cdesc_pray_notif_method">Pray alert method</string>
+    <string name="cdesc_pray_passed_indicator">Pray passed indicator</string>
 
 </resources>

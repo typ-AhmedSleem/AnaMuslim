@@ -3,9 +3,8 @@ package com.typ.muslim.features.prays.models
 import android.content.Context
 import androidx.annotation.StringRes
 import com.typ.muslim.app.AnaMuslimApp
-import com.typ.muslim.enums.FormatPatterns
+import com.typ.muslim.enums.FormatPattern
 import com.typ.muslim.features.prays.enums.PrayType
-import com.typ.muslim.managers.AManager
 import com.typ.muslim.managers.LocaleManager
 import com.typ.muslim.managers.ResMan
 import com.typ.muslim.models.Timestamp
@@ -45,7 +44,10 @@ class Pray(
 
     fun getFormattedTime(ctx: Context) = getFormattedTime(ctx, LocaleManager.getCurrLocale(ctx))
 
-    fun getFormattedTime(ctx: Context, lcl: Locale) = AManager.getSelectedTimeFormat(ctx).format(time, lcl)
+    fun getFormattedTime(ctx: Context, lcl: Locale) = FormatPattern.getDefault(ctx  ).format(time, lcl)
+
+    fun getFormattedTime(ctx: Context, format: FormatPattern) = getFormattedTime(format, LocaleManager.getCurrLocale(ctx))
+    fun getFormattedTime(formatter: FormatPattern, lcl: Locale) = formatter.format(time, lcl)
 
     override fun equals(other: Any?): Boolean {
         if (other == null) return false
@@ -61,7 +63,7 @@ class Pray(
         return "Pray{" +
                 "ordinal=" + type +
                 ", name='" + name + '\'' +
-                ", in=" + time.getFormatted(FormatPatterns.DATETIME_FULL) +
+                ", in=" + time.getFormatted(FormatPattern.DATETIME_FULL) +
                 ", hasPassed=" + passed +
                 '}'
     }

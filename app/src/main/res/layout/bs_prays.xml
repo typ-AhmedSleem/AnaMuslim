@@ -21,13 +21,16 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="@string/today_prays"
-        android:textColor="@color/subtitleTextColor"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        app:fontFamily="@font/cairo_regular"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.typ.muslim.ui.prays.views.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.PrayView
         android:id="@+id/fajrPIV"
         android:layout_width="match_parent"
+        app:cardElevation="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +39,7 @@
         app:pivPray="FAJR"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.prays.views.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.PrayView
         android:id="@+id/sunrisePIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +50,7 @@
         app:pivPray="SUNRISE"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.prays.views.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.PrayView
         android:id="@+id/dhuhrPIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,7 +61,7 @@
         app:pivPray="DHUHR"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.prays.views.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.PrayView
         android:id="@+id/asrPIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +72,7 @@
         app:pivPray="ASR"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.prays.views.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.PrayView
         android:id="@+id/maghribPIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +83,7 @@
         app:pivPray="MAGHRIB"
         app:pivPrayNotifyMethod="AZAN" />
 
-    <com.typ.muslim.ui.prays.views.VerticalPrayView
+    <com.typ.muslim.ui.prays.views.PrayView
         android:id="@+id/ishaPIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

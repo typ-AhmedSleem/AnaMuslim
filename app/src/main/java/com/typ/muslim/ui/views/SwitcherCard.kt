@@ -38,7 +38,6 @@ class SwitcherCard @JvmOverloads constructor(
                 if (text != null) setText(text)
                 check(checked)
 
-
                 recycle()
             }
         }
