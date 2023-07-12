@@ -228,7 +228,12 @@ public class Timestamp implements Serializable {
 
     @NonNull
     public Timestamp clone() {
-        return new Timestamp(this.toMillis());
+        return new Timestamp(toMillis());
+    }
+
+    @NonNull
+    public Timestamp copy() {
+        return new Timestamp(toMillis());
     }
 
     @Override

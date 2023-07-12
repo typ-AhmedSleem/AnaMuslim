@@ -12,6 +12,11 @@ class PrayTimes(// Must be sure that this
     private vararg val prays: Pray
 ) : Serializable {
 
+    init {
+        if (prays.isEmpty()) throw IllegalStateException("PrayTimes can't be empty.")
+        if (prays.size != 6) throw IllegalStateException("PrayTimes isn't fully filled.")
+    }
+
     val fajr: Pray
         get() = prays[0]
     val sunrise: Pray

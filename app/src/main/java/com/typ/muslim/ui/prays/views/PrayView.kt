@@ -34,13 +34,16 @@ import com.typ.muslim.utils.dp2px
 import com.typ.muslim.utils.sp2px
 import com.typ.muslim.utils.stringRes
 import com.typ.muslim.utils.todo
-import java.util.Calendar
 import java.util.Locale
 import kotlin.random.Random
 
 class PrayView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : MaterialCardView(context, attrs, defStyleAttr) {
+
+    constructor(context: Context, pray: Pray) : this(context) {
+        this.pray = pray
+    }
 
     // Runtime
     private lateinit var pray: Pray
@@ -57,14 +60,15 @@ class PrayView @JvmOverloads constructor(
     private var ifvNotifyMethod: ImageButton
 
     init {
+        // Init runtime
         locale = if (isInEditMode) Locales.ARABIC else LocaleManager.getCurrLocale(context)
+        notifyMethod = if (isInEditMode) PrayNotifyMethod.values().random() else AMSettings.getPrayNotifyMethod(context, this.pray.type)
         // Parse attrs (if specified)
         attrs?.let {
             // Used only to view different data on each PrayItemView during development
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.PrayView)
             val pray = valueOf(typedArray.getInt(R.styleable.PrayView_pivPray, PrayType.FAJR.ordinal))
-            this.pray = Pray(pray, pray.name, Timestamp.NOW().toMillis() + Random.nextInt(-60,60))
-            notifyMethod = AMSettings.getPrayNotifyMethod(context, this.pray.type)
+            if (isInEditMode) this.pray = Pray(pray, pray.name, Timestamp.NOW().toMillis() + Random.nextInt(-6000000, 6000000))
             typedArray.recycle()
         }
         // Init card
@@ -99,23 +103,29 @@ class PrayView @JvmOverloads constructor(
             true
         }
         // Refresh UI
-        internalRefreshUI(getNextPray())
+        if (!isInEditMode) internalUIRefresh(PrayerManager.getNextPray(context))
     }
 
-    private fun internalRefreshUI(nextPray: Pray) {
+    private fun internalUIRefresh(nextPray: Pray) {
         // PrayName
         tvPrayName.apply {
             reset()
             // Pray name
             addSlice(
-                Slice.Builder(stringRes(context, pray.prayNameRes)).textSize(sp2px(context, 18f)).textColor(colorRes(context, R.color.colorPrimary)).build()
+                Slice.Builder(stringRes(context, pray.prayNameRes))
+                    .textSize(sp2px(context, 18f))
+                    .textColor(colorRes(context, R.color.colorPrimary))
+                    .build()
             )
             // Add Suhur, Iftar, Qiyam subscript to pray name (if in Ramadan)
             if (RamadanManager.isInRamadan() && (pray.type === PrayType.FAJR || pray.type === PrayType.MAGHRIB || pray.type === PrayType.ISHA)) {
                 val sliceText = if (pray.type === PrayType.FAJR) stringRes(context, R.string.fasting) else if (pray.type === PrayType.MAGHRIB) stringRes(context, R.string.iftar) else if (pray.type === PrayType.ISHA) stringRes(context, R.string.qiyam) else ""
                 if (!TextUtils.isEmpty(sliceText)) {
                     addSlice(
-                        Slice.Builder("  (%s)".format(locale, sliceText)).textSize(sp2px(context, 5f)).textColor(colorRes(context, if (hasPrayPassed) R.color.green else if (nextPray == pray) pray.type.surfaceColorRes else R.color.darkAdaptiveColor)).build()
+                        Slice.Builder("  (%s)".format(locale, sliceText))
+                            .textSize(sp2px(context, 5f))
+                            .textColor(colorRes(context, R.color.colorSecondary))
+                            .build()
                     )
                 }
             }
@@ -132,12 +142,18 @@ class PrayView @JvmOverloads constructor(
     @BackwardCompatible
     fun setPray(pray: Pray) {
         this.pray = pray
-        internalRefreshUI(getNextPray())
+        internalUIRefresh(PrayerManager.getNextPray(context))
     }
 
-    fun setPray(pray: Pray, nextPray: Pray) {
-        this.pray = pray
-        internalRefreshUI(nextPray)
+    fun setPray(pray: Pray, nextPray: Pray?) {
+        if (nextPray == null) return
+        if (pray != this.pray) this.pray = pray
+        internalUIRefresh(nextPray)
+    }
+
+    fun setNextPray(nextPray: Pray): PrayView {
+        internalUIRefresh(nextPray)
+        return this
     }
 
     private fun changeIndicator(nextPray: Pray) {
@@ -183,16 +199,6 @@ class PrayView @JvmOverloads constructor(
     fun changeIndicatorsVisibility(makeVisible: Boolean) {
         changeIndicatorVisibility(makeVisible)
         changeNotifMethodVisibility(makeVisible)
-    }
-
-    private fun getNextPray(): Pray {
-        return if (isInEditMode) {
-            val type = if (pray.type == PrayType.ISHA) PrayType.FAJR else PrayType.values()[pray.type.ordinal]
-            val time = if (pray.type == PrayType.ISHA) Timestamp.TOMORROW().set(Calendar.HOUR_OF_DAY, 4) else {
-                Timestamp(pray.time.toMillis() + Random.nextInt(-60, 60))
-            }
-            Pray(type, "", time)
-        } else PrayerManager.getNextPray(context)
     }
 
     companion object {

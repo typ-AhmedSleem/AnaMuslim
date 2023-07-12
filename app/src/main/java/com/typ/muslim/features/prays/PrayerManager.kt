@@ -67,6 +67,19 @@ object PrayerManager {
 
     @NeedsTesting
     @JvmStatic
+    fun getNextPray(prays: PrayTimes): Pray? {
+        if (prays.isha.passed) return null
+        var nextPray = prays.fajr
+        for (pray in prays.toArray()) {
+            if (pray.passed) continue
+            nextPray = pray
+            break
+        }
+        return nextPray
+    }
+
+    @NeedsTesting
+    @JvmStatic
     fun getCurrentPray(ctx: Context): Pray {
         // Get current pray
         val prays = getTodayPrays(ctx)
