@@ -12,8 +12,7 @@
     android:paddingStart="15dp"
     android:paddingTop="10dp"
     android:paddingEnd="15dp"
-    android:paddingBottom="20dp"
-    android:transitionName="transition_card_to_activity">
+    android:paddingBottom="20dp">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_close"
@@ -41,7 +40,7 @@
         android:maxLines="1"
         android:text="@string/dummy_location"
         android:textColor="@color/colorSecondary"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:fontFamily="@font/cairo_regular"
         app:layout_constraintBottom_toBottomOf="@id/fab_close"
@@ -55,13 +54,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
+        android:maxLines="1"
         android:text="@string/maghrib_pray"
         android:textColor="@color/colorPrimary"
         android:textSize="45sp"
         android:textStyle="bold"
-        app:autoSizeMaxTextSize="50sp"
+        app:autoSizeMaxTextSize="70sp"
         app:autoSizeMinTextSize="25sp"
-        app:autoSizeTextType="uniform"
         app:fontFamily="@font/cairo_regular"
         app:layout_constraintTop_toBottomOf="@id/tv_location" />
 
@@ -74,11 +73,10 @@
         android:maxLines="1"
         android:text="@string/dummy_hh_mm_aa"
         android:textColor="@color/colorSecondary"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:autoSizeMaxTextSize="35sp"
-        app:autoSizeMinTextSize="15sp"
-        app:autoSizeTextType="uniform"
+        app:autoSizeMaxTextSize="50sp"
+        app:autoSizeMinTextSize="25sp"
         app:fontFamily="@font/cairo_regular"
         app:layout_constraintTop_toBottomOf="@id/tv_pray_name" />
 
@@ -141,6 +139,7 @@
         android:layout_height="0dp"
         android:gravity="center"
         android:text="@string/dummy_day"
+        android:maxLines="2"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         android:textStyle="bold"

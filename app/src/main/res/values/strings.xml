@@ -631,6 +631,8 @@
     <string name="close">Close</string>
     <string name="dummy_location">Cairo, Egypt</string>
     <string name="remaining_to_azan">Time remaining to Azan</string>
+    <!-- Templates -->
+    <string name="template_location" translatable="false">%s,%s</string>
     <string name="dummy_day">27 Ramadan, 1444H</string>
 
 </resources>

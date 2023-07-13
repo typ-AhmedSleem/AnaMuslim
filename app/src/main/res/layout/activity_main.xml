@@ -125,7 +125,7 @@
 
                 <!-- MiniNextPray card -->
                 <com.typ.muslim.ui.prays.NextPrayDashboardCard
-                    android:id="@+id/mini_next_pray_dashboard_card"
+                    android:id="@+id/next_pray_dashboard_card"
                     android:layout_width="match_parent"
                     android:layout_height="75dp"
                     android:layout_marginStart="15dp"

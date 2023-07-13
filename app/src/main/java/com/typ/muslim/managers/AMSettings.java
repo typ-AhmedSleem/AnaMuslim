@@ -409,4 +409,13 @@ public class AMSettings {
         }
         return exSettings;
     }
+
+    public static boolean isUsingDefaultTimezone(@NotNull Context ctx) {
+        return PrefManager.get(ctx, Keys.USE_DEFAULT_TIMEZONE, true);
+    }
+
+    public static void setUseDefaultTimezone(@NonNull Context ctx, boolean useDefTimezone) {
+        PrefManager.set(ctx, Keys.USE_DEFAULT_TIMEZONE, useDefTimezone);
+    }
+
 }

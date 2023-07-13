@@ -46,6 +46,11 @@ fun px2dp(ctx: Context = AnaMuslimApp.getContext().get()!!, px: Float) = Display
 fun stringRes(ctx: Context = AnaMuslimApp.getContext().get()!!, @StringRes id: Int) = ctx.resources.getString(id)
 
 @HelperMethod
+fun stringRes(ctx: Context = AnaMuslimApp.getContext().get()!!, @StringRes id: Int, vararg formatArgs: Any): String {
+    return ctx.resources.getString(id, formatArgs)
+}
+
+@HelperMethod
 fun pluralStringRes(ctx: Context = AnaMuslimApp.getContext().get()!!, @PluralsRes id: Int, count: Int) = ctx.resources.getQuantityString(id, count)
 
 @HelperMethod

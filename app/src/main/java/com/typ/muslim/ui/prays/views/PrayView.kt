@@ -62,14 +62,16 @@ class PrayView @JvmOverloads constructor(
     init {
         // Init runtime
         locale = if (isInEditMode) Locales.ARABIC else LocaleManager.getCurrLocale(context)
-        notifyMethod = if (isInEditMode) PrayNotifyMethod.values().random() else AMSettings.getPrayNotifyMethod(context, this.pray.type)
+        if (isInEditMode) notifyMethod = PrayNotifyMethod.values().random()
         // Parse attrs (if specified)
-        attrs?.let {
+        if (attrs != null) {
             // Used only to view different data on each PrayItemView during development
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.PrayView)
             val pray = valueOf(typedArray.getInt(R.styleable.PrayView_pivPray, PrayType.FAJR.ordinal))
-            if (isInEditMode) this.pray = Pray(pray, pray.name, Timestamp.NOW().toMillis() + Random.nextInt(-6000000, 6000000))
+            if (isInEditMode) this.pray = Pray(pray, pray.name, Timestamp.NOW().toMillis() + Random.nextInt(-60000, 60000))
             typedArray.recycle()
+        } else {
+            if (isInEditMode) this.pray = Pray(PrayType.values().random(), "[PRAY]", Timestamp.NOW().toMillis() + Random.nextInt(-60000, 60000))
         }
         // Init card
         radius = 30f
@@ -102,8 +104,6 @@ class PrayView @JvmOverloads constructor(
             todo(context, "Show PraySettingsBottomSheet")
             true
         }
-        // Refresh UI
-        if (!isInEditMode) internalUIRefresh(PrayerManager.getNextPray(context))
     }
 
     private fun internalUIRefresh(nextPray: Pray?) {
@@ -142,17 +142,14 @@ class PrayView @JvmOverloads constructor(
     @BackwardCompatible
     fun setPray(pray: Pray) {
         this.pray = pray
+        this.notifyMethod = AMSettings.getPrayNotifyMethod(context, pray.type)
         internalUIRefresh(PrayerManager.getNextPray(context))
     }
 
     fun setPray(pray: Pray, nextPray: Pray?) {
-        if (pray != this.pray) this.pray = pray
+        this.pray = pray
+        this.notifyMethod = AMSettings.getPrayNotifyMethod(context, pray.type)
         internalUIRefresh(nextPray)
-    }
-
-    fun setNextPray(nextPray: Pray): PrayView {
-        internalUIRefresh(nextPray)
-        return this
     }
 
     private fun changeIndicator(nextPray: Pray?) {

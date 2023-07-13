@@ -58,7 +58,8 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
     // --------------------- Technical Settings --------------------
     private var numIterations = 5 // Number of iterations needed to compute times
 
-    // ---------------------- Time-Zone Functions -----------------------
+    // ---------------------- Time-Zone Settings -----------------------
+    private var useDefaultTimezone: Boolean = false
     private val defaultTimezone: Double
         // Compute base time-zone of the system
         get() = TimeZone.getDefault().rawOffset / 1000.0 / 3600
@@ -84,6 +85,7 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
             ResMan.getString(context, R.string.maghrib_pray),
             ResMan.getString(context, R.string.isha_pray)
         )
+        useDefaultTimezone = AMSettings.isUsingDefaultTimezone(context)
         // Get offsets for each pray (index 5 is for sunrise and always equals to maghrib offset)
         offsets = intArrayOf(
             AMSettings.getOffsetMinutesForPray(context, PrayType.FAJR),
@@ -379,13 +381,12 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
         val hours = floor(temp).toInt()
         val minutes = floor((temp - hours) * 60.0)
         // String format
-        result =
-            when {
-                hours in 0..9 && minutes in 0.0..9.0 -> "0" + hours + ":0" + round(minutes)
-                hours in 0..9 -> "0" + hours + ":" + round(minutes)
-                minutes in 0.0..9.0 -> hours.toString() + ":0" + round(minutes)
-                else -> "$hours:" + round(minutes)
-            }
+        result = when {
+            hours in 0..9 && minutes in 0.0..9.0 -> "0" + hours + ":0" + round(minutes)
+            hours in 0..9 -> "0" + hours + ":" + round(minutes)
+            minutes in 0.0..9.0 -> hours.toString() + ":0" + round(minutes)
+            else -> "$hours:" + round(minutes)
+        }
         return result
     }
 
@@ -467,7 +468,8 @@ class PrayTimeCore private constructor(context: Context, private val currLocatio
 
     // adjust times in a prayer time array
     private fun adjustTimes(times: DoubleArray) {
-        for (i in times.indices) times[i] += defaultTimezone - currLocation.longitude / 15 // fixme: replace defaultTimezone with currLocation.timezone
+        val timezone = if (useDefaultTimezone) defaultTimezone else currLocation.timezone
+        for (i in times.indices) times[i] += timezone - currLocation.longitude / 15 // fixme: replace defaultTimezone with currLocation.timezone
         times[2] += (dhuhrMinutes / 60f).toDouble() // Dhuhr
         if (methodParams[currLocation.config.calculationMethod.ordinal]!![1] == 1.0) times[5] = times[4] + methodParams[currLocation.config.calculationMethod.ordinal]!![2] / 60 // Maghrib
         if (methodParams[currLocation.config.calculationMethod.ordinal]!![3] == 1.0) times[6] = times[5] + methodParams[currLocation.config.calculationMethod.ordinal]!![4] / 60 // Isha

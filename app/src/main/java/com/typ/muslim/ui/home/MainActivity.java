@@ -33,6 +33,7 @@ import com.typ.muslim.ui.khatma.dashboard.KhatmaDashboardCard;
 import com.typ.muslim.ui.names.AllahNamesDashboardCard;
 import com.typ.muslim.ui.names.HolyNameOfAllahDescActivity;
 import com.typ.muslim.ui.prays.NextPrayDashboardCard;
+import com.typ.muslim.ui.prays.PraysActivity;
 import com.typ.muslim.ui.tasbeeh.TasbeehDashboardCard;
 import com.typ.muslim.ui.tracker.dashboard.TrackerDashboardCard;
 
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
         // Hide default ActionBar
         if (getSupportActionBar() != null) getSupportActionBar().hide();
         // Init views
-        cards.add(findViewById(R.id.mini_next_pray_dashboard_card)); // 0 -> MiniNextPray card.
+        cards.add(findViewById(R.id.next_pray_dashboard_card)); // 0 -> MiniNextPray card.
         cards.add(findViewById(R.id.tracker_dashboard_card)); // 1 -> Tracker card.
         cards.add(findViewById(R.id.hijri_dashboard_card)); // 2 -> Hijri card.
         cards.add(findViewById(R.id.tasbeeh_dashboard_card)); // 3 -> Tasbeeh card.
@@ -71,14 +72,16 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
         cards.add(findViewById(R.id.telegram_bots_dashboard_card)); // 8 -> TelegramBots card.
         cards.add(findViewById(R.id.profile_dashboard_card)); // 9 -> Profile card.
         /* Click listeners */
+        cards.get(0).setOnClickListener(v -> {
+            final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, "transition_card_to_activity");
+            startActivity(new Intent(this, PraysActivity.class), op.toBundle());
+        });
         cards.get(1).setOnClickListener(v -> ((TrackerDashboardCard) cards.get(1)).onClick(this));
         cards.get(2).setOnClickListener(v -> {
-            Toast.makeText(this, "Not yet done and planned to be implemented in v1.2", Toast.LENGTH_SHORT).show();
             final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, "transition_card_to_activity");
             startActivity(new Intent(this, HijriCalendarActivity.class), op.toBundle());
         });
         cards.get(4).setOnClickListener(v -> {
-            Toast.makeText(this, "Not yet done and planned to be implemented in v1.2", Toast.LENGTH_SHORT).show();
             final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, "transition_card_to_activity");
             final Intent intent = new Intent(this, HolyNameOfAllahDescActivity.class);
             intent.putExtra(Keys.NAME_OF_ALLAH, ((AllahNamesDashboardCard) cards.get(4)).getHoldingName());
@@ -88,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements PrayTimeCameListe
         cards.get(6).setOnClickListener(v -> {
             final ActivityOptionsCompat op = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, "transition_card_to_activity");
 //            startActivity(new Intent(this, QiblaActivity.class), op.toBundle());
-            Toast.makeText(this, "Has bugs and not stable yet.. Planned to be fixed at v1.1.10 and stable at v1.2", Toast.LENGTH_SHORT).show();
         });
         cards.get(7).setOnClickListener(v -> Toast.makeText(this, R.string.feature_under_dev, Toast.LENGTH_SHORT).show());
         cards.get(9).setOnClickListener(v -> Toast.makeText(this, R.string.feature_under_dev, Toast.LENGTH_LONG).show());
