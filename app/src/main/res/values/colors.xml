@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- AnaMuslim theme colors -->
+    <color name="colorPrimary">@color/material_dynamic_primary40</color>
+    <color name="colorSecondary">@color/material_dynamic_secondary40</color>
+    <color name="colorAccent">@color/material_dynamic_primary80</color>
+    <color name="colorSurface">@color/material_dynamic_primary99</color>
+
     <color name="btn_stroke_color">#707070</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -9,9 +16,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#4CAF50</color>
-    <color name="colorPrimary">@color/material_dynamic_primary40</color>
-    <color name="colorSecondary">@color/material_dynamic_secondary40</color>
-    <color name="colorAccent">@color/material_dynamic_primary80</color>
     <color name="colorPrimary2">#3C1848</color>
     <color name="colorPrimary3">#2E7D32</color>
     <color name="colorText">#004530</color>

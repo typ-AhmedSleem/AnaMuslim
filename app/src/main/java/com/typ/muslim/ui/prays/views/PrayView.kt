@@ -106,7 +106,7 @@ class PrayView @JvmOverloads constructor(
         if (!isInEditMode) internalUIRefresh(PrayerManager.getNextPray(context))
     }
 
-    private fun internalUIRefresh(nextPray: Pray) {
+    private fun internalUIRefresh(nextPray: Pray?) {
         // PrayName
         tvPrayName.apply {
             reset()
@@ -146,7 +146,6 @@ class PrayView @JvmOverloads constructor(
     }
 
     fun setPray(pray: Pray, nextPray: Pray?) {
-        if (nextPray == null) return
         if (pray != this.pray) this.pray = pray
         internalUIRefresh(nextPray)
     }
@@ -156,9 +155,9 @@ class PrayView @JvmOverloads constructor(
         return this
     }
 
-    private fun changeIndicator(nextPray: Pray) {
+    private fun changeIndicator(nextPray: Pray?) {
         // Passed pray
-        if (pray.passed) {
+        if (nextPray == null || pray.passed) {
             alpha = 0.6f
             strokeWidth = dp2px(context, 1.5f)
             ivIndicator.setImageResource(R.drawable.ic_done)

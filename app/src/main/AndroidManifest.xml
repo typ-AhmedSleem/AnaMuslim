@@ -72,13 +72,25 @@
             android:name=".ui.quran.QuranReaderActivity"
             android:theme="@style/Theme.AnaMuslim" />
 
-        <activity android:name=".ui.qibla.QiblaActivity" />
+        <activity
+            android:name=".ui.qibla.QiblaActivity"
+            android:theme="@style/Theme.AnaMuslim" />
 
-        <activity android:name=".ui.tracker.TrackerActivity" />
+        <activity
+            android:name=".ui.tracker.TrackerActivity"
+            android:theme="@style/Theme.AnaMuslim" />
 
-        <activity android:name=".ui.setup.SelectLocationActivity" />
+        <activity
+            android:name=".ui.setup.SelectLocationActivity"
+            android:theme="@style/Theme.AnaMuslim" />
 
-        <activity android:name=".ui.setup.QuickSettingsActivity" />
+        <activity
+            android:name=".ui.setup.QuickSettingsActivity"
+            android:theme="@style/Theme.AnaMuslim" />
+
+        <activity
+            android:name=".ui.prays.PraysActivity"
+            android:theme="@style/Theme.AnaMuslim" />
 
     </application>
 

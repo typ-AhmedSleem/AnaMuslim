@@ -1,6 +1,7 @@
 package com.typ.muslim.ui.prays
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
@@ -31,12 +32,13 @@ class DailyPraysView @JvmOverloads constructor(
 
     init {
         orientation = VERTICAL
+        setBackgroundColor(Color.TRANSPARENT)
         // [DEV PREVIEW]
         if (isInEditMode) {
             val now = Timestamp.NOW()
             praysTimes = PrayTimes(
-                Pray(PrayType.SUNRISE, "FAJR", now.copy().roll(Calendar.HOUR_OF_DAY, -6)),
-                Pray(PrayType.FAJR, "SUNRISE", now.copy().roll(Calendar.HOUR_OF_DAY, -5)),
+                Pray(PrayType.FAJR, "FAJR", now.copy().roll(Calendar.HOUR_OF_DAY, -6)),
+                Pray(PrayType.SUNRISE, "SUNRISE", now.copy().roll(Calendar.HOUR_OF_DAY, -5)),
                 Pray(PrayType.DHUHR, "DHUHR", now.copy().roll(Calendar.HOUR_OF_DAY, -4)),
                 Pray(PrayType.ASR, "ASR", now.roll(Calendar.MINUTE, 15)),
                 Pray(PrayType.MAGHRIB, "MAGHRIB", now.copy().roll(Calendar.HOUR_OF_DAY, 2)),
@@ -48,10 +50,10 @@ class DailyPraysView @JvmOverloads constructor(
             praysTimes = PrayerManager.getPrays(ctx, selectedDay)
             nextPray = PrayerManager.getNextPray(praysTimes)
         }
-        internalRefresh()
+        doInternalRefresh()
     }
 
-    private fun internalRefresh() {
+    private fun doInternalRefresh() {
         // Check children
         if (childCount == 0) {
             val m = dp2px(ctx, 10f)
@@ -61,7 +63,8 @@ class DailyPraysView @JvmOverloads constructor(
                 MarginLayoutParams(MATCH_PARENT, WRAP_CONTENT).apply {
                     setMargins(m, m, m, 0)
                 })
-            addView(PrayView(context, praysTimes.sunrise),
+            addView(
+                PrayView(context, praysTimes.sunrise),
                 MarginLayoutParams(MATCH_PARENT, WRAP_CONTENT).apply {
                     setMargins(m, m, m, 0)
                 })
@@ -69,7 +72,8 @@ class DailyPraysView @JvmOverloads constructor(
                 MarginLayoutParams(MATCH_PARENT, WRAP_CONTENT).apply {
                     setMargins(m, m, m, 0)
                 })
-            addView(PrayView(context, praysTimes.asr),
+            addView(
+                PrayView(context, praysTimes.asr),
                 MarginLayoutParams(MATCH_PARENT, WRAP_CONTENT).apply {
                     setMargins(m, m, m, 0)
                 })
@@ -77,7 +81,8 @@ class DailyPraysView @JvmOverloads constructor(
                 MarginLayoutParams(MATCH_PARENT, WRAP_CONTENT).apply {
                     setMargins(m, m, m, 0)
                 })
-            addView(PrayView(context, praysTimes.isha),
+            addView(
+                PrayView(context, praysTimes.isha),
                 MarginLayoutParams(MATCH_PARENT, WRAP_CONTENT).apply {
                     setMargins(m, m, m, m)
                 })
@@ -94,6 +99,23 @@ class DailyPraysView @JvmOverloads constructor(
                 idx += 1
             }
         }
+    }
+
+    fun changeDate(timestamp: Timestamp) {
+        if (timestamp == this.selectedDay) return
+
+        selectedDay = timestamp
+        praysTimes = PrayerManager.getPrays(ctx, selectedDay)
+        nextPray = PrayerManager.getNextPray(praysTimes)
+        doInternalRefresh()
+    }
+
+    fun nextDay() {
+        changeDate(selectedDay.copy().roll(Calendar.DATE, 1))
+    }
+
+    fun prevDay() {
+        changeDate(selectedDay.copy().roll(Calendar.DATE, -1))
     }
 
 }

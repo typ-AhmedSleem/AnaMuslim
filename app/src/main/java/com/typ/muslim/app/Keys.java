@@ -17,8 +17,9 @@ import org.jetbrains.annotations.NotNull;
  */
 public class Keys {
 
-	// Runtime and states
+	// Core
 	public static final String IS_FIRST_RUN = "isFirstRun";
+	public static final String NIGHT_MODE = "NightMode";
 
 	// Theme
 	public static final String THEME_GLOBAL = "globalTheme";

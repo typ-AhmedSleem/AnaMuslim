@@ -628,5 +628,9 @@
     <string name="qiyam_pray">@string/qiyam</string>
     <string name="cdesc_pray_notif_method">Pray alert method</string>
     <string name="cdesc_pray_passed_indicator">Pray passed indicator</string>
+    <string name="close">Close</string>
+    <string name="dummy_location">Cairo, Egypt</string>
+    <string name="remaining_to_azan">Time remaining to Azan</string>
+    <string name="dummy_day">27 Ramadan, 1444H</string>
 
 </resources>

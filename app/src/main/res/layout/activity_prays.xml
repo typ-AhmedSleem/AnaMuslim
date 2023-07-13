@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSurface"
+    android:paddingStart="15dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="15dp"
+    android:paddingBottom="20dp"
+    android:transitionName="transition_card_to_activity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:contentDescription="@string/close"
+        app:backgroundTint="@color/fab_bg_color_selector"
+        app:elevation="0dp"
+        app:fabCustomSize="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close"
+        app:tint="@color/colorPrimary" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_location"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/dummy_location"
+        android:textColor="@color/colorSecondary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/cairo_regular"
+        app:layout_constraintBottom_toBottomOf="@id/fab_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_pray_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/maghrib_pray"
+        android:textColor="@color/colorPrimary"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="50sp"
+        app:autoSizeMinTextSize="25sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/cairo_regular"
+        app:layout_constraintTop_toBottomOf="@id/tv_location" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_pray_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/dummy_hh_mm_aa"
+        android:textColor="@color/colorSecondary"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="35sp"
+        app:autoSizeMinTextSize="15sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="@font/cairo_regular"
+        app:layout_constraintTop_toBottomOf="@id/tv_pray_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:alpha="0.75"
+        android:gravity="center"
+        android:text="@string/remaining_to_azan"
+        android:textColor="@color/colorSecondary"
+        app:fontFamily="@font/cairo_regular"
+        app:layout_constraintTop_toBottomOf="@id/tv_pray_time" />
+
+    <cn.iwgang.countdownview.CountdownView
+        android:id="@+id/cdv_next_pray_remaining"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:isConvertDaysToHours="true"
+        app:isHideTimeBackground="true"
+        app:isShowHour="true"
+        app:isShowMinute="true"
+        app:isShowSecond="true"
+        app:isShowTimeBgDivisionLine="false"
+        app:isSuffixTextBold="false"
+        app:isTimeTextBold="true"
+        app:layout_constraintTop_toBottomOf="@id/t1"
+        app:suffixGravity="bottom"
+        app:suffixHour="@string/hr"
+        app:suffixHourRightMargin="10dp"
+        app:suffixMinute="@string/min"
+        app:suffixMinuteRightMargin="10dp"
+        app:suffixSecond="@string/sec"
+        app:suffixTextColor="@color/colorSecondary"
+        app:suffixTextSize="15sp"
+        app:timeBgColor="@color/color_stroke"
+        app:timeBgRadius="15dp"
+        app:timeBgSize="60dp"
+        app:timeTextColor="@color/colorPrimary"
+        app:timeTextSize="40sp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_next_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        app:backgroundTint="@color/fab_bg_color_selector"
+        app:elevation="0dp"
+        app:fabCustomSize="40dp"
+        app:layout_constraintBottom_toBottomOf="@id/fab_prev_day"
+        app:layout_constraintEnd_toStartOf="@id/tv_selected_day"
+        app:srcCompat="@drawable/ic_arrow_to_left"
+        app:tint="@color/colorPrimary" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_selected_day"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/dummy_day"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/cairo_regular"
+        app:layout_constraintBottom_toBottomOf="@id/fab_next_day"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/fab_next_day" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_prev_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="10dp"
+        app:backgroundTint="@color/fab_bg_color_selector"
+        app:elevation="0dp"
+        app:fabCustomSize="40dp"
+        app:layout_constraintBottom_toTopOf="@id/daily_prays_view"
+        app:layout_constraintStart_toEndOf="@id/tv_selected_day"
+        app:srcCompat="@drawable/ic_arrow_to_right"
+        app:tint="@color/colorPrimary" />
+
+
+    <com.typ.muslim.ui.prays.DailyPraysView
+        android:id="@+id/daily_prays_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

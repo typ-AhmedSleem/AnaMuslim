@@ -9,7 +9,6 @@ import android.content.Context
 import android.graphics.Typeface
 import android.text.TextUtils
 import android.util.AttributeSet
-import android.view.View
 import android.widget.ImageView
 import cn.iwgang.countdownview.CountdownView
 import com.mpt.android.stv.Slice
@@ -82,8 +81,6 @@ class NextPrayDashboardCard : DashboardCard {
         stvNextPrayName = findViewById(R.id.tv_next_pray_name)
         cdTimeRemaining = findViewById(R.id.cdv_next_pray_remaining)
         // Callbacks
-        setOnClickListener(this)
-        setOnLongClickListener(this)
         cdTimeRemaining.setOnCountdownEndListener {
             setNextPray(ptcListener.onPrayTimeCame(nextPray))
             refreshUI()
@@ -162,15 +159,6 @@ class NextPrayDashboardCard : DashboardCard {
     private fun setNextPray(nextPray: Pray) {
         this.currentPray = this.nextPray
         this.nextPray = if (!nextPray.passed) nextPray else PrayerManager.getNextPray(context)
-    }
-
-    override fun onClick(v: View) {
-        PraysBottomSheet(context)
-    }
-
-    override fun onLongClick(v: View?): Boolean {
-        // todo: show PraySettingsBottomSheet
-        return true
     }
 
     fun setPrayTimeCameListener(listener: PrayTimeCameListener) {

@@ -22,6 +22,7 @@ import android.content.Context;
 
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
@@ -315,6 +316,14 @@ public class AMSettings {
 
     public static SoMNotifyMethod getSoMNotifyMethod(Context c) {
         return SoMNotifyMethod.of(PrefManager.get(c, Keys.SOM_NOTIFY_METHOD, NOTIFICATION.ordinal()));
+    }
+
+    public static int getDefaultNightMode(Context ctx) {
+        return PrefManager.get(ctx, Keys.NIGHT_MODE, AppCompatDelegate.MODE_NIGHT_NO);
+    }
+
+    public static void setDefaultNightMode(Context ctx, int mode) {
+        PrefManager.set(ctx, Keys.NIGHT_MODE, mode);
     }
 
     @NotNull
