@@ -17,14 +17,14 @@ import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.app.Consumers;
-import com.typ.muslim.core.praytime.enums.Prays;
-import com.typ.muslim.enums.PrayStatus;
+import com.typ.muslim.features.prays.enums.PrayType;
+import com.typ.muslim.features.prays.enums.PrayStatus;
 import com.typ.muslim.enums.TrackerRange;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.PrayTrackerManager;
-import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.managers.ResMan;
-import com.typ.muslim.models.Pray;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.ProgressStep;
 import com.typ.muslim.models.Timestamp;
@@ -77,11 +77,11 @@ public class SimpleTrackerCard extends DashboardCard {
 		stvTracker = $(R.id.stv_tracker_data);
 		spwTracker = $(R.id.spw_tracker);
 		spwTracker.setSteps(
-				new ProgressStep(true, Prays.FAJR.getSurfaceColorRes()),
-				new ProgressStep(false, Prays.DHUHR.getSurfaceColorRes()),
-				new ProgressStep(true, Prays.ASR.getSurfaceColorRes()),
-				new ProgressStep(false, Prays.MAGHRIB.getSurfaceColorRes()),
-				new ProgressStep(true, Prays.ISHA.getSurfaceColorRes()));
+				new ProgressStep(true, PrayType.FAJR.getSurfaceColorRes()),
+				new ProgressStep(false, PrayType.DHUHR.getSurfaceColorRes()),
+				new ProgressStep(true, PrayType.ASR.getSurfaceColorRes()),
+				new ProgressStep(false, PrayType.MAGHRIB.getSurfaceColorRes()),
+				new ProgressStep(true, PrayType.ISHA.getSurfaceColorRes()));
 		spwTracker.setValueText("");
 		stvTracker.addSlice(new Slice(
                 new Slice.Builder(getString(R.string.you_prayed) + "\n")
@@ -177,10 +177,10 @@ public class SimpleTrackerCard extends DashboardCard {
 		} else if (result.getFirst() == PrayStatus.DELAYED) prayedIn = Timestamp.NOW().toMillis();
 		// Build record then persist it
 		if (PrayTrackerManager.record(getContext(),
-				currentPray.getType(),
+				currentPray.type,
 				result.getFirst(),
 				result.getSecond(),
-				currentPray.getIn().toMillis(),
+				currentPray.time.toMillis(),
 				prayedIn,
 				Timestamp.NOW().toMillis())) {
 			// Show statistics

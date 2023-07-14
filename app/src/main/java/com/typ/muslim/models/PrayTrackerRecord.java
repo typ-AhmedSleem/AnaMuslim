@@ -6,8 +6,9 @@
 
 package com.typ.muslim.models;
 
-import com.typ.muslim.core.praytime.enums.Prays;
-import com.typ.muslim.enums.PrayStatus;
+import com.typ.muslim.features.prays.enums.PrayType;
+import com.typ.muslim.features.prays.enums.PrayStatus;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.managers.AManager;
 
 import java.io.Serializable;
@@ -17,14 +18,14 @@ import java.io.Serializable;
  */
 public class PrayTrackerRecord implements Serializable {
 
-	private final Prays pray;
+	private final PrayType pray;
 	private final PrayStatus status;
 	private final boolean atMosque;
 	private final Timestamp prayTime;
 	private final Timestamp prayedIn;
 	private final Timestamp dayTimestamp;
 
-	public PrayTrackerRecord(Prays pray, PrayStatus status, boolean atMosque, Timestamp prayTime, Timestamp prayedIn, Timestamp dayTimestamp) {
+	public PrayTrackerRecord(PrayType pray, PrayStatus status, boolean atMosque, Timestamp prayTime, Timestamp prayedIn, Timestamp dayTimestamp) {
 		this.pray = pray;
 		this.status = status;
 		this.atMosque = atMosque;
@@ -33,7 +34,7 @@ public class PrayTrackerRecord implements Serializable {
 		this.dayTimestamp = dayTimestamp;
 	}
 
-	public PrayTrackerRecord(Prays pray, PrayStatus status, boolean atMosque, long prayTime, long prayedIn, long dayTimestamp) {
+	public PrayTrackerRecord(PrayType pray, PrayStatus status, boolean atMosque, long prayTime, long prayedIn, long dayTimestamp) {
 		this.pray = pray;
 		this.status = status;
 		this.atMosque = atMosque;
@@ -43,15 +44,15 @@ public class PrayTrackerRecord implements Serializable {
 	}
 
 	public static PrayTrackerRecord newMissedPrayRecord(Pray pray) {
-		return new PrayTrackerRecord(pray.getType(),
+		return new PrayTrackerRecord(pray.type,
 				PrayStatus.FORGOT,
 				false,
-				pray.getIn(),
+				pray.time,
 				null,
-				pray.getIn());
+				pray.time);
 	}
 
-	public Prays getPray() {
+	public PrayType getPray() {
 		return pray;
 	}
 

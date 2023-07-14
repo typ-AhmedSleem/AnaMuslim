@@ -66,7 +66,7 @@ public class ResMan {
      */
     public static Drawable getDrawable(Context context, @DrawableRes int drawableResId) {
         try {
-            return ContextCompat.getDrawable(context, drawableResId);
+            return ResourcesCompat.getDrawable(context.getResources(), drawableResId, null);
         } catch (Resources.NotFoundException e) {
             return null;
         }

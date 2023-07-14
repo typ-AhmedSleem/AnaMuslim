@@ -274,6 +274,18 @@
     <string name="highLat_1_7th_of_night">1/7th of Night</string>
     <string name="highLat_angle_based">Angle based</string>
 
+    <!-- Templates -->
+    <string name="template_location" translatable="false">%s,%s</string>
+    <string name="dummy_day">27 Ramadan, 1444H</string>
+    <string name="fasting_start">Fasting start</string>
+    <!-- Prays definitions -->
+    <string name="pray_def_fajr" />
+    <string name="pray_def_dhuhr" />
+    <string name="pray_def_jumaa" />
+    <string name="pray_def_asr" />
+    <string name="pray_def_maghrib" />
+    <string name="pray_def_isha" />
+
     <string name="names_of_allah">Holy Names of Allah</string>
     <string name="show_all_99_names_of_allah">Show All 99 Names of Allah</string>
     <string name="refresh">Refresh</string>
@@ -615,5 +627,22 @@
     <string name="apply_settings">Apply settings</string>
     <string name="some_text_goes_here">Some text goes here</string>
     <string name="items">Items</string>
+    <string name="hh_mm_aa">hh:mm aa</string>
+    <string name="dummy_hh_mm_aa">07:49 am</string>
+    <string name="dummy_hh_mm_aa_till_azan">07: 49 till azan</string>
+    <string name="at">at</string>
+
+    <string name="fajr_pray">@string/fajr</string>
+    <string name="dhuhr_pray">@string/dhuhr</string>
+    <string name="jumaa_pray">@string/jumaa</string>
+    <string name="asr_pray">@string/asr</string>
+    <string name="maghrib_pray">@string/maghrib</string>
+    <string name="isha_pray">@string/isha</string>
+    <string name="qiyam_pray">@string/qiyam</string>
+    <string name="cdesc_pray_notif_method">Pray alert method</string>
+    <string name="cdesc_pray_passed_indicator">Pray passed indicator</string>
+    <string name="close">Close</string>
+    <string name="dummy_location">Cairo, Egypt</string>
+    <string name="remaining_to_azan">Time remaining to Azan</string>
 
 </resources>

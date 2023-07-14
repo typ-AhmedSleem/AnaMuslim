@@ -27,7 +27,7 @@ import com.irozon.alertview.AlertTheme
 import com.irozon.alertview.AlertView
 import com.irozon.alertview.objects.AlertAction
 import com.typ.muslim.R
-import com.typ.muslim.enums.FormatPatterns
+import com.typ.muslim.enums.FormatPattern
 import com.typ.muslim.features.khatma.KhatmaManager
 import com.typ.muslim.features.khatma.data.KhatmaPlans.plan10Days
 import com.typ.muslim.features.khatma.data.KhatmaPlans.plan30Days
@@ -248,8 +248,8 @@ class KhatmaActivity : AppCompatActivity(), KhatmaManagerCallback {
             tvPlanDays.text = String.format(LocaleManager.getCurrLocale(context), "%d %s (%d/%s)", khatma.plan.duration, getString(R.string.days), khatma.werdLength, getString(R.string.day))
             val remParts = khatma.remainingWerds
             tvRemDays.text = String.format(LocaleManager.getCurrLocale(context), "%d %s", remParts, getString(if (remParts == 1) R.string.part else R.string.parts))
-            tvStartedIn.text = khatma.startedIn.getFormatted(FormatPatterns.DATE_NORMAL)
-            tvEndsIn.text = khatma.expectedEnd.getFormatted(FormatPatterns.DATE_NORMAL)
+            tvStartedIn.text = khatma.startedIn.getFormatted(FormatPattern.DATE_NORMAL)
+            tvEndsIn.text = khatma.expectedEnd.getFormatted(FormatPattern.DATE_NORMAL)
             // Werd
             tvWerdStartSurah.text = khatma.currentWerd.start.surah.getName(context)
             tvWerdStartAyah.text = khatma.currentWerd.start.number.toString()

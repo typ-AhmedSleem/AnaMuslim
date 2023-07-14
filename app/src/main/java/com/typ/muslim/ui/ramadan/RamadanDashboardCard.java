@@ -12,10 +12,10 @@ import android.view.View;
 import android.widget.ViewSwitcher;
 
 import com.typ.muslim.R;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.features.ramadan.RamadanManager;
-import com.typ.muslim.interfaces.PrayTimeCameListener;
-import com.typ.muslim.models.Pray;
+import com.typ.muslim.features.prays.interfaces.PrayTimeCameListener;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.home.DashboardCard;
 import com.typ.muslim.ui.ramadan.views.InRamadanView;
@@ -78,7 +78,7 @@ public class RamadanDashboardCard extends DashboardCard implements PrayTimeCameL
 
     @Override
     public Pray onPrayTimeCame(Pray pray) {
-        if (switcher.getCurrentView() instanceof InRamadanView && (pray.getType() == Prays.FAJR || pray.getType() == Prays.MAGHRIB)) {
+        if (switcher.getCurrentView() instanceof InRamadanView && (pray.type == PrayType.FAJR || pray.type == PrayType.MAGHRIB)) {
             // Refresh InRamadanView
             ((InRamadanView) switcher.getCurrentView()).refreshUI();
         }

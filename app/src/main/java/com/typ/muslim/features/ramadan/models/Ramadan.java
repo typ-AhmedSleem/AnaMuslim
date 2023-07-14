@@ -11,12 +11,12 @@ import android.content.Context;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.enums.FormatPattern;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.features.calendar.HijriCalendar;
-import com.typ.muslim.managers.PrayerManager;
+import com.typ.muslim.features.prays.PrayerManager;
 import com.typ.muslim.models.Period;
-import com.typ.muslim.models.PrayTimes;
+import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.models.Timestamp;
 
 import java.util.concurrent.TimeUnit;
@@ -29,8 +29,8 @@ public class Ramadan {
     public Ramadan(Timestamp startsIn, Timestamp endsIn) {
         this.startsIn = startsIn;
         this.endsIn = endsIn;
-        AManager.log("Ramadan", "%s | %s", startsIn.getFormatted(FormatPatterns.DATE_NORMAL),
-                endsIn.getFormatted(FormatPatterns.DATE_NORMAL));
+        AManager.log("Ramadan", "%s | %s", startsIn.getFormatted(FormatPattern.DATE_NORMAL),
+                endsIn.getFormatted(FormatPattern.DATE_NORMAL));
     }
 
     public Timestamp getStartsIn() {
@@ -83,15 +83,15 @@ public class Ramadan {
 //		final Timestamp todayTimestamp = todayNum == 1 ? startsIn : startsIn.clone().roll(DATE, todayNum - 1);
         PrayTimes todayTimes = PrayerManager.getTodayPrays(context);
         return new RamadanDay(todayNum,
-                todayTimes.getFajr().getIn(),
-                todayTimes.getMaghrib().getIn());
+                todayTimes.getFajr().time,
+                todayTimes.getMaghrib().time);
     }
 
     @Override
     public String toString() {
         return "Ramadan{" +
-                "startsIn=" + startsIn.getFormatted(FormatPatterns.DATE_SHORT) +
-                "endsIn=" + endsIn.getFormatted(FormatPatterns.DATE_SHORT) +
+                "startsIn=" + startsIn.getFormatted(FormatPattern.DATE_SHORT) +
+                "endsIn=" + endsIn.getFormatted(FormatPattern.DATE_SHORT) +
                 '}';
     }
 

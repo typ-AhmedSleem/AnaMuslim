@@ -22,7 +22,7 @@ object LocaleManager {
     fun getCurrLocale(context: Context?): Locale {
         return if (context == null) Locale.getDefault()
         else {
-            val code = PrefManager.get(context, KEY_CURR_LOCALE, "")
+            val code = PrefManager.get(context, KEY_CURR_LOCALE, "ar")
             if (TextUtils.isEmpty(code)) Locale.getDefault() else Locale(code)
         }
     }

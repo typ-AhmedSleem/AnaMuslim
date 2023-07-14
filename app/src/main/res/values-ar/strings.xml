@@ -206,6 +206,14 @@
     <string name="remaining">متبقي</string>
     <string name="may_allah_make_us_reach_ramadan">اللهم بلغنا رمضان</string>
 
+    <!-- Prays definitions -->
+    <string name="pray_def_fajr" />
+    <string name="pray_def_dhuhr">صلاة الظهر هي أربع ركعات تُصلي سراً. ويُسن صلاة ركعتين أو أربع ركعات قبلها و ركعتين بعدها. و في الحديث: "من حافظ علي أربع ركعات قبل الظهر و أربع بعدها حرمه الله علي النار" [أخرجه أصحاب السنن] و قدر بشر النبي صلي الله عليه و سلم من صلي الرواتب, و من ضمنها أربع ركعات قبل الظهر و ركعتين بعدها, ببناء بيت في الجنة.</string>
+    <string name="pray_def_asr" />
+    <string name="pray_def_jumaa" />
+    <string name="pray_def_maghrib" />
+    <string name="pray_def_isha" />
+
     <string name="you_prayed_today">صلاة أديتها اليوم</string>
     <string name="qibla_compass">القِبلَة</string>
     <string name="suhur">السحور</string>
@@ -330,7 +338,7 @@
     <string name="khatma_details">تفاصيل الختمة</string>
     <string name="khatma_number_and_name">عنوان الختمة</string>
     <string name="completed_days">الأيام المكتملة</string>
-    <string name="qiyam">صلاة القيام</string>
+    <string name="qiyam">قيام الليل</string>
     <string name="show_more">عرض المزيد</string>
     <string name="mark_werd_as_done">تحديد الوِرد كمكتمل</string>
     <string name="delete_khatma">حذف الختمة</string>
@@ -460,5 +468,27 @@
     <string name="save_settings">حفظ الاعدادات</string>
     <string name="apply_settings">تطبيق الاعدادات</string>
     <string name="items">العناصر</string>
+    <string name="hh_mm_aa">سس دد تت</string>
+    <string name="dummy_hh_mm_aa">۳٩ : ٠٧ م</string>
+    <string name="dummy_hh_mm_aa_till_azan">۳٩ : ٠٧ م حتي رفع الأذان</string>
+    <string name="at">في</string>
 
+    <string name="fajr_pray">صلاة الفجر</string>
+    <string name="dhuhr_pray">صلاة الظهر</string>
+    <string name="jumaa_pray">صلاة الجمعه</string>
+    <string name="asr_pray">صلاة العصر</string>
+    <string name="maghrib_pray">صلاة المغرب</string>
+    <string name="isha_pray">صلاة العشاء</string>
+    <string name="qiyam_pray">صلاة القيام</string>
+
+    <string name="cdesc_pray_notif_method">Pray notification method</string>
+    <string name="cdesc_pray_passed_indicator">Pray passed indicator</string>
+    <string name="close">اغلاق</string>
+    <string name="dummy_location">القاهرة, مصر</string>
+    <string name="remaining_to_azan">الوقت المتبقي علي الأذان</string>
+    <string name="hr">ساعه</string>
+    <string name="min">دقيقه</string>
+    <string name="sec">ثانيه</string>
+    <string name="dummy_day">٢٧ من رمضان ١٤٤٤ ھ</string>
+    <string name="fasting_start">Fasting start</string>
 </resources>

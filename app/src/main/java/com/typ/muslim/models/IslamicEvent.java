@@ -10,7 +10,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.enums.FormatPattern;
 import com.typ.muslim.features.calendar.HijriCalendar;
 import com.typ.muslim.features.calendar.models.HijriDate;
 
@@ -69,7 +69,7 @@ public class IslamicEvent extends HijriDate implements Serializable {
 	public String toString() {
 		return "IslamicEvent{" +
 		       "eventHijriDate=" + super.toString() +
-		       ", eventGregDate=" + HijriCalendar.toGregorian(this).getFormatted(FormatPatterns.DATE_NORMAL) +
+		       ", eventGregDate=" + HijriCalendar.toGregorian(this).getFormatted(FormatPattern.DATE_NORMAL) +
 		       '}';
 	}
 

@@ -13,8 +13,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
 
-public class
-DisplayUtils {
+public class DisplayUtils {
 
     /**
      * Don't let anyone instantiate this class.
@@ -42,7 +41,7 @@ DisplayUtils {
      * @param pxValue 尺寸像素
      * @return DIP值
      */
-    public static int px2dip(Context context, float pxValue) {
+    public static int px2dp(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }

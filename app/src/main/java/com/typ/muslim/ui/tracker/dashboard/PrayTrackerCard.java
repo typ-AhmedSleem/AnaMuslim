@@ -18,7 +18,7 @@ import com.db.williamchart.view.BarChartView;
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.enums.TrackerRange;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AMSettings;
@@ -145,7 +145,7 @@ public class PrayTrackerCard extends ViewContainer {
             boolean[] prayedPrays = new boolean[]{false, false, false, false, false, false};
             for (int i = 0; i < todayRecords.size(); i++) {
                 PrayTrackerRecord record = todayRecords.get(i);
-                Prays pray = record.getPray();
+                PrayType pray = record.getPray();
                 if (record.wasPrayed()) prayedPrays[pray.ordinal()] = true;
             }
             // Set chart data

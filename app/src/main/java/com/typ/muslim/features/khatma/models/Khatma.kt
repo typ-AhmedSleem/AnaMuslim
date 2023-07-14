@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.typ.muslim.enums.FormatPatterns
+import com.typ.muslim.enums.FormatPattern
 import com.typ.muslim.features.khatma.utils.KhatmaConverters
 import com.typ.muslim.features.quran.Quran
 import com.typ.muslim.models.Timestamp
@@ -159,7 +159,7 @@ class Khatma(
                 id=${id},
                 name=${name},
                 plan=${plan},
-                createdIn=${createdIn.asTimestamp().getFormatted(FormatPatterns.DATE_MONTH)},
+                createdIn=${createdIn.asTimestamp().getFormatted(FormatPattern.DATE_MONTH)},
                 reminder=${reminder},
                 completedWerds=${completedParts},
                 werdLength=${werdLength},

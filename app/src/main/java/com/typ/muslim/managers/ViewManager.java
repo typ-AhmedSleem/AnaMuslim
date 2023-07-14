@@ -14,32 +14,25 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bitvale.switcher.SwitcherX;
 import com.furkanakdemir.surroundcardview.SurroundCardView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.easyrecyclerview.decoration.StickyHeaderDecoration;
-import com.paulrybitskyi.valuepicker.model.PickerItem;
 import com.typ.muslim.R;
 import com.typ.muslim.adapters.CitiesAdapter;
 import com.typ.muslim.interfaces.OnItemClickListener;
-import com.typ.muslim.interfaces.ResultCallback;
 import com.typ.muslim.libs.EnhancedScaleTouchListener;
 import com.typ.muslim.models.Location;
-import com.typ.muslim.ui.AMNumberSelector;
 
 import java.util.List;
 import java.util.Locale;
@@ -328,120 +321,4 @@ public class ViewManager {
 
         }
     }
-
-    public static abstract class PrayMinutesPickerBottomSheet<T> implements ResultCallback<T> {
-        // Views
-        private final AMNumberSelector[] numberSelectors = new AMNumberSelector[5];
-
-        public PrayMinutesPickerBottomSheet(Context context, @StringRes int title, @StringRes int subtitle, int[] currValues, int[] pickerLimit) {
-            // Create content view
-            View bsView = LayoutInflater.from(context).inflate(R.layout.bs_pray_minutes_picker, null, false);
-            // Create BottomSheet Dialog
-            BottomSheetDialog bs = new BottomSheetDialog(context);
-            bs.setContentView(bsView);
-            bs.setDismissWithAnimation(true);
-            // Setup inner views
-            MaterialTextView titleTV = bsView.findViewById(R.id.tv_title);
-            MaterialTextView subTitleTV = bsView.findViewById(R.id.tv_subtitle);
-            numberSelectors[0] = bsView.findViewById(R.id.amns_fajr_min);
-            numberSelectors[1] = bsView.findViewById(R.id.amns_dhuhr_min);
-            numberSelectors[2] = bsView.findViewById(R.id.amns_asr_min);
-            numberSelectors[3] = bsView.findViewById(R.id.amns_maghrib_min);
-            numberSelectors[4] = bsView.findViewById(R.id.amns_isha_min);
-            MaterialButton saveButton = bsView.findViewById(R.id.btn_save);
-            // Set Title and Subtitle
-            titleTV.setText(title);
-            subTitleTV.setText(subtitle);
-            // Bind Selectors
-            for (int pickerIndex = 0; pickerIndex < numberSelectors.length; pickerIndex++) {
-                numberSelectors[pickerIndex].setLimits(pickerLimit[1], pickerLimit[0]);
-                numberSelectors[pickerIndex].setCurrentValue(currValues[pickerIndex]);
-            }
-            // Listeners
-            saveButton.setOnTouchListener(new EnhancedScaleTouchListener(100, 0.95f, 1f) {
-                @Override
-                public void onClick(View v, float x, float y) {
-                    // Send results
-                    Integer[] results = new Integer[5];
-                    for (int i = 0; i < numberSelectors.length; i++) results[i] = numberSelectors[i].getCurrentValue();
-                    onResult((T) results);
-                    // Show confirmation toast and dismiss BottomSheet
-                    Toast.makeText(context, context.getString(R.string.saved), Toast.LENGTH_SHORT).show();
-                    bs.cancel();
-                }
-            });
-            bsView.findViewById(R.id.card_save).setOnClickListener(v -> {
-                // Send results
-                Integer[] results = new Integer[5];
-                for (int i = 0; i < numberSelectors.length; i++) results[i] = numberSelectors[i].getCurrentValue();
-                onResult((T) results);
-                // Show confirmation toast and dismiss BottomSheet
-                Toast.makeText(context, context.getString(R.string.saved), Toast.LENGTH_SHORT).show();
-                bs.cancel();
-            });
-            // Start process
-            bs.show();
-        }
-
-        /**
-         * Helper code used to get the value item in Picker that holds the same id of runtime value
-         */
-        private PickerItem findPickerItemPosition(int[] currValues, List<PickerItem> pickerItems, int pickerIndex) {
-            int where = 0;
-            for (int counter = 0; counter < pickerItems.size(); counter++) if (pickerItems.get(counter).getId() == currValues[pickerIndex]) where = counter;
-            return pickerItems.get(where);
-        }
-    }
-
-    public static abstract class PraysSwitchBottomSheet<T> implements ResultCallback<T> {
-
-        // Views
-        SwitcherX[] switchers = new SwitcherX[5];
-
-        public PraysSwitchBottomSheet(Context context, @StringRes int title, @StringRes int subtitle, boolean[] currValues) {
-            // Prepare runtime
-            // Inflate content view
-            View bsView = LayoutInflater.from(context).inflate(R.layout.bs_pray_switchers, null, false);
-            // Create BottomSheet Dialog
-            BottomSheetDialog bs = new BottomSheetDialog(context);
-            bs.setContentView(bsView);
-            bs.setDismissWithAnimation(true);
-            // Setup inner views
-            MaterialTextView titleTV = bsView.findViewById(R.id.tv_title);
-            MaterialTextView subTitleTV = bsView.findViewById(R.id.tv_subtitle);
-            switchers[0] = bsView.findViewById(R.id.switcherx_fajr);
-            switchers[1] = bsView.findViewById(R.id.switcherx_dhuhr);
-            switchers[2] = bsView.findViewById(R.id.switcherx_asr);
-            switchers[3] = bsView.findViewById(R.id.switcherx_maghrib);
-            switchers[4] = bsView.findViewById(R.id.switcherx_isha);
-            MaterialButton saveButton = bsView.findViewById(R.id.btn_save);
-            // Bind data to views
-            titleTV.setText(title);
-            subTitleTV.setText(subtitle);
-            for (int counter = 0; counter < currValues.length; counter++) switchers[counter].setChecked(currValues[counter], true);
-            // Listeners
-            for (int i = 0; i < switchers.length; i++) {
-                final int finalI = i;
-                this.switchers[i].setOnCheckedChangeListener(isChecked -> {
-                    currValues[finalI] = isChecked;
-                    return null;
-                });
-            }
-            saveButton.setOnTouchListener(new EnhancedScaleTouchListener() {
-                @Override
-                public void onClick(View v, float x, float y) {
-                    // Send results
-                    Boolean[] result = new Boolean[5];
-                    for (int i = 0; i < result.length; i++) result[i] = currValues[i];
-                    onResult((T) result);
-                    // Dismiss BottomSheet
-                    bs.cancel();
-                }
-            });
-            // Start process
-            bs.show();
-        }
-
-    }
-
 }

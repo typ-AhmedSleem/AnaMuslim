@@ -49,7 +49,7 @@
         <attr name="dcContentLayout" format="reference" />
     </declare-styleable>
 
-    <declare-styleable name="VerticalPrayView">
+    <declare-styleable name="PrayView">
         <attr name="pivPray" format="enum">
             <enum name="FAJR" value="0" />
             <enum name="SUNRISE" value="1" />

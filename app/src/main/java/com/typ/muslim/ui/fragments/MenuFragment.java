@@ -89,7 +89,7 @@ public class MenuFragment extends Fragment {
 				new MenuItem(R.drawable.ic_du3a2, R.string.du3a2, R.string.du3a2, false),
 				new MenuItem(R.drawable.ic_allah2, R.string.azkar, R.string.azkar, false),
 				new MenuItem(R.drawable.ic_tasbih, R.string.tasbeeh, R.string.tasbeeh, false),
-				new MenuItem(R.drawable.ic_notify_without_sound, R.string.notifications, R.string.notifications, true),
+				new MenuItem(R.drawable.ic_alert_notif, R.string.notifications, R.string.notifications, true),
 				new MenuItem(R.drawable.ic_settings, R.string.settings, R.string.settings, false)
 		};
 

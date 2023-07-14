@@ -17,7 +17,7 @@ import androidx.core.util.Pair;
 import com.mpt.android.stv.Slice;
 import com.mpt.android.stv.SpannableTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.enums.TrackerRange;
 import com.typ.muslim.managers.AMSettings;
 import com.typ.muslim.managers.LocaleManager;
@@ -69,11 +69,11 @@ public class PrayTrackerStatisticsView2 extends ViewContainer {
         stvPrayStats = $(R.id.tv_pray_stats_value);
         spwTracker = $(R.id.spw_pray_tracker);
         spwTracker.setSteps(
-                new ProgressStep(false, Prays.FAJR.getSurfaceColorRes()),
-                new ProgressStep(false, Prays.DHUHR.getSurfaceColorRes()),
-                new ProgressStep(false, Prays.ASR.getSurfaceColorRes()),
-                new ProgressStep(false, Prays.MAGHRIB.getSurfaceColorRes()),
-                new ProgressStep(false, Prays.ISHA.getSurfaceColorRes()));
+                new ProgressStep(false, PrayType.FAJR.getSurfaceColorRes()),
+                new ProgressStep(false, PrayType.DHUHR.getSurfaceColorRes()),
+                new ProgressStep(false, PrayType.ASR.getSurfaceColorRes()),
+                new ProgressStep(false, PrayType.MAGHRIB.getSurfaceColorRes()),
+                new ProgressStep(false, PrayType.ISHA.getSurfaceColorRes()));
         spwTracker.setValueText(String.valueOf(0));
         // Refresh view
         if (!isInEditMode()) refreshUI();

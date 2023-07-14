@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import com.mpt.android.stv.Slice
 import com.mpt.android.stv.SpannableTextView
 import com.typ.muslim.R
-import com.typ.muslim.enums.FormatPatterns
+import com.typ.muslim.enums.FormatPattern
 import com.typ.muslim.features.khatma.data.KhatmaPlans
 import com.typ.muslim.features.khatma.models.KhatmaPlan
 import com.typ.muslim.features.quran.Quran
@@ -85,7 +85,7 @@ class KhatmaPlanButton @JvmOverloads constructor(
                     .build()
             )
             addSlice(
-                Slice.Builder(" %s".format(locale, Timestamp.NOW().getFormatted(FormatPatterns.DATE_MONTH)))
+                Slice.Builder(" %s".format(locale, Timestamp.NOW().getFormatted(FormatPattern.DATE_MONTH)))
                     .textSize(18f.sp(context))
                     .textColor((R.color.green).toColor(context))
                     .build()
@@ -97,7 +97,7 @@ class KhatmaPlanButton @JvmOverloads constructor(
                     .build()
             )
             addSlice(
-                Slice.Builder(Timestamp.NOW().roll(Calendar.DATE, plan.duration).getFormatted(FormatPatterns.DATE_MONTH))
+                Slice.Builder(Timestamp.NOW().roll(Calendar.DATE, plan.duration).getFormatted(FormatPattern.DATE_MONTH))
                     .textSize(18f.sp(context))
                     .textColor((R.color.green).toColor(context))
                     .build()

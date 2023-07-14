@@ -15,9 +15,9 @@ import androidx.annotation.Nullable;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.textview.MaterialTextView;
 import com.typ.muslim.R;
-import com.typ.muslim.enums.PrayStatus;
+import com.typ.muslim.features.prays.enums.PrayStatus;
 import com.typ.muslim.managers.AManager;
-import com.typ.muslim.models.Pray;
+import com.typ.muslim.features.prays.models.Pray;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.home.DashboardCard;
@@ -58,7 +58,7 @@ public class TrackerPrayRecordView extends DashboardCard {
 	public void refreshUI() {
 		tvPrayName.setText(pray.getPrayNameRes());
 		tvPrayTime.setText(pray.getFormattedTime(getContext()));
-		if (prayRecord == null || Timestamp.NOW().isBefore(pray.getIn())) {
+		if (prayRecord == null || Timestamp.NOW().isBefore(pray.time)) {
 			chipAtMosque.setVisibility(GONE);
 			chipPrayStatus.setVisibility(GONE);
 		} else {

@@ -14,7 +14,7 @@ import android.util.Log;
 
 import com.typ.muslim.R;
 import com.typ.muslim.app.Keys;
-import com.typ.muslim.enums.FormatPatterns;
+import com.typ.muslim.enums.FormatPattern;
 import com.typ.muslim.models.AllahName;
 
 import java.text.DateFormat;
@@ -64,8 +64,8 @@ public abstract class AManager {
      *
      * @return {@link DateFormat} used to format times
      */
-    public static FormatPatterns getSelectedTimeFormat(Context context) {
-        return FormatPatterns.valueOf(PrefManager.get(context, Keys.TIME_FORMAT_STYLE, FormatPatterns.TIME12SX.ordinal()));
+    public static FormatPattern getSelectedTimeFormat(Context context) {
+        return FormatPattern.valueOf(PrefManager.get(context, Keys.TIME_FORMAT_STYLE, FormatPattern.TIME12SX.ordinal()));
     }
 
     /**

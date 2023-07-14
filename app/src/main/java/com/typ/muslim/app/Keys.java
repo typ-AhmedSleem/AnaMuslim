@@ -8,7 +8,7 @@ package com.typ.muslim.app;
 
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -17,8 +17,20 @@ import org.jetbrains.annotations.NotNull;
  */
 public class Keys {
 
-	// Runtime and states
+	// Core
 	public static final String IS_FIRST_RUN = "isFirstRun";
+	public static final String NIGHT_MODE = "NightMode";
+
+	// Prays
+	public static final String USE_DEFAULT_TIMEZONE = "UseDefaultTimezone";
+	public static final String CONFIG_CALC_METHOD = "configCalcMethod";
+	public static final String CONFIG_ASR_METHOD = "configAsrMethod";
+	public static final String CONFIG_HIGHER_LAT_METHOD = "configHigherLat";
+	public static final String IQAMA_ENABLED = "iqamaEnabled";
+	public static final String NOTIFY_BEFORE_PRAY = "notifyBeforeAzan";
+	public static final String MUTE_DURING_PRAY = "muteDuringPray";
+	public static final String PRAY_NOTIFY_METHOD = "prayNotifyMethod";
+	public static final String PRAY_OFFSET = "prayTimesOffsets";
 
 	// Theme
 	public static final String THEME_GLOBAL = "globalTheme";
@@ -28,17 +40,13 @@ public class Keys {
 	public static final String COLOR_TEXT = "colorText";
 
 	// Location
+	public static final String EX_LOCATION = "location";
 	public static final String LOC_COUNTRY_CODE = "locCountryCode";
 	public static final String LOC_COUNTRY_NAME = "locCountryName";
 	public static final String LOC_CITY_NAME = "locCityName";
 	public static final String LOC_LATITUDE = "locLatitude";
 	public static final String LOC_LONGITUDE = "locLongitude";
 	public static final String LOC_TIMEZONE = "locTimezone";
-
-	// Configuration
-	public static final String CONFIG_CALC_METHOD = "configCalcMethod";
-	public static final String CONFIG_ASR_METHOD = "configAsrMethod";
-	public static final String CONFIG_HIGHER_LAT_METHOD = "configHigherLat";
 
 	// App settings
 	public static final String PRESS_VOLUME_TO_STOP_AZAN = "pressVolumeToStopAzan";
@@ -53,14 +61,6 @@ public class Keys {
 	public static final String SOM_NOTIFY_METHOD = "somNotifyMethod";
 	public static final String SOM_REMINDER_FREQUENCY = "somReminderFrequency";
 
-	// Keys used in exporting profile
-	public static final String EX_LOCATION = "location";
-	public static final String IQAMA_ENABLED = "iqamaEnabled";
-	public static final String NOTIFY_BEFORE_PRAY = "notifyBeforeAzan";
-	public static final String MUTE_DURING_PRAY = "muteDuringPray";
-	public static final String PRAY_NOTIFY_METHOD = "prayNotifyMethod";
-	public static final String PRAY_OFFSET = "prayTimesOffsets";
-
 	// Keys used by modules/Tasbeeh
 	public static final String TasbeehMode = "TasbeehMode";
 	public static final String TasbeehTimes = "TasbeehTimes";
@@ -73,27 +73,27 @@ public class Keys {
 	public static final String NAME_OF_ALLAH = "nameOfAllah";
 
 	@NotNull
-	public static String IQAMA_ENABLED_FOR(Prays whatPray) {
+	public static String IQAMA_ENABLED_FOR(PrayType whatPray) {
 		return "iqamaDelayFor" + whatPray.name();
 	}
 
 	@NotNull
-	public static String NOTIFY_BEFORE_PRAY(Prays whatPray) {
+	public static String NOTIFY_BEFORE_PRAY(PrayType whatPray) {
 		return "notifyBeforeAzanFor" + whatPray.name();
 	}
 
 	@NotNull
-	public static String MUTE_DURING_PRAY(Prays whatPray) {
+	public static String MUTE_DURING_PRAY(PrayType whatPray) {
 		return "muteMinutesDuring" + whatPray.name();
 	}
 
 	@NotNull
-	public static String PRAY_NOTIFY_METHOD(Prays whatPray) {
+	public static String PRAY_NOTIFY_METHOD(PrayType whatPray) {
 		return "notifyMethodFor" + whatPray.name();
 	}
 
 	@NonNull
-	public static String PRAY_OFFSET(Prays whatPray) {
+	public static String PRAY_OFFSET(PrayType whatPray) {
 		return "offsetOf" + whatPray.name();
 	}
 

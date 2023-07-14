@@ -16,9 +16,9 @@ import android.util.Log;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 
-import com.typ.muslim.core.praytime.enums.Prays;
+import com.typ.muslim.features.prays.enums.PrayType;
 import com.typ.muslim.db.OldDatabase;
-import com.typ.muslim.enums.PrayStatus;
+import com.typ.muslim.features.prays.enums.PrayStatus;
 import com.typ.muslim.models.PrayTrackerRecord;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.utils.DateUtils;
@@ -37,7 +37,7 @@ public class PrayTrackerManager {
      *
      * @return {@code true} if operations succeed,{@code false} if faced an error or operation failed
      */
-    public static boolean record(Context context, Prays pray, PrayStatus status, boolean atMosque, long prayTime, long prayedIn, long dayTimestamp) {
+    public static boolean record(Context context, PrayType pray, PrayStatus status, boolean atMosque, long prayTime, long prayedIn, long dayTimestamp) {
         return record(context, new PrayTrackerRecord(pray, status, atMosque, prayTime, prayedIn, dayTimestamp));
     }
 
@@ -89,7 +89,7 @@ public class PrayTrackerManager {
         if (cursor.getCount() == 0) return trackerRecords; // No Records were found.
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            trackerRecords.add(new PrayTrackerRecord(Prays.valueOf(cursor.getInt(0)),
+            trackerRecords.add(new PrayTrackerRecord(PrayType.valueOf(cursor.getInt(0)),
                     PrayStatus.valueOf(cursor.getInt(1)),
                     cursor.getInt(2) == 1,
                     cursor.getLong(3),

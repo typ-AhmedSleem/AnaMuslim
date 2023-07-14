@@ -4,112 +4,70 @@
   ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/csv"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
-    android:layout_margin="0dp"
-    android:background="@color/transparent"
-    android:orientation="vertical"
-    android:theme="@style/Theme.AnaMuslim">
+    android:layout_height="match_parent"
+    android:minHeight="65dp"
+    android:maxHeight="90dp"
+    android:background="@color/colorPrimaryDark">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:alpha="0.65"
+    <ImageView
+        android:id="@+id/prayNotifMethodIFV"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="@string/cdesc_pray_notif_method"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_alert_full"
+        android:padding="7dp"
+        app:tint="@color/material_dynamic_secondary80" />
+
+    <com.mpt.android.stv.SpannableTextView
+        android:id="@+id/tv_next_pray_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:gravity="start|center_vertical"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:text="@string/next_pray"
-        android:textColor="@color/white"
-        android:textSize="8sp"
-        tools:ignore="SmallSp" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/cdv_next_pray_remaining"
-        android:layout_below="@id/title"
-        android:padding="10dp">
-
-        <com.typ.muslim.ui.AMTextSwitcher
-            android:id="@+id/tv_next_pray_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:fontFamily="@font/font_jf_flat_regular"
-            app:textColor="@color/yellow"
-            app:textSize="13sp" />
-
-        <com.typ.muslim.ui.AMTextSwitcher
-            android:id="@+id/tv_next_pray_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_next_pray_name"
-            app:textColor="@color/whiteOpacity80"
-            app:textSize="10sp"
-            tools:ignore="HardcodedText" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_next_pray_time"
-            android:layout_marginTop="0dp">
-
-            <ImageView
-                android:id="@+id/next_pray_notify_method_iv"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_centerVertical="true"
-                android:padding="1dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_notify_off"
-                app:tint="@color/red"
-                tools:ignore="ContentDescription" />
-
-            <com.typ.muslim.ui.AMTextSwitcher
-                android:id="@+id/next_pray_notify_method_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/next_pray_notify_method_iv"
-                android:layout_alignBottom="@id/next_pray_notify_method_iv"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="0dp"
-                android:layout_toEndOf="@id/next_pray_notify_method_iv"
-                android:alpha="0.6"
-                android:gravity="center_vertical|start"
-                app:textSize="8sp" />
-
-        </RelativeLayout>
-
-    </RelativeLayout>
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:text="@string/maghrib_pray"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorOnPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/cairo_regular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cdv_next_pray_remaining"
+        app:layout_constraintStart_toEndOf="@id/prayNotifMethodIFV"
+        app:lineHeight="21dp" />
 
     <cn.iwgang.countdownview.CountdownView
         android:id="@+id/cdv_next_pray_remaining"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
         app:isHideTimeBackground="false"
-        app:isShowDay="false"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         app:isShowHour="true"
-        app:isShowMillisecond="false"
-        app:isShowSecond="true"
+        app:isShowTimeBgBorder="false"
         app:isShowTimeBgDivisionLine="false"
         app:isTimeTextBold="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:suffixGravity="center"
-        app:suffixTextColor="@color/white"
-        app:suffixTextSize="14sp"
-        app:timeBgColor="#26FFFFFF"
+        app:suffixTextColor="@color/colorOnPrimary"
+        app:suffixTextSize="15sp"
+        app:timeBgColor="#1AFFFFFF"
         app:timeBgRadius="15dp"
-        app:timeBgSize="40dp"
-        app:timeTextColor="@color/white"
-        app:timeTextSize="15sp" />
+        app:timeBgSize="38dp"
+        app:timeTextColor="@color/colorOnPrimary"
+        app:timeTextSize="18sp" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
