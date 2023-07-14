@@ -3,6 +3,7 @@ package com.typ.muslim.features.prays.enums
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import com.typ.muslim.R
+import com.typ.muslim.core.BackwardCompatible
 import com.typ.muslim.models.Timestamp
 import java.util.Calendar
 
@@ -16,18 +17,24 @@ enum class PrayType {
 
     @get:StringRes
     val prayNameRes: Int
-        get() = if (ordinal == 1) {
-            R.string.sunrise
-        } else if (ordinal == 2) {
-            if (Timestamp.NOW().dayOfWeek == Calendar.FRIDAY) R.string.jumaa_pray else R.string.dhuhr_pray
-        } else if (ordinal == 3) {
-            R.string.asr_pray
-        } else if (ordinal == 4) {
-            R.string.maghrib_pray
-        } else if (ordinal == 5) {
-            R.string.isha_pray
-        } else {
-            R.string.fajr_pray
+        get() = when (this) {
+            SUNRISE -> R.string.sunrise
+            DHUHR -> if (Timestamp.NOW().dayOfWeek == Calendar.FRIDAY) R.string.jumaa_pray else R.string.dhuhr_pray
+            ASR -> R.string.asr_pray
+            MAGHRIB -> R.string.maghrib_pray
+            ISHA -> R.string.isha_pray
+            else -> R.string.fajr_pray
+        }
+
+    @BackwardCompatible
+    @get:StringRes
+    val prayDefRes: Int
+        get() = when (this) {
+            DHUHR -> if (Timestamp.NOW().dayOfWeek == Calendar.FRIDAY) R.string.pray_def_jumaa else R.string.pray_def_dhuhr
+            ASR -> R.string.pray_def_asr
+            MAGHRIB -> R.string.pray_def_maghrib
+            ISHA -> R.string.pray_def_isha
+            else -> R.string.pray_def_fajr
         }
 
     @get:ColorRes

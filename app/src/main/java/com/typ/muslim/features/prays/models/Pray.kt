@@ -39,6 +39,10 @@ class Pray(
     val prayNameRes: Int
         get() = type.prayNameRes
 
+    @get:StringRes
+    val prayDefRes: Int
+        get() = type.prayDefRes
+
     val passed: Boolean
         get() = System.currentTimeMillis() > time.toMillis()
 

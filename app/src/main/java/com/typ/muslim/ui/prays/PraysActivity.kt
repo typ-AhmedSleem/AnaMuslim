@@ -1,6 +1,7 @@
 package com.typ.muslim.ui.prays
 
 import android.annotation.SuppressLint
+import android.view.MotionEvent
 import androidx.transition.TransitionManager
 import cn.iwgang.countdownview.CountdownView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -120,6 +121,11 @@ class PraysActivity : AnaMuslimActivity(R.layout.activity_prays), TimeChangedLis
 
         initRuntime()
         initUI()
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        // todo: Calculate swipe delta in x-axis then if it passes the threshold, move prev or next according to direction.
+        return super.onTouchEvent(event)
     }
 
 }

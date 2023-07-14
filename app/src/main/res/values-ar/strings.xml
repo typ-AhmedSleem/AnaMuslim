@@ -206,6 +206,14 @@
     <string name="remaining">متبقي</string>
     <string name="may_allah_make_us_reach_ramadan">اللهم بلغنا رمضان</string>
 
+    <!-- Prays definitions -->
+    <string name="pray_def_fajr" />
+    <string name="pray_def_dhuhr">صلاة الظهر هي أربع ركعات تُصلي سراً. ويُسن صلاة ركعتين أو أربع ركعات قبلها و ركعتين بعدها. و في الحديث: "من حافظ علي أربع ركعات قبل الظهر و أربع بعدها حرمه الله علي النار" [أخرجه أصحاب السنن] و قدر بشر النبي صلي الله عليه و سلم من صلي الرواتب, و من ضمنها أربع ركعات قبل الظهر و ركعتين بعدها, ببناء بيت في الجنة.</string>
+    <string name="pray_def_asr" />
+    <string name="pray_def_jumaa" />
+    <string name="pray_def_maghrib" />
+    <string name="pray_def_isha" />
+
     <string name="you_prayed_today">صلاة أديتها اليوم</string>
     <string name="qibla_compass">القِبلَة</string>
     <string name="suhur">السحور</string>
@@ -462,6 +470,7 @@
     <string name="items">العناصر</string>
     <string name="hh_mm_aa">سس دد تت</string>
     <string name="dummy_hh_mm_aa">۳٩ : ٠٧ م</string>
+    <string name="dummy_hh_mm_aa_till_azan">۳٩ : ٠٧ م حتي رفع الأذان</string>
     <string name="at">في</string>
 
     <string name="fajr_pray">صلاة الفجر</string>
@@ -481,4 +490,5 @@
     <string name="min">دقيقه</string>
     <string name="sec">ثانيه</string>
     <string name="dummy_day">٢٧ من رمضان ١٤٤٤ ھ</string>
+    <string name="fasting_start">Fasting start</string>
 </resources>

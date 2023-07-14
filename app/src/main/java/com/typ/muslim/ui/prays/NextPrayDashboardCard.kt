@@ -7,7 +7,6 @@ package com.typ.muslim.ui.prays
 
 import android.content.Context
 import android.graphics.Typeface
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.widget.ImageView
 import cn.iwgang.countdownview.CountdownView
@@ -24,7 +23,9 @@ import com.typ.muslim.managers.AMSettings
 import com.typ.muslim.managers.LocaleManager
 import com.typ.muslim.models.Timestamp
 import com.typ.muslim.ui.home.DashboardCard
+import com.typ.muslim.utils.colorRes
 import com.typ.muslim.utils.sp2px
+import com.typ.muslim.utils.stringRes
 import java.util.Calendar
 import java.util.Locale
 
@@ -75,7 +76,7 @@ class NextPrayDashboardCard : DashboardCard {
     override fun prepareCardView(context: Context) {
         // Init card
         strokeWidth = 0
-        inflate(getContext(), R.layout.layout_minimized_next_pray_card, this)
+        inflate(getContext(), R.layout.layout_next_pray_card, this)
         // Setup content views
         ifvPrayNotifMethod = findViewById(R.id.prayNotifMethodIFV)
         stvNextPrayName = findViewById(R.id.tv_next_pray_name)
@@ -113,45 +114,44 @@ class NextPrayDashboardCard : DashboardCard {
             reset()
             // Pray name
             addSlice(
-                Slice.Builder(getString(nextPray.prayNameRes))
-                    .textColor(getColor(com.google.android.material.R.color.material_dynamic_primary90))
+                Slice.Builder(stringRes(context, nextPray.prayNameRes)).textColor(colorRes(context, R.color.color_primary_90))
                     .textSize(sp2px(context, 20f))
                     .style(Typeface.BOLD)
                     .build()
             )
+            // Pray time
+            addSlice(
+                Slice.Builder(String.format(locale, "\n%s", nextPray.getFormattedTime(context, locale)))
+                    .textSize(sp2px(context, 17f))
+                    .textColor(colorRes(context, R.color.color_primary_80))
+                    .build()
+            )
             // Suhur, Iftar, Qiyam slice if in Ramadan
-            if (RamadanManager.isInRamadan() && (nextPray.type in arrayOf(PrayType.FAJR, PrayType.MAGHRIB, PrayType.ISHA))) {
+            if (RamadanManager.isInRamadan() && nextPray.type in arrayOf(PrayType.FAJR, PrayType.MAGHRIB, PrayType.ISHA)) {
                 val sliceText = when (nextPray.type) {
-                    PrayType.FAJR -> getString(R.string.fasting)
-                    PrayType.MAGHRIB -> getString(R.string.iftar)
-                    PrayType.ISHA -> getString(R.string.qiyam)
+                    PrayType.FAJR -> stringRes(context, R.string.fasting)
+                    PrayType.MAGHRIB -> stringRes(context, R.string.iftar)
+                    PrayType.ISHA -> stringRes(context, R.string.qiyam)
                     else -> ""
                 }
-                if (!TextUtils.isEmpty(sliceText)) {
+                if (sliceText.isNotBlank()) {
                     addSlice(
-                        Slice.Builder(String.format(locale, "\n(%s)", sliceText))
-                            .textSize(30)
-                            .textColor(getColor(com.google.android.material.R.color.material_dynamic_neutral80))
+                        Slice.Builder(String.format(locale, " (%s)", sliceText))
+                            .textSize(sp2px(11f))
+                            .textColor(colorRes(context, R.color.color_neutral_80))
                             .build()
                     )
                 }
             }
             // Tomorrow if before 12 am next day and next pray is FAJR
-            if (nextPray.type == PrayType.FAJR && !nextPray.time.dateMatches(Timestamp.NOW())) {
+            if (nextPray.type == PrayType.FAJR && nextPray.time.isAfter(Timestamp.NOW())) {
                 stvNextPrayName.addSlice(
-                    Slice.Builder(String.format(locale, " (%s)", getString(R.string.tomorrow)))
-                        .textSize(30)
-                        .textColor(getColor(com.google.android.material.R.color.material_dynamic_neutral80))
+                    Slice.Builder(String.format(locale, " (%s)", stringRes(context, R.string.tomorrow)))
+                        .textSize(sp2px(11f))
+                        .textColor(colorRes(context, R.color.color_neutral_80))
                         .build()
                 )
             }
-            // Pray time
-            stvNextPrayName.addSlice(
-                Slice.Builder(String.format(locale, "\n%s", nextPray.getFormattedTime(context, locale)))
-                    .textSize(sp2px(context, 17f))
-                    .textColor(getColor(com.google.android.material.R.color.material_dynamic_primary80))
-                    .build()
-            )
             stvNextPrayName.display()
         }
     }
@@ -165,7 +165,7 @@ class NextPrayDashboardCard : DashboardCard {
         ptcListener = listener
     }
 
-    override fun toString() = "NextPrayDashboardCard-v1"
+    override fun toString() = "NextPrayDashboardCard"
 
     override fun onTimeChanged(now: Timestamp) {
         setNextPray(PrayerManager.getNextPray(context))

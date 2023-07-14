@@ -7,7 +7,6 @@ package com.typ.muslim.ui.prays.views
 
 import android.content.Context
 import android.graphics.Color
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -28,12 +27,12 @@ import com.typ.muslim.managers.AMSettings
 import com.typ.muslim.managers.LocaleManager
 import com.typ.muslim.managers.LocaleManager.Locales
 import com.typ.muslim.models.Timestamp
+import com.typ.muslim.ui.prays.PrayViewerBottomSheet
 import com.typ.muslim.utils.colorRes
 import com.typ.muslim.utils.colorStateList
 import com.typ.muslim.utils.dp2px
 import com.typ.muslim.utils.sp2px
 import com.typ.muslim.utils.stringRes
-import com.typ.muslim.utils.todo
 import java.util.Locale
 import kotlin.random.Random
 
@@ -68,10 +67,10 @@ class PrayView @JvmOverloads constructor(
             // Used only to view different data on each PrayItemView during development
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.PrayView)
             val pray = valueOf(typedArray.getInt(R.styleable.PrayView_pivPray, PrayType.FAJR.ordinal))
-            if (isInEditMode) this.pray = Pray(pray, pray.name, Timestamp.NOW().toMillis() + Random.nextInt(-60000, 60000))
+            if (isInEditMode) this.pray = Pray(pray, pray.name, Timestamp.TOMORROW().toMillis() + Random.nextInt(-60000, 60000))
             typedArray.recycle()
         } else {
-            if (isInEditMode) this.pray = Pray(PrayType.values().random(), "[PRAY]", Timestamp.NOW().toMillis() + Random.nextInt(-60000, 60000))
+            if (isInEditMode) this.pray = Pray(PrayType.values().random(), "[PRAY]", Timestamp.TOMORROW().toMillis() + Random.nextInt(-60000, 60000))
         }
         // Init card
         radius = 30f
@@ -97,38 +96,45 @@ class PrayView @JvmOverloads constructor(
             }
         }
         // Listeners
-        setOnClickListener {
-            todo(context, "Show PrayViewerBottomSheet")
-        }
-        setOnLongClickListener {
-            todo(context, "Show PraySettingsBottomSheet")
-            true
-        }
+        setOnClickListener { PrayViewerBottomSheet(context, pray).show() }
+//        setOnLongClickListener {
+//            // todo: Open PrayAlertSettingsActivity.
+//            true
+//        }
     }
 
     private fun internalUIRefresh(nextPray: Pray?) {
         // PrayName
         tvPrayName.apply {
             reset()
-            // Pray name
+
+            // Suhur, Iftar, Qiyam subscript to pray name (if in Ramadan)
+            val ramadanSlice = if (RamadanManager.isInRamadan() && (pray.type === PrayType.FAJR || pray.type === PrayType.MAGHRIB || pray.type === PrayType.ISHA)) {
+                when (pray.type) {
+                    PrayType.FAJR -> stringRes(context, R.string.fasting_start)
+                    PrayType.MAGHRIB -> stringRes(context, R.string.iftar)
+                    PrayType.ISHA -> stringRes(context, R.string.qiyam_pray)
+                    else -> ""
+                }
+            } else ""
+
+            // Add Pray name
             addSlice(
                 Slice.Builder(stringRes(context, pray.prayNameRes))
-                    .textSize(sp2px(context, 18f))
+                    .textSize(sp2px(context, if (ramadanSlice.isNotBlank()) 16f else 18f))
                     .textColor(colorRes(context, R.color.colorPrimary))
                     .build()
             )
-            // Add Suhur, Iftar, Qiyam subscript to pray name (if in Ramadan)
-            if (RamadanManager.isInRamadan() && (pray.type === PrayType.FAJR || pray.type === PrayType.MAGHRIB || pray.type === PrayType.ISHA)) {
-                val sliceText = if (pray.type === PrayType.FAJR) stringRes(context, R.string.fasting) else if (pray.type === PrayType.MAGHRIB) stringRes(context, R.string.iftar) else if (pray.type === PrayType.ISHA) stringRes(context, R.string.qiyam) else ""
-                if (!TextUtils.isEmpty(sliceText)) {
-                    addSlice(
-                        Slice.Builder("  (%s)".format(locale, sliceText))
-                            .textSize(sp2px(context, 5f))
-                            .textColor(colorRes(context, R.color.colorSecondary))
-                            .build()
-                    )
-                }
+            // Add Ramadan slice
+            if (ramadanSlice.isNotBlank()) {
+                addSlice(
+                    Slice.Builder("\n(%s)".format(locale, ramadanSlice))
+                        .textSize(sp2px(context, 11f))
+                        .textColor(colorRes(context, R.color.colorSecondary))
+                        .build()
+                )
             }
+
             display()
         }
         // Pray time

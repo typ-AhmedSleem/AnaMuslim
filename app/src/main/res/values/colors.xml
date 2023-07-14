@@ -1,11 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Primary dynamic color variants -->
+    <color name="color_primary_10">@color/material_dynamic_primary10</color>
+    <color name="color_primary_20">@color/material_dynamic_primary20</color>
+    <color name="color_primary_30">@color/material_dynamic_primary30</color>
+    <color name="color_primary_40">@color/material_dynamic_primary40</color>
+    <color name="color_primary_50">@color/material_dynamic_primary50</color>
+    <color name="color_primary_60">@color/material_dynamic_primary60</color>
+    <color name="color_primary_70">@color/material_dynamic_primary70</color>
+    <color name="color_primary_80">@color/material_dynamic_primary80</color>
+    <color name="color_primary_90">@color/material_dynamic_primary90</color>
+    <color name="color_primary_95">@color/material_dynamic_primary95</color>
+    <color name="color_primary_99">@color/material_dynamic_primary99</color>
+    <!-- Secondary dynamic color variants -->
+    <color name="color_secondary_10">@color/material_dynamic_secondary10</color>
+    <color name="color_secondary_20">@color/material_dynamic_secondary20</color>
+    <color name="color_secondary_30">@color/material_dynamic_secondary30</color>
+    <color name="color_secondary_40">@color/material_dynamic_secondary40</color>
+    <color name="color_secondary_50">@color/material_dynamic_secondary50</color>
+    <color name="color_secondary_60">@color/material_dynamic_secondary60</color>
+    <color name="color_secondary_70">@color/material_dynamic_secondary70</color>
+    <color name="color_secondary_80">@color/material_dynamic_secondary80</color>
+    <color name="color_secondary_90">@color/material_dynamic_secondary90</color>
+    <color name="color_secondary_95">@color/material_dynamic_secondary95</color>
+    <color name="color_secondary_99">@color/material_dynamic_secondary99</color>
+    <!-- Neutral dynamic color variants -->
+    <color name="color_neutral_10">@color/material_dynamic_neutral10</color>
+    <color name="color_neutral_20">@color/material_dynamic_neutral20</color>
+    <color name="color_neutral_30">@color/material_dynamic_neutral30</color>
+    <color name="color_neutral_40">@color/material_dynamic_neutral40</color>
+    <color name="color_neutral_50">@color/material_dynamic_neutral50</color>
+    <color name="color_neutral_60">@color/material_dynamic_neutral60</color>
+    <color name="color_neutral_70">@color/material_dynamic_neutral70</color>
+    <color name="color_neutral_80">@color/material_dynamic_neutral80</color>
+    <color name="color_neutral_90">@color/material_dynamic_neutral90</color>
+    <color name="color_neutral_95">@color/material_dynamic_neutral95</color>
+    <color name="color_neutral_99">@color/material_dynamic_neutral99</color>
+    <!-- Tertiary dynamic color variants -->
+    <color name="color_tertiary_10">@color/material_dynamic_tertiary10</color>
+    <color name="color_tertiary_20">@color/material_dynamic_tertiary20</color>
+    <color name="color_tertiary_30">@color/material_dynamic_tertiary30</color>
+    <color name="color_tertiary_40">@color/material_dynamic_tertiary40</color>
+    <color name="color_tertiary_50">@color/material_dynamic_tertiary50</color>
+    <color name="color_tertiary_60">@color/material_dynamic_tertiary60</color>
+    <color name="color_tertiary_70">@color/material_dynamic_tertiary70</color>
+    <color name="color_tertiary_80">@color/material_dynamic_tertiary80</color>
+    <color name="color_tertiary_90">@color/material_dynamic_tertiary90</color>
+    <color name="color_tertiary_95">@color/material_dynamic_tertiary95</color>
+    <color name="color_tertiary_99">@color/material_dynamic_tertiary99</color>
 
     <!-- AnaMuslim theme colors -->
-    <color name="colorPrimary">@color/material_dynamic_primary40</color>
-    <color name="colorSecondary">@color/material_dynamic_secondary40</color>
-    <color name="colorAccent">@color/material_dynamic_primary80</color>
-    <color name="colorSurface">@color/material_dynamic_primary99</color>
+    <color name="colorPrimary">@color/color_primary_40</color>
+    <color name="colorOnPrimary">@color/color_primary_90</color>
+    <color name="colorPrimaryDark">@color/color_primary_20</color>
+    <color name="colorSecondary">@color/color_secondary_40</color>
+    <color name="colorOnSecondary">@color/color_secondary_90</color>
+    <color name="colorAccent">@color/color_primary_80</color>
+    <color name="colorSurface">@color/color_primary_99</color>
 
     <color name="btn_stroke_color">#707070</color>
     <color name="purple_200">#FFBB86FC</color>
@@ -102,7 +153,7 @@
     <color name="md_theme_light_onErrorContainer">#410002</color>
     <color name="md_theme_light_background">#FFFFFF</color>
     <color name="md_theme_light_onBackground">#2A0053</color>
-    <color name="md_theme_light_surface">#FFFFFF</color>
+    <color name="md_theme_light_surface">@color/colorSurface</color>
     <color name="md_theme_light_onSurface">@color/btn_stroke_color</color>
     <color name="md_theme_light_surfaceVariant">#DEE5D9</color>
     <color name="md_theme_light_onSurfaceVariant">#424940</color>

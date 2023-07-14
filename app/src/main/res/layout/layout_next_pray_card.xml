@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:minHeight="65dp"
     android:maxHeight="90dp"
-    android:background="@color/material_dynamic_primary20">
+    android:background="@color/colorPrimaryDark">
 
     <ImageView
         android:id="@+id/prayNotifMethodIFV"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_alert_full"
-        android:padding="8dp"
+        android:padding="7dp"
         app:tint="@color/material_dynamic_secondary80" />
 
     <com.mpt.android.stv.SpannableTextView
@@ -36,7 +36,7 @@
         android:layout_marginBottom="0dp"
         android:text="@string/maghrib_pray"
         android:textAlignment="viewStart"
-        android:textColor="@color/material_dynamic_primary90"
+        android:textColor="@color/colorOnPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:fontFamily="@font/cairo_regular"
@@ -62,12 +62,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:suffixGravity="center"
-        app:suffixTextColor="@color/material_dynamic_primary90"
+        app:suffixTextColor="@color/colorOnPrimary"
         app:suffixTextSize="15sp"
         app:timeBgColor="#1AFFFFFF"
-        app:timeBgRadius="12dp"
-        app:timeBgSize="35dp"
-        app:timeTextColor="@color/material_dynamic_primary90"
-        app:timeTextSize="15sp" />
+        app:timeBgRadius="15dp"
+        app:timeBgSize="38dp"
+        app:timeTextColor="@color/colorOnPrimary"
+        app:timeTextSize="18sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

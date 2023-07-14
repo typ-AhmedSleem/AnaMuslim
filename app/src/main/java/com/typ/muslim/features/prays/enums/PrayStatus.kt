@@ -14,7 +14,12 @@ enum class PrayStatus {
     companion object {
         @JvmStatic
         fun valueOf(ordinal: Int): PrayStatus {
-            return if (ordinal == 0) UP_COMING else if (ordinal == 1) ON_TIME else if (ordinal == 2) DELAYED else FORGOT
+            return when (ordinal) {
+                0 -> UP_COMING
+                1 -> ON_TIME
+                2 -> DELAYED
+                else -> FORGOT
+            }
         }
     }
 }
