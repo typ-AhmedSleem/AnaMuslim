@@ -1,11 +1,27 @@
 package com.typ.muslim.core
 
-annotation class Buggy(val reason: String = "")
+@Target(
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.PROPERTY_GETTER
+)
+annotation class MayContainBug(val reason: String = "")
 
+@Target(
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.PROPERTY_GETTER
+)
 annotation class NeedsTesting(val reason: String = "")
 
+@Target(
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.PROPERTY_GETTER
+)
 annotation class BackwardCompatible(val reason: String = "")
 
+@Target(
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.PROPERTY_GETTER
+)
 annotation class BackwardIncompatible(val reason: String = "")
 
 @Retention(AnnotationRetention.BINARY)

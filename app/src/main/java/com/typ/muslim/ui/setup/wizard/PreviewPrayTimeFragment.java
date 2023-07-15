@@ -37,7 +37,7 @@ import com.typ.muslim.features.prays.models.PrayTimes;
 import com.typ.muslim.profile.ProfileManager;
 import com.typ.muslim.profile.models.Profile;
 import com.typ.muslim.ui.prays.views.PrayView;
-import com.typ.muslim.ui.home.MainActivity;
+import com.typ.muslim.ui.home.HomeActivity;
 import com.typ.muslim.ui.setup.QuickSettingsActivity;
 
 import java.util.Locale;
@@ -119,7 +119,7 @@ public class PreviewPrayTimeFragment extends Fragment {
 					@Override
 					public void onResult(Profile createdProfile) {
 						Toast.makeText(getContext(), "Welcome! " + createdProfile.getName(), Toast.LENGTH_SHORT).show();
-						startActivity(new Intent(requireContext(), MainActivity.class));
+						startActivity(new Intent(requireContext(), HomeActivity.class));
 						requireActivity().finish();
 					}
 

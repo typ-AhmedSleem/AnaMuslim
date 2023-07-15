@@ -28,7 +28,6 @@ import com.jraska.falcon.Falcon;
 import com.typ.muslim.R;
 import com.typ.muslim.libs.EnhancedScaleTouchListener;
 import com.typ.muslim.managers.ResMan;
-import com.typ.muslim.systems.ColorSystem;
 import com.typ.muslim.utils.DisplayUtils;
 
 import libs.mjn.scaletouchlistener.ScaleTouchListener;
@@ -37,8 +36,6 @@ public class ThemeSelectorFragment extends Fragment {
 
     // Statics
     private static final String TAG = "ThemeSelectorFragment";
-    // Runtime
-    private ColorSystem colorSystem;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,8 +53,6 @@ public class ThemeSelectorFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // Inject ColorSystem
-        //ColorSystem.adaptContainer((ViewGroup) view);
         ImageView imgThemeSwitch = view.findViewById(R.id.img_theme_switch);
         view.findViewById(R.id.btn_theme_light).setOnTouchListener(new EnhancedScaleTouchListener(100, 0.95f, 0.8f) {
             @Override

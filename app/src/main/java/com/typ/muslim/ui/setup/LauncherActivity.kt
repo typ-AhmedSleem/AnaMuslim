@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.typ.muslim.R
 import com.typ.muslim.profile.ProfileManager
-import com.typ.muslim.ui.home.MainActivity
+import com.typ.muslim.ui.home.HomeActivity
 
 class LauncherActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +43,7 @@ class LauncherActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 if (ProfileManager.hasProfile(this@LauncherActivity)) {
-                    startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
+                    startActivity(Intent(this@LauncherActivity, HomeActivity::class.java))
                     finishAfterTransition()
                 }
             }

@@ -25,7 +25,7 @@ import com.typ.muslim.interfaces.OnTestCompletedListener;
 import com.typ.muslim.libs.easyjava.data.EasyList;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.models.StageInfo;
-import com.typ.muslim.ui.home.MainActivity;
+import com.typ.muslim.ui.home.HomeActivity;
 
 import java.security.InvalidParameterException;
 import java.util.concurrent.ExecutionException;
@@ -144,7 +144,7 @@ public class StagesView extends ViewFlipper {
                     AManager.log(TAG, "Active Threads Count: " + Thread.activeCount());
                 }));
                 AManager.log(TAG, "Finished ASYNC");
-                if (callback != null) callback.onTestCompleted(new Object[]{MainActivity.class});
+                if (callback != null) callback.onTestCompleted(new Object[]{HomeActivity.class});
             }
         }).start();
     }
