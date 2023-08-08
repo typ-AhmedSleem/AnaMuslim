@@ -28,17 +28,15 @@ import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 
 import com.google.android.material.card.MaterialCardView;
 import com.typ.muslim.R;
-import com.typ.muslim.interfaces.ThemeChangeObserver;
 import com.typ.muslim.interfaces.TimeChangedListener;
 import com.typ.muslim.interfaces.ViewHelperMethods;
 import com.typ.muslim.managers.AManager;
 import com.typ.muslim.managers.LocaleManager;
 import com.typ.muslim.managers.ResMan;
 import com.typ.muslim.models.Timestamp;
-import com.typ.muslim.systems.ColorSystem;
 import com.typ.muslim.utils.DisplayUtils;
 
-public abstract class DashboardCard extends MaterialCardView implements ViewHelperMethods, View.OnClickListener, View.OnLongClickListener, ThemeChangeObserver, TimeChangedListener {
+public abstract class DashboardCard extends MaterialCardView implements ViewHelperMethods, View.OnClickListener, View.OnLongClickListener, TimeChangedListener {
 
     // todo: Don't ignore view xml attributes and add attrs for bgColor, rippleColor, elevation and radius.
     // todo: Add header view in the card that (its content and icon using xmlAttrs or java setters) & (visible or not).
@@ -48,8 +46,6 @@ public abstract class DashboardCard extends MaterialCardView implements ViewHelp
     private static final String TAG = "DashboardCard";
     private final ValueAnimator colorChangeAnim = ValueAnimator.ofArgb(Color.BLACK);
     // Runtime
-    public ColorSystem.GlobalTheme currGlobalTheme;
-    public ColorSystem.ColorTheme currColorTheme;
     public boolean isBottomSheetShown;
 
     public DashboardCard(Context context) {
@@ -135,8 +131,7 @@ public abstract class DashboardCard extends MaterialCardView implements ViewHelp
         this.setElevation(0f);
         this.setHapticFeedbackEnabled(true);
         this.setLayoutTransition(new LayoutTransition());
-        this.setRippleColorResource(R.color.ripple_white);
-        this.setCardBackgroundColor(getColor(R.color.white));
+        this.setCardBackgroundColor(getColor(R.color.colorSurface));
         this.setStrokeWidth(1);
         this.setStrokeColor(ResMan.getColor(getContext(), R.color.btn_stroke_color));
     }
@@ -196,18 +191,6 @@ public abstract class DashboardCard extends MaterialCardView implements ViewHelp
     /* END: Some helper methods */
 
     @Override
-    public void onFirstTheme(ColorSystem.GlobalTheme globalTheme, ColorSystem.ColorTheme colorTheme) {
-        this.currGlobalTheme = globalTheme;
-        this.currColorTheme = colorTheme;
-    }
-
-    @Override
-    public void onThemeChanged(View madeCallView, ColorSystem.GlobalTheme globalTheme, ColorSystem.ColorTheme colorTheme) {
-        this.currGlobalTheme = globalTheme;
-        this.currColorTheme = colorTheme;
-    }
-
-    @Override
     public void onClick(View v) {
     }
 
@@ -216,6 +199,7 @@ public abstract class DashboardCard extends MaterialCardView implements ViewHelp
         return true;
     }
 
+    @Override
     public void onTimeChanged(Timestamp now) {
         AManager.log(TAG, "onTimeChanged: " + now);
     }

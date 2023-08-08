@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ This app is developed by AHMED SLEEM
+  ~
+  ~ Copyright (c) 2021.  TYP INC. All Rights Reserved
+  -->
+
+<com.factor.bouncy.BouncyNestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:scrollbars="none"
+    android:layout_height="match_parent"
+    app:damping_ratio="DAMPING_RATIO_LOW_BOUNCY"
+    app:stiffness="STIFFNESS_VERY_LOW"
+    android:background="@color/material_dynamic_primary99"
+    android:theme="@style/Theme.AnaMuslim">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="15dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:labelFor="@id/tv_username"
+            android:maxLines="1"
+            android:text="@string/peace_be_upon_you"
+            android:textColor="@color/color_primary_20"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform"
+            app:fontFamily="@font/cairo_regular"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_welcome">
+
+            <!-- NextPray card -->
+            <com.typ.muslim.ui.prays.NextPrayDashboardCard
+                android:id="@+id/next_pray_card"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginTop="8dp"
+                android:transitionName="transition_card_to_activity" />
+
+            <com.typ.muslim.ui.khatma.dashboard.KhatmaDashboardCard
+                android:id="@+id/khatma_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:transitionName="transition_card_to_activity"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.typ.muslim.ui.tasbeeh.TasbeehDashboardCard
+                    android:id="@+id/tasbeeh_card"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.96"
+                    android:transitionName="transition_card_to_activity" />
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.08" />
+
+                <com.typ.muslim.ui.calendar.dashboard.HijriDashboardCard
+                    android:id="@+id/hijri_calendar_card"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.96"
+                    android:transitionName="transition_card_to_activity" />
+
+            </LinearLayout>
+
+            <com.typ.muslim.ui.tracker.dashboard.TrackerDashboardCard
+                android:id="@+id/pray_tracker_card"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp"
+                android:transitionName="transition_card_to_activity" />
+
+            <com.typ.muslim.ui.names.AllahNamesDashboardCard
+                android:id="@+id/names_of_allah_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:transitionName="transition_card_to_activity" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.factor.bouncy.BouncyNestedScrollView>

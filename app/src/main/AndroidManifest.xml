@@ -39,7 +39,7 @@
         </activity>
 
         <activity
-            android:name=".ui.home.MainActivity"
+            android:name=".ui.home.HomeActivity"
             android:allowTaskReparenting="false"
             android:theme="@style/Theme.AnaMuslim" />
 

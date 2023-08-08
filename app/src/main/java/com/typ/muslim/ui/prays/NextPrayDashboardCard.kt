@@ -156,7 +156,7 @@ class NextPrayDashboardCard : DashboardCard {
         }
     }
 
-    private fun setNextPray(nextPray: Pray) {
+    fun setNextPray(nextPray: Pray) {
         this.currentPray = this.nextPray
         this.nextPray = if (!nextPray.passed) nextPray else PrayerManager.getNextPray(context)
     }
@@ -167,9 +167,9 @@ class NextPrayDashboardCard : DashboardCard {
 
     override fun toString() = "NextPrayDashboardCard"
 
-    override fun onTimeChanged(now: Timestamp) {
-        setNextPray(PrayerManager.getNextPray(context))
-        refreshUI()
-    }
+     fun onTimeChanged(now: Timestamp) {
+         setNextPray(PrayerManager.getNextPray(context))
+         refreshUI()
+     }
 
 }

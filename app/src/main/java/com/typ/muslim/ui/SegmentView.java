@@ -6,6 +6,9 @@
 
 package com.typ.muslim.ui;
 
+import static com.typ.muslim.utils.HelperFunctionsKt.colorRes;
+import static com.typ.muslim.utils.HelperFunctionsKt.sp2px;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -14,6 +17,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.view.View;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
@@ -25,7 +29,7 @@ import com.typ.muslim.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SegmentView extends BaseView {
+public class SegmentView extends View {
 
     public static final @ColorRes int colorOnSelected = R.color.blue;
     public static final @ColorRes int textColorNormal = R.color.segment_view_text_nml;
@@ -99,7 +103,7 @@ public class SegmentView extends BaseView {
         this.listener = listener;
     }
 
-    @Override
+
     public void setupRuntime(@NonNull Context context) {
         // FOR TEXT ONLY
         segments = new ArrayList<>();
@@ -110,10 +114,10 @@ public class SegmentView extends BaseView {
         paintSegment = new Paint();
         paintSegment.setAntiAlias(true);
         paintSegment.setStyle(Paint.Style.FILL);
-        paintSegment.setColor(isInEditMode() ? Color.parseColor("#F5F5F5") : getColor(colorBaseBg));
+        paintSegment.setColor(isInEditMode() ? Color.parseColor("#F5F5F5") : colorRes(context, colorBaseBg));
         paintText = new TextPaint();
         paintText.setAntiAlias(true);
-        paintText.setTextSize(sp2px(14f));
+        paintText.setTextSize(sp2px(context, 14f));
         paintText.setTextAlign(Paint.Align.CENTER);
         paintText.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         // Reset selection
@@ -143,7 +147,7 @@ public class SegmentView extends BaseView {
         for (Segment segment : this.segments) {
             // Draw selection
             if (selectedSegment == segment.id) {
-                paintSegment.setColor(isInEditMode() ? Color.parseColor("#FFFFFF") : getColor(colorOnSelected));
+                paintSegment.setColor(isInEditMode() ? Color.parseColor("#FFFFFF") : colorRes(getContext(), colorOnSelected));
                 // Bounds
                 float left = segment.id > 1 ? (lastX + segmentsMargin) : 0;
                 canvas.drawRoundRect(left, 0, lastX + segmentWidth, height, innerRadius, innerRadius, paintSegment);

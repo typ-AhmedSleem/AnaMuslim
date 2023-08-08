@@ -13,6 +13,7 @@ import android.graphics.RectF
 import android.text.TextPaint
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.Dimension
@@ -22,8 +23,10 @@ import com.typ.muslim.managers.AManager
 import com.typ.muslim.managers.ResMan
 import com.typ.muslim.models.ProgressStep
 import com.typ.muslim.utils.Counter
+import com.typ.muslim.utils.colorRes
+import com.typ.muslim.utils.dp2px
 
-class StepsProgressWheel @JvmOverloads constructor(context: Context, attrs: AttributeSet?) : BaseView(context, attrs) {
+class StepsProgressWheel constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     // Paints
     private var paintBar: Paint? = Paint()
     private var paintStep: Paint? = Paint()
@@ -59,8 +62,12 @@ class StepsProgressWheel @JvmOverloads constructor(context: Context, attrs: Attr
     private var rectBar: RectF? = null
     private var rectStep: RectF? = null
 
+    init {
+        parseAttrs(context, attrs)
+        setupPaints()
+    }
 
-    override fun parseAttrs(context: Context, attrs: AttributeSet?) {
+    fun parseAttrs(context: Context, attrs: AttributeSet?) {
         Consumers.doWhen(attrs != null, {
 
             // When attrs specified
@@ -71,8 +78,8 @@ class StepsProgressWheel @JvmOverloads constructor(context: Context, attrs: Attr
             infoTextSize = ta.getDimension(R.styleable.StepsProgressWheel_spw_info_textSize, 20f)
             valueTextSize = ta.getDimension(R.styleable.StepsProgressWheel_spw_value_textSize, 40f)
             marginBtwTexts = ta.getDimension(R.styleable.StepsProgressWheel_spw_margin_btw_texts, 30f)
-            infoTextColor = ta.getColor(R.styleable.StepsProgressWheel_spw_info_textColor, getColor(R.color.subtitleTextColor))
-            valueTextColor = ta.getColor(R.styleable.StepsProgressWheel_spw_value_textColor, getColor(R.color.darkAdaptiveColor))
+            infoTextColor = ta.getColor(R.styleable.StepsProgressWheel_spw_info_textColor, colorRes(getContext(), R.color.subtitleTextColor))
+            valueTextColor = ta.getColor(R.styleable.StepsProgressWheel_spw_value_textColor, colorRes(getContext(), R.color.darkAdaptiveColor))
             ta.recycle()
         }) {
 
@@ -83,12 +90,12 @@ class StepsProgressWheel @JvmOverloads constructor(context: Context, attrs: Attr
             infoTextSize = 20f
             valueTextSize = 40f
             marginBtwTexts = 30f
-            infoTextColor = getColor(R.color.subtitleTextColor)
-            valueTextColor = getColor(R.color.darkAdaptiveColor)
+            infoTextColor = colorRes(getContext(), R.color.subtitleTextColor)
+            valueTextColor = colorRes(getContext(), R.color.darkAdaptiveColor)
         }
     }
 
-    override fun setupRuntime(context: Context) {
+    fun setupRuntime(context: Context) {
         setupPaints()
     }
 
@@ -99,7 +106,7 @@ class StepsProgressWheel @JvmOverloads constructor(context: Context, attrs: Attr
             paintBar!!.isAntiAlias = true
             paintBar!!.strokeWidth = stepWidth
             paintBar!!.style = Paint.Style.STROKE
-            paintBar!!.color = getColor(R.color.bg_input_box)
+            paintBar!!.color = colorRes(getContext(), R.color.bg_input_box)
             // Step paint
             if (paintStep == null) paintStep = Paint()
             paintStep!!.isAntiAlias = true
@@ -173,7 +180,7 @@ class StepsProgressWheel @JvmOverloads constructor(context: Context, attrs: Attr
             // Start and target angles
             val angleStep = stepAngle
             // Paint color
-            paintStep!!.color = getColor(if (step.isDone) step.color else R.color.bg_input_box)
+            paintStep!!.color = colorRes(getContext(), if (step.isDone) step.color else R.color.bg_input_box)
             // Draw the arc
             canvas.drawArc(
                 rectBar!!,
@@ -262,37 +269,37 @@ class StepsProgressWheel @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     fun setStepWidth(@Dimension dp: Float) {
-        stepWidth = dp2px(dp).toFloat()
+        stepWidth = dp2px(context, dp).toFloat()
         setupBounds()
         invalidate()
     }
 
     fun setValueTextSize(@Dimension dp: Float): StepsProgressWheel {
-        valueTextSize = dp2px(dp).toFloat()
+        valueTextSize = dp2px(context, dp).toFloat()
         invalidate()
         return this
     }
 
     fun setValueTextColor(@ColorRes colorRes: Int): StepsProgressWheel {
-        valueTextColor = getColor(colorRes)
+        valueTextColor = colorRes(getContext(), colorRes)
         invalidate()
         return this
     }
 
     fun setInfoTextSize(@Dimension dp: Float): StepsProgressWheel {
-        infoTextSize = dp2px(dp).toFloat()
+        infoTextSize = dp2px(context, dp).toFloat()
         invalidate()
         return this
     }
 
     fun setInfoTextColor(@ColorRes colorRes: Int): StepsProgressWheel {
-        infoTextColor = getColor(colorRes)
+        infoTextColor = colorRes(getContext(), colorRes)
         invalidate()
         return this
     }
 
     fun setMarginBtwTexts(@Dimension dp: Float): StepsProgressWheel {
-        marginBtwTexts = dp2px(dp).toFloat()
+        marginBtwTexts = dp2px(context, dp).toFloat()
         invalidate()
         return this
     }

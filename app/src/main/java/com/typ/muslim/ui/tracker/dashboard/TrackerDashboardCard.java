@@ -10,8 +10,8 @@ import static java.util.Calendar.MINUTE;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
-import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import androidx.core.app.ActivityOptionsCompat;
@@ -25,6 +25,7 @@ import com.typ.muslim.managers.PrayTrackerManager;
 import com.typ.muslim.models.Timestamp;
 import com.typ.muslim.ui.BottomSheets;
 import com.typ.muslim.ui.home.DashboardCard;
+import com.typ.muslim.ui.tracker.TrackerActivity;
 import com.typ.muslim.ui.tracker.views.PrayTrackerAskView;
 import com.typ.muslim.ui.tracker.views.PrayTrackerStatisticsView2;
 
@@ -107,9 +108,9 @@ public class TrackerDashboardCard extends DashboardCard implements PrayTimeCameL
                     isShown -> isBottomSheetShown = false).show();
         } else {
             // Open PrayTrackerActivity
-            Toast.makeText(getContext(), "Planned to be implemented in v1.2", Toast.LENGTH_SHORT).show();
-            final ActivityOptionsCompat opt = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, this, "transition_card_to_activity");
-//            startActivity(new Intent(activity, TrackerActivity.class), opt.toBundle());
+            startActivity(
+                    new Intent(activity, TrackerActivity.class),
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(activity, this, "transition_card_to_activity").toBundle());
         }
     }
 
